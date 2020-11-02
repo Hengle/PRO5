@@ -59,11 +59,14 @@ public class MarkerManager : MonoBehaviour
                     case 'S':
                         if (MyEventSystem.instance == null)
                         {
+
                             
                         }
                         else
                         {
-                            if (!_snareLock)
+                            float active;
+                            _musicInstance.getParameterByName("SnareLayer", out active);
+                            if (!_snareLock && active == 1) 
                             {
                                 Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
@@ -80,7 +83,9 @@ public class MarkerManager : MonoBehaviour
                         }
                         else
                         {
-                            if (!_kickLock && !_kickSkillLock)
+                            float active;
+                            _musicInstance.getParameterByName("KickLayer", out active);
+                            if (!_kickLock && active == 1)
                             {
                                 Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
@@ -96,7 +101,9 @@ public class MarkerManager : MonoBehaviour
                         }
                         else
                         {
-                            if (!_hiHatLock && !_hiHatSkillLock)
+                            float active;
+                            _musicInstance.getParameterByName("HiHatLayer", out active);
+                            if (!_hiHatLock && active == 1)
                             {
                                 Debug.Log("HiHat");
                                 MyEventSystem.instance.OnHighHat();
