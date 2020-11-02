@@ -2,18 +2,51 @@
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=20010 (110198), maxchannels=256, flags=0x00020000
 [LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=44100, nAvgBytesPerSec=352800, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
 [LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] OutputWASAPI::init                       : Output buffer size: 3760 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001D563D71528 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000021637B7FA38 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SoundI::release                          : pro5_demo_snare (00000216382CAD28)
+[LOG] SoundI::release                          :     pro5_demo_snare (00000216D34E10B8)
+[LOG] SoundI::release                          :     pro5_demo_snare (00000216F4AA2218)
+[LOG] SoundI::release                          : pro5_demo_atmo (00000216382CA4B8)
+[LOG] SoundI::release                          :     pro5_demo_atmo (00000216D34E4B38)
+[LOG] SoundI::release                          :     pro5_demo_atmo (00000216F4AA2068)
+[LOG] SoundI::release                          : pro5_demo_bass (00000216382C9FA8)
+[LOG] SoundI::release                          :     pro5_demo_bass (00000216D34E06F8)
+[LOG] SoundI::release                          :     pro5_demo_bass (00000216F4AA2A88)
+[LOG] SoundI::release                          : pro5_demo_hat (00000216FE3FFBB8)
+[LOG] SoundI::release                          :     pro5_demo_hat (00000216D34E3AF8)
+[LOG] SoundI::release                          :     pro5_demo_hat (00000216F4AA2DE8)
+[LOG] SoundI::release                          : pro5_demo_kick (00000216FE3FF6A8)
+[LOG] SoundI::release                          :     pro5_demo_kick (00000216D34E4998)
+[LOG] SoundI::release                          :     pro5_demo_kick (00000216F4AA28D8)
+[LOG] SoundI::release                          : pro5_demo_lead(bass) (00000216FE3FEC88)
+[LOG] SoundI::release                          :     pro5_demo_lead(bass) (00000216D34E0F18)
+[LOG] SoundI::release                          :     pro5_demo_lead(bass) (00000216F4AA2C38)
+[LOG] SoundI::release                          : pro5_demo_buildup (00000216FE3FE0B8)
+[LOG] SoundI::release                          :     pro5_demo_buildup (00000216D34E32D8)
+[LOG] SoundI::release                          :     pro5_demo_buildup (00000216F4AA23C8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
@@ -24,4 +57,6 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

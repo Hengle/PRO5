@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: DamagePlateMat
   m_Shader: {fileID: -6465566751694194690, guid: 722c74ceb6bbbb14da5514621894d74b,
     type: 3}
   m_ShaderKeywords: 
@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_5D2F1F51:
-        m_Texture: {fileID: 2800000, guid: 90ae59f3628277b48978812bf175cd3d, type: 3}
+        m_Texture: {fileID: 2800000, guid: b068f45afec52ea4eb4ac5b4e1712098, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Color:
-        m_Texture: {fileID: 2800000, guid: 905711b2a5e5a0b4192c30430656d5ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: e681e680c14306d44ba247f370edcd45, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
@@ -83,11 +83,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: ee193dd75874cf643a9a3a468bcd528d, type: 3}
+        m_Texture: {fileID: 2800000, guid: cad669dffd70a6a46ba3fad0374d0dbb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: d56576a68e3c9c940ab888cc09786965, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -123,7 +123,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9B1FD1E4: 1
+    - EmissionIntensity: 0
+    - Vector1_9B1FD1E4: 0.619
     - Vector1_C794DCDE: 1
     - Vector1_FE3BD0F: 0
     - _AORemapMax: 1
@@ -248,8 +249,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - EmissionBlueColor: {r: 0, g: 1, b: 0.8865156, a: 0}
-    - EmissionRedColor: {r: 1, g: 0, b: 0, a: 0}
+    - EmissionBlueColor: {r: 0, g: 955.73334, b: 1024, a: 0}
+    - EmissionRedColor: {r: 1024, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -266,7 +267,7 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
---- !u!114 &4051500743306622917
+--- !u!114 &2436811151615746341
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

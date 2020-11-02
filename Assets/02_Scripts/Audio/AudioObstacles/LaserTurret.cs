@@ -27,8 +27,7 @@ public class LaserTurret : MusicAnalyzer
 
     private void OnEnable()
     {
-        // SceneManager.sceneLoaded += addActionToEvent;
-        // SceneManager.sceneLoaded += activateComponent;
+
     }
 
     public float dmgOnEnter = 30;
@@ -43,13 +42,6 @@ public class LaserTurret : MusicAnalyzer
 
 
         defaultLength = _energyWall.transform.localScale.y;
-
-
-
-        if (!lengthChange)
-        {
-            lengthOfLaser = lengthOfLaser / _energyWall.transform.localScale.y;
-        }
 
         addActionToEvent();
 
@@ -67,12 +59,22 @@ public class LaserTurret : MusicAnalyzer
         increaseIntervalCounter();
         if (checkInterval())
         {
+            /*
+            tweenSeq = DOTween.Sequence()
+                 .Append(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                 .Append(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                 .SetEase(Ease.Flash);
+                 */
+            emissionChange(_material);
+
             // shortDurationHelper();
             foreach (Transform child in transform)
             {
                 tweenSeq = DOTween.Sequence()
                 .Append(child.DOScaleY(lengthOfLaser, m_actionInDuration))
+                .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
                 .Append(child.DOScaleY(defaultLength, m_actionOutDuration))
+                .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
 
