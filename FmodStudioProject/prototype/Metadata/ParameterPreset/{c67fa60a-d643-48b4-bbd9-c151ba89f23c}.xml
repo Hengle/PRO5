@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{c67fa60a-d643-48b4-bbd9-c151ba89f23c}">
+		<property name="name">
+			<value>HiHatLayer</value>
+		</property>
+		<relationship name="folder">
+			<destination>{965f21f3-8699-4762-9628-20057f1349dd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{17937e64-348a-4e2b-9dd8-2ebe0e03e1c6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{17937e64-348a-4e2b-9dd8-2ebe0e03e1c6}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

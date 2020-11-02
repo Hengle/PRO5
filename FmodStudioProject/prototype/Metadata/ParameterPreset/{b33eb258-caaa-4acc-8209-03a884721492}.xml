@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{b33eb258-caaa-4acc-8209-03a884721492}">
+		<property name="name">
+			<value>AtmoLayer</value>
+		</property>
+		<relationship name="folder">
+			<destination>{965f21f3-8699-4762-9628-20057f1349dd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4a7b988c-f37c-48d4-8462-c0fa20c1aecd}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4a7b988c-f37c-48d4-8462-c0fa20c1aecd}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

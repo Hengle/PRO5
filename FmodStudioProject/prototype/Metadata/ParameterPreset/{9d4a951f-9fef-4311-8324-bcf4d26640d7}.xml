@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{9d4a951f-9fef-4311-8324-bcf4d26640d7}">
+		<property name="name">
+			<value>SnareLayer</value>
+		</property>
+		<relationship name="folder">
+			<destination>{965f21f3-8699-4762-9628-20057f1349dd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{546e2da2-da6a-44a6-9e2d-409cec83ddbf}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{546e2da2-da6a-44a6-9e2d-409cec83ddbf}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

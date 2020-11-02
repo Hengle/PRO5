@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{0f189305-5890-4fc1-bb9d-68e262c6c8ab}">
+		<property name="name">
+			<value>LeadBassLayer</value>
+		</property>
+		<relationship name="folder">
+			<destination>{965f21f3-8699-4762-9628-20057f1349dd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{89eef74c-b9e8-454a-bfed-f2a314af2da0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{89eef74c-b9e8-454a-bfed-f2a314af2da0}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

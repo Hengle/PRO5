@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.00.00">
-	<object class="AudioFile" id="{8a42eb3b-48ed-4b91-a448-63fe2b8a7ae7}">
+	<object class="AudioFile" id="{c45813be-fdab-473c-ba53-2413941f81c8}">
 		<property name="assetPath">
-			<value>pro5_demo_full.mp3</value>
+			<value>pro5_demo_atmo.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
