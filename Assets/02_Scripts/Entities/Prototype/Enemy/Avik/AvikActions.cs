@@ -7,7 +7,7 @@ public class AvikActions : MonoBehaviour, IEnemyActions
     public Animator animator;
     public Weapon[] weapons;
     float extraComboTime = 1f;
-    public ParticleSystem stunParticle;
+    // public ParticleSystem stunParticle;
 
     public void Attack(StateMachineController controller, int i, bool combo = false)
     {
@@ -17,7 +17,7 @@ public class AvikActions : MonoBehaviour, IEnemyActions
                 ExecuteAttack(controller, i, combo);
                 break;
             case -1:
-                animator.Play("Activation");
+                // animator.Play("Activation");
                 break;
         }
         if (combo)
@@ -33,15 +33,15 @@ public class AvikActions : MonoBehaviour, IEnemyActions
 
     void ExecuteAttack(StateMachineController controller, int i, bool combo)
     {
-        foreach (Weapon weapon in weapons)
-            weapon.Activate();
+        // foreach (Weapon weapon in weapons)
+        //     weapon.Activate();
 
         controller.canAttack = false;
         controller.isAttacking = true;
-        animator.SetFloat(AnimatorStrings.animSpeed.ToString(), controller.enemyStats.GetStatValue(StatName.AttackSpeed));
-        animator.SetInteger(AnimatorStrings.attacknr.ToString(), i);
-        if (combo)
-            animator.SetTrigger(AnimatorStrings.comboTrigger.ToString());
+        // animator.SetFloat(AnimatorStrings.animSpeed.ToString(), controller.enemyStats.GetStatValue(StatName.AttackSpeed));
+        // animator.SetInteger(AnimatorStrings.attacknr.ToString(), i);
+        // if (combo)
+            // animator.SetTrigger(AnimatorStrings.comboTrigger.ToString());
 
     }
 
@@ -52,11 +52,11 @@ public class AvikActions : MonoBehaviour, IEnemyActions
 
     public void CancelAttack(StateMachineController controller)
     {
-        animator.SetTrigger(AnimatorStrings.cancel.ToString());
+        // animator.SetTrigger(AnimatorStrings.cancel.ToString());
     }
     public void StopAttack(StateMachineController controller)
     {
-        animator.SetTrigger(AnimatorStrings.stop.ToString());
+        // animator.SetTrigger(AnimatorStrings.stop.ToString());
     }
     public void Walk(StateMachineController s)
     {
@@ -64,18 +64,18 @@ public class AvikActions : MonoBehaviour, IEnemyActions
         {
             s.agent.isStopped = false;
         }
-        animator.SetBool("isWalking", true);
+        // animator.SetBool("isWalking", true);
     }
 
     public void StopWalking(StateMachineController s)
     {
         s.agent.isStopped = true;
-        animator.SetBool("isWalking", false);
+        // animator.SetBool("isWalking", false);
     }
 
     public void Stunned(StateMachineController controller)
     {
-        stunParticle.Play();
+        // stunParticle.Play();
     }
 
     public bool CheckIsAttacking(StateMachineController controller)
