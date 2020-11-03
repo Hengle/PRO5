@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-public class LaserTurret : MusicAnalyzer
+public class LaserTurret : AudioObstacle
 {
     public bool lengthChange = false;
-    private Material _material;
     Material _energyWallMaterial;
 
 
@@ -65,7 +64,7 @@ public class LaserTurret : MusicAnalyzer
                  .Append(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
                  .SetEase(Ease.Flash);
                  */
-            emissionChange(_material);
+            emissionChange();
 
             // shortDurationHelper();
             foreach (Transform child in transform)

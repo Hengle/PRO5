@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MusicLayerController : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class MusicLayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        
+
+        if (Keyboard.current[Key.Digit1].wasPressedThisFrame)
         {
             if (_snareActive)
             {
@@ -38,7 +41,7 @@ public class MusicLayerController : MonoBehaviour
             }      
         }
 
-        if (Input.GetKeyDown("2"))
+        if (Keyboard.current[Key.Digit2].wasPressedThisFrame)
         {
             if (_hiHatActive)
             {
@@ -52,7 +55,7 @@ public class MusicLayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("3"))
+        if (Keyboard.current[Key.Digit3].wasPressedThisFrame)
         {
             if (_leadBassActive)
             {
@@ -66,7 +69,7 @@ public class MusicLayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("4"))
+        if (Keyboard.current[Key.Digit4].wasPressedThisFrame)
         {
             if (_atmoActive)
             {

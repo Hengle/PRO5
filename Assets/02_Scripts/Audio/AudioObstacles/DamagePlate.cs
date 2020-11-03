@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-public class DamagePlate : MusicAnalyzer
+public class DamagePlate : AudioObstacle
 {
     private Material m_material;
     private float defaultLength;
@@ -19,7 +19,7 @@ public class DamagePlate : MusicAnalyzer
     float H1, S1, V1;
     float H2, S2, V2;
 
-    private Material _material;
+    //private Material _material;
     public bool m_activateComponent = false;
     private bool activationhelper = false;
 
@@ -62,7 +62,7 @@ public class DamagePlate : MusicAnalyzer
             {
                 if (m_holdHelper)
                 {
-                    emissionChange(_material, 1);
+                    emissionChange(1);
                     m_holdHelper = false;
                     /*
                     m_plateActive = true;
@@ -76,7 +76,7 @@ public class DamagePlate : MusicAnalyzer
                 }
                 else
                 {
-                    emissionChange(_material, 2);
+                    emissionChange(2);
                     m_holdHelper = true;
                     /*
                     V = -10;
@@ -92,7 +92,7 @@ public class DamagePlate : MusicAnalyzer
             }
             else
             {
-                emissionChange(_material);
+                emissionChange();
                 /*
                 shortDurationHelper();
 
