@@ -8,10 +8,15 @@ public class MusicLayerController : MonoBehaviour
 
 
     public FMODUnity.StudioEventEmitter _musicEvent;
-    bool _snareActive;
-    bool _hiHatActive;
-    bool _leadBassActive;
-    bool _atmoActive;
+
+    [HideInInspector]
+    public bool _snareActive;
+    [HideInInspector]
+    public bool _hiHatActive;
+    [HideInInspector]
+    public bool _leadBassActive;
+    [HideInInspector]
+    public bool _atmoActive;
 
     // Start is called before the first frame update
     void Start()
