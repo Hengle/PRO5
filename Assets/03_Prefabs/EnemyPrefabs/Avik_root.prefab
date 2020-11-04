@@ -473,7 +473,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2979011979280595641}
   - {fileID: 6034533005482798384}
   - {fileID: 3678375835818709170}
   - {fileID: 5766312647491871302}
@@ -577,9 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ef47a098113f544a6d693f9b4676ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicators: {fileID: 7291919099036320658}
+  indicators: {fileID: 0}
   statTemplate: {fileID: 11400000, guid: 77a6aa34bf773af4da67fb306207e439, type: 2}
-  executor: {fileID: 0}
   stunCooldown: 0.5
   parent: {fileID: 2649116113045803458}
   symbol: {fileID: 0}
@@ -630,56 +628,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!1 &1845718777977094098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2979011979280595641}
-  - component: {fileID: 7291919099036320658}
-  m_Layer: 9
-  m_Name: BuffLighting
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2979011979280595641
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845718777977094098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 353171539539999485}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7291919099036320658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845718777977094098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f7011b5d1163e244b490c3d3dcb2a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 5622833158528120431}
-  - {fileID: 8944826171419069759}
-  - {fileID: 2691919787933397688}
-  BuffColor: {r: 0, g: 0.8207547, b: 0.13613091, a: 0}
-  DebuffColor: {r: 0.7169812, g: 0.19953722, b: 0.19953722, a: 0}
-  StandardColor: {r: 0.003921569, g: 0.3921569, b: 1, a: 0}
 --- !u!1 &2377910283656469862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 353171539539999485}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5057628102387862246
 GameObject:
@@ -1875,7 +1823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 353171539539999485}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -6.9950004, y: 0, z: 0}
 --- !u!1773428102 &5766312647491871300
 ParentConstraint:
@@ -1960,7 +1908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 353171539539999485}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1773428102 &5766312648208895803
 ParentConstraint:
@@ -2649,7 +2597,7 @@ Transform:
   - {fileID: 6867296596934003103}
   - {fileID: 7579117728934446849}
   m_Father: {fileID: 353171539539999485}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8224633139354961357
 Animator:

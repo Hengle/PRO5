@@ -69,16 +69,16 @@ MonoBehaviour:
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
     id=\"3\" />\r\n          <RepeatDecorator id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"5\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"289 433\"
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"289 432\"
     name=\"Perception/IsTargetClose\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"5\" />\r\n         
     <PrioritySelectorNode id=\"3\" />\r\n        </data>\r\n      </_data>\r\n   
     </ConditionEvalNode>\r\n    <ActionNode id=\"4\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"True\" position=\"289 433\" name=\"EnemyBehaviour/Attack\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"289 432\" name=\"EnemyBehaviour/Attack\"
     description=\"Attacks Object\" cardinality=\"0\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"4\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"7\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"636 430\" name=\"AlwaysTrue\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"636 430\" name=\"AlwaysTrue\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"7\" />\r\n          <PrioritySelectorNode
     id=\"3\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
