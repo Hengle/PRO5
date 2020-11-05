@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyBody : AStats, IHasHealth, IKnockback
 {
+    
+    public AIManager aiManager;
+    public Transform rayEmitter;
+
     public StatTemplate statTemplate;
     public StateMachineController controller => GetComponent<StateMachineController>();
     public Rigidbody rb => GetComponent<Rigidbody>();
@@ -24,6 +28,8 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
 
     #region Init
 
+
+    //Initializes enemy statistics
     public override void InitStats(StatTemplate template)
     {
         multList = new List<Multiplier>();
@@ -57,6 +63,8 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
         }
     }
 
+
+    //Calculates simple damage values
     public void TakeDamage(float damage)
     {
         float calcDamage = damage * GetMultValue(MultiplierName.damage);
@@ -82,12 +90,15 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
     }
     #endregion
 
+    //Applies a knockback force into the opposite direction of the player
     public void ApplyKnockback(float force)
     {
         Vector3 direction = (transform.position - controller.aiManager.playerTarget.position).normalized;
         rb.AddForce(direction * force, ForceMode.Impulse);
     }
 
+    //Stuns the enemy
+    //takes in a stunvalue which gets added to itself until the stunvalue is higher than the stunresistance
     public void ApplyStun(float stun)
     {
         if (stunCoroutine != null)
@@ -100,6 +111,7 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
             controller.Stun();
     }
 
+    //after a certain amount of time of not taking damage, stunvalue gets reduced
     public IEnumerator StunCooldown()
     {
         yield return new WaitForSeconds(stunCooldown);

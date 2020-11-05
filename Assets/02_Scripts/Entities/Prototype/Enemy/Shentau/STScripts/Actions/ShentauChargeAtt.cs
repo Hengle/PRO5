@@ -8,19 +8,21 @@ public class ShentauChargeAtt : Action
     public override void Execute(StateMachineController controller)
     {
         Move(controller);
-        controller.actions.Attack(controller, 1);
+        // controller.actions.Attack(controller, 1);
     }
     Vector3 GetMovePos(StateMachineController controller)
     {
         if (CollisionCourse(controller))
         {
-            return controller.steering.AvoidanceSteering(controller.transform.forward, controller);
+            // return controller.steering.AvoidanceSteering(controller.transform.forward, controller);
+
         }
         else
         {
             Vector3 dir = controller.transform.position - controller.aiManager.playerTarget.position;
             return controller.transform.position + dir;
         }
+        return Vector3.zero;
     }
 
     bool CollisionCourse(StateMachineController controller)

@@ -109,7 +109,7 @@ MonoBehaviour:
     at all.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\"
     />\r\n          <ActionNode id=\"9\" />\r\n          <ConditionEvalNode id=\"10\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode
-    id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
     position=\"376.375 352.5\" name=\"Perception/IsTargetClose\" description=\"Checks
     whether a target is close depending on a given distance\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"8\" />\r\n         

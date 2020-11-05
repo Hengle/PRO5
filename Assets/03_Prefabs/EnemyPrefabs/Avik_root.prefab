@@ -447,14 +447,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 353171539539999485}
-  - component: {fileID: 7654842588276202039}
   - component: {fileID: 7394491210028166556}
   - component: {fileID: 9210033853400738553}
   - component: {fileID: 7051025054028410043}
   - component: {fileID: 3334708994050541394}
-  - component: {fileID: 3303126323665114445}
   - component: {fileID: 1858605891278693941}
   - component: {fileID: 1797804658664559170}
+  - component: {fileID: 2040356369048264119}
+  - component: {fileID: 5981893137867753379}
   m_Layer: 9
   m_Name: Avik_logic
   m_TagString: Avik
@@ -480,38 +480,6 @@ Transform:
   m_Father: {fileID: 2352311781061355418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7654842588276202039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523675756832821192}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 055d4b53a0613eb49a884e9afe664027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiManager: {fileID: 0}
-  offsetTargetPos: {x: 0, y: 0, z: 0}
-  ObstacleTarget: {fileID: 0}
-  deltaTime: 0
-  aiActive: 0
-  isGrounded: 1
-  checkedAmount: 0
-  avoidDirection: 0
-  stunned: 0
-  checkAnyTransition: 1
-  isAttacking: 0
-  canAttack: 1
-  RayEmitter: {fileID: 3678375835818709170}
-  currentState: {fileID: 11400000, guid: 10936313c8eec7c4888a090f7eb93d96, type: 2}
-  startState: {fileID: 11400000, guid: 10936313c8eec7c4888a090f7eb93d96, type: 2}
-  remainState: {fileID: 11400000, guid: 76edd8e69f1b931409415a7597b5f84e, type: 2}
-  anyTransitions:
-  - decision: {fileID: 11400000, guid: 30870c14d7625ee4ba083c76927f946b, type: 2}
-    trueState: {fileID: 11400000, guid: 76edd8e69f1b931409415a7597b5f84e, type: 2}
-    falseState: {fileID: 11400000, guid: dd3fec951a259c6438279520fb5e9435, type: 2}
 --- !u!195 &7394491210028166556
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -577,27 +545,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicators: {fileID: 0}
+  aiManager: {fileID: 0}
+  rayEmitter: {fileID: 0}
   statTemplate: {fileID: 11400000, guid: 77a6aa34bf773af4da67fb306207e439, type: 2}
   stunCooldown: 0.5
   parent: {fileID: 2649116113045803458}
   symbol: {fileID: 0}
   currentHealth: 0
---- !u!114 &3303126323665114445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523675756832821192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dfa2857b3740e1498ed082d351bb1e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 8224633139354961357}
-  weapons:
-  - {fileID: 3669622411380269842}
-  - {fileID: 6148845974343863020}
 --- !u!114 &1858605891278693941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +573,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523675756832821192}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
@@ -628,6 +582,97 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2040356369048264119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523675756832821192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1199faf0264235428829f674668781b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8224633139354961357}
+  weapons: []
+  agent: {fileID: 7394491210028166556}
+  executor: {fileID: 5981893137867753379}
+--- !u!114 &5981893137867753379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523675756832821192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: 95d511fa235b29b49ba09151ac7d7d75, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 00
+    boolParamsNames:
+    - canAttack
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams:
+    - {fileID: 8224633139354961357}
+    - {fileID: 3334708994050541394}
+    - {fileID: 2040356369048264119}
+    - {fileID: 7394491210028166556}
+    - {fileID: 0}
+    objectParamsNames:
+    - animator
+    - enemyBody
+    - actions
+    - agent
+    - aiManager
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
 --- !u!1 &2377910283656469862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1848,6 @@ GameObject:
   - component: {fileID: 5766312647491871302}
   - component: {fileID: 5766312647491871300}
   - component: {fileID: 5766312647491871301}
-  - component: {fileID: 3669622411380269842}
   m_Layer: 9
   m_Name: RightHandHitBox
   m_TagString: Untagged
@@ -1864,19 +1908,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 0.79, z: 0.12}
   m_Center: {x: 0, y: -0.41, z: 0}
---- !u!114 &3669622411380269842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766312647491871303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd36f34a4d62af4c95f44fb267344db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7654842588276202039}
 --- !u!1 &5766312648208895750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,7 +1919,6 @@ GameObject:
   - component: {fileID: 5766312648208895749}
   - component: {fileID: 5766312648208895803}
   - component: {fileID: 5766312648208895748}
-  - component: {fileID: 6148845974343863020}
   m_Layer: 9
   m_Name: LeftHandHitBox
   m_TagString: Untagged
@@ -1949,19 +1979,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 0.79, z: 0.12}
   m_Center: {x: 0, y: -0.41, z: 0}
---- !u!114 &6148845974343863020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766312648208895750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd36f34a4d62af4c95f44fb267344db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7654842588276202039}
 --- !u!1 &6361102914629221937
 GameObject:
   m_ObjectHideFlags: 0

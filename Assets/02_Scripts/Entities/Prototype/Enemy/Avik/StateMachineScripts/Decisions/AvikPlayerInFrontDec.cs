@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-[CreateAssetMenu(menuName = "PluggableAI/Avik/Decision/PlayerInFront")]
+
 public class AvikPlayerInFrontDec : Decision
 {
     public override bool Execute(StateMachineController controller)
     {
-        controller.actions.CheckIsAttacking(controller);
+        controller.actions.CheckIsAttacking();
         return CheckFront(controller);
     }
 
@@ -16,12 +16,12 @@ public class AvikPlayerInFrontDec : Decision
         RaycastHit hit;
         if (!Physics.SphereCast(controller.RayEmitter.position, 1f, controller.transform.forward, out hit, controller.enemyStats.GetStatValue(StatName.Range), LayerMask.GetMask("Player")) & !controller.isAttacking)
         {
-            controller.actions.Walk(controller);
+            controller.actions.Walk();
             controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
             return true;
         }
 
-        controller.actions.StopWalking(controller);
+        controller.actions.StopWalking();
         controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         return false;
     }

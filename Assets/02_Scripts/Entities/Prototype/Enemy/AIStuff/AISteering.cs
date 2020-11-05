@@ -4,48 +4,48 @@ using UnityEngine;
 
 public class AISteering
 {
-    public Vector3 AvoidanceSteering(Vector3 dir, StateMachineController controller)
+    public Vector3 AvoidanceSteering(Vector3 dir, EnemyBody enemyBody)
     {
         RaycastHit hit;
 
-        if (!FindObstacle(dir, out hit, controller, false))
+        if (!FindObstacle(dir, out hit, enemyBody, false))
         {
-            return controller.aiManager.playerTarget.position;
+            return enemyBody.aiManager.playerTarget.position;
         }
 
-        Vector3 targetpos = controller.aiManager.playerTarget.position;
+        Vector3 targetpos = enemyBody.aiManager.playerTarget.position;
 
-        float angle = Vector3.Angle(dir * controller.deltaTime, hit.normal);
+        float angle = Vector3.Angle(dir * Time.deltaTime, hit.normal);
         if (angle > 165f)
         {
             Vector3 perp;
 
             perp = new Vector3(-hit.normal.z, hit.normal.y, hit.normal.x);
 
-            targetpos = targetpos + (perp * Mathf.Sin((angle - 165f) * Mathf.Deg2Rad) * 2 * controller.aiManager.obstacleAvoidDistance);
+            targetpos = targetpos + (perp * Mathf.Sin((angle - 165f) * Mathf.Deg2Rad) * 2 * enemyBody.aiManager.obstacleAvoidDistance);
         }
 
-        return Seek(targetpos, controller);
+        return Seek(targetpos, enemyBody.controller);
     }
 
-    public void IsGrounded(StateMachineController controller)
+    public void IsGrounded(EnemyBody enemyBody)
     {
         Vector3 velocity = Vector3.zero;
-        if (!Physics.CheckSphere(controller.transform.position + new Vector3(0, 1, 0), 1.1f))
+        if (!Physics.CheckSphere(enemyBody.transform.position + new Vector3(0, 1, 0), 1.1f))
         {
-            controller.isGrounded = false;
-            DoGravity(controller, velocity);
+            // controller.isGrounded = false;
+            // DoGravity(controller, velocity);
         }
         else
         {
-            controller.isGrounded = true;
+            // controller.isGrounded = true;
         }
     }
 
-    private void DoGravity(StateMachineController controller, Vector3 velocity)
+    private void DoGravity(EnemyBody enemyBody, Vector3 velocity)
     {
         velocity.y = Physics.gravity.y * Time.deltaTime;
-        controller.transform.position += velocity;
+        enemyBody.transform.position += velocity;
     }
 
     Vector3 Seek(Vector3 targetPosition, StateMachineController controller)
@@ -63,30 +63,30 @@ public class AISteering
         return Vector3.ClampMagnitude(v, controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed));
     }
 
-    public bool FindObstacle(Vector3 dir, out RaycastHit hit, StateMachineController controller, bool findPlayer)
+    public bool FindObstacle(Vector3 dir, out RaycastHit hit, EnemyBody enemyBody, bool findPlayer)
     {
         dir = dir.normalized;
 
-        Vector3[] dirs = new Vector3[controller.aiManager.whiskerAmount];
+        Vector3[] dirs = new Vector3[enemyBody.aiManager.whiskerAmount];
         dirs[0] = dir;
 
         float orientation = VectorToOrientation(dir);
         float angle = orientation;
         for (int i = 1; i < (dirs.Length + 1) / 2; i++)
         {
-            angle += controller.aiManager.angleIncrement;
+            angle += enemyBody.aiManager.angleIncrement;
             dirs[i] = OrientationToVector(orientation + angle * Mathf.Deg2Rad);
         }
         angle = orientation;
         for (int i = (dirs.Length + 1) / 2; i < dirs.Length; i++)
         {
-            angle -= controller.aiManager.angleIncrement;
+            angle -= enemyBody.aiManager.angleIncrement;
             dirs[i] = OrientationToVector(orientation - angle * Mathf.Deg2Rad);
         }
-        return CastWhiskers(dirs, out hit, controller, findPlayer);
+        return CastWhiskers(dirs, out hit, enemyBody, findPlayer);
     }
 
-    bool CastWhiskers(Vector3[] dirs, out RaycastHit firsthit, StateMachineController controller, bool findPlayer)
+    bool CastWhiskers(Vector3[] dirs, out RaycastHit firsthit, EnemyBody enemyBody, bool findPlayer)
     {
         firsthit = new RaycastHit();
         for (int i = 0; i < dirs.Length; i++)
@@ -95,7 +95,7 @@ public class AISteering
 
             if (findPlayer)
             {
-                if (Physics.SphereCast(controller.RayEmitter.position, 1f, dirs[i], out hit, controller.enemyStats.GetStatValue(StatName.Range), LayerMask.GetMask("Player")))
+                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, enemyBody.GetStatValue(StatName.Range), LayerMask.GetMask("Player")))
                 {
                     firsthit = hit;
                     return true;
@@ -103,8 +103,8 @@ public class AISteering
             }
             else
             {
-                float dist = (i == 0) ? controller.aiManager.mainWhiskerL : controller.aiManager.secondaryWhiskerL;
-                if (Physics.SphereCast(controller.RayEmitter.position, 1f, dirs[i], out hit, dist, controller.aiManager.enemyMask))
+                float dist = (i == 0) ? enemyBody.aiManager.mainWhiskerL : enemyBody.aiManager.secondaryWhiskerL;
+                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, dist, enemyBody.aiManager.enemyMask))
                 {
                     firsthit = hit;
                     return true;

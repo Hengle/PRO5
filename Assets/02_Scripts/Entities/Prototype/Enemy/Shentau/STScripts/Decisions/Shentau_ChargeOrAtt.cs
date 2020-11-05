@@ -7,7 +7,8 @@ public class Shentau_ChargeOrAtt : Decision
 {
     public override bool Execute(StateMachineController controller)
     {
-        return controller.actions.CheckIsAttacking(controller);
+        // return controller.actions.CheckIsAttacking(controller);
+        return false;
     }
 
 }

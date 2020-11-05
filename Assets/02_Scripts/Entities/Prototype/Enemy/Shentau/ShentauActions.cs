@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShentauActions : MonoBehaviour, IEnemyActions
+public class ShentauActions : IEnemyActions
 {
     public float countdown;
     public bool canAttack = false;
@@ -11,38 +11,38 @@ public class ShentauActions : MonoBehaviour, IEnemyActions
     public GameObject bullet;
     public Transform bulletPoint;
     public Transform laser;
-    public void Init()
+    public override void Init()
     {
         StartCoroutine(Recharge());
     }
-    public void Attack(StateMachineController s, int i = -1, bool combo = false)
+    public override void Attack(int i = -1, bool combo = false)
     {
-        switch (i)
-        {
-            case 0:
-                Shoot(s);
-                break;
-            case 1:
-                ShowChargeLaser(s);
-                break;
-            case 2:
-                laser.gameObject.SetActive(true);
-                break;
-            case 3:
-                laser.gameObject.SetActive(false);
-                break;
-        }
+        // switch (i)
+        // {
+        //     case 0:
+        //         Shoot(s);
+        //         break;
+        //     case 1:
+        //         ShowChargeLaser(s);
+        //         break;
+        //     case 2:
+        //         laser.gameObject.SetActive(true);
+        //         break;
+        //     case 3:
+        //         laser.gameObject.SetActive(false);
+        //         break;
+        // }
     }
 
-    void Shoot(StateMachineController s)
+    void Shoot()
     {
-        animator.SetTrigger("attack");
-        Bullet b = Instantiate(bullet, bulletPoint.position, bulletPoint.rotation).GetComponent<Bullet>();
-        b.InitBUllet(bulletPoint.forward, bulletForce, s.enemyStats.GetStatValue(StatName.BaseDmg));
-        StartCoroutine(Recharge(s));
+        // animator.SetTrigger("attack");
+        // Bullet b = Instantiate(bullet, bulletPoint.position, bulletPoint.rotation).GetComponent<Bullet>();
+        // b.InitBUllet(bulletPoint.forward, bulletForce, s.enemyStats.GetStatValue(StatName.BaseDmg));
+        // StartCoroutine(Recharge());
     }
     
-    void ShowChargeLaser(StateMachineController s)
+    void ShowChargeLaser()
     {
 
         RaycastHit hit;
@@ -55,58 +55,58 @@ public class ShentauActions : MonoBehaviour, IEnemyActions
 
         laser.localScale = new Vector3(laser.localScale.x, laser.localScale.y, dist);
     }
-    public void CancelAttack(StateMachineController s)
+    public override void CancelAttack()
     {
         throw new System.NotImplementedException();
     }
 
-    public bool CheckIsAttacking(StateMachineController s)
+    public override bool CheckIsAttacking()
     {
         return canAttack;
     }
 
-    public float GetAttackCountdown()
+    public override float GetAttackCountdown()
     {
         return countdown;
     }
 
-    public void StopAttack(StateMachineController s)
+    public override void StopAttack()
     {
 
     }
 
-    public void StopWalking(StateMachineController s)
+    public override void StopWalking()
     {
 
     }
 
-    public void Stunned(StateMachineController s)
+    public override void Stunned()
     {
 
     }
 
-    public void Walk(StateMachineController s)
+    public override void Walk()
     {
 
     }
 
-    IEnumerator Recharge(StateMachineController s = null)
+    IEnumerator Recharge()
     {
-        canAttack = false;
-        if (s == null)
-            countdown = 6f;
-        else
-            countdown = s.enemyStats.GetStatValue(StatName.AttackRate);
+        // canAttack = false;
+        // if (s == null)
+        //     countdown = 6f;
+        // else
+        //     countdown = s.enemyStats.GetStatValue(StatName.AttackRate);
 
-        while (countdown >= 0)
-        {
+        // while (countdown >= 0)
+        // {
             yield return new WaitForSeconds(0.1f);
-            countdown -= 0.1f;
-        }
-        canAttack = true;
+        //     countdown -= 0.1f;
+        // }
+        // canAttack = true;
     }
 
-    public Animator GetAnimator()
+    public override Animator GetAnimator()
     {
         return animator;
     }
