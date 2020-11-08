@@ -14,6 +14,9 @@ namespace BBUnity.Conditions
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
 
+        [InParam("aiManager")]
+        AIManager aiManager;
+
         public override bool Check()
         {
             return IsHeadingForCollision();
@@ -22,14 +25,14 @@ namespace BBUnity.Conditions
         bool IsHeadingForCollision()
         {
             Vector3 dir = Vector3.zero;
-            if ((enemyBody.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < enemyBody.GetStatValue(StatName.Range) * enemyBody.GetStatValue(StatName.Range))
+            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < enemyBody.GetStatValue(StatName.Range) * enemyBody.GetStatValue(StatName.Range))
             {
-                dir = enemyBody.aiManager.playerTarget.position - enemyBody.transform.position;
+                dir = aiManager.playerTarget.position - gameObject.transform.position;
                 dir = dir.normalized;
                 RaycastHit hit;
-                if (Physics.SphereCast(enemyBody.transform.position, 0.5f, dir, out hit, 3f, enemyBody.aiManager.enemyMask))
+                if (Physics.SphereCast(gameObject.transform.position, 0.5f, dir, out hit, 3f, aiManager.enemyMask))
                 {
-                    Debug.DrawRay(enemyBody.transform.position, dir, Color.yellow);
+                    Debug.DrawRay(gameObject.transform.position, dir, Color.yellow);
 
                     return true;
                 }

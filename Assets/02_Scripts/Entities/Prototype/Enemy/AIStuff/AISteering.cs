@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AISteering
 {
-    public Vector3 AvoidanceSteering(Vector3 dir, EnemyBody enemyBody)
+    public Vector3 AvoidanceSteering(Vector3 dir, AIManager aiManager, GameObject enemy)
     {
         RaycastHit hit;
 
-        if (!FindObstacle(dir, out hit, enemyBody, false))
+        if (!FindObstacle(dir, out hit, aiManager, enemy, false))
         {
-            return enemyBody.aiManager.playerTarget.position;
+            return aiManager.playerTarget.position;
         }
 
-        Vector3 targetpos = enemyBody.aiManager.playerTarget.position;
+        Vector3 targetpos = aiManager.playerTarget.position;
 
         float angle = Vector3.Angle(dir * Time.deltaTime, hit.normal);
         if (angle > 165f)
@@ -22,16 +22,16 @@ public class AISteering
 
             perp = new Vector3(-hit.normal.z, hit.normal.y, hit.normal.x);
 
-            targetpos = targetpos + (perp * Mathf.Sin((angle - 165f) * Mathf.Deg2Rad) * 2 * enemyBody.aiManager.obstacleAvoidDistance);
+            targetpos = targetpos + (perp * Mathf.Sin((angle - 165f) * Mathf.Deg2Rad) * 2 * aiManager.obstacleAvoidDistance);
         }
 
-        return Seek(targetpos, enemyBody.controller);
+        return Seek(targetpos, enemy);
     }
 
-    public void IsGrounded(EnemyBody enemyBody)
+    public void IsGrounded(GameObject enemy)
     {
         Vector3 velocity = Vector3.zero;
-        if (!Physics.CheckSphere(enemyBody.transform.position + new Vector3(0, 1, 0), 1.1f))
+        if (!Physics.CheckSphere(enemy.transform.position + new Vector3(0, 1, 0), 1.1f))
         {
             // controller.isGrounded = false;
             // DoGravity(controller, velocity);
@@ -48,46 +48,47 @@ public class AISteering
         enemyBody.transform.position += velocity;
     }
 
-    Vector3 Seek(Vector3 targetPosition, StateMachineController controller)
+    Vector3 Seek(Vector3 targetPosition, GameObject enemy)
     {
-        Vector3 acceleration = SteerTowards(targetPosition, controller);
+        Vector3 acceleration = SteerTowards(targetPosition, enemy);
 
         acceleration.Normalize();
 
         return acceleration;
     }
 
-    Vector3 SteerTowards(Vector3 vector, StateMachineController controller)
-    {
-        Vector3 v = vector.normalized * (controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed));
-        return Vector3.ClampMagnitude(v, controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed));
+    Vector3 SteerTowards(Vector3 vector, GameObject enemy)
+    {   EnemyBody enemyBody = enemy.GetComponent<EnemyBody>();
+        Vector3 v = vector.normalized * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed));
+        return Vector3.ClampMagnitude(v, enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed));
     }
 
-    public bool FindObstacle(Vector3 dir, out RaycastHit hit, EnemyBody enemyBody, bool findPlayer)
+    public bool FindObstacle(Vector3 dir, out RaycastHit hit, AIManager aiManager, GameObject enemy, bool findPlayer)
     {
         dir = dir.normalized;
 
-        Vector3[] dirs = new Vector3[enemyBody.aiManager.whiskerAmount];
+        Vector3[] dirs = new Vector3[aiManager.whiskerAmount];
         dirs[0] = dir;
 
         float orientation = VectorToOrientation(dir);
         float angle = orientation;
         for (int i = 1; i < (dirs.Length + 1) / 2; i++)
         {
-            angle += enemyBody.aiManager.angleIncrement;
+            angle += aiManager.angleIncrement;
             dirs[i] = OrientationToVector(orientation + angle * Mathf.Deg2Rad);
         }
         angle = orientation;
         for (int i = (dirs.Length + 1) / 2; i < dirs.Length; i++)
         {
-            angle -= enemyBody.aiManager.angleIncrement;
+            angle -= aiManager.angleIncrement;
             dirs[i] = OrientationToVector(orientation - angle * Mathf.Deg2Rad);
         }
-        return CastWhiskers(dirs, out hit, enemyBody, findPlayer);
+        return CastWhiskers(dirs, out hit, enemy, aiManager, findPlayer);
     }
 
-    bool CastWhiskers(Vector3[] dirs, out RaycastHit firsthit, EnemyBody enemyBody, bool findPlayer)
+    bool CastWhiskers(Vector3[] dirs, out RaycastHit firsthit, GameObject enemy, AIManager aiManager, bool findPlayer)
     {
+        EnemyBody enemyBody = enemy.GetComponent<EnemyBody>();
         firsthit = new RaycastHit();
         for (int i = 0; i < dirs.Length; i++)
         {
@@ -103,8 +104,8 @@ public class AISteering
             }
             else
             {
-                float dist = (i == 0) ? enemyBody.aiManager.mainWhiskerL : enemyBody.aiManager.secondaryWhiskerL;
-                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, dist, enemyBody.aiManager.enemyMask))
+                float dist = (i == 0) ? aiManager.mainWhiskerL : aiManager.secondaryWhiskerL;
+                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, dist, aiManager.enemyMask))
                 {
                     firsthit = hit;
                     return true;

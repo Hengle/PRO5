@@ -12,15 +12,19 @@ namespace BBUnity.Conditions
     [Help("Checks the Distance to the target")]
     public class AvikPlayerDistanceDec : GOCondition
     {
-        [InParam("enemyBody")]
+        [InParam("enemyBody", typeof(EnemyBody))]
         public EnemyBody enemyBody;
 
-        [InParam("actions")]
-        public IEnemyActions actions;
+        //[InParam("actions", typeof(IEnemyActions))]
+        //public IEnemyActions actions;
 
-        [InParam("agent")]
+        [InParam("agent", typeof(NavMeshAgent))]
         public NavMeshAgent agent;
 
+        [InParam("aiManager", typeof(AIManager))]
+        public AIManager aiManager;
+
+        
         public override bool Check()
         {
             return CheckForPlayer();
@@ -28,33 +32,33 @@ namespace BBUnity.Conditions
 
         public bool CheckForPlayer()
         {
-            return Vector3.Distance(enemyBody.aiManager.playerTarget.position, enemyBody.transform.position) < enemyBody.GetStatValue(StatName.Range);
+            return (gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.GetStatValue(StatName.Range), 2);
             // {
-                // if (!actions.CheckIsAttacking())
-                // {
-                //     // actions.Walk();
-                //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+            // if (!actions.CheckIsAttacking())
+            // {
+            //     // actions.Walk();
+            //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
 
-                // return false;
-                // }
-                // else
-                // {
-                //     // actions.StopWalking();
+            // return false;
+            // }
+            // else
+            // {
+            //     // actions.StopWalking();
 
-                //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-                //     return false;
-                // }
-                // }
-                // else
-                // {
+            //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            //     return false;
+            // }
+            // }
+            // else
+            // {
 
-                // actions.StopWalking();
+            // actions.StopWalking();
 
-                // agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-                // return true;
+            // agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+            // return true;
 
-                // }
-            }
+            // }
+        }
 
         bool CheckInFront()
         {

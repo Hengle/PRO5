@@ -26,16 +26,15 @@ namespace BBUnity.Actions
         public override TaskStatus OnUpdate()
         {
 
-            if ((enemyBody.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.GetStatValue(StatName.Range), 2))
+            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.GetStatValue(StatName.Range), 2))
             {
-                Debug.Log("Chase complete");
                 return TaskStatus.COMPLETED;
             }
-            Debug.Log("Chase continues");
 
             Move();
 
             LookAt();
+
             return TaskStatus.RUNNING;
         }
 
@@ -44,22 +43,27 @@ namespace BBUnity.Actions
             // if (Vector3.Distance(aiManager.playerTarget.position, enemyBody.transform.position) < 5f)
             agent.destination = aiManager.playerTarget.position;
 
-            Vector3 moveTo = enemyBody.transform.forward * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
+            Vector3 moveTo = gameObject.transform.forward * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
 
             agent.Move(moveTo);
         }
         void LookAt()
         {
-            Vector3 dir = aiManager.playerTarget.position - enemyBody.transform.position;
+            Vector3 dir = aiManager.playerTarget.position - gameObject.transform.position;
             dir.y = 0;
-            if (Vector3.Distance(aiManager.playerTarget.position, enemyBody.transform.position) < 3f)
+            if (Vector3.Distance(aiManager.playerTarget.position, gameObject.transform.position) < 3f)
             {
                 Quaternion look = Quaternion.LookRotation(dir);
-                enemyBody.transform.rotation = Quaternion.Lerp(enemyBody.transform.rotation, look, Time.deltaTime * enemyBody.GetStatValue(StatName.TurnSpeed));
+                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, look, Time.deltaTime * enemyBody.GetStatValue(StatName.TurnSpeed));
             }
         }
 
         public override void OnAbort()
+        {
+            agent.isStopped = true;
+        }
+
+        public override void OnEnd()
         {
             agent.isStopped = true;
         }

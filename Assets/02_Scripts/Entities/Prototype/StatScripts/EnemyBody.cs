@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemyBody : AStats, IHasHealth, IKnockback
 {
-    
-    public AIManager aiManager;
     public Transform rayEmitter;
 
     public StatTemplate statTemplate;
-    public StateMachineController controller => GetComponent<StateMachineController>();
+    public BehaviorExecutor behaviourExec => GetComponent<BehaviorExecutor>();
     public Rigidbody rb => GetComponent<Rigidbody>();
 
     public Coroutine stunCoroutine { get; set; }
@@ -93,7 +91,10 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
     //Applies a knockback force into the opposite direction of the player
     public void ApplyKnockback(float force)
     {
-        Vector3 direction = (transform.position - controller.aiManager.playerTarget.position).normalized;
+        //Finding Class in Behaviour Executor blackboard
+        AIManager aiManager = (AIManager) behaviourExec.blackboard.objectParams.Find(x => x.GetType().Equals(typeof(AIManager)));
+
+        Vector3 direction = (transform.position - aiManager.playerTarget.position).normalized;
         rb.AddForce(direction * force, ForceMode.Impulse);
     }
 
@@ -107,8 +108,8 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
         stunCoroutine = StartCoroutine(StunCooldown());
         currentStun += stun;
 
-        if (currentStun > GetStatValue(StatName.StunResist))
-            controller.Stun();
+        //if (currentStun > GetStatValue(StatName.StunResist))
+          //  controller.Stun();
     }
 
     //after a certain amount of time of not taking damage, stunvalue gets reduced

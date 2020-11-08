@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1097293484}
   - component: {fileID: 1097293485}
+  - component: {fileID: 1442805446}
   m_Layer: 0
   m_Name: AIManager
   m_TagString: Untagged
@@ -53,6 +54,18 @@ MonoBehaviour:
   whiskerAmount: 11
   comboBias: 40
   activationTime: 0.2
+--- !u!114 &1442805446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097293483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5a20552d8d9b64cb09202a86fe7b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2587438256095077187
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,10 +239,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1097293485}
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 7403463183224586819}
   scriptedSpawn: 0
   spawnpointlist: {fileID: 11400000, guid: 6064ed67f26b6a442bf7a9425adbda2a, type: 2}
-  enemyCollection: {fileID: 0}
+  enemyCollection: {fileID: 11400000, guid: d8762f34ae67bcf40ada5da7325b9449, type: 2}
   count: 0
   enemyListEmpty: 0
   isSpawning: 0
