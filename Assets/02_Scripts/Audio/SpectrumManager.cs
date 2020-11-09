@@ -194,8 +194,6 @@ class SpectrumManager : MonoBehaviour
             {
                 _freqBandHighest8[i] = _freqBand8[i];
             }
-            
-
             _audioBand8[i] = (_freqBand8[i] / _freqBandHighest8[i]);
             _audioBandBuffer8[i] = (_bandBuffer8[i] / _freqBandHighest8[i]);
         }
