@@ -57,8 +57,8 @@ public class StateMachineController : MonoBehaviour
         if (checkAnyTransition)
             CheckAnyTransitions(this);
 
-        steering.IsGrounded(this);
-        currentState.StateUpdate(this);
+        // steering.IsGrounded();
+        // currentState.StateUpdate();
     }
 
     private void CheckAnyTransitions(StateMachineController controller)

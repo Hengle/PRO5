@@ -7,6 +7,6 @@ public class OnAttackExit : OnExitState
 {
     public override void Execute(StateMachineController controller)
     {
-        controller.actions.CancelAttack(controller);
+        // controller.actions.CancelAttack(controller);
     }
 }

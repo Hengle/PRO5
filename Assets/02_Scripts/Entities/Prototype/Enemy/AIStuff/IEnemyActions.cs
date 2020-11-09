@@ -14,22 +14,20 @@ public enum AnimatorStrings
     stop
 }
 
-public interface IEnemyActions
+public abstract class IEnemyActions : MonoBehaviour
 {
-    void Init();
-    void Attack(StateMachineController s, int i = -1, bool combo = false);
-    void CancelAttack(StateMachineController s);
-    void StopAttack(StateMachineController s);
+    public abstract void Init();
+    public abstract void Attack(int i = -1, bool combo = false);
+    public abstract void CancelAttack();
+    public abstract void StopAttack();
 
-    void Walk(StateMachineController s);
-    void StopWalking(StateMachineController s);
-    void Stunned(StateMachineController s);
+    public abstract void Walk();
+    public abstract void StopWalking();
+    public abstract void Stunned();
 
-    bool CheckIsAttacking(StateMachineController s);
+    public abstract bool CheckIsAttacking();
 
-    float GetAttackCountdown();
+    public abstract float GetAttackCountdown();
 
-    
-
-    Animator GetAnimator();
+    public abstract Animator GetAnimator();
 }

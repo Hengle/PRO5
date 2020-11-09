@@ -38,7 +38,7 @@ public class ShentauMovement : Action
         //     // return pos;
         if (CollisionCourse(controller))
         {
-            return controller.steering.AvoidanceSteering(controller.transform.forward, controller);
+            // return controller.steering.AvoidanceSteering(controller.transform.forward, controller);
         }
         else
         {
@@ -46,6 +46,7 @@ public class ShentauMovement : Action
             return controller.transform.position + dir;
         }
 
+        return Vector3.zero;
 
     }
     bool CollisionCourse(StateMachineController controller)

@@ -17,8 +17,8 @@ public class ShentauAtt : Action
         {
             if (WaitForDelay(controller))
             {
-                controller.actions.Attack(controller, 3);
-                controller.actions.Attack(controller, 0);
+                // controller.actions.Attack(controller, 3);
+                // controller.actions.Attack(controller, 0);
             }
         }
     }
