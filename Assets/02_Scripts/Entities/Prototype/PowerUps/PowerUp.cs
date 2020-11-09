@@ -12,17 +12,8 @@ public class PowerUp : MonoBehaviour
     {
     }
 
-    public class Description
-    {
-        public string Name;
-
-        public Description(string name)
-        {
-            Name = name;
-        }
-    }
-
-    protected Description Desc = new Description("UNSET");
+    public string nameText;
+    public string descText;
 
     public Collider playerCollider;
     public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
@@ -43,6 +34,6 @@ public class PowerUp : MonoBehaviour
 
     public override string ToString()
     {
-        return string.Format("'PowerUp {0}'", Desc.Name);
+        return string.Format("'PowerUp {0}'", descText);
     }
 }

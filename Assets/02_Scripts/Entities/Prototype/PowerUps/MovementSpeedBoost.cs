@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class MovementSpeedBoost : PowerUp
 {
+
     public void Start()
     {
-        Desc.Name = "Movement Speed Boost";
+        descText = "Movement Speed Boost";
         onCollect.Invoke(this);
     }
 
