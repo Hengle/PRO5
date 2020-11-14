@@ -8,20 +8,17 @@ public class AIManager : MonoBehaviour
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
     [HideInInspector] public LayerMask enemyMask => LayerMask.GetMask("Enemy");
     [HideInInspector] public LayerMask playerMask => LayerMask.GetMask("Player");
-    // public EnemySet allSet;
     public Transform playerTarget;
+
+    [Header("Avoid settings")]
     public float avoidDistance = 5f;
     public float obstacleAvoidDistance = 2f;
     public float mainWhiskerL = 2f;
     public float secondaryWhiskerL = 1.5f;
     public float angleIncrement = 10f;
     public int whiskerAmount = 11;
-    [Range(0, 100)]
-    public int comboBias = 40;
 
     public float activationTime = 0.2f;
-    private Vector3[] playerOffsetList;
-
 
     private void Start()
     {
@@ -36,9 +33,7 @@ public class AIManager : MonoBehaviour
 
     public void SetAIActive(EnemyBody enemy)
     {
-        StateMachineController st = enemy.GetComponent<StateMachineController>();
-        st.SetAI(true);
-        st.actions.Init();
+
     }
 
     private void Update()
@@ -86,7 +81,5 @@ public class AIManager : MonoBehaviour
         else
             Debug.LogError("Could not find Player!");
     }
-
-
 }
 

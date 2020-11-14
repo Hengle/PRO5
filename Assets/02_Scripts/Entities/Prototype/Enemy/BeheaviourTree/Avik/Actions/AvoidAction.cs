@@ -29,7 +29,7 @@ namespace BBUnity.Actions
             agent.destination = steering.AvoidanceSteering(gameObject.transform.forward, aiManager, gameObject);
 
 
-            Vector3 moveTo = gameObject.transform.forward * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
+            Vector3 moveTo = gameObject.transform.forward * (enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
 
             agent.Move(moveTo);
 

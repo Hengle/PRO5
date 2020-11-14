@@ -19,6 +19,7 @@ namespace BBUnity.Actions
 
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
+
         public override void OnStart()
         {
             agent.isStopped = false;
@@ -26,7 +27,7 @@ namespace BBUnity.Actions
         public override TaskStatus OnUpdate()
         {
 
-            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.GetStatValue(StatName.Range), 2))
+            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.statistics.GetStatValue(StatName.Range), 2))
             {
                 return TaskStatus.COMPLETED;
             }
@@ -43,7 +44,7 @@ namespace BBUnity.Actions
             // if (Vector3.Distance(aiManager.playerTarget.position, enemyBody.transform.position) < 5f)
             agent.destination = aiManager.playerTarget.position;
 
-            Vector3 moveTo = gameObject.transform.forward * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
+            Vector3 moveTo = gameObject.transform.forward * (enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
 
             agent.Move(moveTo);
         }
@@ -54,7 +55,7 @@ namespace BBUnity.Actions
             if (Vector3.Distance(aiManager.playerTarget.position, gameObject.transform.position) < 3f)
             {
                 Quaternion look = Quaternion.LookRotation(dir);
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, look, Time.deltaTime * enemyBody.GetStatValue(StatName.TurnSpeed));
+                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, look, Time.deltaTime * enemyBody.statistics.GetStatValue(StatName.TurnSpeed));
             }
         }
 

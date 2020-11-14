@@ -25,7 +25,7 @@ namespace BBUnity.Conditions
         bool IsHeadingForCollision()
         {
             Vector3 dir = Vector3.zero;
-            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < enemyBody.GetStatValue(StatName.Range) * enemyBody.GetStatValue(StatName.Range))
+            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < enemyBody.statistics.GetStatValue(StatName.Range) * enemyBody.statistics.GetStatValue(StatName.Range))
             {
                 dir = aiManager.playerTarget.position - gameObject.transform.position;
                 dir = dir.normalized;

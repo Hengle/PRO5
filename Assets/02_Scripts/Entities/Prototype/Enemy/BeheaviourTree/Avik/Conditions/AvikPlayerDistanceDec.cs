@@ -24,7 +24,8 @@ namespace BBUnity.Conditions
         [InParam("aiManager", typeof(AIManager))]
         public AIManager aiManager;
 
-        
+        [InParam("attack")]
+        public CloseCombatAttacks attackUtil;
         public override bool Check()
         {
             return CheckForPlayer();
@@ -32,40 +33,31 @@ namespace BBUnity.Conditions
 
         public bool CheckForPlayer()
         {
-            return (gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.GetStatValue(StatName.Range), 2);
-            // {
-            // if (!actions.CheckIsAttacking())
-            // {
-            //     // actions.Walk();
-            //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-
-            // return false;
-            // }
-            // else
-            // {
-            //     // actions.StopWalking();
-
-            //     agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-            //     return false;
-            // }
-            // }
-            // else
-            // {
-
-            // actions.StopWalking();
-
-            // agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-            // return true;
-
-            // }
+            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.statistics.GetStatValue(StatName.Range), 2))
+            {
+                agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+                return true;
+            }
+            else
+            {
+                if (attackUtil.isAttacking)
+                {
+                    // actions.Walk();
+                    agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+                    return true;
+                }
+                else
+                {
+                    agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+                    return false;
+                }
+            }
         }
 
         bool CheckInFront()
         {
             Ray ray = new Ray(enemyBody.rayEmitter.position, enemyBody.transform.forward);
-            return Physics.SphereCast(ray, 0.2f, enemyBody.GetStatValue(StatName.Range), LayerMask.GetMask("Player"));
+            return Physics.SphereCast(ray, 0.2f, enemyBody.statistics.GetStatValue(StatName.Range), LayerMask.GetMask("Player"));
         }
-
-
     }
 }

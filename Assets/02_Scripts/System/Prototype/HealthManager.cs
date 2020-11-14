@@ -6,15 +6,15 @@ public class HealthManager : MonoBehaviour
 {
     private void Start()
     {
-        MyEventSystem.instance.Attack += DoDamage;
+        MyEventSystem.instance.Attack += HurtEntity;
     }
     
     private void OnDisable()
     {
-        MyEventSystem.instance.Attack -= DoDamage;
+        MyEventSystem.instance.Attack -= HurtEntity;
     }
     
-    public void DoDamage(IHasHealth entity, float baseDmg)
+    public void HurtEntity(IHasHealth entity, float baseDmg)
     {
         entity.TakeDamage(baseDmg);
     }
