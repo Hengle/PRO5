@@ -6,6 +6,6 @@ public class Shentau_ChargeExit : OnExitState
 {
     public override void Execute(StateMachineController controller)
     {
-        controller.enemyStats.SetStatValue(StatName.Speed, 3f);
+        controller.enemyStats.statistics.SetStatValue(StatName.Speed, 3f);
     }
 }

@@ -47,7 +47,7 @@ public class Weapons : MonoBehaviour
                 MyEventSystem.instance.OnAttack(other.gameObject.GetComponent<IHasHealth>(), damage);
 
                 other.GetComponent<IKnockback>().ApplyKnockback(stats.knockbackForce);
-                other.GetComponent<IKnockback>().ApplyStun(stats.stunChance);
+                other.GetComponent<IKnockback>().AddStun(stats.stunChance);
             }
             else if (other.gameObject.GetComponent<ObstacleBody>())
             {

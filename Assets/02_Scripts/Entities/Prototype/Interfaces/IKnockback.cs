@@ -6,7 +6,7 @@ public interface IKnockback
     float currentStun {get; set;}
     void ApplyKnockback(float force);
 
-    void ApplyStun(float stun);
+    void AddStun(float stun);
 
     IEnumerator StunCooldown();
 }

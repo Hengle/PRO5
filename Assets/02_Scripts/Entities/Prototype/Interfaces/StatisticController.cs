@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class AStats : MonoBehaviour, IStats, IMultipliers
+using Cysharp.Threading.Tasks;
+public class StatisticController
 {
-    public List<GameStatistics> statList { get; set; }
-    public List<Multiplier> multList { get; set; }
-    public BuffIndicators indicators;
+    public List<GameStatistics> statList;
+    public List<Multiplier> multList;
+
     virtual public void InitStats(StatTemplate template)
     {
         multList = new List<Multiplier>();
@@ -21,6 +21,7 @@ public abstract class AStats : MonoBehaviour, IStats, IMultipliers
     {
         statList.Find(x => x.GetName().Equals(name)).SetValue(value);
     }
+
     virtual public float GetStatValue(StatName stat)
     {
         if (statList.Exists(x => x.GetName().Equals(stat)))
@@ -37,8 +38,10 @@ public abstract class AStats : MonoBehaviour, IStats, IMultipliers
     {
         multList.Add(new Multiplier(value, name));
 
-        StartCoroutine(MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name))));
+        //StartCoroutine(MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name))));
+        MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name)));
     }
+
     virtual public float GetMultValue(MultiplierName name)
     {
         float value = 1f;
@@ -60,25 +63,16 @@ public abstract class AStats : MonoBehaviour, IStats, IMultipliers
         multList.Clear();
     }
 
-    virtual public IEnumerator MultiplierTimer(float time, int id)
+    virtual public IEnumerator MultipliersTimer(float time, int id)
     {
         yield return new WaitForSeconds(time);
         multList.RemoveAt(id);
-        StopBuffAnim();
     }
 
-    virtual public void BuffAnim(){
-        indicators.BuffLights();
+    async UniTask MultiplierTimer(float time, int id)
+    {
+        int miliTime = (int)(time * 1000);
+        await UniTask.Delay(miliTime);
+        multList.RemoveAt(id);
     }
-
-    virtual public void DebuffAnim(){
-        indicators.DebuffLights();
-    }
-
-    virtual public void StopBuffAnim(){
-        indicators.StandardColors();
-    }
-
-
-    
 }

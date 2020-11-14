@@ -74,7 +74,7 @@ public class ShentauMovement : Action
         //     controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.GetStatValue(StatName.TurnSpeed));
         // }
 
-        if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) > 5f & Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) < 8f)
+       /* if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) > 5f & Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) < 8f)
         {
             controller.agent.isStopped = true;
             Vector3 dir = controller.aiManager.playerTarget.position - controller.transform.position;
@@ -97,6 +97,7 @@ public class ShentauMovement : Action
             Vector3 moveTo = controller.transform.forward * (controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed)) * controller.deltaTime;
             controller.agent.Move(moveTo);
         }
+        */
 
     }
 

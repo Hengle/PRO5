@@ -33,10 +33,10 @@ public class StatMultMonitor : EditorWindow
 
         if (playerFoldout)
         {
-            if (player.statList != null)
+            if (player.statistics.statList != null)
             {
                 player.currentHealth.Value = EditorGUILayout.FloatField("Current Health", player.currentHealth.Value, GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f));
-                foreach (GameStatistics s in player.statList)
+                foreach (GameStatistics s in player.statistics.statList)
                 {
                     s.SetValue(EditorGUILayout.FloatField(s.GetName().ToString(), s.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                 }
@@ -69,13 +69,13 @@ public class StatMultMonitor : EditorWindow
 
                         GUILayout.Label("Stats", EditorStyles.boldLabel);
                         e.currentHealth = EditorGUILayout.FloatField("Current Health", e.currentHealth, GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f));
-                        foreach (GameStatistics s in e.statList)
+                        foreach (GameStatistics s in e.statistics.statList)
                         {
                             s.SetValue(EditorGUILayout.FloatField(s.GetName().ToString(), s.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                         }
 
                         GUILayout.Label("Multipliers", EditorStyles.boldLabel);
-                        foreach (Multiplier m in e.multList)
+                        foreach (Multiplier m in e.statistics.multList)
                         {
                             m.SetValue(EditorGUILayout.FloatField(m.GetName().ToString(), m.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                         }

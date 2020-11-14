@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBody : AStats, IHasHealth, IKnockback
+public class EnemyBody : MonoBehaviour, IHasHealth, IKnockback
 {
+    public bool isAttacking;
+    public bool canAttack;
+    public bool isStunned;
+
     public Transform rayEmitter;
-
     public StatTemplate statTemplate;
-    public BehaviorExecutor behaviourExec => GetComponent<BehaviorExecutor>();
+    public StatisticController statistics;
     public Rigidbody rb => GetComponent<Rigidbody>();
-
     public Coroutine stunCoroutine { get; set; }
     public float currentStun { get; set; }
     public float stunCooldown = 0.5f;
     // public Symbol symbolInfo;
     public GameObject parent;
-    [SerializeField] private GameObject symbol;
+    BehaviorExecutor behaviourExec => GetComponent<BehaviorExecutor>();
+    AIManager aiManager => (AIManager)behaviourExec.blackboard.objectParams.Find(x => x.GetType().Equals(typeof(AIManager)));
     public float currentHealth;
 
     private void Awake()
     {
-        // InitSymbol();
-        this.InitStats(statTemplate);
+        statistics = new StatisticController();
+        InitStats(statTemplate);
     }
 
     #region Init
 
-
     //Initializes enemy statistics
-    public override void InitStats(StatTemplate template)
+    public void InitStats(StatTemplate template)
     {
-        multList = new List<Multiplier>();
-        statList = new List<GameStatistics>();
+        statistics.multList = new List<Multiplier>();
+        statistics.statList = new List<GameStatistics>();
         foreach (FloatReference f in statTemplate.statList)
         {
             StatVariable s = (StatVariable)f.Variable;
-            statList.Add(new GameStatistics(f.Value, s.statName));
+            statistics.statList.Add(new GameStatistics(f.Value, s.statName));
         }
 
-        currentHealth = GetStatValue(StatName.MaxHealth);
+        currentHealth = statistics.GetStatValue(StatName.MaxHealth);
     }
 
     // void InitSymbol()
@@ -61,12 +63,11 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
         }
     }
 
-
     //Calculates simple damage values
     public void TakeDamage(float damage)
     {
-        float calcDamage = damage * GetMultValue(MultiplierName.damage);
-        calcDamage = damage * (damage / (damage + (GetStatValue(StatName.Defense) * GetMultValue(MultiplierName.defense))));
+        float calcDamage = damage * statistics.GetMultValue(MultiplierName.damage);
+        calcDamage = damage * (damage / (damage + (statistics.GetStatValue(StatName.Defense) * statistics.GetMultValue(MultiplierName.defense))));
         // SetStatValue(StatName.MaxHealth, (GetStatValue(StatName.MaxHealth) - calcDamage));
 
         Debug.Log(gameObject.name + " just took " + calcDamage + " damage.");
@@ -84,23 +85,19 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
     {
         // MyEventSystem.instance.OnEnemyDeath(this);
         Destroy(parent);
-        Destroy(symbol);
     }
     #endregion
 
-    //Applies a knockback force into the opposite direction of the player
+    //Applies a knockback force to the rigidbody into the opposite direction of the player
     public void ApplyKnockback(float force)
     {
-        //Finding Class in Behaviour Executor blackboard
-        AIManager aiManager = (AIManager) behaviourExec.blackboard.objectParams.Find(x => x.GetType().Equals(typeof(AIManager)));
-
         Vector3 direction = (transform.position - aiManager.playerTarget.position).normalized;
         rb.AddForce(direction * force, ForceMode.Impulse);
     }
 
     //Stuns the enemy
-    //takes in a stunvalue which gets added to itself until the stunvalue is higher than the stunresistance
-    public void ApplyStun(float stun)
+    //Takes in a stunvalue which gets added to itself until the stunvalue is higher than the stunresistance
+    public void AddStun(float stun)
     {
         if (stunCoroutine != null)
             StopCoroutine(stunCoroutine);
@@ -108,11 +105,11 @@ public class EnemyBody : AStats, IHasHealth, IKnockback
         stunCoroutine = StartCoroutine(StunCooldown());
         currentStun += stun;
 
-        //if (currentStun > GetStatValue(StatName.StunResist))
-          //  controller.Stun();
+        if (currentStun > statistics.GetStatValue(StatName.StunResist))
+            isStunned = true;
     }
 
-    //after a certain amount of time of not taking damage, stunvalue gets reduced
+    //After a certain amount of time of not taking damage, stunvalue gets reduced over time
     public IEnumerator StunCooldown()
     {
         yield return new WaitForSeconds(stunCooldown);

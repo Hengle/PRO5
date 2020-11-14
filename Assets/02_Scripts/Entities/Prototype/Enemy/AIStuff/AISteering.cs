@@ -59,8 +59,8 @@ public class AISteering
 
     Vector3 SteerTowards(Vector3 vector, GameObject enemy)
     {   EnemyBody enemyBody = enemy.GetComponent<EnemyBody>();
-        Vector3 v = vector.normalized * (enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed));
-        return Vector3.ClampMagnitude(v, enemyBody.GetStatValue(StatName.Speed) * enemyBody.GetMultValue(MultiplierName.speed));
+        Vector3 v = vector.normalized * (enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed));
+        return Vector3.ClampMagnitude(v, enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed));
     }
 
     public bool FindObstacle(Vector3 dir, out RaycastHit hit, AIManager aiManager, GameObject enemy, bool findPlayer)
@@ -96,7 +96,7 @@ public class AISteering
 
             if (findPlayer)
             {
-                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, enemyBody.GetStatValue(StatName.Range), LayerMask.GetMask("Player")))
+                if (Physics.SphereCast(enemyBody.rayEmitter.position, 1f, dirs[i], out hit, enemyBody.statistics.GetStatValue(StatName.Range), LayerMask.GetMask("Player")))
                 {
                     firsthit = hit;
                     return true;

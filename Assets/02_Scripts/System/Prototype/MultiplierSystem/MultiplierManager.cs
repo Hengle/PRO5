@@ -46,7 +46,7 @@ public class MultiplierManager : MonoBehaviour
 
     public void SetPlayerMultValues(MultiplierName name, float value, float time)
     {
-        player.AddMultiplier(name, value, time);
+        player.statistics.AddMultiplier(name, value, time);
     }
 
     // public void ResetMultiplier()

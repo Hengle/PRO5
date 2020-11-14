@@ -11,7 +11,7 @@ public class ShentauAtt : Action
     {
         Vector3 dir = controller.aiManager.playerTarget.position - controller.transform.position;
         Quaternion look = Quaternion.LookRotation(dir);
-        controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.GetStatValue(StatName.TurnSpeed));
+        controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.statistics.GetStatValue(StatName.TurnSpeed));
         RaycastHit hit;
         if (Physics.Raycast(controller.RayEmitter.position, controller.RayEmitter.forward, out hit, 15f, controller.aiManager.playerMask))
         {

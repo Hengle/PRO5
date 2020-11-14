@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBody : AStats, IHasHealth
+public class PlayerBody : MonoBehaviour, IHasHealth
 {
     public StatTemplate template;
     public FloatVariable currentHealth;
-
+    public StatisticController statistics;
     public bool alive = true;
 
     private void Awake()
     {
-        this.InitStats(template);
+        statistics = new StatisticController();
+        InitStats(template);
     }
 
-    public override void InitStats(StatTemplate template)
+    public void InitStats(StatTemplate template)
     {
-        multList = new List<Multiplier>();
-        statList = new List<GameStatistics>();
+        statistics.multList = new List<Multiplier>();
+        statistics.statList = new List<GameStatistics>();
         foreach (FloatReference f in template.statList)
         {
             StatVariable s = (StatVariable)f.Variable;
-            statList.Add(new GameStatistics(f.Value, s.statName));
+            statistics.statList.Add(new GameStatistics(f.Value, s.statName));
         }
-        currentHealth.Value = GetStatValue(StatName.MaxHealth);
+        currentHealth.Value = statistics.GetStatValue(StatName.MaxHealth);
     }
 
     void CheckHealth()
@@ -37,7 +38,7 @@ public class PlayerBody : AStats, IHasHealth
     public void TakeDamage(float damage)
     {
         //float damage = baseDmg * (baseDmg/(baseDmg + enemy.GetStat(EnemyStatName.defense)))
-        float newDamage = damage * damage / (damage + GetStatValue(StatName.Defense));
+        float newDamage = damage * damage / (damage +  statistics.GetStatValue(StatName.Defense));
         currentHealth.Value -= newDamage;
         // SetStatValue(StatName.MaxHealth, GetStatValue(StatName.MaxHealth) - damage);
         Debug.Log(gameObject.name + " just took " + newDamage + " damage.");
@@ -52,7 +53,7 @@ public class PlayerBody : AStats, IHasHealth
 
     public void Heal(float healAmount)
     {
-        float MaxHealth = GetStatValue(StatName.MaxHealth);
+        float MaxHealth =  statistics.GetStatValue(StatName.MaxHealth);
         if (currentHealth.Value < MaxHealth)
         {
             if (currentHealth.Value + healAmount > MaxHealth)

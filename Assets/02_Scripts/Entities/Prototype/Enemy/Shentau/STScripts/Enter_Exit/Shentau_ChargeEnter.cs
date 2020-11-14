@@ -7,7 +7,7 @@ public class Shentau_ChargeEnter : OnEnterState
 {
     public override void Execute(StateMachineController controller)
     {
-        controller.enemyStats.SetStatValue(StatName.Speed, 1f);
+        controller.enemyStats.statistics.SetStatValue(StatName.Speed, 1f);
         // controller.actions.Attack(controller, 2);
         // controller.actions.GetAnimator().Play("tiltdown");
     }
