@@ -21,17 +21,22 @@ namespace BBUnity.Actions
         public AIUtilities.Timer timer;
 
         [InParam("attack")]
-        public CloseCombatAttacks attackUtil;
+        public CloseCombatAttacks attack;
+
+        [InParam("actions")]
+        public EnemyActions actions;
+        [InParam("stats")]
+        public EnemyStatistics stats;
         public override void OnStart()
         {
-            if (attackUtil.canAttack)
+            if (actions.canAttack)
             {
                 StartAttack();
             }
         }
         public override TaskStatus OnUpdate()
         {
-            if (attackUtil.isAttacking)
+            if (actions.isAttacking)
             {
                 return TaskStatus.RUNNING;
             }
@@ -45,15 +50,15 @@ namespace BBUnity.Actions
 
         private void StartAttack()
         {
-            attackUtil.Attack();
-            timer.setWaitTime(enemyBody.statistics.GetStatValue(StatName.AttackRate));
-            attackUtil.canAttack = false;
+            attack.Attack();
+            timer.setWaitTime(stats.GetStatValue(StatName.AttackRate));
+            actions.canAttack = false;
         }
 
         public override void OnAbort()
         {
             timer.StartTimer();
-            attackUtil.CancelAttack();
+            attack.CancelAttack();
         }
     }
 }

@@ -61,6 +61,7 @@ public class StatMultMonitor : EditorWindow
             if (set.entityList.Count != 0)
                 foreach (EnemyBody e in set.entityList)
                 {
+                    EnemyStatistics stats = e.GetComponent<EnemyStatistics>();
                     if (e != null)
                     {
                         GUILayout.Space(5f);
@@ -68,26 +69,25 @@ public class StatMultMonitor : EditorWindow
                         EditorGUILayout.ObjectField(e, typeof(EnemyBody));
 
                         GUILayout.Label("Stats", EditorStyles.boldLabel);
-                        e.currentHealth = EditorGUILayout.FloatField("Current Health", e.currentHealth, GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f));
-                        foreach (GameStatistics s in e.statistics.statList)
+                        stats.currentHealth = EditorGUILayout.FloatField("Current Health", stats.currentHealth, GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f));
+                        foreach (GameStatistics s in stats.statList)
                         {
                             s.SetValue(EditorGUILayout.FloatField(s.GetName().ToString(), s.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                         }
 
                         GUILayout.Label("Multipliers", EditorStyles.boldLabel);
-                        foreach (Multiplier m in e.statistics.multList)
+                        foreach (Multiplier m in stats.multList)
                         {
                             m.SetValue(EditorGUILayout.FloatField(m.GetName().ToString(), m.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                         }
                         if (GUILayout.Button("Destroy", GUILayout.Width(120f)))
                         {
                             // set.Remove(e);
-                            e.OnDeath();
+                            stats.OnDeath();
                         }
                     }
 
                 }
-
         GUILayout.EndScrollView();
     }
 }

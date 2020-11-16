@@ -16,23 +16,28 @@ namespace BBUnity.Actions
         public EnemyBody enemyBody;
 
         [InParam("attack")]
-        public CloseCombatAttacks attackUtil;
+        public CloseCombatAttacks attack;
+
+        [InParam("actions")]
+        public EnemyActions actions;
+        [InParam("stats")]
+        public EnemyStatistics stats;
 
         public override void OnStart()
         {
             if (timer == null)
             {
-                timer = new AIUtilities.Timer(enemyBody.statistics.GetStatValue(StatName.AttackRate));
-                if (!attackUtil.canAttack)
+                timer = new AIUtilities.Timer(stats.GetStatValue(StatName.AttackRate));
+                if (!actions.canAttack)
                     timer.StartTimer();
             }
         }
 
         public override TaskStatus OnUpdate()
         {
-            if (!attackUtil.canAttack)
+            if (!actions.canAttack)
             {
-                attackUtil.canAttack = timer.TimerDone();
+                actions.canAttack = timer.TimerDone();
             }
 
             return TaskStatus.COMPLETED;

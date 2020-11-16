@@ -13,7 +13,6 @@ public class PlayerBody : MonoBehaviour, IHasHealth
 
     private void Awake()
     {
-        statistics = new StatisticController();
         InitStats(template);
     }
 

@@ -11,14 +11,14 @@ namespace BBUnity.Actions
     [Help("Chases a target")]
     public class AvikChaseAction : GOAction
     {
-        [InParam("aiManager")]
-        public AIManager aiManager;
-
         [InParam("agent")]
         public NavMeshAgent agent;
 
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
+
+        [InParam("stats")]
+        public EnemyStatistics stats;
 
         public override void OnStart()
         {
@@ -27,7 +27,7 @@ namespace BBUnity.Actions
         public override TaskStatus OnUpdate()
         {
 
-            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.statistics.GetStatValue(StatName.Range), 2))
+            if ((gameObject.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(stats.GetStatValue(StatName.Range), 2))
             {
                 return TaskStatus.COMPLETED;
             }
@@ -42,20 +42,20 @@ namespace BBUnity.Actions
         void Move()
         {
             // if (Vector3.Distance(aiManager.playerTarget.position, enemyBody.transform.position) < 5f)
-            agent.destination = aiManager.playerTarget.position;
+            agent.destination = enemyBody.aiManager.playerTarget.position;
 
-            Vector3 moveTo = gameObject.transform.forward * (enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
+            Vector3 moveTo = gameObject.transform.forward * (stats.GetStatValue(StatName.Speed) * stats.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
 
             agent.Move(moveTo);
         }
         void LookAt()
         {
-            Vector3 dir = aiManager.playerTarget.position - gameObject.transform.position;
+            Vector3 dir = enemyBody.aiManager.playerTarget.position - gameObject.transform.position;
             dir.y = 0;
-            if (Vector3.Distance(aiManager.playerTarget.position, gameObject.transform.position) < 3f)
+            if (Vector3.Distance(enemyBody.aiManager.playerTarget.position, gameObject.transform.position) < 3f)
             {
                 Quaternion look = Quaternion.LookRotation(dir);
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, look, Time.deltaTime * enemyBody.statistics.GetStatValue(StatName.TurnSpeed));
+                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, look, Time.deltaTime * stats.GetStatValue(StatName.TurnSpeed));
             }
         }
 

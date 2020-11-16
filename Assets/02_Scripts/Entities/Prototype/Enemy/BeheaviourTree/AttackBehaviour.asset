@@ -18,8 +18,9 @@ MonoBehaviour:
     id=\"0\" guid=\"dec7d283849515a42814ab2ef93df956\" nextId=\"13\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"1\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"enemyBody\" type=\"EnemyBody\" isBlackboard=\"False\"
-    />\r\n          <entry name=\"aiManager\" type=\"AIManager\" isBlackboard=\"False\"
     />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"actions\" type=\"EnemyActions\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"False\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams>\r\n        <localValues>\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
     isBlackboard=\"False\" />\r\n        </localValues>\r\n      </localParams>\r\n   
@@ -39,19 +40,24 @@ MonoBehaviour:
     <entry name=\"currentTime\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"currentTime\"
     />\r\n          <entry name=\"currentTimer\" type=\"System.Single\" isBlackboard=\"True\"
     blackboard=\"currentTimer\" />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\"
-    isBlackboard=\"True\" blackboard=\"attack\" />\r\n        </inputValues>\r\n     
-    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"canAttack\"
-    />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"True\"
-    blackboard=\"timer\" />\r\n          <entry name=\"currentTimer\" type=\"System.Single\"
-    isBlackboard=\"True\" blackboard=\"currentTimer\" />\r\n        </outputValues>\r\n     
-    </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
-    id=\"12\" action=\"EnemyBehaviour/MeleeAttackAction\">\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"enemyBody\" type=\"EnemyBody\" isBlackboard=\"True\"
-    blackboard=\"enemyBody\" />\r\n          <entry name=\"aiManager\" type=\"AIManager\"
-    isBlackboard=\"True\" blackboard=\"aiManager\" />\r\n          <entry name=\"timer\"
+    isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"actions\"
+    type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
+    <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
+    <outputValues>\r\n          <entry name=\"canAttack\" type=\"System.Boolean\"
+    isBlackboard=\"True\" blackboard=\"canAttack\" />\r\n          <entry name=\"timer\"
     type=\"AIUtilities+Timer\" isBlackboard=\"True\" blackboard=\"timer\" />\r\n         
-    <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"True\" blackboard=\"attack\"
+    <entry name=\"currentTimer\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"currentTimer\"
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
+    />\r\n    </ActionNode>\r\n    <ActionNode id=\"12\" action=\"EnemyBehaviour/MeleeAttackAction\">\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"enemyBody\"
+    type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
+    <entry name=\"aiManager\" type=\"AIManager\" isBlackboard=\"True\" blackboard=\"aiManager\"
+    />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"True\"
+    blackboard=\"timer\" />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\"
+    isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"actions\"
+    type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
+    <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n   
     <BehaviorTree id=\"0\" _name=\"AttackBehaviour\" _description=\"Simple Attack
@@ -73,12 +79,12 @@ MonoBehaviour:
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"8\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"262.7151
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"262.7151
     353.0556\" name=\"CanAttackCheck\" description=\"Checks if the internal timer
     is done\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\"
     />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode id=\"8\" />\r\n       
     </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"12\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"520 348\"
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"520 347\"
     name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"12\" />\r\n          <SequenceNode id=\"8\" />\r\n        </data>\r\n     

@@ -13,23 +13,31 @@ namespace BBUnity.Actions
     {
         [InParam("agent")]
         public NavMeshAgent agent;
+
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
 
-        [InParam("aiManager")]
-        public AIManager aiManager;
+        [InParam("stats")]
+        public EnemyStatistics stats;
 
-        public AISteering steering = new AISteering();
+        public AISteering steering;
+
+        public override void OnStart()
+        {
+            if (steering == null)
+                steering = new AISteering(stats, enemyBody);
+        }
+
         public override TaskStatus OnUpdate()
         {
             if (!IsHeadingForCollision())
                 return TaskStatus.COMPLETED;
 
 
-            agent.destination = steering.AvoidanceSteering(gameObject.transform.forward, aiManager, gameObject);
+            agent.destination = steering.AvoidanceSteering(gameObject.transform.forward);
 
 
-            Vector3 moveTo = gameObject.transform.forward * (enemyBody.statistics.GetStatValue(StatName.Speed) * enemyBody.statistics.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
+            Vector3 moveTo = gameObject.transform.forward * (stats.GetStatValue(StatName.Speed) * stats.GetMultValue(MultiplierName.speed)) * Time.deltaTime;
 
             agent.Move(moveTo);
 
@@ -40,12 +48,12 @@ namespace BBUnity.Actions
         {
             Vector3 dir = Vector3.zero;
 
-            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(aiManager.avoidDistance, 2))
+            if ((gameObject.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.aiManager.avoidDistance, 2))
             {
-                dir = aiManager.playerTarget.position - gameObject.transform.position;
+                dir = enemyBody.aiManager.playerTarget.position - gameObject.transform.position;
                 dir = dir.normalized;
                 RaycastHit hit;
-                if (Physics.SphereCast(gameObject.transform.position, 0.5f, dir, out hit, 3f, aiManager.enemyMask))
+                if (Physics.SphereCast(gameObject.transform.position, 0.5f, dir, out hit, 3f, enemyBody.aiManager.enemyMask))
                 {
                     Debug.DrawRay(gameObject.transform.position, dir, Color.yellow);
 

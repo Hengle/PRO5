@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
-public class StatisticController
+public abstract class StatisticController : MonoBehaviour
 {
     public List<GameStatistics> statList;
     public List<Multiplier> multList;
-
-    virtual public void InitStats(StatTemplate template)
+    public StatTemplate statTemplate;
+    private void Start()
+    {
+        InitStats();
+    }
+    virtual public void InitStats()
     {
         multList = new List<Multiplier>();
         statList = new List<GameStatistics>();
-        foreach (FloatReference f in template.statList)
+        foreach (FloatReference f in statTemplate.statList)
         {
             StatVariable s = (StatVariable)f.Variable;
             statList.Add(new GameStatistics(f.Value, s.statName));
         }
     }
+
     virtual public void SetStatValue(StatName name, float value)
     {
         statList.Find(x => x.GetName().Equals(name)).SetValue(value);
@@ -38,8 +42,7 @@ public class StatisticController
     {
         multList.Add(new Multiplier(value, name));
 
-        //StartCoroutine(MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name))));
-        MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name)));
+        StartCoroutine(MultiplierTimer(time, multList.FindIndex(x => x.GetName().Equals(name))));
     }
 
     virtual public float GetMultValue(MultiplierName name)
@@ -63,16 +66,9 @@ public class StatisticController
         multList.Clear();
     }
 
-    virtual public IEnumerator MultipliersTimer(float time, int id)
+    virtual public IEnumerator MultiplierTimer(float time, int id)
     {
         yield return new WaitForSeconds(time);
-        multList.RemoveAt(id);
-    }
-
-    async UniTask MultiplierTimer(float time, int id)
-    {
-        int miliTime = (int)(time * 1000);
-        await UniTask.Delay(miliTime);
         multList.RemoveAt(id);
     }
 }

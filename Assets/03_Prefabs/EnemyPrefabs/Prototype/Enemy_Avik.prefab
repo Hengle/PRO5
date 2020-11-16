@@ -740,6 +740,8 @@ GameObject:
   - component: {fileID: 3788541799801290289}
   - component: {fileID: 3491746654760170792}
   - component: {fileID: 2175917278095082398}
+  - component: {fileID: 1528399111537278399}
+  - component: {fileID: 7520893772200097872}
   - component: {fileID: 711596593356507799}
   - component: {fileID: 3491746654760170799}
   - component: {fileID: 3007900016607863545}
@@ -806,13 +808,15 @@ MonoBehaviour:
     objectParams:
     - {fileID: 2175917278095082398}
     - {fileID: 6263292700920572240}
-    - {fileID: 0}
     - {fileID: 711596593356507799}
+    - {fileID: 7520893772200097872}
+    - {fileID: 1528399111537278399}
     objectParamsNames:
     - enemyBody
     - agent
-    - aiManager
     - attack
+    - stats
+    - actions
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -855,11 +859,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ef47a098113f544a6d693f9b4676ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStunned: 0
   rayEmitter: {fileID: 250260118263436414}
-  statTemplate: {fileID: 11400000, guid: 77a6aa34bf773af4da67fb306207e439, type: 2}
+  hitBox: {fileID: 314406195817271088}
+  aiManager: {fileID: 0}
+--- !u!114 &1528399111537278399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688651254681684740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f073735964a0f47bc9304429d38abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStunned: 0
+  isAttacking: 0
+  canAttack: 0
+  canDamage: 0
   stunCooldown: 0.5
-  parent: {fileID: 0}
+--- !u!114 &7520893772200097872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688651254681684740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362f525af90c7974caca93e17551bc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTemplate: {fileID: 11400000, guid: 77a6aa34bf773af4da67fb306207e439, type: 2}
   currentHealth: 0
 --- !u!114 &711596593356507799
 MonoBehaviour:
@@ -873,9 +905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9381ab1d93f045744a7fbfba7207e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
-  canAttack: 1
-  canDamage: 0
   attackAnimations:
   - clip: {fileID: 0}
     animationName: att

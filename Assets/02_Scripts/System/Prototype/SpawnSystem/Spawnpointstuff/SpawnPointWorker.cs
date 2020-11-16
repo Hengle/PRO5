@@ -70,8 +70,8 @@ public class SpawnPointWorker : MonoBehaviour
 
                     break;
             }
-            SceneManager.MoveGameObjectToScene(enemy.parent, SceneManager.GetSceneByName("Base"));
-            enemy.GetComponent<StateMachineController>().aiManager = sp.manager;
+            
+            enemy.GetComponent<EnemyBody>().aiManager = sp.manager;
             enemy.GetComponent<Animation>().Play("Entry");
 
             sp.AddEnemyToList(enemy);
@@ -79,7 +79,6 @@ public class SpawnPointWorker : MonoBehaviour
             if (scriptedSpawn)
             {
                 StartCoroutine(WaitForAnimation(enemy, true));
-
             }
             else
             {

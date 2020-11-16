@@ -11,19 +11,19 @@ public class AvikPlayerInFrontDec : Decision
         return true;
     }
 
-    bool CheckFront(StateMachineController controller)
-    {
-        RaycastHit hit;
-        if (!Physics.SphereCast(controller.RayEmitter.position, 1f, controller.transform.forward, out hit, controller.enemyStats.statistics.GetStatValue(StatName.Range), LayerMask.GetMask("Player")) & !controller.isAttacking)
-        {
-            controller.actions.Walk();
-            controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-            return true;
-        }
+    // bool CheckFront(StateMachineController controller)
+    // {
+    //     // RaycastHit hit;
+    //     // if (!Physics.SphereCast(controller.RayEmitter.position, 1f, controller.transform.forward, out hit, controller.enemyStats.statistics.GetStatValue(StatName.Range), LayerMask.GetMask("Player")) & !controller.isAttacking)
+    //     // {
+    //     //     controller.actions.Walk();
+    //     //     controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+    //     //     return true;
+    //     // }
 
-        controller.actions.StopWalking();
-        controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-        return false;
-    }
+    //     // controller.actions.StopWalking();
+    //     // controller.agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+    //     // return false;
+    // }
 
 }

@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-
-public abstract class CloseCombatAttacks : MonoBehaviour, IEnemyAttacks
+﻿using UnityEngine;
+using System.Collections;
+public abstract class IEnemyAttacks : MonoBehaviour
 {
     protected Coroutine attackTimer;
-    public bool isAttacking;
-    public bool canAttack;
-    public bool canDamage;
     public Enemy.AttackAnimations[] attackAnimations;
     public EnemyBody enemyBody => GetComponent<EnemyBody>();
     public abstract void Attack();
@@ -21,5 +17,4 @@ public abstract class CloseCombatAttacks : MonoBehaviour, IEnemyAttacks
     {
         yield return null;
     }
-
 }
