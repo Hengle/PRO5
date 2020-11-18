@@ -1,32 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Enemy
+public abstract class AnimatorHook : MonoBehaviour
 {
-    public abstract class AnimatorHook : MonoBehaviour
+    Animator animator;
+
+    public void Start()
     {
-        Animator animator;
+        animator = GetComponent<Animator>();
+    }
 
-        public void Start()
-        {
-            animator = GetComponent<Animator>();
-        }
-
-        public virtual void StartAttackAnim(string attack)
-        {
-
-        }
-
-        public virtual void StartAttackAnim(AnimationClip clip)
-        {
-            //Put animationclip into state
-            //Play clip
-        }
-        
-        public virtual void CancleAnim()
-        {
-
-        }
+    public virtual void StartAttackAnim(string attack)
+    {
 
     }
+
+    public virtual void StartAttackAnim(AnimationClip clip)
+    {
+        //Put animationclip into state
+        //Play clip
+    }
+
+    public virtual void CancleAnim()
+    {
+
+    }
+
 }
+

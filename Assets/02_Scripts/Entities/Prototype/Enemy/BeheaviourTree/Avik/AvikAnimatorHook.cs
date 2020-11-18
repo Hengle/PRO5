@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-public class AvikAnimatorHook : Enemy.AnimatorHook
+public class AvikAnimatorHook : AnimatorHook
 {
     public PlayableDirector director;
     public override void StartAttackAnim(string attack)

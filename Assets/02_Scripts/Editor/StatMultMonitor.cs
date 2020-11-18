@@ -7,7 +7,7 @@ public class StatMultMonitor : EditorWindow
     bool playerFoldout = false;
 
     public EnemySet set;
-    public PlayerBody player;
+    public PlayerStatistics player;
 
     public PlayerAttack attack;
 
@@ -23,7 +23,7 @@ public class StatMultMonitor : EditorWindow
     void OnGUI()
     {
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBody>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatistics>();
         attack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
         set = (EnemySet)Resources.Load("New Enemy Set");
         // GUILayout.Label("Player Stats");
@@ -33,10 +33,10 @@ public class StatMultMonitor : EditorWindow
 
         if (playerFoldout)
         {
-            if (player.statistics.statList != null)
+            if (player.statList != null)
             {
                 player.currentHealth.Value = EditorGUILayout.FloatField("Current Health", player.currentHealth.Value, GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f));
-                foreach (GameStatistics s in player.statistics.statList)
+                foreach (GameStatistics s in player.statList)
                 {
                     s.SetValue(EditorGUILayout.FloatField(s.GetName().ToString(), s.GetValue(), GUILayout.MinWidth(150f), GUILayout.MaxWidth(250f)));
                 }

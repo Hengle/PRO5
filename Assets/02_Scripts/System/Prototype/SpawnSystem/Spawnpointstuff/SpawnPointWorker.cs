@@ -66,9 +66,6 @@ public class SpawnPointWorker : MonoBehaviour
                 case EnemyType.Shentau:
                     enemy = InstEnemy(sp.Shentau);
                     break;
-                case EnemyType.undefinded:
-
-                    break;
             }
             
             enemy.GetComponent<EnemyBody>().aiManager = sp.manager;
