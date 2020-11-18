@@ -739,10 +739,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3788541799801290289}
   - component: {fileID: 3491746654760170792}
-  - component: {fileID: 2175917278095082398}
-  - component: {fileID: 1528399111537278399}
+  - component: {fileID: 8195958535983457765}
   - component: {fileID: 7520893772200097872}
   - component: {fileID: 711596593356507799}
+  - component: {fileID: 2175917278095082398}
   - component: {fileID: 3491746654760170799}
   - component: {fileID: 3007900016607863545}
   - component: {fileID: 6263292700920572240}
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTasksPerTick: 100
   behavior: {fileID: 11400000, guid: 2d2eb867fdfac194da052a063d1623fd, type: 2}
-  paused: 0
+  paused: 1
   restartWhenFinished: 0
   blackboard:
     intParams: 
@@ -810,7 +810,7 @@ MonoBehaviour:
     - {fileID: 6263292700920572240}
     - {fileID: 711596593356507799}
     - {fileID: 7520893772200097872}
-    - {fileID: 1528399111537278399}
+    - {fileID: 8195958535983457765}
     objectParamsNames:
     - enemyBody
     - agent
@@ -847,7 +847,7 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
---- !u!114 &2175917278095082398
+--- !u!114 &8195958535983457765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -856,29 +856,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2688651254681684740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ef47a098113f544a6d693f9b4676ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayEmitter: {fileID: 250260118263436414}
-  hitBox: {fileID: 314406195817271088}
-  aiManager: {fileID: 0}
---- !u!114 &1528399111537278399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688651254681684740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f073735964a0f47bc9304429d38abe, type: 3}
+  m_Script: {fileID: 11500000, guid: e46f5e18e410f9b45bf0d8a0660ae1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
   isAttacking: 0
   canAttack: 0
   canDamage: 0
-  stunCooldown: 0.5
+  hittablePowerups: 0000000001000000
 --- !u!114 &7520893772200097872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +895,21 @@ MonoBehaviour:
     animationName: att
     damageFrameStart: 20
     damageFrameEnd: 40
-  attackCollider: {fileID: 314406195817271088}
+--- !u!114 &2175917278095082398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688651254681684740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ef47a098113f544a6d693f9b4676ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayEmitter: {fileID: 250260118263436414}
+  hitBox: {fileID: 314406195817271088}
+  aiManager: {fileID: 0}
 --- !u!114 &3491746654760170799
 MonoBehaviour:
   m_ObjectHideFlags: 0
