@@ -17,11 +17,6 @@ public class MarkerManager : MonoBehaviour
     private bool m_snareSkillLock = false;
     private bool _hiHatSkillLock = false;
 
-    private void OnEnable()
-    {
-        // SceneManager.sceneLoaded += Init;
-    }
-
     public FMODUnity.StudioEventEmitter _emitter;
     FMOD.Studio.EventInstance _musicInstance;
 
@@ -29,24 +24,17 @@ public class MarkerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //_emitter = GetComponent<FMODUnity.StudioEventEmitter>();
         _musicInstance = _emitter.EventInstance;
-
     }
 
-    public void Init()
-    {
-        //MyEventSystem.instance.ActivateSkill += deactivateListener;
-       // MyEventSystem.instance.DeactivateSkill += activateListener;
-    }
-
-    // Update is called once per frame
     void Update()
     {
 
     }
 
-
+    //K Kick
+    //S Snare
+    //H HiHat
 
     public void parseMarkerString(String marker)
     {    
@@ -68,11 +56,10 @@ public class MarkerManager : MonoBehaviour
                             _musicInstance.getParameterByName("SnareLayer", out active);
                             if (!_snareLock && active == 1) 
                             {
-                                Debug.Log("Snare");
+                                //Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
                             }
                             lockInstrument("lockSnare");
-
                         }
                         break;
 
@@ -87,14 +74,13 @@ public class MarkerManager : MonoBehaviour
                             _musicInstance.getParameterByName("KickLayer", out active);
                             if (!_kickLock && active == 1)
                             {
-                                Debug.Log("Kick");
+                               // Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
                             }
                             lockInstrument("lockKick");
                         }
                         break;
                     case 'H':
-
                         if (MyEventSystem.instance == null)
                         {
 
@@ -105,8 +91,8 @@ public class MarkerManager : MonoBehaviour
                             _musicInstance.getParameterByName("HiHatLayer", out active);
                             if (!_hiHatLock && active == 1)
                             {
-                                Debug.Log("HiHat");
-                                MyEventSystem.instance.OnHighHat();
+                                //Debug.Log("HiHat");
+                                MyEventSystem.instance.OnHiHat();
                             }
                             lockInstrument("lockHighHat");
                         }
@@ -122,34 +108,6 @@ public class MarkerManager : MonoBehaviour
         }
     }
 
-    /*
-    public void deactivateListener(Skills skill)
-    {
-        if (skill.name == "LowPass")
-        {
-            m_highHatSkillLock = true;
-        }
-        if (skill.name == "HighPass")
-        {
-            m_kickSkillLock = true;
-        }
-    }
-   
-
-
-    public void activateListener(Skills skill)
-    {
-        if (skill.name == "LowPass")
-        {
-            m_highHatSkillLock = false;
-            Debug.Log(m_highHatSkillLock);
-        }
-        if (skill.name == "HighPass")
-        {
-            m_kickSkillLock = false;
-        }
-    }
-     */
     public void lockInstrument(String lockName)
     {
         StartCoroutine(lockName);
