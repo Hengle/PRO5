@@ -7,8 +7,8 @@ public class DashMovementController
     private float timeStartDash, timeSinceStarted, actualDashDistance, frametime = 0.0f, delayCountdown;
     public bool isDashing = false, dashDelayOn = false;
     private Vector3 velocity;
-    AnimationController animCon => GameObject.FindGameObjectWithTag("Player").GetComponent<AnimationController>();
-    AttackStateMachine _attackStateMachine => GameObject.FindGameObjectWithTag("Player").GetComponent<AttackStateMachine>();
+    //AnimationController animCon => GameObject.FindGameObjectWithTag("Player").GetComponent<AnimationController>();
+    //AttackStateMachine _attackStateMachine => GameObject.FindGameObjectWithTag("Player").GetComponent<AttackStateMachine>();
 
     public DashMovementController(PlayerStateMachine controller)
     {
@@ -31,8 +31,8 @@ public class DashMovementController
     	
         velocity = Vector3.zero;
         controller.selfCol.enabled = false;
-        animCon.Dasher();
-        _attackStateMachine.SetBase();
+        //animCon.Dasher();
+        //_attackStateMachine.SetBase();
         controller.checkEnemy = true;
         controller.dashCharge = 0f;
 
@@ -89,7 +89,7 @@ public class DashMovementController
             velocity = Vector3.zero;
             delayCountdown = controller.delayTime; ;
             dashDelayOn = false;
-            animCon.MoveStarter();
+            //animCon.MoveStarter();
             controller.SetState(PlayerMovementSate.standard);
             // controller.characterController.detectCollisions = true;
         }

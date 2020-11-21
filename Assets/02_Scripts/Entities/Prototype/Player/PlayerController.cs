@@ -244,52 +244,7 @@ public class PlayerController : MonoBehaviour
 
     #region Look direction
 
-    void GamepadLook(Vector2 v)
-    {
-        // if (input.Gameplay.Rotate.triggered || gamepadused)
-        // {
-        //     gamepadused = true;
-        //     mouseused = false;
-
-        var lookRot = mainCam.transform.TransformDirection(new Vector3(v.x, 0, v.y));
-        pointToLook = Vector3.ProjectOnPlane(lookRot, Vector3.up);
-        UpdateLookDirection();
-        // }
-    }
-
-    void MouseLook(Vector2 v)
-    {
-        //     if (mouseused)
-        //     {
-        //         gamepadused = false;
-        //         mouseused = true;
-        //Creating a "mathematical" plane for the raycast to intersect with
-        groundPlane = new Plane(Vector3.up, new Vector3(0, transform.position.y, 0));
-        //creating the Ray
-        Ray cameraRay = mainCam.ScreenPointToRay(v);
-        float rayLength;
-        //checking if the raycast intersects with the plane
-        if (groundPlane.Raycast(cameraRay, out rayLength))
-        {
-            Vector3 rayPoint = cameraRay.GetPoint(rayLength);
-            //Debug.DrawLine(cameraRay.origin, rayPoint);
-            pointToLook = rayPoint - transform.position;
-        }
-        UpdateLookDirection();
-        // }
-    }
-
-    void UpdateLookDirection()
-    {
-        pointToLook.y = 0;
-        if (pointToLook != Vector3.zero)
-        {
-            Quaternion newRot = Quaternion.LookRotation(pointToLook);
-            transform.rotation = newRot;
-            currentLookDirection = newRot.eulerAngles;
-            //Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * rotationSpeed);
-        }
-    }
+    
 
     #endregion
 }

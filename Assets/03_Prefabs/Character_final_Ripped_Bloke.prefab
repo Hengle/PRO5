@@ -1059,13 +1059,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1556470412479264141}
   - component: {fileID: 2576877363223431071}
-  - component: {fileID: 2576877363223431057}
   - component: {fileID: 2576877363223431056}
-  - component: {fileID: 2576877363223431063}
-  - component: {fileID: 2576877363223431062}
   - component: {fileID: 2576877363223431061}
   - component: {fileID: 2576877363223431060}
-  - component: {fileID: 2576877363223431059}
   - component: {fileID: 2576877363223431058}
   m_Layer: 11
   m_Name: Character_final_Ripped_Bloke
@@ -1122,7 +1118,6 @@ MonoBehaviour:
   deltaTime: 0
   time: 0
   currentMoveSpeed: 5
-  grenadeMoveSpeed: 3
   standardMoveSpeed: 6
   dashCharge: 0
   dashRechargeTime: 1
@@ -1136,45 +1131,9 @@ MonoBehaviour:
   dashTarget: {fileID: 0}
   RayEmitter: {fileID: 4538411176893929185}
   currentState: 0
-  clip: {fileID: -203655887218126122, guid: 3727ad485afed754abbfcd68a20bc2a1, type: 3}
   selfCol: {fileID: 2576877363223431061}
   playerTemplate: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
   currentEnemyTarget: {fileID: 0}
---- !u!114 &2576877363223431057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cebc8c07edb82ce4aac592a5f21bd9cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  currentWeapon: {fileID: 0}
-  currentWeaponCounter: 1
-  weaponPoint: {fileID: 4538411174831938976}
-  currentActiveSkill: {fileID: 0}
-  skills:
-  - {fileID: 11400000, guid: 1dada43e531af6e47ab215507f23bd36, type: 2}
-  - {fileID: 11400000, guid: 19d20bb898bb5384b977fcfe5e91c77e, type: 2}
-  - {fileID: 11400000, guid: e3c7b73aa92115841a43afa73e248858, type: 2}
-  comboCounter: 0
-  grenadePrefab: {fileID: 6223329378971152612, guid: e3470bae241c0b4459682b19069c0ccf,
-    type: 3}
-  targetPrefab: {fileID: 4985590412454338710, guid: 6da2a39081ecba8439539761843c0939,
-    type: 3}
-  target: {fileID: 0}
-  firingAngle: 45
-  gravity: 9.8
-  greandeCooldown: 10
-  currentGCooldown: 10
-  moveSpeed: 5
-  AudioPeer: {fileID: 0}
 --- !u!114 &2576877363223431056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,46 +1150,6 @@ MonoBehaviour:
   template: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
   currentHealth: {fileID: 11400000, guid: 7aa13f19c163f504d99c94d8437c9aee, type: 2}
   alive: 1
---- !u!114 &2576877363223431063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce7a876d34478d93a1d78ee78a760f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentAttack: {fileID: 0}
-  currentState: {fileID: 0}
-  baseAttack: {fileID: 11400000, guid: 3a7ca95da7652644abf382fcb23f182a, type: 2}
-  baseState: {fileID: 11400000, guid: 1f4ad10dc66ada94cb6e1ccc92409e62, type: 2}
---- !u!114 &2576877363223431062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a684bde0f8f4783a2c633fd76ec8b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
-  gamepadRotate: {x: 0, y: 0}
-  forward: {fileID: -203655887218126122, guid: 3727ad485afed754abbfcd68a20bc2a1, type: 3}
-  backward: {fileID: -203655887218126122, guid: 71c94b21ce26503458d3497a3566fa9b,
-    type: 3}
-  right: {fileID: -203655887218126122, guid: 78745ea6b9cf45a4681d6b704f76294a, type: 3}
-  left: {fileID: -203655887218126122, guid: 31a562ba7c6647248bf668e43376f897, type: 3}
-  idle: {fileID: 1827226128182048838, guid: a1406b89c8e81b142bb137ac8f9cd90a, type: 3}
-  dash: {fileID: 0}
-  weightX: 0
-  weightY: 0
-  transWeight: 0
 --- !u!136 &2576877363223431061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1263,20 +1182,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2576877363223431059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b07983fe6b6ccc40bda3904fddbaa31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentInteractable: {fileID: 0}
-  player: {fileID: 2576877363223431071}
 --- !u!95 &2576877363223431058
 Animator:
   serializedVersion: 3
@@ -1287,7 +1192,7 @@ Animator:
   m_GameObject: {fileID: 2576877363223431070}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a1406b89c8e81b142bb137ac8f9cd90a, type: 3}
-  m_Controller: {fileID: 9100000, guid: f8045b7621774ed4999462ddb368fabe, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
