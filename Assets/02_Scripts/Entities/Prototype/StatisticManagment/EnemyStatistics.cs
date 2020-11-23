@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyStatistics : StatisticController, IHasHealth
 {
     public float currentHealth;
-    public override void InitStats()
+    protected override void InitStats()
     {
         multList = new List<Multiplier>();
         statList = new List<GameStatistics>();

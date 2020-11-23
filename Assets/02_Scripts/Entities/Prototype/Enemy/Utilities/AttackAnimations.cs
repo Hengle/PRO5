@@ -12,6 +12,7 @@ namespace Enemy
         public float damageFrameStart;
         public float damageFrameEnd;
         public float attRange;
+        public float attackWidth;
         public float clipLength => clip != null ? clip.length : 0;
     }
 }
