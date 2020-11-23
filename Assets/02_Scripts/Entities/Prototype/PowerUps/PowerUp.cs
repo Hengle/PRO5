@@ -16,18 +16,15 @@ public class PowerUp : MonoBehaviour
     public string descText;
 
     public GameObject player;
-    public Collider playerCollider;
     public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        Debug.Log(playerCollider);
-        if (other.Equals(playerCollider))
+        if (other.Equals(player.GetComponents<Collider>()[1]))
         {
             onCollect.Invoke(this);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

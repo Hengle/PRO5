@@ -12,6 +12,7 @@ public class PowerUpController : MonoBehaviour
     {
         Debug.Log(string.Format("Stored {0}", powerup));
         _currentPowerUp = powerup;
+        ActivatePowerUp();
     }
 
 
