@@ -144,6 +144,7 @@
                   <e p="Grenade.cs" t="Include" />
                   <e p="GrenadeMovementController.cs" t="Include" />
                   <e p="PlayerAttack.cs" t="Include" />
+                  <e p="PlayerController.cs" t="Include" />
                   <e p="Skills.cs" t="Include" />
                 </e>
                 <e p="PlayerController" t="Include">
@@ -152,7 +153,6 @@
                   <e p="PlayerMovementController.cs" t="Include" />
                   <e p="PlayerStateMachine.cs" t="Include" />
                 </e>
-                <e p="PlayerController.cs" t="Include" />
                 <e p="Weapons" t="Include">
                   <e p="WeaponSettings.cs" t="Include" />
                 </e>
