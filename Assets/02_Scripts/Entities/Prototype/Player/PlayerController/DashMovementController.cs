@@ -19,7 +19,7 @@ public class DashMovementController
     public void Tick(PlayerStateMachine controller)
     {
         DashUpdate(controller);
-        frametime -= controller.deltaTime;
+        frametime -= Time.deltaTime;
     }
     public void DashInit(PlayerStateMachine controller)
     {
@@ -28,29 +28,27 @@ public class DashMovementController
 
         if (controller.dashCharge < controller.maxDashCharge || !controller.isMoving)
             return;
-    	
+
         velocity = Vector3.zero;
-        controller.selfCol.enabled = false;
+        controller.playerStatistics.isDashing = true;
         //animCon.Dasher();
         //_attackStateMachine.SetBase();
         controller.checkEnemy = true;
         controller.dashCharge = 0f;
 
         velocity = Vector3.Scale(Vector3.Normalize(controller.currentMoveDirection + controller.velocity), controller.dashDistance * new Vector3((Mathf.Log
-        (1f / (controller.deltaTime * controller.drag + 1)) / -controller.deltaTime),
+        (1f / (Time.deltaTime * controller.drag + 1)) / -Time.deltaTime),
         controller.transform.position.y,
-        (Mathf.Log(1f / (controller.deltaTime * controller.drag + 1)) / -controller.deltaTime)));
+        (Mathf.Log(1f / (Time.deltaTime * controller.drag + 1)) / -Time.deltaTime)));
 
         CheckDashPathForEnemys(controller);
 
-        //disable Hurtbox
         // rb.AddForce(velocity * dashForce, ForceMode.VelocityChange);
     }
 
     void GetCurrentMovedirection(PlayerStateMachine controller)
     {
-        Vector2 move = controller.input.Gameplay.Movement.ReadValue<Vector2>();
-        Vector3 direction = new Vector3(move.x, 0, move.y);
+        Vector3 direction = new Vector3(controller.inputManager.move.x, 0, controller.inputManager.move.y);
         Vector3 horizMovement = controller.right * direction.x;
         Vector3 vertikMovement = controller.forward * direction.z;
         controller.currentMoveDirection = horizMovement + vertikMovement;
@@ -58,10 +56,9 @@ public class DashMovementController
 
     void DashUpdate(PlayerStateMachine controller)
     {
-
         controller.velocity = velocity * controller.dashForce;
-        velocity.x /= 1 + controller.drag * controller.deltaTime;
-        velocity.z /= 1 + controller.drag * controller.deltaTime;
+        velocity.x /= 1 + controller.drag * Time.deltaTime;
+        velocity.z /= 1 + controller.drag * Time.deltaTime;
 
         //invincible while frametime not zero
         if (frametime <= 0 && !dashDelayOn)
@@ -69,7 +66,7 @@ public class DashMovementController
             //enable Hurtbox
             frametime = controller.dashDuration;
             dashDelayOn = true;
-            controller.selfCol.enabled = true;
+            controller.playerStatistics.isDashing = false;
             controller.dashTime = Time.time;
         }
 
@@ -77,12 +74,11 @@ public class DashMovementController
             return;
 
         DashDelay(controller);
-
     }
 
     void DashDelay(PlayerStateMachine controller)
     {
-        delayCountdown -= controller.deltaTime;
+        delayCountdown -= Time.deltaTime;
         controller.currentMoveDirection = Vector3.zero;
         if (delayCountdown <= 0)
         {
@@ -97,22 +93,22 @@ public class DashMovementController
 
     void CheckDashPathForEnemys(PlayerStateMachine controller)
     {
-        controller.RayEmitter.forward = controller.currentMoveDirection.normalized;
-        actualDashDistance = Vector3.Distance(controller.transform.position, controller.transform.position + controller.currentMoveDirection + ((velocity + velocity) / 2) * controller.dashDuration);
-        // controller.characterController.detectCollisions = false;
-        
-        RaycastHit[] cols = Physics.SphereCastAll(controller.RayEmitter.position, 2f, controller.RayEmitter.forward, actualDashDistance, controller.enemyMask, QueryTriggerInteraction.Ignore);
-        if (cols != null)
-        {
-            foreach (RaycastHit hits in cols)
-            {
-                if (hits.transform.gameObject.GetComponent<EnemyBody>() != null)
-                {
-                    controller.dashTarget = hits.transform.gameObject;
-                    controller.dashTarget.GetComponent<DisableCols>().Disable();
-                }
-            }
-        }
-        controller.checkEnemy = false;
+        // controller.RayEmitter.forward = controller.currentMoveDirection.normalized;
+        // actualDashDistance = Vector3.Distance(controller.transform.position, controller.transform.position + controller.currentMoveDirection + ((velocity + velocity) / 2) * controller.dashDuration);
+        // // controller.characterController.detectCollisions = false;
+
+        // RaycastHit[] cols = Physics.SphereCastAll(controller.RayEmitter.position, 2f, controller.RayEmitter.forward, actualDashDistance, controller.enemyMask, QueryTriggerInteraction.Ignore);
+        // if (cols != null)
+        // {
+        //     foreach (RaycastHit hits in cols)
+        //     {
+        //         if (hits.transform.gameObject.GetComponent<EnemyBody>() != null)
+        //         {
+        //             controller.dashTarget = hits.transform.gameObject;
+        //             controller.dashTarget.GetComponent<DisableCols>().Disable();
+        //         }
+        //     }
+        // }
+        // controller.checkEnemy = false;
     }
 }

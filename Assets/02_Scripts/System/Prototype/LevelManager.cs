@@ -90,7 +90,7 @@ public class LevelManager : MonoBehaviour
     public void StartLevel()
     {
         FindPlayerSpawnpoint();
-        player.GetComponent<PlayerStateMachine>().input.Gameplay.Disable();
+        // player.GetComponent<PlayerStateMachine>().input.Gameplay.Disable();
         player.GetComponent<Animator>().applyRootMotion = false;
 
         StartCoroutine(WaitSpawn());
@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
         player.position = new Vector3(playerSpawn.position.x, playerSpawn.position.y, playerSpawn.position.z);
         yield return new WaitForEndOfFrame();
         player.GetComponent<Animator>().applyRootMotion = true;
-        player.GetComponent<PlayerStateMachine>().input.Gameplay.Enable();
+        // player.GetComponent<PlayerStateMachine>().input.Gameplay.Enable();
     }
     public void FinishLevel()
     {

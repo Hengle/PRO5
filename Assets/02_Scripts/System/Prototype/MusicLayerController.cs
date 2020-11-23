@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class MusicLayerController : MonoBehaviour
 {
-
-
     public FMODUnity.StudioEventEmitter _musicEvent;
 
     [HideInInspector]
@@ -27,68 +25,59 @@ public class MusicLayerController : MonoBehaviour
         _atmoActive = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SnareLayer()
     {
-        
-
-        if (Keyboard.current[Key.Digit1].wasPressedThisFrame)
+        if (_snareActive)
         {
-            if (_snareActive)
-            {
-                _musicEvent.SetParameter("SnareLayer", 0);
-                _snareActive = false;
-            }
-            else
-            {
-                _musicEvent.SetParameter("SnareLayer", 1);
-                _snareActive = true;
-            }      
+            _musicEvent.SetParameter("SnareLayer", 0);
+            _snareActive = false;
         }
-
-        if (Keyboard.current[Key.Digit2].wasPressedThisFrame)
+        else
         {
-            if (_hiHatActive)
-            {
-                _musicEvent.SetParameter("HiHatLayer", 0);
-                _hiHatActive = false;
-            }
-            else
-            {
-                _musicEvent.SetParameter("HiHatLayer", 1);
-                _hiHatActive = true;
-            }
-        }
-
-        if (Keyboard.current[Key.Digit3].wasPressedThisFrame)
-        {
-            if (_leadBassActive)
-            {
-                _musicEvent.SetParameter("LeadBassLayer", 0);
-                _leadBassActive = false;
-            }
-            else
-            {
-                _musicEvent.SetParameter("LeadBassLayer", 1);
-                _leadBassActive = true;
-            }
-        }
-
-        if (Keyboard.current[Key.Digit4].wasPressedThisFrame)
-        {
-            if (_atmoActive)
-            {
-                _musicEvent.SetParameter("AtmoLayer", 0);
-                _atmoActive = false;
-            }
-            else
-            {
-                _musicEvent.SetParameter("AtmoLayer", 1);
-                _atmoActive = true;
-            }
+            _musicEvent.SetParameter("SnareLayer", 1);
+            _snareActive = true;
         }
     }
 
+    public void HiHatLayer()
+    {
+        if (_hiHatActive)
+        {
+            _musicEvent.SetParameter("HiHatLayer", 0);
+            _hiHatActive = false;
+        }
+        else
+        {
+            _musicEvent.SetParameter("HiHatLayer", 1);
+            _hiHatActive = true;
+        }
+    }
 
+    public void LeadBassLayer()
+    {
+        if (_leadBassActive)
+        {
+            _musicEvent.SetParameter("LeadBassLayer", 0);
+            _leadBassActive = false;
+        }
+        else
+        {
+            _musicEvent.SetParameter("LeadBassLayer", 1);
+            _leadBassActive = true;
+        }
+    }
 
+    public void AtmoLayer()
+    {
+        if (_atmoActive)
+        {
+            _musicEvent.SetParameter("AtmoLayer", 0);
+            _atmoActive = false;
+        }
+        else
+        {
+            _musicEvent.SetParameter("AtmoLayer", 1);
+            _atmoActive = true;
+        }
+    }
 }

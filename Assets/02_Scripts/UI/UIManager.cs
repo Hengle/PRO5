@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
-    PlayerControls input;
+    // PlayerControls input;
     [SerializeField] PlayerStateMachine player;
 
     public GameObject prompt;
@@ -16,14 +16,14 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        input = player.input;
-        input.uiControls.Enable();
-        input.uiControls.Pause.performed += ctx => TogglePauseMenu();
+        // input = player.input;
+        // input.uiControls.Enable();
+        // input.uiControls.Pause.performed += ctx => TogglePauseMenu();
     }
 
     private void OnDisable()
     {
-        input.uiControls.Disable();
+        // input.uiControls.Disable();
     }
 
     public void ReturnToMainMenu()
