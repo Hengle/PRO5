@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 //should work
-public class DamagePlate : AudioObstacle
+public class DamagePlate : AudioObstacle, IDamageObstacle
 {
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
     public bool _holdValue;
@@ -13,16 +13,18 @@ public class DamagePlate : AudioObstacle
 
     //When active the colliders are enabled and damage can happen
     private bool _plateActive = false;
-
-    public float _dmgOnEnter = 30;
-    public float _dmgOnstay = 5;
-
-
+    
+    public float _dmgOnEnter { get; set; }
+    public float _dmgOnStay { get; set; }
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
         addActionToEvent();
+        _dmgOnEnter = 30;
+        _dmgOnStay = 5;
     }
+    
+    
 
     void Update()
     {
@@ -72,8 +74,11 @@ public class DamagePlate : AudioObstacle
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
             }
+            
         }    
     }
+
+   
 
     public void shortDurationHelper()
     {
