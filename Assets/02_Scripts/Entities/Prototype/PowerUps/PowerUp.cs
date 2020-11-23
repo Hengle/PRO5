@@ -12,27 +12,19 @@ public class PowerUp : MonoBehaviour
     {
     }
 
-    public class Description
-    {
-        public string Name;
+    public string nameText;
+    public string descText;
 
-        public Description(string name)
-        {
-            Name = name;
-        }
-    }
-
-    protected Description Desc = new Description("UNSET");
-
-    public Collider playerCollider;
+    public GameObject player;
     public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
 
 
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.Equals(playerCollider))
+        if (other.Equals(player.GetComponents<Collider>()[1]))
         {
             onCollect.Invoke(this);
+            Destroy(gameObject);
         }
     }
 
@@ -43,6 +35,6 @@ public class PowerUp : MonoBehaviour
 
     public override string ToString()
     {
-        return string.Format("'PowerUp {0}'", Desc.Name);
+        return string.Format("'PowerUp {0}'", descText);
     }
 }
