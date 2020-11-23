@@ -21,7 +21,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     //Interval in which the object calls the method "objectAction"
     public bool _intervalBeat;
-    public int m_interval = 2;
+    public float m_interval = 2;
     public int m_intervalCounter;
 
     protected Boolean m_IntervalInvert = false;
@@ -76,6 +76,8 @@ public abstract class AudioObstacle : MonoBehaviour
     //Die Objekt-Action die in der Kind-Klasse dann definiert wird.
     //Jedes Obstacle hat eine Aktion die immer auf das zugehörige Event aktiviert wird.
     protected abstract void objectAction();
+
+   
 
 
 

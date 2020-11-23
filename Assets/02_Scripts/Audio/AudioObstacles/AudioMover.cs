@@ -55,13 +55,15 @@ public class AudioMover : AudioObstacle
         {
             if (_intervalBeat && checkInterval())
             {
-                transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration) ;
+                transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration);
             }
+
             if (_backAndForth && !checkInterval())
             {
                 transform.DOLocalMoveX(_moveXMinBorder, m_actionInDuration);
             }
         }
+
         if (_moveZ != 0)
         {
             if (_intervalBeat && checkInterval())
@@ -73,10 +75,11 @@ public class AudioMover : AudioObstacle
                 transform.DOLocalMoveZ(_moveZMinBorder, m_actionInDuration);
             }
         }
+
         if (_moveY != 0)
         {
             if (_intervalBeat && checkInterval())
-            {              
+            {
                 transform.DOLocalMoveY(_moveYMaxBorder, m_actionInDuration);
 
             }
@@ -86,6 +89,7 @@ public class AudioMover : AudioObstacle
             }
         }
     }
+    
 
     // Update is called once per frame
     void Update()
