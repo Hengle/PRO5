@@ -8,8 +8,9 @@ public class AIUtilities : MonoBehaviour
     //Simple Timer that counts down until 0 from a given float value
     public class Timer
     {
-        public float currentTime;
+        float currentTime;
         float waitTime;
+        bool timerDone;
 
         public Timer()
         {
@@ -19,13 +20,15 @@ public class AIUtilities : MonoBehaviour
         public Timer(float time)
         {
             waitTime = time;
-            currentTime = waitTime;
+            currentTime = 0;
         }
 
-        //Starts the async operation
+
         public void StartTimer()
         {
-            currentTime = waitTime;
+            timerDone = false;
+
+            //Starting the async function
             Timing();
         }
 
@@ -33,24 +36,28 @@ public class AIUtilities : MonoBehaviour
         //Subtracts deltatime every frame/playerloop
         async UniTask Timing()
         {
-            
-            while (currentTime >= 0)
+            while (currentTime <= waitTime)
             {
-                currentTime -= Time.deltaTime;
+                currentTime += Time.deltaTime;
                 await UniTask.Yield();
+                timerDone = true;
             }
+            currentTime -= waitTime;
         }
 
-        //Can be called to see if the timer has counted down to 0
+        //Can be called to check if the timer has counted down to 0
         public bool TimerDone()
         {
-            return currentTime <= 0;
+            return timerDone;
         }
 
         public void setWaitTime(float time)
         {
             waitTime = time;
-            currentTime = waitTime;
+            if (currentTime >= waitTime)
+                currentTime -= waitTime;
+            else
+                currentTime = 0;
         }
     }
 }

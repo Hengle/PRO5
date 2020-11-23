@@ -88,7 +88,7 @@ using UnityEngine.SceneManagement;
         //     GetEmitter();
 
         currentWeapon = weapons[currentWeaponCounter];
-        currentWeapon.Equip(weaponPoint);
+        // currentWeapon.Equip(weaponPoint);
 
 
         foreach (Skills skill in skills)
@@ -249,7 +249,7 @@ using UnityEngine.SceneManagement;
             }
 
             currentWeapon = weapons[currentWeaponCounter];
-            currentWeapon.Equip(weaponPoint);
+            // currentWeapon.Equip(weaponPoint);
             changeWeaponTimer = 0;
         }
 

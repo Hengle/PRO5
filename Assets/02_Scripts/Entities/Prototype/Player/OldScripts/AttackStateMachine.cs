@@ -51,7 +51,7 @@ public class AttackStateMachine : MonoBehaviour
 
     private void Start()
     {
-        currentAttack = playerAttack.currentWeapon.baseAttack; //current attack is based on the current weapon
+        // currentAttack = playerAttack.currentWeapon.baseAttack; //current attack is based on the current weapon
         currentState = baseState;
 
         // GraphVisualizerClient.Show(playableGraph);
@@ -187,7 +187,7 @@ public class AttackStateMachine : MonoBehaviour
         }
         else
         {
-            currentAttack = playerAttack.currentWeapon.baseAttack;
+            // currentAttack = playerAttack.currentWeapon.baseAttack;
             MyEventSystem.instance.OnSetState(PlayerMovementSate.standard);
         }
         currentState = baseState;

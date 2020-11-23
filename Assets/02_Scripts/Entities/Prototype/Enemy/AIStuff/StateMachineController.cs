@@ -8,7 +8,7 @@ public class StateMachineController : MonoBehaviour
     #region "Variables"
     [HideInInspector] public EnemyBody enemyStats => GetComponent<EnemyBody>();
     [HideInInspector] public NavMeshAgent agent => GetComponent<NavMeshAgent>();
-    [HideInInspector] public IEnemyActions actions => GetComponent<IEnemyActions>();
+    [HideInInspector] public EnemyActions actions => GetComponent<EnemyActions>();
     [HideInInspector] public AIManager aiManager;
     [HideInInspector] public AISteering steering;
     [HideInInspector] public Vector3 offsetTargetPos;
@@ -29,7 +29,7 @@ public class StateMachineController : MonoBehaviour
 
     private void Start()
     {
-        steering = new AISteering();
+        // steering = new AISteering();
     }
 
     private void OnEnable()

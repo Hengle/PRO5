@@ -165,12 +165,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Move()
     {
-        if (playerBody.alive)
-        {
+        // if (playerBody.alive)
+        // {
             IsGrounded();
             velocity.y = 0;
             characterController.Move(((Vector3.Normalize(currentMoveDirection) + velocity) * currentMoveSpeed) * Time.deltaTime);
-        }
+        // }
     }
 
     void IsMoving()
