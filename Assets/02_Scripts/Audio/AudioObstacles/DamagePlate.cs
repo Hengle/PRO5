@@ -44,16 +44,9 @@ public class DamagePlate : AudioObstacle
     }
 
 
-    IEnumerator activationDelayNumerator()
-    {
-        yield return new WaitForSeconds(1f);
-        // m_activateComponent = true;
-    }
-
 
     protected override void objectAction()
     {
-
         increaseIntervalCounter();
 
         if (checkInterval())
@@ -64,52 +57,31 @@ public class DamagePlate : AudioObstacle
                 {
                     emissionChange(1);
                     m_holdHelper = false;
-                    /*
                     m_plateActive = true;
-                    V = 10;
-                    mySequence = DOTween.Sequence()
-                    .Append(m_material.DOColor(Color.HSVToRGB(H, S, V, true), "EmissionRedColor", m_actionInDuration))
-                    .SetEase(Ease.Flash);
-                    
-                    gameObject.GetComponentInChildren<DamagePlateCollider>().EnableSelf();
-                    */
+
+                    //ChildCollider aktivieren
+                    transform.GetComponentInChildren<DamagePlateCollider>().EnableSelf();
+
                 }
                 else
                 {
                     emissionChange(2);
                     m_holdHelper = true;
-                    /*
-                    V = -10;
-                   
-                    mySequence = DOTween.Sequence()
-                    .Append(m_material.DOColor(Color.HSVToRGB(H, S, V, true), "EmissionRedColor", m_actionOutDuration))
-                    .SetEase(Ease.Flash);
-                    m_plateActive = false;
-
-                    gameObject.GetComponentInChildren<DamagePlateCollider>().DisableSelf();
-                    */
                 }
             }
             else
             {
                 emissionChange();
-                /*
                 shortDurationHelper();
-
-                mySequence = DOTween.Sequence()
-                    .Append(m_material.DOColor(Color.HSVToRGB(H, S, 10, true), "EmissionRedColor", m_actionInDuration))
-                    .Append(m_material.DOColor(Color.HSVToRGB(H, S, -10, true), "EmissionRedColor", m_actionOutDuration))
-                    .SetEase(Ease.Flash);
-                    */
             }
 
         }
     }
 
-
+    //Wird vom Child-Collider aufgerufen
     public void PullTrigger(Collider c, float dmg)
     {
-        /*
+        
         bool hit = false;
         if (m_plateActive)
         {
@@ -122,13 +94,9 @@ public class DamagePlate : AudioObstacle
             }
 
         }
-        */
+        
     }
-    private void OnEnable()
-    {
-        // SceneManager.sceneLoaded += addActionToEvent;
-        // SceneManager.sceneLoaded += activateComponent;
-    }
+
     public void shortDurationHelper()
     {
         StartCoroutine("enableDmgRoutine");
@@ -136,7 +104,7 @@ public class DamagePlate : AudioObstacle
 
     IEnumerator enableDmgRoutine()
     {
-
+        
         m_plateActive = true;
         gameObject.GetComponentInChildren<DamagePlateCollider>().EnableSelf();
 

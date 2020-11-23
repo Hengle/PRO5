@@ -4,30 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+
 public abstract class AudioObstacle : MonoBehaviour
 {
+    //Zuweisung zu einem Event
     public bool m_onSnare;
     public bool m_onKick;
     public bool m_onHighHat;
 
     protected bool addedToEvent = false;
 
-
-    public bool m_onSkillActive;
-
+    //In welchen Intervall ein Obstacle sich aktiviert
     public bool m_intervalBeat;
     public int m_interval = 2;
     public int m_intervalCounter;
     public int m_startInterval;
     protected Boolean m_IntervalInvert = false;
 
+    //Dauer der Aktion
     public float m_actionInDuration = 0.25f;
     public float m_actionOutDuration = 0.25f;
 
+    //Intensität der Emission & Material
+    public float m_maxEmissionIntensity = 10;
+    public float m_minEmissionIntensity = 0.1f;
+    protected Material _material;
+
+    //Tweening Sequence
+    Sequence tweenSeq;
 
     bool test = false;
-    Sequence tweenSeq;
-    protected Material _material;
+    
+    
 
 
 
@@ -45,6 +53,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     }
 
+    //Wenn Intervall-Modusk aktviert ist wird bei jedem Musik-Marker der IntervallCounter hinaufgezählt
     protected void increaseIntervalCounter()
     {
 
@@ -63,6 +72,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     }
 
+    //Wenn der IntervallCounter mit dem vorgebenen Intervall übereinstimmt wird das zugehörige Event ausgeführt
     protected bool checkInterval()
     {
         if (m_intervalBeat)
@@ -75,10 +85,13 @@ public abstract class AudioObstacle : MonoBehaviour
         }
     }
 
+    //Die Objekt-Action die in der Kind-Klasse dann definiert wird.
+    //Jedes Obstacle hat eine Aktion die immer auf das zugehörige Event aktiviert wird.
     protected abstract void objectAction();
 
 
 
+    //Wird beim start aufegrufen und checkt anhand der Booleans zu welchen Event es subscriben sollte
     public void addActionToEvent()
     {
         addedToEvent = true;
@@ -101,7 +114,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     }
 
-
+    //Unsubscribe vom Event 
     protected void removeActionFromEvent()
     {
         addedToEvent = false;
@@ -122,10 +135,9 @@ public abstract class AudioObstacle : MonoBehaviour
         }
     }
 
+    //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
     protected void emissionChange(int mode = 0)
     {
-        float maxEmission = 10;
-        float minEmission = 0.1f;
         
         if (_material.HasProperty("EmissionIntensity"))
         {
@@ -133,8 +145,8 @@ public abstract class AudioObstacle : MonoBehaviour
             if (mode == 0)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(maxEmission, "EmissionIntensity", m_actionInDuration))
-                .Append(_material.DOFloat(minEmission, "EmissionIntensity", m_actionOutDuration))
+                .Append(_material.DOFloat(m_maxEmissionIntensity, "EmissionIntensity", m_actionInDuration))
+                .Append(_material.DOFloat(m_minEmissionIntensity, "EmissionIntensity", m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
 
@@ -142,14 +154,14 @@ public abstract class AudioObstacle : MonoBehaviour
             else if (mode == 1)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(maxEmission, "EmissionIntensity", m_actionInDuration))
+                .Append(_material.DOFloat(m_maxEmissionIntensity, "EmissionIntensity", m_actionInDuration))
                 .SetEase(Ease.Flash);
             }
             //OFF
             else if (mode == 2)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(minEmission, "EmissionIntensity", m_actionOutDuration))
+                .Append(_material.DOFloat(m_minEmissionIntensity, "EmissionIntensity", m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
         }

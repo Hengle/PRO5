@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 2c692725263bd6c438184ff83718ec4e
+guid: ab1418e33b3e99649ae994217f0f9164
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultPolygonShader22
+    second: {fileID: 2100000, guid: 95ee5e916d4945a489fca29ae6068a8f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
