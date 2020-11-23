@@ -5,27 +5,32 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
+
+//Base Class for every AudioObstacle
+//Handles Event Subscribing
+//Intervall
+//Material Emission
 public abstract class AudioObstacle : MonoBehaviour
 {
-    //Zuweisung zu einem Event
+    //Subscribe to Event
     public bool m_onSnare;
     public bool m_onKick;
-    public bool m_onHighHat;
+    public bool m_onHiHat;
 
     protected bool addedToEvent = false;
 
-    //In welchen Intervall ein Obstacle sich aktiviert
-    public bool m_intervalBeat;
+    //Interval in which the object calls the method "objectAction"
+    public bool _intervalBeat;
     public int m_interval = 2;
     public int m_intervalCounter;
-    public int m_startInterval;
+
     protected Boolean m_IntervalInvert = false;
 
-    //Dauer der Aktion
+    //Duration of Action
     public float m_actionInDuration = 0.25f;
     public float m_actionOutDuration = 0.25f;
 
-    //Intensität der Emission & Material
+    //Intensity of Material Emission
     public float m_maxEmissionIntensity = 10;
     public float m_minEmissionIntensity = 0.1f;
     protected Material _material;
@@ -35,19 +40,12 @@ public abstract class AudioObstacle : MonoBehaviour
 
     bool test = false;
     
-    
+   
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-
-
-
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -56,26 +54,16 @@ public abstract class AudioObstacle : MonoBehaviour
     //Wenn Intervall-Modusk aktviert ist wird bei jedem Musik-Marker der IntervallCounter hinaufgezählt
     protected void increaseIntervalCounter()
     {
-
-        if (m_intervalBeat)
+        if (_intervalBeat)
         {
-
-            if (!test)
-            {
-                test = true;
-            }
-            else
-            {
-                m_intervalCounter++;
-            }
+            m_intervalCounter++;
         }
-
     }
 
     //Wenn der IntervallCounter mit dem vorgebenen Intervall übereinstimmt wird das zugehörige Event ausgeführt
     protected bool checkInterval()
     {
-        if (m_intervalBeat)
+        if (_intervalBeat)
         {
             return (m_intervalCounter % m_interval == 0);
         }
@@ -106,12 +94,10 @@ public abstract class AudioObstacle : MonoBehaviour
             MyEventSystem.instance.Kick += objectAction;
         }
 
-        if (m_onHighHat)
+        if (m_onHiHat)
         {
-            MyEventSystem.instance.HighHat += objectAction;
+            MyEventSystem.instance.HiHat += objectAction;
         }
-
-
     }
 
     //Unsubscribe vom Event 
@@ -129,16 +115,15 @@ public abstract class AudioObstacle : MonoBehaviour
             MyEventSystem.instance.Kick -= objectAction;
         }
 
-        if (m_onHighHat)
+        if (m_onHiHat)
         {
-            MyEventSystem.instance.HighHat -= objectAction;
+            MyEventSystem.instance.HiHat -= objectAction;
         }
     }
 
     //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
     protected void emissionChange(int mode = 0)
-    {
-        
+    {  
         if (_material.HasProperty("EmissionIntensity"))
         {
             //On and OFF
@@ -149,7 +134,6 @@ public abstract class AudioObstacle : MonoBehaviour
                 .Append(_material.DOFloat(m_minEmissionIntensity, "EmissionIntensity", m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
-
             //ON
             else if (mode == 1)
             {
