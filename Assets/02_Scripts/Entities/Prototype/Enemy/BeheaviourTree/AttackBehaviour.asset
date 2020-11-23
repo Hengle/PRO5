@@ -15,74 +15,80 @@ MonoBehaviour:
   brickName: Assets/02_Scripts/Entities/Prototype/Enemy/BeheaviourTree/AttackBehaviour.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"dec7d283849515a42814ab2ef93df956\" nextId=\"11\">\r\n      <root>\r\n       
+    id=\"0\" guid=\"dec7d283849515a42814ab2ef93df956\" nextId=\"13\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"1\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"enemyBody\" type=\"EnemyBody\" isBlackboard=\"False\"
-    />\r\n          <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"False\"
-    value=\"False\" />\r\n          <entry name=\"aiManager\" type=\"AIManager\"
-    isBlackboard=\"False\" />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
-    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"canAttack\"
-    type=\"System.Boolean\" isBlackboard=\"True\" />\r\n        </outputValues>\r\n     
-    </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator
-    id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
-    <SequenceNode id=\"8\" />\r\n      </child>\r\n      <inputParams />\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
-    id=\"8\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"9\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"10\" />\r\n       
-    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\"
-    action=\"CanAttackCheck\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
+    />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"actions\" type=\"EnemyActions\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"False\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
+    <localParams>\r\n        <localValues>\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
+    isBlackboard=\"False\" />\r\n        </localValues>\r\n      </localParams>\r\n   
+    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
+    <child>\r\n        <SequenceNode id=\"8\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
+    <SequenceNode id=\"8\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
+    id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"12\"
+    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
+    id=\"9\" action=\"CanAttackCheck\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
     <entry name=\"utilites\" type=\"AIUtilities\" isBlackboard=\"True\" blackboard=\"utilities\"
     />\r\n          <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"True\"
     blackboard=\"canAttack\" />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
     isBlackboard=\"True\" blackboard=\"timer\" />\r\n          <entry name=\"enemyBody\"
-    type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"canAttack\"
-    />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"True\"
-    blackboard=\"timer\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"10\" action=\"EnemyBehaviour/AttackAction\">\r\n     
+    type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
+    <entry name=\"currentTime\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"currentTime\"
+    />\r\n          <entry name=\"currentTimer\" type=\"System.Single\" isBlackboard=\"True\"
+    blackboard=\"currentTimer\" />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\"
+    isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"actions\"
+    type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
+    <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
+    <outputValues>\r\n          <entry name=\"canAttack\" type=\"System.Boolean\"
+    isBlackboard=\"True\" blackboard=\"canAttack\" />\r\n          <entry name=\"timer\"
+    type=\"AIUtilities+Timer\" isBlackboard=\"True\" blackboard=\"timer\" />\r\n         
+    <entry name=\"currentTimer\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"currentTimer\"
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
+    />\r\n    </ActionNode>\r\n    <ActionNode id=\"12\" action=\"EnemyBehaviour/MeleeAttackAction\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"enemyBody\"
     type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
-    <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"canAttack\"
-    />\r\n          <entry name=\"aiManager\" type=\"AIManager\" isBlackboard=\"True\"
-    blackboard=\"aiManager\" />\r\n          <entry name=\"utilities\" type=\"AIUtilities\"
-    isBlackboard=\"True\" blackboard=\"utilities\" />\r\n          <entry name=\"timer\"
-    type=\"AIUtilities+Timer\" isBlackboard=\"True\" blackboard=\"timer\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"canAttack\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"canAttack\"
+    <entry name=\"aiManager\" type=\"AIManager\" isBlackboard=\"True\" blackboard=\"aiManager\"
     />\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"True\"
-    blackboard=\"timer\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
+    blackboard=\"timer\" />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\"
+    isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"actions\"
+    type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
+    <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n   
     <BehaviorTree id=\"0\" _name=\"AttackBehaviour\" _description=\"Simple Attack
     Behaviour that works with an external timer to time it's attacks.\" _removeIfClosed=\"False\">\r\n     
     <_rootList>\r\n        <elem>\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </elem>\r\n        <elem>\r\n          <SequenceNode id=\"8\" />\r\n        </elem>\r\n       
     <elem>\r\n          <ActionNode id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <ActionNode id=\"10\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    <ActionNode id=\"12\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
     <nodes>\r\n          <RepeatDecorator id=\"1\" />\r\n          <SequenceNode
-    id=\"8\" />\r\n          <ActionNode id=\"9\" />\r\n          <ActionNode id=\"10\"
+    id=\"8\" />\r\n          <ActionNode id=\"9\" />\r\n          <ActionNode id=\"12\"
     />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
     id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"390.625 114.25\" name=\"Repeat\" description=\"Repeats the execution
+    position=\"463.3403 116.0554\" name=\"Repeat\" description=\"Repeats the execution
     of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"8\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"381.25 223.75\" name=\"Sequence\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"454.9653 225.5552\" name=\"Sequence\"
     description=\"Executes all its children in sequence until all of them are successful\"
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"8\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"190 351.25\"
-    name=\"CanAttackCheck\" description=\"Checks if the internal timer is done\"
-    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
-    <ActionNode id=\"9\" />\r\n          <SequenceNode id=\"8\" />\r\n        </data>\r\n     
-    </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"10\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"521.25 357.5\" name=\"EnemyBehaviour/AttackAction\"
-    description=\"Attacks\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
-    id=\"0\" />\r\n          <ActionNode id=\"10\" />\r\n          <SequenceNode
-    id=\"8\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.8
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"262.7151
+    353.0556\" name=\"CanAttackCheck\" description=\"Checks if the internal timer
+    is done\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\"
+    />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode id=\"8\" />\r\n       
+    </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"12\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"520 347\"
+    name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"12\" />\r\n          <SequenceNode id=\"8\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 1
   subslist: []
   _guid: dec7d283849515a42814ab2ef93df956

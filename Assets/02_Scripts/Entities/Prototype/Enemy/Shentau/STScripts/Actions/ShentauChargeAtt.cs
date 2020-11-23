@@ -34,12 +34,12 @@ public class ShentauChargeAtt : Action
     void Move(StateMachineController controller)
     {
 
-        if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) > 5f & Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) < 8f)
+        /*if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) > 5f & Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) < 8f)
         {
             controller.agent.isStopped = true;
             Vector3 dir = controller.aiManager.playerTarget.position - controller.transform.position;
             Quaternion look = Quaternion.LookRotation(dir);
-            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.GetStatValue(StatName.TurnSpeed));
+            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.statistics.GetStatValue(StatName.TurnSpeed));
 
         }
         else if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) > 8f)
@@ -47,9 +47,9 @@ public class ShentauChargeAtt : Action
             controller.agent.isStopped = false;
             Vector3 dir = controller.aiManager.playerTarget.position - controller.transform.position;
             Quaternion look = Quaternion.LookRotation(dir);
-            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.GetStatValue(StatName.TurnSpeed));
+            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, look, controller.deltaTime * controller.enemyStats.statistics.GetStatValue(StatName.TurnSpeed));
             controller.agent.destination = controller.aiManager.playerTarget.position;
-            Vector3 moveTo = controller.transform.forward * (controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed)) * controller.deltaTime;
+            Vector3 moveTo = controller.transform.forward * (controller.enemyStats.statistics.GetStatValue(StatName.Speed) * controller.enemyStats.statistics.GetMultValue(MultiplierName.speed)) * controller.deltaTime;
             controller.agent.Move(moveTo);
         }
         else if (Vector3.Distance(controller.aiManager.playerTarget.position, controller.transform.position) < 5f)
@@ -62,6 +62,7 @@ public class ShentauChargeAtt : Action
             Vector3 moveTo = -dir.normalized * (controller.enemyStats.GetStatValue(StatName.Speed) * controller.enemyStats.GetMultValue(MultiplierName.speed)) * controller.deltaTime;
             controller.agent.Move(moveTo);
         }
+        */
     }
 
 }

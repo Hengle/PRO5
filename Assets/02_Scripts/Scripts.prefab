@@ -52,7 +52,6 @@ MonoBehaviour:
   secondaryWhiskerL: 1.5
   angleIncrement: 10
   whiskerAmount: 11
-  comboBias: 40
   activationTime: 0.2
 --- !u!114 &1442805446
 MonoBehaviour:
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3016386617375203207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4282a5cc9acbd8449a6d47b6c68cae2, type: 3}
   m_Name: 
@@ -160,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016386617398075702}
-  - component: {fileID: 84565653644464121}
+  - component: {fileID: 132072445}
   m_Layer: 0
   m_Name: StatsManager
   m_TagString: Untagged
@@ -182,7 +181,7 @@ Transform:
   m_Father: {fileID: 537976613570928071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &84565653644464121
+--- !u!114 &132072445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,10 +190,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3016386617398075710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947154799dbf1c846807ceb97aed81f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 699ebf34b86beb349a1ec4bdb8651f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &3016386617689796663
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +202,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016386617689796683}
-  - component: {fileID: 3016386617689796680}
   m_Layer: 0
   m_Name: SpawnManagement
   m_TagString: Untagged
@@ -226,32 +223,6 @@ Transform:
   m_Father: {fileID: 537976613570928071}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3016386617689796680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016386617689796663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3387fdcfca2f31144b6c0ec22f2ade3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1097293485}
-  levelManager: {fileID: 7403463183224586819}
-  scriptedSpawn: 0
-  spawnpointlist: {fileID: 11400000, guid: 6064ed67f26b6a442bf7a9425adbda2a, type: 2}
-  enemyCollection: {fileID: 11400000, guid: d8762f34ae67bcf40ada5da7325b9449, type: 2}
-  count: 0
-  enemyListEmpty: 0
-  isSpawning: 0
-  Avik: {fileID: 2649116113045803458, guid: 36368829eaf9d6548a3644bbbf277d6f, type: 3}
-  Shentau: {fileID: 658895093965917319, guid: 7269487055fec1d49ae78039a498b191, type: 3}
-  SpawnWaitTime: 4.8
-  checkDelay: 0.5
-  spawnAnimDelay: 0.5
-  spawnDelay: 1.5
 --- !u!1 &3016386618586033153
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,8 +232,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016386618586033154}
-  - component: {fileID: 3016386618586033155}
-  - component: {fileID: 412775652}
   - component: {fileID: 2379342503470556397}
   m_Layer: 0
   m_Name: EventSystem
@@ -285,30 +254,6 @@ Transform:
   m_Father: {fileID: 537976613570928071}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3016386618586033155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016386618586033153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bb0db496401344684ecc38075e2008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &412775652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016386618586033153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6b75cfed5d8834490676e73572bb6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2379342503470556397
 MonoBehaviour:
   m_ObjectHideFlags: 0

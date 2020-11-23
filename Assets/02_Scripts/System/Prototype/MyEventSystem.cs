@@ -25,13 +25,12 @@ public class MyEventSystem : MonoBehaviour
     //Events for Enemy managment
     public event Action<EnemyBody> onEnemyDeath;
     public event Action<EnemyBody> activateAI;
-    public static MyEventSystem instance;
+
 
     public event System.Action goalDestroyed;
     public event System.Action waveDefeated;
 
-    public event Action<Transform, Transform, Transform, Transform> startCamAnim;
-    public event Action<Transform, Transform> notifyCamManager;
+    public static MyEventSystem instance;
 
     private void Awake()
     {
@@ -40,23 +39,14 @@ public class MyEventSystem : MonoBehaviour
 
     public void WaveDefeated()
     {
-        if (waveDefeated != null)
-            waveDefeated();
+        //Questionmark checks if event has subscribers
+        waveDefeated?.Invoke();
     }
-    public void StartCamAnim(Transform camera, Transform endposition, Transform player, Transform playerDest)
-    {
-        if (startCamAnim != null)
-            startCamAnim(camera, endposition, player, playerDest);
-    }
-    public void NotifyCamManager(Transform endposition, Transform playerDest)
-    {
-        if (notifyCamManager != null)
-            notifyCamManager(endposition, playerDest);
-    }
+
     public void GoalDestroyed()
     {
-        if (goalDestroyed != null)
-            goalDestroyed();
+        //Questionmark checks if event has subscribers
+        goalDestroyed?.Invoke();
     }
 
 
@@ -109,17 +99,15 @@ public class MyEventSystem : MonoBehaviour
     }
     public void OnAttack(IHasHealth entity, float basedmg)
     {
-        if (Attack != null)
-            Attack(entity, basedmg);
+        Attack?.Invoke(entity, basedmg);
     }
     public void ActivateAI(EnemyBody enemy)
     {
-        if (activateAI != null)
-            activateAI(enemy);
+        activateAI?.Invoke(enemy);
     }
     public void OnSetState(PlayerMovementSate state)
     {
-        SetState(state);
+        SetState?.Invoke(state);
     }
     /*
    public void OnEnemyDeath(EnemyBody enemy)
