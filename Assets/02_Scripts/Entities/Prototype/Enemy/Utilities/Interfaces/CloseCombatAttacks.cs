@@ -5,7 +5,6 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
 {
     protected Coroutine damageWaiter;
     protected Coroutine attackTimer;
-    public EnemyActions actions => GetComponent<EnemyActions>();
     public override abstract void Attack();
     public override abstract void CancelAttack();
     public override abstract void StopAttack();

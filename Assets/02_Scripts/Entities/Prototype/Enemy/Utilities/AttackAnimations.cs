@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-public enum EffectType
-{
-    Trail,
-    Explosion
-}
+
 namespace Enemy
 {
+    public enum EffectType
+    {
+        Trail,
+        Explosion
+    }
+
     [System.Serializable]
     public class AttackAnimations
     {
@@ -19,8 +21,20 @@ namespace Enemy
         public float damageFrameEnd;
         public float attRange;
         public float attackWidth;
-        public List<Enemy.EffectsFrameContainer> effects = new List<EffectsFrameContainer>();
+        public List<EffectsFrameContainer> effects = new List<EffectsFrameContainer>();
         public float clipLength => clip != null ? clip.length : 0;
+    }
+
+    [System.Serializable]
+    public class EffectsFrameContainer
+    {
+        public EffectType type;
+        public float frame;
+        public EffectsFrameContainer(EffectType _type, float _frame)
+        {
+            type = _type;
+            frame = _frame;
+        }
     }
 
 }
