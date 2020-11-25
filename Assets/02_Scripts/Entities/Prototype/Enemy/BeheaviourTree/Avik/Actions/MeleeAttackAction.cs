@@ -14,14 +14,14 @@ namespace BBUnity.Actions
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
 
-        [InParam("aiManager")]
-        public AIManager aiManager;
-
         [InParam("timer")]
         public AIUtilities.Timer timer;
 
         [InParam("attack")]
         public CloseCombatAttacks attack;
+
+        [InParam("animator")]
+        public Animator animator;
 
         [InParam("actions")]
         public EnemyActions actions;
@@ -38,6 +38,7 @@ namespace BBUnity.Actions
         {
             if (actions.isAttacking)
             {
+                gameObject.transform.position = animator.rootPosition;
                 return TaskStatus.RUNNING;
             }
             else

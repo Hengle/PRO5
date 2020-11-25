@@ -109,7 +109,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016386617375203225}
-  - component: {fileID: 7403463183224586819}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -131,25 +130,6 @@ Transform:
   m_Father: {fileID: 537976613570928071}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7403463183224586819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016386617375203207}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4282a5cc9acbd8449a6d47b6c68cae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentArea: 0
-  deltaTime: 0
-  playerSpawn: {fileID: 0}
-  player: {fileID: 0}
-  levelData: []
-  Arena: {fileID: 0}
 --- !u!1 &3016386617398075710
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3016386618586033154}
-  - component: {fileID: 2379342503470556397}
+  - component: {fileID: 1691695853}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -254,7 +234,7 @@ Transform:
   m_Father: {fileID: 537976613570928071}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2379342503470556397
+--- !u!114 &1691695853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,6 +243,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3016386618586033153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2401c9b678ecd6444bdad6a289199b13, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ee1ad9070bfbe74e90f4445f912726c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

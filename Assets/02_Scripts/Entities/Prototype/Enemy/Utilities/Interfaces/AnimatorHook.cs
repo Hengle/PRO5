@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 public abstract class AnimatorHook : MonoBehaviour
 {
-    Animator animator;
+    protected Animator animator;
 
     public void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public virtual void StartAttackAnim(string attack)
+    public virtual void StartAttackAnim(string attack, AnimationClip clip = null)
     {
 
     }
