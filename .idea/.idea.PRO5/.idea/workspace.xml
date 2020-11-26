@@ -20,20 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Animation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Procedural_Generation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/Level/LevelSO/TutorialLevel.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
@@ -48,16 +43,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/GrenadeMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerAttackStates/AttackStateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/AttackMovementState.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/AnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/AnimatorController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/Weapons/Weapons.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/ObstacleInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" />
@@ -67,6 +59,10 @@
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" />
       </list>
     </option>
   </component>
@@ -113,6 +109,7 @@
       <workItem from="1606119762773" duration="192000" />
       <workItem from="1606123608762" duration="6377000" />
       <workItem from="1606143556238" duration="2201000" />
+      <workItem from="1606425294474" duration="1250000" />
     </task>
     <servers />
   </component>

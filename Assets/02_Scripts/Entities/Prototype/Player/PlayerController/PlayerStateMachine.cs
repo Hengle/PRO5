@@ -16,7 +16,6 @@ public enum PlayerMovementSate
 
 public class PlayerStateMachine : MonoBehaviour
 {
-
     #region __________Vector 2&3__________
 
     [HideInInspector] public Vector3 currentMoveDirection, currentLookDirection;
@@ -31,7 +30,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     #region __________bool__________
 
-    [HideInInspector] public bool isAiming, mouseused, gamepadused, isGrounded = false, checkEnemy = false, isMoving = false;
+    [HideInInspector]
+    public bool isAiming, mouseused, gamepadused, isGrounded = false, checkEnemy = false, isMoving = false;
 
     #endregion
 
@@ -48,6 +48,7 @@ public class PlayerStateMachine : MonoBehaviour
     #endregion
 
     #region __________other__________
+
     [HideInInspector] public GameObject dashTarget;
     [HideInInspector] public Rigidbody rb => GetComponent<Rigidbody>();
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
@@ -56,33 +57,33 @@ public class PlayerStateMachine : MonoBehaviour
     public Transform RayEmitter;
     [HideInInspector] public PlayerMovementSate currentState;
     PlayerMovementController standardMovement;
-    DashMovementController dashController;
-    //GrenadeMovementController grenadeController;
-    //AttackMovementState attackController;
-    //[HideInInspector] public PlayerAttack playerAttack => GetComponent<PlayerAttack>();
-    //public AnimationClip clip;
 
-    //layableGraph playableGraph;
+    DashMovementController dashController;
+   
     [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
     public CapsuleCollider selfCol;
     [SerializeField] private StatTemplate playerTemplate;
     public PlayerBody playerBody => GetComponent<PlayerBody>();
 
     public Transform currentEnemyTarget;
+    private Plane groundPlane;
+
+    private Camera mainCam => GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    
 
     #endregion
 
     private void Awake()
     {
         input = new PlayerControls();
-        standardMovement = new PlayerMovementController(this);
-        dashController = new DashMovementController(this);
-        //attackController = new AttackMovementState(this);
-        //grenadeController = new GrenadeMovementController(this);
-
-        input.Gameplay.Dash.performed += ctx => SetState(PlayerMovementSate.dash);
+        //standardMovement = new PlayerMovementController(this);
+        //dashController = new DashMovementController(this);
+       
+        input.Gameplay.Dash.performed += ctx => Dash();
         input.Gameplay.Movement.performed += ctx => IsMoving();
         input.Gameplay.Movement.canceled += ctx => IsNotMoving();
+        
+        
     }
 
     private void OnEnable()
@@ -93,39 +94,32 @@ public class PlayerStateMachine : MonoBehaviour
     private void OnDisable()
     {
         input.Disable();
-        MyEventSystem.instance.SetState -= SetState;
-        //playableGraph.Destroy();
-
+        //MyEventSystem.instance.SetState -= SetState;
+       
     }
 
     private void Start()
     {
-        SetState(PlayerMovementSate.standard);
-        MyEventSystem.instance.SetState += SetState;
-
-        //playableGraph = PlayableGraph.Create();
-
-        //playableGraph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
-
-        //var playableOutput = AnimationPlayableOutput.Create(playableGraph, "Run", GetComponentInChildren<Animator>());
-
-        // Wrap the clip in a playable
-
-        //var clipPlayable = AnimationClipPlayable.Create(playableGraph, clip);
-
-        // Connect the Playable to an output
-
-        //playableOutput.SetSourcePlayable(clipPlayable);
+        
+        //Set up for the movement
+        forward = mainCam.transform.forward;
+        forward.y = 0;
+        forward = Vector3.Normalize(forward);
+        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        Cursor.visible = true;
+        //SetState(PlayerMovementSate.standard);
+       // MyEventSystem.instance.SetState += SetState;
 
         foreach (FloatReference f in playerTemplate.statList)
         {
-            StatVariable s = (StatVariable)f.Variable;
+            StatVariable s = (StatVariable) f.Variable;
             if (s.statName.ToString().Equals("Speed"))
             {
                 standardMoveSpeed = s.Value;
             }
         }
-        //grenadeMoveSpeed = standardMoveSpeed / 2;
+
+        
     }
 
     void Update()
@@ -135,7 +129,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         GetInputValues();
 
-        switch (currentState)
+        /*switch (currentState)
         {
             case PlayerMovementSate.standard:
                 // CheckSlope();
@@ -144,15 +138,14 @@ public class PlayerStateMachine : MonoBehaviour
             case PlayerMovementSate.dash:
                 dashController.Tick(this);
                 break;
-            /*case PlayerMovementSate.grenade:
-                grenadeController.Tick(this);
-                break;
-            case PlayerMovementSate.attack:
-                attackController.Tick(this);
-                break;*/
-        }
+           
+        }*/
 
-        Move();
+        Move(this);
+        GamepadLook(this);
+        MouseLook(this);
+        
+       // Move();
         DashCooldown();
     }
 
@@ -163,29 +156,27 @@ public class PlayerStateMachine : MonoBehaviour
         mouseLook = input.Gameplay.Look.ReadValue<Vector2>();
     }
 
-    void Move()
+    /*void Move()
     {
         // if (playerBody.alive)
         // {
-            IsGrounded();
-            velocity.y = 0;
-            characterController.Move(((Vector3.Normalize(currentMoveDirection) + velocity) * currentMoveSpeed) * Time.deltaTime);
+        IsGrounded();
+        velocity.y = 0;
+        characterController.Move(((Vector3.Normalize(currentMoveDirection) + velocity) * currentMoveSpeed) *
+                                 Time.deltaTime);
         // }
-    }
+    }*/
 
     void IsMoving()
     {
         isMoving = true;
-        // if (currentState == PlayerMovementSate.standard)
-        // {
-        //     PlayAnim();
-        // }
+        
     }
 
     void IsNotMoving()
     {
         isMoving = false;
-        //playableGraph.Stop();
+        
     }
 
     public void DashCooldown()
@@ -199,7 +190,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void IsGrounded()
     {
-        if (Physics.CheckSphere(transform.position + new Vector3(0, 1f, 0), 1.01f, groundMask, QueryTriggerInteraction.Ignore))
+        if (Physics.CheckSphere(transform.position + new Vector3(0, 1f, 0), 1.01f, groundMask,
+            QueryTriggerInteraction.Ignore))
         {
             isGrounded = true;
         }
@@ -210,14 +202,21 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    public void SetState(PlayerMovementSate state)
+    public void Dash()
+    {
+        velocity = Vector3.zero;
+        
+        if (dashCharge < 100 || !isMoving)
+            return;
+        StartDash();
+    }
+
+    /*public void SetState(PlayerMovementSate state)
     {
         velocity = Vector3.zero;
         switch (state)
         {
-            /*case PlayerMovementSate.attack:
-                Attack();
-                break;*/
+           
             case PlayerMovementSate.dash:
                 if (dashCharge < 100 || !isMoving)
                     return;
@@ -226,40 +225,96 @@ public class PlayerStateMachine : MonoBehaviour
             case PlayerMovementSate.standard:
                 ResetMoveSpeed();
                 break;
-            /*case PlayerMovementSate.grenade:
-                GrenadeMoveSpeed();
-                break;*/
+          
         }
-        currentState = state;
-    }
 
-    void ResetMoveSpeed()
+        currentState = state;
+    }*/
+
+    /*void ResetMoveSpeed()
     {
         currentMoveSpeed = standardMoveSpeed;
-    }
+    }*/
 
     public void StartDash()
     {
         dashController.DashInit(this);
     }
+    
 
-    /*public void Attack()
+    #region Movement
+
+    void Move(PlayerStateMachine controller)
     {
-        currentEnemyTarget = attackController.FindTarget(this);
-        attackController.StopMovement(this);
+        
+        IsGrounded();
+        velocity.y = 0;
+        characterController.Move(((Vector3.Normalize(currentMoveDirection) + velocity) * currentMoveSpeed) *
+                                 Time.deltaTime);
+        
+        Vector2 move = controller.move;
+        Vector3 direction = new Vector3(move.x, 0, move.y);
+
+        Vector3 horizMovement = controller.right * direction.x;
+        Vector3 vertikMovement = controller.forward * direction.z;
+
+        controller.currentMoveDirection = horizMovement + vertikMovement;
+    }
+    
+    #endregion
+
+    #region Look direction
+
+    void GamepadLook(PlayerStateMachine controller)
+    {
+        if (controller.input.Gameplay.Rotate.triggered || controller.gamepadused)
+        {
+            controller.gamepadused = true;
+            controller.mouseused = false;
+            Vector2 v = controller.gamepadRotate;
+            var lookRot = mainCam.transform.TransformDirection(new Vector3(v.x, 0, v.y));
+            controller.pointToLook = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+            UpdateLookDirection(controller);
+        }
     }
 
-    void GrenadeMoveSpeed()
+    void MouseLook(PlayerStateMachine controller)
     {
-        currentMoveSpeed = grenadeMoveSpeed;
+        if (controller.input.Gameplay.Look.triggered || controller.mouseused)
+        {
+            controller.gamepadused = false;
+            controller.mouseused = true;
+            Vector2 v = controller.mouseLook;
+            //Creating a "mathematical" plane for the raycast to intersect with
+            groundPlane = new Plane(Vector3.up, new Vector3(0, controller.transform.position.y, 0));
+            //creating the Ray
+            Ray cameraRay = mainCam.ScreenPointToRay(v);
+            float rayLength;
+            //checking if the raycast intersects with the plane
+            if (groundPlane.Raycast(cameraRay, out rayLength))
+            {
+                Vector3 rayPoint = cameraRay.GetPoint(rayLength);
+                //Debug.DrawLine(cameraRay.origin, rayPoint);
+                controller.pointToLook = rayPoint - controller.transform.position;
+            }
+            UpdateLookDirection(controller);
+        }
     }
 
-    void PlayAnim()
+    void UpdateLookDirection(PlayerStateMachine controller)
     {
+        controller.pointToLook.y = 0;
+        if (controller.pointToLook != Vector3.zero)
+        {
+            Quaternion newRot = Quaternion.LookRotation(controller.pointToLook);
+            controller.transform.rotation = newRot;
+            controller.pointToLook.y = 0;
+            controller.currentLookDirection = controller.pointToLook;
+            //Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * rotationSpeed);
+        }
+    }
 
-        // Plays the Graph.
+    #endregion
 
-        //playableGraph.Play();
-    }*/
-
+   
 }

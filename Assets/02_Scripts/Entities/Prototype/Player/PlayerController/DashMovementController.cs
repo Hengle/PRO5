@@ -90,7 +90,7 @@ public class DashMovementController
             delayCountdown = controller.delayTime; ;
             dashDelayOn = false;
             //animCon.MoveStarter();
-            controller.SetState(PlayerMovementSate.standard);
+            //controller.SetState(PlayerMovementSate.standard);
             // controller.characterController.detectCollisions = true;
         }
     }

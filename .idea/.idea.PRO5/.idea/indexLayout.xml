@@ -29,6 +29,7 @@
       <Path>.vscode</Path>
       <Path>FmodStudioProject</Path>
       <Path>Library</Path>
+      <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
     </explicitExcludes>

@@ -35,7 +35,6 @@
               <e p="Enemy" t="Include">
                 <e p="AIStuff" t="Include">
                   <e p="AIManager.cs" t="Include" />
-                  <e p="AISteering.cs" t="Include" />
                   <e p="BaseScripts" t="Include">
                     <e p="Action.cs" t="Include" />
                     <e p="Decision.cs" t="Include" />
@@ -44,52 +43,29 @@
                     <e p="State.cs" t="Include" />
                     <e p="Transition.cs" t="Include" />
                   </e>
-                  <e p="IEnemyActions.cs" t="Include" />
                   <e p="StateMachineController.cs" t="Include" />
-                </e>
-                <e p="Avik" t="Include">
-                  <e p="EnemyTestWeapon.cs" t="Include" />
-                  <e p="StateMachineScripts" t="Include">
-                    <e p="Actions" t="Include">
-                      <e p="AvikIdleAction.cs" t="Include" />
-                      <e p="AvikStunnedAction.cs" t="Include" />
-                    </e>
-                    <e p="Decisions" t="Include">
-                      <e p="AvikPlayerInFrontDec.cs" t="Include" />
-                      <e p="AvikStunnedDecision.cs" t="Include" />
-                    </e>
-                    <e p="OnStateEnterExit" t="Include">
-                      <e p="Avik_OnStunnedEnter.cs" t="Include" />
-                      <e p="Avik_OnStunnedExit.cs" t="Include" />
-                      <e p="OnAttackExit.cs" t="Include" />
-                      <e p="OnAvoidStateEnter.cs" t="Include" />
-                      <e p="OnAvoidStateExit.cs" t="Include" />
-                    </e>
-                  </e>
                 </e>
                 <e p="BeheaviourTree" t="Include">
                   <e p="Avik" t="Include">
                     <e p="Actions" t="Include">
-                      <e p="AvikAttackAction.cs" t="Include" />
                       <e p="AvikChaseAction.cs" t="Include" />
                       <e p="AvoidAction.cs" t="Include" />
+                      <e p="CanAttackCheck.cs" t="Include" />
+                      <e p="MeleeAttackAction.cs" t="Include" />
                     </e>
-                    <e p="AvikActions.cs" t="Include" />
-                    <e p="AvikWeapon.cs" t="Include" />
+                    <e p="AvikAnimatorHook.cs" t="Include" />
+                    <e p="AvikAttack.cs" t="Include" />
                     <e p="Conditions" t="Include">
                       <e p="AvikPlayerDistanceDec.cs" t="Include" />
                       <e p="AvoidDecision.cs" t="Include" />
-                      <e p="CanAttackCheck.cs" t="Include" />
+                    </e>
+                    <e p="OLDDecisions" t="Include">
+                      <e p="AvikPlayerInFrontDec.cs" t="Include" />
+                      <e p="AvikStunnedDecision.cs" t="Include" />
                     </e>
                   </e>
                 </e>
-                <e p="BuffIndicators.cs" t="Include" />
                 <e p="Bullet.cs" t="Include" />
-                <e p="DisableCols.cs" t="Include" />
-                <e p="GeneralST" t="Include">
-                  <e p="GetOutofIdleDecision.cs" t="Include" />
-                </e>
-                <e p="ResetValues.cs" t="Include" />
                 <e p="Shentau" t="Include">
                   <e p="ShentauActions.cs" t="Include" />
                   <e p="STScripts" t="Include">
@@ -115,15 +91,22 @@
                   </e>
                 </e>
                 <e p="Utilities" t="Include">
+                  <e p="AISteering.cs" t="Include" />
                   <e p="AIUtilities.cs" t="Include" />
+                  <e p="AttackAnimations.cs" t="Include" />
+                  <e p="DisableCols.cs" t="Include" />
+                  <e p="EnemyActions.cs" t="Include" />
+                  <e p="EnemyBody.cs" t="Include" />
+                  <e p="EnemyEnum.cs" t="Include" />
+                  <e p="Interfaces" t="Include">
+                    <e p="AnimatorHook.cs" t="Include" />
+                    <e p="CloseCombatAttacks.cs" t="Include" />
+                    <e p="IEnemyAttacks.cs" t="Include" />
+                    <e p="RangedAttacks.cs" t="Include" />
+                  </e>
+                  <e p="PlayerDetector.cs" t="Include" />
+                  <e p="ResetValues.cs" t="Include" />
                 </e>
-              </e>
-              <e p="Interfaces" t="Include">
-                <e p="AStats.cs" t="Include" />
-                <e p="IHasHealth.cs" t="Include" />
-                <e p="IKnockback.cs" t="Include" />
-                <e p="IMultipliers.cs" t="Include" />
-                <e p="IStats.cs" t="Include" />
               </e>
               <e p="Obstacles" t="Include">
                 <e p="ARLaser.cs" t="Include" />
@@ -154,21 +137,32 @@
                   <e p="PlayerMovementController.cs" t="Include" />
                   <e p="PlayerStateMachine.cs" t="Include" />
                 </e>
+                <e p="PowerUps" t="Include">
+                  <e p="PowerUpControls.cs" t="Include" />
+                </e>
                 <e p="Weapons" t="Include">
                   <e p="WeaponSettings.cs" t="Include" />
                 </e>
               </e>
               <e p="PowerUps" t="Include">
+                <e p="Knockback.cs" t="Include" />
                 <e p="MovementSpeedBoost.cs" t="Include" />
                 <e p="PowerUp.cs" t="Include" />
                 <e p="PowerUpController.cs" t="Include" />
+                <e p="Stun.cs" t="Include" />
                 <e p="Tests.cs" t="Include" />
               </e>
-              <e p="StatScripts" t="Include">
-                <e p="EnemyBody.cs" t="Include" />
-                <e p="EnemyEnum.cs" t="Include" />
+              <e p="StatisticManagment" t="Include">
+                <e p="EnemyStatistics.cs" t="Include" />
+                <e p="Interfaces" t="Include">
+                  <e p="IHasHealth.cs" t="Include" />
+                  <e p="IMultipliers.cs" t="Include" />
+                  <e p="IStats.cs" t="Include" />
+                </e>
                 <e p="ObstacleBody.cs" t="Include" />
                 <e p="PlayerBody.cs" t="Include" />
+                <e p="PlayerStatistics.cs" t="Include" />
+                <e p="StatisticController.cs" t="Include" />
               </e>
               <e p="Weapon.cs" t="Include" />
             </e>
@@ -295,6 +289,10 @@
             </e>
           </e>
           <e p="UI" t="Include">
+            <e p="ProgessBar.cs" t="Include" />
+            <e p="ProgessBarDash.cs" t="Include" />
+            <e p="ProgressBarHealth.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
             <e p="UIPrototype.cs" t="Include" />
           </e>
         </e>

@@ -14,13 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FmodStudioProject/prototype/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637417324549648641
+  lastModified: 637401855661950250
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 928
   Exists: 1
 --- !u!114 &-4928251977200351767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-4124112001475660321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-9119779693098333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,15 +85,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6536101578818183081}
-  - {fileID: 6625344825065131878}
+  - {fileID: 3984133223272405691}
   EditorEvents:
   - {fileID: 1561948197316325616}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 6625344825065131878}
+  - {fileID: 3984133223272405691}
   StringsBanks:
   - {fileID: -6536101578818183081}
-  stringsBankWriteTime: 637417324549648641
+  stringsBankWriteTime: 637401855661950250
   cacheVersion: 3
 --- !u!114 &1561948197316325616
 MonoBehaviour:
@@ -76,15 +110,15 @@ MonoBehaviour:
   Path: event:/pro5_demo_full
   guid: 61840bcbcb65504599d1463540f53d03
   Banks:
-  - {fileID: 6625344825065131878}
+  - {fileID: 3984133223272405691}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4144191137364107684}
-  - {fileID: 3830746127924517898}
-  - {fileID: 2765121493045585042}
-  - {fileID: -4928251977200351767}
+  - {fileID: -4124112001475660321}
+  - {fileID: 3573581193172240517}
+  - {fileID: 6202800057427876131}
+  - {fileID: -9119779693098333}
   MinDistance: 0
   MaxDistance: 0
   Length: 54648
@@ -101,6 +135,23 @@ MonoBehaviour:
   m_Name: parameter:/pro5_demo_full/SnareLayer
   m_EditorClassIdentifier: 
   Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &3573581193172240517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
   Min: 0
   Max: 1
   Default: 0
@@ -122,6 +173,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &3984133223272405691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637401855661939856
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4144191137364107684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +204,23 @@ MonoBehaviour:
   m_Name: parameter:/pro5_demo_full/HiHatLayer
   m_EditorClassIdentifier: 
   Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &6202800057427876131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
   Min: 0
   Max: 1
   Default: 0
