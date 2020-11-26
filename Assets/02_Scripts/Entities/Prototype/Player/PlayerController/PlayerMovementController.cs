@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.Timeline;
 
 public class PlayerMovementController
-
 {
     private Plane groundPlane;
-
     private Camera mainCam => GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     #region Update/Start/Awake
 
@@ -23,8 +21,10 @@ public class PlayerMovementController
     public void Tick(PlayerStateMachine controller)
     {
         Move(controller);
-        GamepadLook(controller);
-        MouseLook(controller);
+        if (controller.inputManager.useMouse)
+            MouseLook(controller);
+        else
+            GamepadLook(controller);
     }
 
     #endregion
@@ -33,7 +33,7 @@ public class PlayerMovementController
 
     void Move(PlayerStateMachine controller)
     {
-        Vector2 move = controller.move;
+        Vector2 move = controller.inputManager.move;
         Vector3 direction = new Vector3(move.x, 0, move.y);
 
         Vector3 horizMovement = controller.right * direction.x;
@@ -41,45 +41,35 @@ public class PlayerMovementController
 
         controller.currentMoveDirection = horizMovement + vertikMovement;
     }
-    
+
     #endregion
 
     #region Look direction
 
     void GamepadLook(PlayerStateMachine controller)
     {
-        if (controller.input.Gameplay.Rotate.triggered || controller.gamepadused)
-        {
-            controller.gamepadused = true;
-            controller.mouseused = false;
-            Vector2 v = controller.gamepadRotate;
-            var lookRot = mainCam.transform.TransformDirection(new Vector3(v.x, 0, v.y));
-            controller.pointToLook = Vector3.ProjectOnPlane(lookRot, Vector3.up);
-            UpdateLookDirection(controller);
-        }
+        Vector2 v = controller.inputManager.gamepadRotate;
+        var lookRot = mainCam.transform.TransformDirection(new Vector3(v.x, 0, v.y));
+        controller.pointToLook = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+        UpdateLookDirection(controller);
     }
 
     void MouseLook(PlayerStateMachine controller)
     {
-        if (controller.input.Gameplay.Look.triggered || controller.mouseused)
+        Vector2 v = controller.inputManager.mouseLook;
+        //Creating a "mathematical" plane for the raycast to intersect with
+        groundPlane = new Plane(Vector3.up, new Vector3(0, controller.transform.position.y, 0));
+        //creating the Ray
+        Ray cameraRay = mainCam.ScreenPointToRay(v);
+        float rayLength;
+        //checking if the raycast intersects with the plane
+        if (groundPlane.Raycast(cameraRay, out rayLength))
         {
-            controller.gamepadused = false;
-            controller.mouseused = true;
-            Vector2 v = controller.mouseLook;
-            //Creating a "mathematical" plane for the raycast to intersect with
-            groundPlane = new Plane(Vector3.up, new Vector3(0, controller.transform.position.y, 0));
-            //creating the Ray
-            Ray cameraRay = mainCam.ScreenPointToRay(v);
-            float rayLength;
-            //checking if the raycast intersects with the plane
-            if (groundPlane.Raycast(cameraRay, out rayLength))
-            {
-                Vector3 rayPoint = cameraRay.GetPoint(rayLength);
-                //Debug.DrawLine(cameraRay.origin, rayPoint);
-                controller.pointToLook = rayPoint - controller.transform.position;
-            }
-            UpdateLookDirection(controller);
+            Vector3 rayPoint = cameraRay.GetPoint(rayLength);
+            //Debug.DrawLine(cameraRay.origin, rayPoint);
+            controller.pointToLook = rayPoint - controller.transform.position;
         }
+        UpdateLookDirection(controller);
     }
 
     void UpdateLookDirection(PlayerStateMachine controller)

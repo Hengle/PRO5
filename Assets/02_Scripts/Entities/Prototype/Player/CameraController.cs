@@ -7,89 +7,62 @@ public class CameraController : MonoBehaviour
     public Transform player;
     public Camera mainCam;
     private PlayerStateMachine playercontrols;
+    [SerializeField] private PlayerInputManager inputManager;
     public float cameraFollowSpeed = 5f;
     public float targetBias = 0.5f;
     public float gamepadDist = 5f;
-    bool mouseused;
-    bool gamepadused;
     Plane groundPlane;
     Vector3 s;
-
-    // [SerializeField] LevelManager l;
-    // private void OnEnable()
-    // {
-    //     GameManager.instance.initAll += SetPos;
-    // }
-    // private void OnDisable()
-    // {
-    //     GameManager.instance.initAll -= SetPos;
-    // }
 
     private void Start()
     {
         playercontrols = player.gameObject.GetComponent<PlayerStateMachine>();
-        SetPos();
-    }
-
-    void SetPos()
-    {
         StartCoroutine(WaitForStart());
     }
 
     private void Update()
     {
-        GetCamPosition();
-        GamePadCam();
+        if (inputManager.useMouse)
+            GetCamPosition();
+        else
+            GamePadCam();
+
         s.y = player.transform.position.y;
         transform.position = Vector3.Lerp(transform.position, s, Time.deltaTime * cameraFollowSpeed);
     }
 
     void GetCamPosition()
     {
-        if (playercontrols.input.Gameplay.Look.triggered || mouseused)
+        groundPlane = new Plane(Vector3.up, new Vector3(0, player.position.y, 0));
+        Ray cameraRay = mainCam.ScreenPointToRay(inputManager.mouseLook);
+
+        float rayLength;
+
+        if (groundPlane.Raycast(cameraRay, out rayLength))
         {
-            gamepadused = false;
-            mouseused = true;
-            groundPlane = new Plane(Vector3.up, new Vector3(0, player.position.y, 0));
-            //creating the Ray
-            Ray cameraRay = mainCam.ScreenPointToRay(playercontrols.mouseLook);
+            Vector3 rayPoint = cameraRay.GetPoint(rayLength);
 
-            float rayLength;
-
-            if (groundPlane.Raycast(cameraRay, out rayLength))
-            {
-                Vector3 rayPoint = cameraRay.GetPoint(rayLength);
-
-                Vector3 dist = rayPoint - player.position;
-                s = player.position + dist * targetBias;
-            }
-            else
-            {
-
-                s = player.position;
-            }
-
+            Vector3 dist = rayPoint - player.position;
+            s = player.position + dist * targetBias;
+        }
+        else
+        {
+            s = player.position;
         }
     }
 
     void GamePadCam()
     {
-        if (playercontrols.input.Gameplay.Rotate.triggered || gamepadused)
-        {
+        Vector2 value = inputManager.controls.Gameplay.Rotate.ReadValue<Vector2>();
+        Vector3 direction = new Vector3(value.x, 0, value.y);
 
-            gamepadused = true;
-            mouseused = false;
-            Vector2 value = playercontrols.input.Gameplay.Rotate.ReadValue<Vector2>();
-            Vector3 direction = new Vector3(value.x, 0, value.y);
+        Vector3 horizMovement = playercontrols.right * direction.x;
+        Vector3 vertikMovement = playercontrols.forward * direction.z;
 
-            Vector3 horizMovement = playercontrols.right * direction.x;
-            Vector3 vertikMovement = playercontrols.forward * direction.z;
-
-            Vector3 moveD = horizMovement + vertikMovement;
-            Vector3 f = player.position + moveD * gamepadDist;
-            Vector3 dist = f - player.position;
-            s = player.position + dist * targetBias;
-        }
+        Vector3 moveD = horizMovement + vertikMovement;
+        Vector3 f = player.position + moveD * gamepadDist;
+        Vector3 dist = f - player.position;
+        s = player.position + dist * targetBias;
     }
 
     IEnumerator WaitForStart()

@@ -10,7 +10,7 @@ public class NavMeshSourceTag : MonoBehaviour
     // Global containers for all active mesh/terrain tags
     public static List<MeshFilter> m_Meshes = new List<MeshFilter>();
     public static List<Terrain> m_Terrains = new List<Terrain>();
-
+    public static NavMeshModifier modifier;
     void OnEnable()
     {
         var m = GetComponent<MeshFilter>();
@@ -48,6 +48,7 @@ public class NavMeshSourceTag : MonoBehaviour
 
         for (var i = 0; i < m_Meshes.Count; ++i)
         {
+            modifier = m_Meshes[i].gameObject.GetComponent<NavMeshModifier>();
             var mf = m_Meshes[i];
             if (mf == null) continue;
 
@@ -58,7 +59,11 @@ public class NavMeshSourceTag : MonoBehaviour
             s.shape = NavMeshBuildSourceShape.Mesh;
             s.sourceObject = m;
             s.transform = mf.transform.localToWorldMatrix;
-            s.area = 0;
+            if (modifier != null)
+                s.area = modifier.area;
+            else
+                s.area = 0;
+                
             sources.Add(s);
         }
 

@@ -16,13 +16,12 @@ public enum PlayerMovementSate
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    public PlayerInputManager inputManager;
+
     #region __________Vector 2&3__________
 
     [HideInInspector] public Vector3 currentMoveDirection, currentLookDirection;
     [HideInInspector] public Vector3 forward, right, pointToLook, currentLook;
-    [HideInInspector] public Vector2 move;
-    [HideInInspector] public Vector2 gamepadRotate;
-    [HideInInspector] public Vector2 mouseLook;
     [HideInInspector] public Vector3 velocity = Vector3.zero;
     [HideInInspector] public Vector3 gravity = Vector3.zero;
 
@@ -30,18 +29,18 @@ public class PlayerStateMachine : MonoBehaviour
 
     #region __________bool__________
 
+    [HideInInspector] public bool isAiming, isGrounded = false, checkEnemy = false, isMoving = false;
     [HideInInspector]
     public bool isAiming, mouseused, gamepadused, isGrounded = false, checkEnemy = false, isMoving = false;
 
     #endregion
 
     #region __________float__________
+    [Header("Move Settings")]
+    public float currentMoveSpeed = 5.0f, standardMoveSpeed;
 
-    // [SerializeField] private float rotationSpeed = 50f; //later used for smoothing rapid turns of the player
-    [HideInInspector] public float deltaTime;
-    [HideInInspector] public float time;
-
-    public float currentMoveSpeed = 5.0f, standardMoveSpeed, dashCharge, dashRechargeTime, maxDashCharge;
+    [Header("Dash Settings")]
+    public float dashCharge, dashRechargeTime, maxDashCharge;
     public float dashForce = 1.0f, dashDuration = 0.3f, dashDistance = 7f, drag = 1f, delayTime;
     [HideInInspector] public float dashTime;
 
@@ -51,14 +50,18 @@ public class PlayerStateMachine : MonoBehaviour
 
     [HideInInspector] public GameObject dashTarget;
     [HideInInspector] public Rigidbody rb => GetComponent<Rigidbody>();
+    [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
+    [HideInInspector] public PlayerStatistics playerStatistics => GetComponent<PlayerStatistics>();
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
     [HideInInspector] public LayerMask enemyMask => LayerMask.GetMask("Enemy");
-    [HideInInspector] public PlayerControls input;
-    public Transform RayEmitter;
     [HideInInspector] public PlayerMovementSate currentState;
     PlayerMovementController standardMovement;
 
     DashMovementController dashController;
+    //GrenadeMovementController grenadeController;
+    //AttackMovementState attackController;
+    //[HideInInspector] public PlayerAttack playerAttack => GetComponent<PlayerAttack>();
+    //public AnimationClip clip;
    
     [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
     public CapsuleCollider selfCol;
@@ -75,6 +78,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Awake()
     {
+        standardMovement = new PlayerMovementController(this);
+        dashController = new DashMovementController(this);
+        inputManager.controls.Gameplay.Movement.performed += ctx => IsMoving();
+        inputManager.controls.Gameplay.Movement.canceled += ctx => IsNotMoving();
+        //attackController = new AttackMovementState(this);
+        //grenadeController = new GrenadeMovementController(this);
         input = new PlayerControls();
         //standardMovement = new PlayerMovementController(this);
         //dashController = new DashMovementController(this);
@@ -93,6 +102,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnDisable()
     {
+        MyEventSystem.instance.SetState -= SetState;
         input.Disable();
         //MyEventSystem.instance.SetState -= SetState;
        
@@ -181,7 +191,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void DashCooldown()
     {
-        float timeSinceDashEnded = time - dashTime;
+        float timeSinceDashEnded = Time.time - dashTime;
 
         float perc = timeSinceDashEnded / dashRechargeTime;
 
@@ -218,9 +228,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
            
             case PlayerMovementSate.dash:
-                if (dashCharge < 100 || !isMoving)
-                    return;
-                StartDash();
                 break;
             case PlayerMovementSate.standard:
                 ResetMoveSpeed();
@@ -238,6 +245,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void StartDash()
     {
+        if (dashCharge < 100 || !isMoving)
+            return;
+
+        SetState(PlayerMovementSate.dash);
         dashController.DashInit(this);
     }
     

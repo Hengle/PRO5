@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 public abstract class IEnemyAttacks : MonoBehaviour
 {
-    public Enemy.AttackAnimations[] attackAnimations;
     public EnemyBody enemyBody => GetComponent<EnemyBody>();
     public EnemyActions actions => GetComponent<EnemyActions>();
     public EnemyStatistics stats => GetComponent<EnemyStatistics>();
+    [SerializeField] public List<Enemy.AttackAnimations> attackAnimations = new List<Enemy.AttackAnimations>();
 
     public abstract void Attack();
     public abstract void CancelAttack();
