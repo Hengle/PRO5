@@ -1,0 +1,22 @@
+<set>
+  <tiles>
+<tile name="Green Cube" symmetry="X" weight="1.0"/>
+<tile name="Blue Cube" symmetry="X" weight="1.0"/>
+<tile name="Red Cube (1)" symmetry="X" weight="1.0"/>
+	</tiles>
+<neighbors>  <neighbor left="Red Cube (1) 0" right="Red Cube (1) 0"/>
+  <neighbor left="Red Cube (1) 1" right="Red Cube (1) 1"/>
+  <neighbor left="Red Cube (1) 0" right="Green Cube 0"/>
+  <neighbor left="Green Cube 0" right="Red Cube (1) 0"/>
+  <neighbor left="Green Cube 1" right="Green Cube 1"/>
+  <neighbor left="Red Cube (1) 0" right="Blue Cube 0"/>
+  <neighbor left="Blue Cube 1" right="Blue Cube 1"/>
+  <neighbor left="Red Cube (1) 1" right="Green Cube 1"/>
+  <neighbor left="Blue Cube 1" right="Green Cube 1"/>
+  <neighbor left="Green Cube 0" right="Green Cube 0"/>
+  <neighbor left="Green Cube 1" right="Red Cube (1) 1"/>
+  <neighbor left="Red Cube (1) 1" right="Blue Cube 1"/>
+  <neighbor left="Green Cube 1" right="Blue Cube 1"/>
+  <neighbor left="Blue Cube 0" right="Blue Cube 0"/>
+	</neighbors>
+</set>
