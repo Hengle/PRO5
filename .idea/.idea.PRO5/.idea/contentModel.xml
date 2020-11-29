@@ -26,6 +26,7 @@
           </e>
           <e p="Editor" t="Include">
             <e p="AddTemplate.cs" t="Include" />
+            <e p="AttackAnimationsEditor.cs" t="Include" />
             <e p="EditTemplate.cs" t="Include" />
             <e p="SOTemplateEditor.cs" t="Include" />
             <e p="StatMultMonitor.cs" t="Include" />
@@ -129,12 +130,12 @@
                   <e p="GrenadeMovementController.cs" t="Include" />
                   <e p="PlayerAttack.cs" t="Include" />
                   <e p="PlayerController.cs" t="Include" />
+                  <e p="PlayerMovementController.cs" t="Include" />
                   <e p="Skills.cs" t="Include" />
                 </e>
                 <e p="PlayerController" t="Include">
                   <e p="DashMovementController.cs" t="Include" />
                   <e p="GroundChecker.cs" t="Include" />
-                  <e p="PlayerMovementController.cs" t="Include" />
                   <e p="PlayerStateMachine.cs" t="Include" />
                 </e>
                 <e p="PowerUps" t="Include">
@@ -164,13 +165,13 @@
                 <e p="PlayerStatistics.cs" t="Include" />
                 <e p="StatisticController.cs" t="Include" />
               </e>
-              <e p="Weapon.cs" t="Include" />
             </e>
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="System" t="Include">
             <e p="Input" t="Include">
               <e p="PlayerControls.cs" t="Include" />
+              <e p="PlayerInputManager.cs" t="Include" />
             </e>
             <e p="NavMeshComponents" t="Include">
               <e p="Assets" t="Include">
@@ -239,6 +240,9 @@
             <e p="Prototype" t="Include">
               <e p="AreaBarrier.cs" t="Include" />
               <e p="AreaBarrierList.cs" t="Include" />
+              <e p="Dynamic Navmesh" t="Include">
+                <e p="NavMeshUpdater.cs" t="Include" />
+              </e>
               <e p="EventSystem" t="Include">
                 <e p="LevelEventSystem.cs" t="Include" />
                 <e p="StoryEventSystem.cs" t="Include" />

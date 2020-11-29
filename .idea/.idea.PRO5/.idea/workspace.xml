@@ -21,15 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/OldScripts/PlayerMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/OldScripts/PlayerMovementController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Procedural_Generation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/Level/LevelSO/TutorialLevel.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/Level/LevelSO/TutorialLevel/LevelObjectives.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/TestBoxAlex.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/TestBoxAlex.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +37,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9B956647-017D-4DC1-B8D3-D25EEF012467/43/85405a58/CharacterController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,6 +63,7 @@
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashScript.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" />
       </list>
     </option>
@@ -109,7 +111,11 @@
       <workItem from="1606119762773" duration="192000" />
       <workItem from="1606123608762" duration="6377000" />
       <workItem from="1606143556238" duration="2201000" />
-      <workItem from="1606425294474" duration="1250000" />
+      <workItem from="1606425294474" duration="1690000" />
+      <workItem from="1606427350089" duration="470000" />
+      <workItem from="1606471369721" duration="2134000" />
+      <workItem from="1606493160166" duration="4497000" />
+      <workItem from="1606558174539" duration="3517000" />
     </task>
     <servers />
   </component>
