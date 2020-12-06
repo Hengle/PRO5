@@ -354,7 +354,12 @@ PrefabInstance:
     - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
       propertyPath: dashDelayOn
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2576877363223431059, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}

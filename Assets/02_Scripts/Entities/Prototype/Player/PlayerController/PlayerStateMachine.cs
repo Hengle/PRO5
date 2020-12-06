@@ -27,7 +27,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     #region __________float__________
 
-    [Header("Move Settings")] public float currentMoveSpeed = 5.0f, standardMoveSpeed;
+    [Header("Move Settings")] public float currentMoveSpeed, standardMoveSpeed = 7.0f;
 
     [Header("Dash Settings")]
     public float dashCharge, dashRechargeTime, maxDashCharge, dashSpeed = 1.0f, dashDuration = 0.3f, delayTime;
@@ -61,6 +61,8 @@ public class PlayerStateMachine : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         Cursor.visible = true;
+
+        currentMoveSpeed = standardMoveSpeed;
 
         //frametime = dashDuration;
         delayCountdown = delayTime;
@@ -152,21 +154,14 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void StartDash()
     {
-        if (dashDelayOn && dashCharge >= 100 && currentMoveDirection != Vector3.zero)
+        if (dashCharge >= 100 && dashDelayOn)
         {
-            standardMoveSpeed = currentMoveSpeed;
-            currentMoveSpeed = 0;
+            dashCharge = 0;
             isDelaying = true;
+            currentMoveSpeed = 0;
         }
     }
-
-    public void setMovementBack()
-    {
-        currentMoveSpeed = standardMoveSpeed;
-        dashTime = Time.time;
-        playerStatistics.isDashing = false;
-    }
-
+    
     public void DelayUpdate()
     {
         if (isDelaying)
@@ -175,13 +170,24 @@ public class PlayerStateMachine : MonoBehaviour
             if (delayCountdown <= 0)
             {
                 isDelaying = false;
-                currentMoveSpeed = standardMoveSpeed * dashSpeed;
                 playerStatistics.isDashing = true;
-                dashCharge = 0;
+
+                if (currentMoveDirection == Vector3.zero)
+                {
+                    currentMoveDirection = currentLookDirection;
+                }
+                currentMoveSpeed = standardMoveSpeed * dashSpeed;
                 delayCountdown = delayTime;
                 Invoke("setMovementBack", dashDuration);
             }
         }
+    }
+    
+    public void setMovementBack()
+    {
+        currentMoveSpeed = standardMoveSpeed;
+        dashTime = Time.time;
+        playerStatistics.isDashing = false;
     }
 
     #endregion
