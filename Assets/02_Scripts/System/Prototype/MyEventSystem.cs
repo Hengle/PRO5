@@ -14,7 +14,7 @@ public class MyEventSystem : MonoBehaviour
     //Events die von der Musik ausgelöst werden
     public event System.Action Snare;
     public event System.Action Kick;
-    public event System.Action HighHat;
+    public event System.Action HiHat;
     public event System.Action Deactivate;
 
     public event System.Action AimGrenade;
@@ -62,15 +62,15 @@ public class MyEventSystem : MonoBehaviour
         }
     }
 
-    public void OnHighHat()
+    public void OnHiHat()
     {
-        if (HighHat == null)
+        if (HiHat == null)
         {
-            Debug.LogError("No Highhat event");
+            Debug.LogError("No HiHat event");
         }
         else
         {
-            HighHat();
+            HiHat();
         }
     }
 

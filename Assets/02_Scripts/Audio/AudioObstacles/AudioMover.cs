@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+
+
+
+//Needs rework
+//works only in interval mode and not in normal mode
 public class AudioMover : AudioObstacle
 {
+
+    //Move with Axis
     public float _moveX = 0;
     public float _moveY = 0;
     public float _moveZ = 0;
     float _posX;
 
+    //Ranges of Axis Movment
     private float _moveXMinBorder;
     private float _moveXMaxBorder;
 
@@ -19,20 +27,14 @@ public class AudioMover : AudioObstacle
     private float _moveZMinBorder;
     private float _moveZMaxBorder;
 
+    //If the object should move back and forth
     public bool _backAndForth = true;
 
-    float H, S, V;
-
-    float x;
-
-    //public bool _activateComponent = false;
-
-
-
-    // Start is called before the first frame update
+    // Calculating border ranges
     void Start()
     {
         addActionToEvent();
+
         _moveXMinBorder = transform.localPosition.x;
         _moveXMaxBorder = transform.localPosition.x + _moveX;
 
@@ -43,87 +45,55 @@ public class AudioMover : AudioObstacle
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
 
+    //Movement Code that works not right
+    //Doesnt work in Normal Mode 
     protected override void objectAction()
     {
         increaseIntervalCounter();
-        // moveSimple();
 
         if (_moveX != 0)
         {
-            Debug.Log("HEY");
-            if (m_intervalBeat && checkInterval())
+            if (_intervalBeat && checkInterval())
             {
-                transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration) ;
+                transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration);
             }
+
             if (_backAndForth && !checkInterval())
             {
                 transform.DOLocalMoveX(_moveXMinBorder, m_actionInDuration);
             }
         }
+
         if (_moveZ != 0)
         {
-            if (m_intervalBeat && m_intervalCounter % 2 == 0)
+            if (_intervalBeat && checkInterval())
             {
-
                 transform.DOLocalMoveZ(_moveZMaxBorder, m_actionInDuration);
             }
-            else if (_backAndForth && (m_intervalCounter % 2 != 0))
+            else if (_backAndForth && !checkInterval())
             {
-
                 transform.DOLocalMoveZ(_moveZMinBorder, m_actionInDuration);
             }
         }
+
         if (_moveY != 0)
         {
-            if (m_intervalBeat && m_intervalCounter % 2 == 0)
+            if (_intervalBeat && checkInterval())
             {
-               
                 transform.DOLocalMoveY(_moveYMaxBorder, m_actionInDuration);
 
             }
-            else if (_backAndForth && (m_intervalCounter % 2 != 0))
+            else if (_backAndForth && !checkInterval())
             {
-
                 transform.DOLocalMoveY(_moveYMinBorder, m_actionInDuration);
             }
         }
-
-
-
     }
-
-    void moveSimple()
-    {
-
-
-    }
-
-
+    
 
     // Update is called once per frame
     void Update()
     {
-       
-        
-    }
-
-    protected void increaseIntervalCounter()
-    {
-
-        if (m_intervalBeat)
-        {
-
-            m_intervalCounter++;
-        }
-    }
-
-
-
-
-    private void OnEnable()
-    {
-        // SceneManager.sceneLoaded += addActionToEvent;
-        // SceneManager.sceneLoaded += activateComponent;
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New DestroyObjective", menuName = "Objectives/DestroyObjective")]
+// [CreateAssetMenu(fileName = "New DestroyObjective", menuName = "Objectives/DestroyObjective")]
 public class DestructObjective : Objective
 {
     public bool goalDestroyed = false;

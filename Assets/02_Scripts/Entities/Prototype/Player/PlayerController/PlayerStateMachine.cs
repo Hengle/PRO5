@@ -9,9 +9,9 @@ public enum PlayerMovementSate
 {
     standard,
     dash,
-    grenade,
-    attack,
-    comboWait
+    //grenade,
+    //attack,
+    //comboWait
 }
 
 public class PlayerStateMachine : MonoBehaviour
@@ -41,7 +41,7 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public float deltaTime;
     [HideInInspector] public float time;
 
-    public float currentMoveSpeed = 5.0f, grenadeMoveSpeed = 3.0f, standardMoveSpeed, dashCharge, dashRechargeTime, maxDashCharge;
+    public float currentMoveSpeed = 5.0f, standardMoveSpeed, dashCharge, dashRechargeTime, maxDashCharge;
     public float dashForce = 1.0f, dashDuration = 0.3f, dashDistance = 7f, drag = 1f, delayTime;
     [HideInInspector] public float dashTime;
 
@@ -57,12 +57,12 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public PlayerMovementSate currentState;
     PlayerMovementController standardMovement;
     DashMovementController dashController;
-    GrenadeMovementController grenadeController;
-    AttackMovementState attackController;
-    [HideInInspector] public PlayerAttack playerAttack => GetComponent<PlayerAttack>();
-    public AnimationClip clip;
+    //GrenadeMovementController grenadeController;
+    //AttackMovementState attackController;
+    //[HideInInspector] public PlayerAttack playerAttack => GetComponent<PlayerAttack>();
+    //public AnimationClip clip;
 
-    PlayableGraph playableGraph;
+    //layableGraph playableGraph;
     [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
     public CapsuleCollider selfCol;
     [SerializeField] private StatTemplate playerTemplate;
@@ -77,8 +77,8 @@ public class PlayerStateMachine : MonoBehaviour
         input = new PlayerControls();
         standardMovement = new PlayerMovementController(this);
         dashController = new DashMovementController(this);
-        attackController = new AttackMovementState(this);
-        grenadeController = new GrenadeMovementController(this);
+        //attackController = new AttackMovementState(this);
+        //grenadeController = new GrenadeMovementController(this);
 
         input.Gameplay.Dash.performed += ctx => SetState(PlayerMovementSate.dash);
         input.Gameplay.Movement.performed += ctx => IsMoving();
@@ -94,7 +94,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         input.Disable();
         MyEventSystem.instance.SetState -= SetState;
-        playableGraph.Destroy();
+        //playableGraph.Destroy();
 
     }
 
@@ -103,19 +103,19 @@ public class PlayerStateMachine : MonoBehaviour
         SetState(PlayerMovementSate.standard);
         MyEventSystem.instance.SetState += SetState;
 
-        playableGraph = PlayableGraph.Create();
+        //playableGraph = PlayableGraph.Create();
 
-        playableGraph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
+        //playableGraph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
 
-        var playableOutput = AnimationPlayableOutput.Create(playableGraph, "Run", GetComponentInChildren<Animator>());
+        //var playableOutput = AnimationPlayableOutput.Create(playableGraph, "Run", GetComponentInChildren<Animator>());
 
         // Wrap the clip in a playable
 
-        var clipPlayable = AnimationClipPlayable.Create(playableGraph, clip);
+        //var clipPlayable = AnimationClipPlayable.Create(playableGraph, clip);
 
         // Connect the Playable to an output
 
-        playableOutput.SetSourcePlayable(clipPlayable);
+        //playableOutput.SetSourcePlayable(clipPlayable);
 
         foreach (FloatReference f in playerTemplate.statList)
         {
@@ -125,7 +125,7 @@ public class PlayerStateMachine : MonoBehaviour
                 standardMoveSpeed = s.Value;
             }
         }
-        grenadeMoveSpeed = standardMoveSpeed / 2;
+        //grenadeMoveSpeed = standardMoveSpeed / 2;
     }
 
     void Update()
@@ -144,12 +144,12 @@ public class PlayerStateMachine : MonoBehaviour
             case PlayerMovementSate.dash:
                 dashController.Tick(this);
                 break;
-            case PlayerMovementSate.grenade:
+            /*case PlayerMovementSate.grenade:
                 grenadeController.Tick(this);
                 break;
             case PlayerMovementSate.attack:
                 attackController.Tick(this);
-                break;
+                break;*/
         }
 
         Move();
@@ -185,7 +185,7 @@ public class PlayerStateMachine : MonoBehaviour
     void IsNotMoving()
     {
         isMoving = false;
-        playableGraph.Stop();
+        //playableGraph.Stop();
     }
 
     public void DashCooldown()
@@ -215,9 +215,9 @@ public class PlayerStateMachine : MonoBehaviour
         velocity = Vector3.zero;
         switch (state)
         {
-            case PlayerMovementSate.attack:
+            /*case PlayerMovementSate.attack:
                 Attack();
-                break;
+                break;*/
             case PlayerMovementSate.dash:
                 if (dashCharge < 100 || !isMoving)
                     return;
@@ -226,9 +226,9 @@ public class PlayerStateMachine : MonoBehaviour
             case PlayerMovementSate.standard:
                 ResetMoveSpeed();
                 break;
-            case PlayerMovementSate.grenade:
+            /*case PlayerMovementSate.grenade:
                 GrenadeMoveSpeed();
-                break;
+                break;*/
         }
         currentState = state;
     }
@@ -243,7 +243,7 @@ public class PlayerStateMachine : MonoBehaviour
         dashController.DashInit(this);
     }
 
-    public void Attack()
+    /*public void Attack()
     {
         currentEnemyTarget = attackController.FindTarget(this);
         attackController.StopMovement(this);
@@ -260,6 +260,6 @@ public class PlayerStateMachine : MonoBehaviour
         // Plays the Graph.
 
         //playableGraph.Play();
-    }
+    }*/
 
 }

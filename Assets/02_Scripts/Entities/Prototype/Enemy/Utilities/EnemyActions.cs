@@ -31,6 +31,7 @@ namespace Powerups
     public abstract class Action : MonoBehaviour
     {
         public PowerupNames powerupName;
+                
         public abstract void Execute(GameObject exec);
     }
 

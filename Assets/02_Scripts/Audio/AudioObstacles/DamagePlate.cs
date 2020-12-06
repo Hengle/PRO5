@@ -3,70 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-public class DamagePlate : AudioObstacle
+
+//should work
+public class DamagePlate : AudioObstacle, IDamageObstacle
 {
-    private Material m_material;
-    private float defaultLength;
+    //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
+    public bool _holdValue;
+    bool _holdHelper = true;
 
-    public bool m_holdValue;
-    bool m_holdHelper = true;
-    Sequence mySequence;
-
-    private bool m_plateActive = false;
-
-    Color m_color;
-    float H, S, V;
-    float H1, S1, V1;
-    float H2, S2, V2;
-
-    //private Material _material;
-    public bool m_activateComponent = false;
-    private bool activationhelper = false;
-
-    public float dmgOnEnter = 30;
-    public float dmgOnStay = 5;
-
-    // Start is called before the first frame update
+    //When active the colliders are enabled and damage can happen
+    private bool _plateActive = false;
+    
+    public float _dmgOnEnter { get; set; }
+    public float _dmgOnStay { get; set; }
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
-        m_startInterval = m_intervalCounter + 1;
-
-        BoxCollider a = GetComponentInChildren<BoxCollider>();
-
         addActionToEvent();
+        _dmgOnEnter = 30;
+        _dmgOnStay = 5;
     }
+    
+    
 
-    // Update is called once per frame
     void Update()
     {
-
     }
 
-
-
+    //Has two modes
+    //HoldMode meanst that the object activates on Beat and deactivates on the next beat, it holdes the value between the beats
+    //NormalMode meanst objeact actives on the Beat for a certain duration and deactives immediatle after this duration
     protected override void objectAction()
     {
         increaseIntervalCounter();
-
         if (checkInterval())
         {
-            if (m_holdValue)
+            if (_holdValue)
             {
-                if (m_holdHelper)
+                if (_holdHelper)
                 {
                     emissionChange(1);
-                    m_holdHelper = false;
-                    m_plateActive = true;
+                    _holdHelper = false;
+                    _plateActive = true;
 
-                    //ChildCollider aktivieren
-                    transform.GetComponentInChildren<DamagePlateCollider>().EnableSelf();
-
+                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
                 }
                 else
                 {
                     emissionChange(2);
-                    m_holdHelper = true;
+                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
+                    _holdHelper = true;
                 }
             }
             else
@@ -74,28 +60,25 @@ public class DamagePlate : AudioObstacle
                 emissionChange();
                 shortDurationHelper();
             }
-
         }
     }
 
-    //Wird vom Child-Collider aufgerufen
+    //Gets called from dmg collider (child of this object)
     public void PullTrigger(Collider c, float dmg)
-    {
-        
-        bool hit = false;
-        if (m_plateActive)
+    {  
+        if (_plateActive)
         {
             Debug.Log("Damage Plate hit");
             GameObject obj = c.gameObject;
             if (!obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
-                hit = true;
             }
-
-        }
-        
+            
+        }    
     }
+
+   
 
     public void shortDurationHelper()
     {
@@ -103,15 +86,13 @@ public class DamagePlate : AudioObstacle
     }
 
     IEnumerator enableDmgRoutine()
-    {
-        
-        m_plateActive = true;
-        gameObject.GetComponentInChildren<DamagePlateCollider>().EnableSelf();
+    {    
+        _plateActive = true;
+        gameObject.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
 
         yield return new WaitForSeconds(m_actionInDuration);
-        m_plateActive = false;
-        gameObject.GetComponentInChildren<DamagePlateCollider>().DisableSelf();
+        _plateActive = false;
+        gameObject.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
     }
-
 }
 

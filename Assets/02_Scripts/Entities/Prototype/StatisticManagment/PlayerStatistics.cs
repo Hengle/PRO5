@@ -7,7 +7,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
     public FloatVariable currentHealth;
     public bool isDashing;
     public bool alive = true;
-    public override void InitStats()
+    protected override void InitStats()
     {
         multList = new List<Multiplier>();
         statList = new List<GameStatistics>();

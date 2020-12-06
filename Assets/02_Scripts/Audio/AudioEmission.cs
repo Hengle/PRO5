@@ -33,13 +33,12 @@ public class AudioEmission : MonoBehaviour
         if (_enableBlueFQChannel)
         {
             _material.DOFloat(SpectrumManager._instance.getFqBandBuffer8(_audioBand1) * 10000, "EmissionBlueChannelIntensity", 0);
-            //_material.DOFloat(1000, "EmissionBlueChannelIntensity", 0);
         }
 
         if (_enableRedFQChannel)
         {
               _material.DOFloat(SpectrumManager._instance.getFqBandBuffer8(_audioBand2) * 10000, "EmissionRedChannelIntensity", 0);
-           // _material.DOFloat(10, "EmissionRedChannelIntensity", 0);
+
         }
     }
 }
