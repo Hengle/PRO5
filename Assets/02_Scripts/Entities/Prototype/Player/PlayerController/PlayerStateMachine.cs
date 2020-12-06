@@ -7,31 +7,21 @@ using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using Debug = UnityEngine.Debug;
 
-public enum PlayerMovementSate
-{
-    standard,
-    dash,
-}
-
 public class PlayerStateMachine : MonoBehaviour
 {
-    public PlayerInputManager inputManager;
-
     #region __________Vector 2&3__________
 
     [HideInInspector] public Vector3 currentMoveDirection, currentLookDirection;
     [HideInInspector] public Vector3 forward, right, pointToLook, currentLook;
     [HideInInspector] public Vector3 velocity = Vector3.zero;
-    [HideInInspector] public Vector3 gravity = Vector3.zero;
+    private Vector3 dashVelocity;
 
     #endregion
 
     #region __________bool__________
 
-    [HideInInspector] public bool isAiming, isGrounded = false, checkEnemy = false, isMoving = false;
-    [HideInInspector] public bool gamepadused, mouseused;
+    [HideInInspector] public bool isGrounded = false;
     public bool isDelaying = false;
-
 
     #endregion
 
@@ -39,45 +29,29 @@ public class PlayerStateMachine : MonoBehaviour
 
     [Header("Move Settings")] public float currentMoveSpeed = 5.0f, standardMoveSpeed;
 
-    [Header("Dash Settings")] public float dashCharge, dashRechargeTime, maxDashCharge;
-    public float dashForce = 1.0f, dashDuration = 0.3f, dashDistance = 7f, drag = 1f, delayTime;
+    [Header("Dash Settings")]
+    public float dashCharge, dashRechargeTime, maxDashCharge, dashSpeed = 1.0f, dashDuration = 0.3f, delayTime;
+
     [HideInInspector] public float dashTime;
+    private float timeStartDash, timeSinceStarted, delayCountdown;
 
     #endregion
 
     #region __________other__________
 
-    [HideInInspector] public GameObject dashTarget;
-    [HideInInspector] public Rigidbody rb => GetComponent<Rigidbody>();
     [HideInInspector] public PlayerStatistics playerStatistics => GetComponent<PlayerStatistics>();
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
-    [HideInInspector] public LayerMask enemyMask => LayerMask.GetMask("Enemy");
-
-
+    public PlayerInputManager inputManager;
     [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
-    public CapsuleCollider selfCol;
     [SerializeField] private StatTemplate playerTemplate;
-    public PlayerBody playerBody => GetComponent<PlayerBody>();
-    public DashMovementController dashController;
-
-    public Transform currentEnemyTarget;
     private Plane groundPlane;
-
     private Camera mainCam => GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-    public float time, deltaTime;
-    private float timeStartDash, timeSinceStarted, actualDashDistance, frametime = 0.0f, delayCountdown;
-    public bool isDashing = false, dashDelayOn = false;
-    private Vector3 dashVelocity;
+    public bool isDashing, dashDelayOn = false;
 
     #endregion
 
-    private void Awake()
-    {
-        //inputManager.controls.Gameplay.Movement.performed += ctx => IsMoving();
-        //inputManager.controls.Gameplay.Movement.canceled += ctx => IsNotMoving();
-    }
-
+    #region Start/Update
 
     private void Start()
     {
@@ -87,8 +61,8 @@ public class PlayerStateMachine : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         Cursor.visible = true;
-        
-        frametime = dashDuration;
+
+        //frametime = dashDuration;
         delayCountdown = delayTime;
 
         foreach (FloatReference f in playerTemplate.statList)
@@ -103,27 +77,16 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Update()
     {
-        time = Time.time;
-        deltaTime = Time.deltaTime;
-        frametime -= Time.deltaTime;
+        //frametime -= Time.deltaTime;
         isDashing = playerStatistics.isDashing;
-        
+
         DelayUpdate();
         Move();
         UpdateLookDirection();
         DashCooldown();
     }
 
-
-    void IsMoving()
-    {
-        isMoving = true;
-    }
-
-    void IsNotMoving()
-    {
-        isMoving = false;
-    }
+    #endregion
 
     #region Movement
 
@@ -146,6 +109,19 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
+    public void IsGrounded()
+    {
+        if (Physics.CheckSphere(transform.position + new Vector3(0, 1f, 0), 1.01f, groundMask,
+            QueryTriggerInteraction.Ignore))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+            characterController.Move(Physics.gravity * Time.deltaTime);
+        }
+    }
 
     void UpdateLookDirection()
     {
@@ -163,6 +139,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     #endregion
 
+    #region Dash
+
     public void DashCooldown()
     {
         float timeSinceDashEnded = Time.time - dashTime;
@@ -171,26 +149,22 @@ public class PlayerStateMachine : MonoBehaviour
 
         dashCharge = Mathf.Lerp(0, maxDashCharge, perc);
     }
-    void DashDelay()
-    {
-        delayCountdown -= Time.deltaTime;
-        //currentMoveDirection = Vector3.zero;
-        if (delayCountdown <= 0)
-        {
-            velocity = Vector3.zero;
-            delayCountdown = delayTime; ;
-            dashDelayOn = false;
-          
-        }
-    }
-    
+
     public void StartDash()
     {
-        if (dashCharge >= 100){
+        if (dashDelayOn && dashCharge >= 100 && currentMoveDirection != Vector3.zero)
+        {
             standardMoveSpeed = currentMoveSpeed;
             currentMoveSpeed = 0;
             isDelaying = true;
         }
+    }
+
+    public void setMovementBack()
+    {
+        currentMoveSpeed = standardMoveSpeed;
+        dashTime = Time.time;
+        playerStatistics.isDashing = false;
     }
 
     public void DelayUpdate()
@@ -201,8 +175,8 @@ public class PlayerStateMachine : MonoBehaviour
             if (delayCountdown <= 0)
             {
                 isDelaying = false;
+                currentMoveSpeed = standardMoveSpeed * dashSpeed;
                 playerStatistics.isDashing = true;
-                currentMoveSpeed = currentMoveSpeed * dashDistance;
                 dashCharge = 0;
                 delayCountdown = delayTime;
                 Invoke("setMovementBack", dashDuration);
@@ -210,27 +184,25 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    public void setMovementBack()
+    #endregion
+
+
+    void PlayDeath()
     {
-        currentMoveSpeed = standardMoveSpeed;
-        dashTime = Time.time;
-        playerStatistics.isDashing = false;
         
     }
-
-    public void IsGrounded()
-    {
-        if (Physics.CheckSphere(transform.position + new Vector3(0, 1f, 0), 1.01f, groundMask,
-            QueryTriggerInteraction.Ignore))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-            characterController.Move(Physics.gravity * Time.deltaTime);
-        }
-    }
+    /*void DashDelay()
+  {
+      delayCountdown -= Time.deltaTime;
+      //currentMoveDirection = Vector3.zero;
+      if (delayCountdown <= 0)
+      {
+          velocity = Vector3.zero;
+          delayCountdown = delayTime; ;
+          dashDelayOn = false;
+        
+      }
+  }*/
 
     /*void GamepadLook()
    {

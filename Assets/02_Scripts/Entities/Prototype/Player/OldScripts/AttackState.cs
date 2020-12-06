@@ -6,7 +6,7 @@ public class AttackState : ScriptableObject
 {
     public TimelineAsset anim;
     public AnimationClip clip;
-    public PlayerMovementSate movementState;
+   //public PlayerMovementSate movementState;
     public bool canAttack;
     public bool canTurn;
     public bool canDamage;

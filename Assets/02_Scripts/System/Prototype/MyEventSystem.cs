@@ -9,7 +9,7 @@ public class MyEventSystem : MonoBehaviour
     // public event Action<Skills> ActivateSkill;
     // public event Action<Skills> DeactivateSkill;
 
-    public event Action<PlayerMovementSate> SetState;
+    //public event Action<PlayerMovementSate> SetState;
 
     //Events die von der Musik ausgelöst werden
     public event System.Action Snare;
@@ -105,11 +105,11 @@ public class MyEventSystem : MonoBehaviour
     {
         activateAI?.Invoke(enemy);
     }
-    public void OnSetState(PlayerMovementSate state)
+    /*public void OnSetState(PlayerMovementSate state)
     {
         SetState?.Invoke(state);
     }
-    /*
+    
    public void OnEnemyDeath(EnemyBody enemy)
    {
        if (onEnemyDeath != null)
