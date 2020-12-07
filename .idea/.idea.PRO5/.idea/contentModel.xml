@@ -151,7 +151,6 @@
                 <e p="PowerUp.cs" t="Include" />
                 <e p="PowerUpController.cs" t="Include" />
                 <e p="Stun.cs" t="Include" />
-                <e p="Tests.cs" t="Include" />
               </e>
               <e p="StatisticManagment" t="Include">
                 <e p="EnemyStatistics.cs" t="Include" />
