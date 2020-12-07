@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatistics : StatisticController, IHasHealth
 {
     public FloatVariable currentHealth;
-    public bool isDashing;
+    public bool isDashing = false;
     public bool alive = true;
     protected override void InitStats()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashMovementController
+/*public class DashMovementController
 {
     private float timeStartDash, timeSinceStarted, actualDashDistance, frametime = 0.0f, delayCountdown;
     public bool isDashing = false, dashDelayOn = false;
@@ -86,7 +86,7 @@ public class DashMovementController
             delayCountdown = controller.delayTime; ;
             dashDelayOn = false;
             //animCon.MoveStarter();
-            controller.SetState(PlayerMovementSate.standard);
+            //controller.SetState(PlayerMovementSate.standard);
             // controller.characterController.detectCollisions = true;
         }
     }
@@ -111,4 +111,4 @@ public class DashMovementController
         // }
         // controller.checkEnemy = false;
     }
-}
+}*/
