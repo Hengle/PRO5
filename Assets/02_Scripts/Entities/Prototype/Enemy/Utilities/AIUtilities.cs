@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System;
 
 public class AIUtilities : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class AIUtilities : MonoBehaviour
         float currentTime;
         float waitTime;
         bool timerDone;
-
+        public bool timerStarted;
         public Timer()
         {
 
@@ -24,12 +25,15 @@ public class AIUtilities : MonoBehaviour
         }
 
 
-        public void StartTimer()
+        async public void StartTimer(System.Action SetCanAttack)
         {
             timerDone = false;
-
+            timerStarted = true;
             //Starting the async function
-            Timing();
+            await Timing();
+
+            SetCanAttack();
+            timerStarted = false;
         }
 
         //Async operation that uses the UniTask async library

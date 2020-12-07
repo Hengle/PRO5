@@ -14,22 +14,20 @@ namespace Enemy
     [System.Serializable]
     public class AttackAnimations
     {
-        public AnimationClip clip;
+        [SerializeField] public AnimationClip clip;
         // public PlayableAsset playable;
-        public string animationName => clip.name;
-        public float damageFrameStart;
-        public float damageFrameEnd;
-        public float attRange;
-        public float attackWidth;
-        public List<EffectsFrameContainer> effects = new List<EffectsFrameContainer>();
-        public float clipLength => clip != null ? clip.length : 0;
+        [SerializeField] public float damageFrameStart;
+        [SerializeField] public float damageFrameEnd;
+        [SerializeField] public float attRange;
+        [SerializeField] public float attackWidth;
+        [SerializeField] public List<EffectsFrameContainer> effects = new List<EffectsFrameContainer>();
     }
 
     [System.Serializable]
     public class EffectsFrameContainer
     {
-        public EffectType type;
-        public float frame;
+        [SerializeField] public EffectType type;
+        [SerializeField] public float frame;
         public EffectsFrameContainer(EffectType _type, float _frame)
         {
             type = _type;

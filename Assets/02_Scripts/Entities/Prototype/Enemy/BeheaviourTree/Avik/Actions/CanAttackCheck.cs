@@ -28,19 +28,28 @@ namespace BBUnity.Actions
             if (timer == null)
             {
                 timer = new AIUtilities.Timer(stats.GetStatValue(StatName.AttackRate));
-                if (!actions.canAttack)
-                    timer.StartTimer();
+                if (!actions.canAttack && !timer.timerStarted)
+                    timer.StartTimer(() => SetCanAttack());
+            }
+            else if (!actions.canAttack && !timer.timerStarted)
+            {
+                timer.StartTimer(() => SetCanAttack());
             }
         }
 
         public override TaskStatus OnUpdate()
         {
-            if (!actions.canAttack)
-            {
-                actions.canAttack = timer.TimerDone();
-            }
+            // if (!actions.canAttack)
+            // {
+            //     actions.canAttack = timer.TimerDone();
+            // }
 
             return TaskStatus.COMPLETED;
+        }
+
+        public void SetCanAttack()
+        {
+            actions.canAttack = true;
         }
     }
 }

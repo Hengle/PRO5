@@ -27,8 +27,20 @@ namespace BBUnity.Actions
         public EnemyActions actions;
         [InParam("stats")]
         public EnemyStatistics stats;
+
         public override void OnStart()
         {
+            if (timer == null)
+            {
+                timer = new AIUtilities.Timer(stats.GetStatValue(StatName.AttackRate));
+                if (!actions.canAttack && !timer.timerStarted)
+                    timer.StartTimer(() => SetCanAttack());
+            }
+            else if (!actions.canAttack && !timer.timerStarted)
+            {
+                timer.StartTimer(() => SetCanAttack());
+            }
+            
             if (actions.canAttack)
             {
                 StartAttack();
@@ -43,7 +55,7 @@ namespace BBUnity.Actions
             }
             else
             {
-                timer.StartTimer();
+                timer.StartTimer(() => SetCanAttack());
                 return TaskStatus.COMPLETED;
             }
 
@@ -56,9 +68,13 @@ namespace BBUnity.Actions
             actions.canAttack = false;
         }
 
+        public void SetCanAttack()
+        {
+            actions.canAttack = true;
+        }
         public override void OnAbort()
         {
-            timer.StartTimer();
+            timer.StartTimer(() => SetCanAttack());
             attack.CancelAttack();
         }
     }

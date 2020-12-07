@@ -14,15 +14,9 @@ namespace BBUnity.Conditions
     {
         [InParam("enemyBody", typeof(EnemyBody))]
         public EnemyBody enemyBody;
-
-        //[InParam("actions", typeof(IEnemyActions))]
-        //public IEnemyActions actions;
-
+        
         [InParam("agent", typeof(NavMeshAgent))]
         public NavMeshAgent agent;
-
-        [InParam("aiManager", typeof(AIManager))]
-        public AIManager aiManager;
 
         [InParam("attack")]
         public CloseCombatAttacks attack;
@@ -39,7 +33,7 @@ namespace BBUnity.Conditions
 
         public bool CheckForPlayer()
         {
-            if ((gameObject.transform.position - aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(stats.GetStatValue(StatName.Range), 2))
+            if ((gameObject.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(stats.GetStatValue(StatName.Range), 2))
             {
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
                 return true;
@@ -62,7 +56,7 @@ namespace BBUnity.Conditions
 
         bool CheckInFront()
         {
-            Ray ray = new Ray(enemyBody.rayEmitter.position, enemyBody.transform.forward);
+            Ray ray = new Ray(enemyBody.rayEmitter.position, gameObject.transform.forward);
             return Physics.SphereCast(ray, 0.2f, stats.GetStatValue(StatName.Range), LayerMask.GetMask("Player"));
         }
     }
