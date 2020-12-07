@@ -8,20 +8,23 @@ using UnityEngine.SceneManagement;
 public class DamagePlate : AudioObstacle, IDamageObstacle
 {
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
-    public bool _holdValue;
-    bool _holdHelper = true;
+    public bool _holdValue = false;
+    public bool _holdHelper;
 
     //When active the colliders are enabled and damage can happen
     private bool _plateActive = false;
     
     public float _dmgOnEnter { get; set; }
     public float _dmgOnStay { get; set; }
+    
+   
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
         addActionToEvent();
         _dmgOnEnter = 30;
         _dmgOnStay = 5;
+        _holdValue = true;
     }
     
     

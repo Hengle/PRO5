@@ -22,12 +22,11 @@
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/BlockingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/BlockingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/TestBoxAlex.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/ScenesAlex/TestBoxAlex.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/WFC_Prefabs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +35,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/4f/9a918d6a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/a5/ef94794f/Component.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -51,11 +54,8 @@
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/ObstacleInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" />
@@ -66,6 +66,11 @@
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerInputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/PowerUp.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/MovementSpeedBoost.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" />
+        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" />
       </list>
     </option>
   </component>
@@ -119,6 +124,8 @@
       <workItem from="1606558174539" duration="3517000" />
       <workItem from="1606668654714" duration="2661000" />
       <workItem from="1607267401580" duration="4491000" />
+      <workItem from="1607334821219" duration="3025000" />
+      <workItem from="1607347499910" duration="2421000" />
     </task>
     <servers />
   </component>

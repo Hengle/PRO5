@@ -6,3 +6,4 @@ public interface IDamageObstacle
     float _dmgOnEnter { get; set; }
     float _dmgOnStay { get; set; }
 }
+   
