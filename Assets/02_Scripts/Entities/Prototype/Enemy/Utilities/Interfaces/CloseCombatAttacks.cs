@@ -23,7 +23,8 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
         yield return new WaitForSeconds(start);
         actions.canDamage = true;
 
-        yield return StartCoroutine(DamageTimer(end));
+        damageWaiter = StartCoroutine(DamageTimer(end));
+        yield return damageWaiter;
 
         actions.canDamage = false;
 
@@ -36,7 +37,6 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
     protected virtual IEnumerator DamageTimer(float wait)
     {
         float cTime = 0;
-
         while (cTime <= wait)
         {
             if (DoDamage())

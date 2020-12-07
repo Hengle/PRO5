@@ -21,6 +21,7 @@ MonoBehaviour:
     />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"False\"
     />\r\n          <entry name=\"actions\" type=\"EnemyActions\" isBlackboard=\"False\"
     />\r\n          <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"False\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams>\r\n        <localValues>\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
     isBlackboard=\"False\" />\r\n        </localValues>\r\n      </localParams>\r\n   
@@ -58,10 +59,11 @@ MonoBehaviour:
     isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"actions\"
     type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
     <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
-    <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n   
-    <BehaviorTree id=\"0\" _name=\"AttackBehaviour\" _description=\"Simple Attack
-    Behaviour that works with an external timer to time it's attacks.\" _removeIfClosed=\"False\">\r\n     
+    />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"True\"
+    blackboard=\"animator\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n 
+    <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"AttackBehaviour\" _description=\"Simple
+    Attack Behaviour that works with an external timer to time it's attacks.\" _removeIfClosed=\"False\">\r\n     
     <_rootList>\r\n        <elem>\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </elem>\r\n        <elem>\r\n          <SequenceNode id=\"8\" />\r\n        </elem>\r\n       
     <elem>\r\n          <ActionNode id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n         
@@ -79,12 +81,12 @@ MonoBehaviour:
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"8\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"262.7151
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"262.7151
     353.0556\" name=\"CanAttackCheck\" description=\"Checks if the internal timer
     is done\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\"
     />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode id=\"8\" />\r\n       
     </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"12\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"520 347\"
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"522 347\"
     name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"12\" />\r\n          <SequenceNode id=\"8\" />\r\n        </data>\r\n     

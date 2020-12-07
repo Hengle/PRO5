@@ -7,20 +7,23 @@ namespace Enemy
     [CustomEditor(typeof(CloseCombatAttacks), true)]
     public class AttackAnimationsEditor : Editor
     {
+        
         float frame = 0;
         bool foldout;
         Enemy.EffectType effect;
         public override void OnInspectorGUI()
         {
+            DrawDefaultInspector();
             CloseCombatAttacks t = (CloseCombatAttacks)target;
-            EditorGUILayout.ObjectField(t, typeof(CloseCombatAttacks), false);
+            // EditorGUILayout.ObjectField(t, typeof(CloseCombatAttacks), false);
 
             foldout = EditorGUILayout.Foldout(foldout, "Animations");
             int count = 0;
 
             if (foldout)
             {
-                if (t.attackAnimations.Count != 0)
+                
+                if (t.attackAnimations.Length != 0)
                     foreach (Enemy.AttackAnimations anim in t.attackAnimations)
                     {
                         GUILayout.Label("Animation " + count, EditorStyles.boldLabel);
@@ -68,13 +71,38 @@ namespace Enemy
 
                 if (GUILayout.Button("Add Attack Animation"))
                 {
-                    t.attackAnimations.Add(new Enemy.AttackAnimations());
+                    AddToArray(ref t.attackAnimations);
                 }
 
                 if (GUILayout.Button("Remove last Attack Animation"))
                 {
-                    t.attackAnimations.RemoveAt(t.attackAnimations.Count - 1);
+                    // t.attackAnimations.RemoveAt(t.attackAnimations.Count - 1);
+                    RemoveLast(ref t.attackAnimations);
+
                 }
+            }
+
+
+        }
+
+        void AddToArray(ref Enemy.AttackAnimations[] arr)
+        {
+            var old = arr;
+            arr = new Enemy.AttackAnimations[arr.Length + 1];
+            for (int i = 0; i < old.Length; i++)
+            {
+                arr[i] = old[i];
+            }
+            arr[arr.Length] = new Enemy.AttackAnimations();
+        }
+
+        void RemoveLast(ref Enemy.AttackAnimations[] arr)
+        {
+            var old = arr;
+            arr = new Enemy.AttackAnimations[arr.Length - 1];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = old[i];
             }
         }
     }
