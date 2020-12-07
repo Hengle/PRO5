@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1177114979
 Transform:
   m_ObjectHideFlags: 0
@@ -69,6 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1118620468471377849}
+  - component: {fileID: 1292289528}
   m_Layer: 9
   m_Name: Avik_geo
   m_TagString: Untagged
@@ -92,6 +93,25 @@ Transform:
   m_Father: {fileID: 4119351919161116622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1292289528
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346200817684444419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: e0f3e373b567bbc4b8a909b7cf684e25, type: 3}
+  m_Controller: {fileID: 9100000, guid: 4a62b78100805004d89eb26f07a93d8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &639302589142449487
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,11 +557,11 @@ GameObject:
   - component: {fileID: 710136198825184621}
   - component: {fileID: 4119351919161116617}
   - component: {fileID: 6770240913040067313}
-  - component: {fileID: 1056322893}
   - component: {fileID: 4119351919161116614}
   - component: {fileID: 4119351919161116611}
   - component: {fileID: 4119351919161116613}
   - component: {fileID: 4119351919161116612}
+  - component: {fileID: 5373275152114399511}
   m_Layer: 9
   m_Name: Avik
   m_TagString: Untagged
@@ -605,12 +625,14 @@ MonoBehaviour:
     - {fileID: 710136198825184621}
     - {fileID: 4119351919161116619}
     - {fileID: 4119351919161116620}
+    - {fileID: 1292289528}
     objectParamsNames:
     - enemyBody
     - agent
     - attack
     - stats
     - actions
+    - animator
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -684,7 +706,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8844c09b2c33947a0f824bdabfd4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnimations: []
+  attackAnimations:
+  - clip: {fileID: 1827226128182048838, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
+    damageFrameStart: 10
+    damageFrameEnd: 40
+    attRange: 3
+    attackWidth: 1.5
+    effects: []
+  - clip: {fileID: 3341021286118218705, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
+    damageFrameStart: 15
+    damageFrameEnd: 30
+    attRange: 2.5
+    attackWidth: 2
+    effects: []
+  anim: {fileID: 6770240913040067313}
 --- !u!114 &4119351919161116617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,25 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242ea9ec1bf32f64e85af2d59c6f85ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1056322893
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119351919161116610}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e0f3e373b567bbc4b8a909b7cf684e25, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4a62b78100805004d89eb26f07a93d8b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  animator: {fileID: 1292289528}
 --- !u!195 &4119351919161116614
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -797,6 +814,22 @@ CapsuleCollider:
   m_Height: 2.06
   m_Direction: 2
   m_Center: {x: 0, y: 1.83, z: -1.96}
+--- !u!114 &5373275152114399511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119351919161116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea84852637b3e347a26b438e21270ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  show: 'Reference the AIManager in the EnemyBody script.
+
+    Make sure there is
+    a NavMesh baked in your scene.'
 --- !u!1 &4119351919320222298
 GameObject:
   m_ObjectHideFlags: 0
