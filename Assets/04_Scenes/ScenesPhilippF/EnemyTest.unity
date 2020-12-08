@@ -181,76 +181,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &109292595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  top:
-    m_OverrideState: 0
-    m_Value: {r: 0.254717, g: 0.022828404, b: 0.025054792, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  middle:
-    m_OverrideState: 0
-    m_Value: {r: 0.033555932, g: 0.03480506, b: 0.035748027, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  bottom:
-    m_OverrideState: 0
-    m_Value: {r: 0.07883224, g: 0.09459869, b: 0.18919738, a: 1}
-    hdr: 1
-    showAlpha: 0
-    showEyeDropper: 1
-  gradientDiffusion:
-    m_OverrideState: 0
-    m_Value: 1.42
 --- !u!1 &302931448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2576877363223431070, guid: 9fe3307324cf8d047b74149b6256bfd8,
@@ -586,31 +516,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
---- !u!1 &1292289527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 346200817684444419, guid: 0e514b88b639cbe489b2ef8428ddce53,
-    type: 3}
-  m_PrefabInstance: {fileID: 4119351918915390912}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1292289528
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292289527}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e0f3e373b567bbc4b8a909b7cf684e25, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4a62b78100805004d89eb26f07a93d8b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1366481461
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,18 +719,6 @@ MonoBehaviour:
   showAdditionalSettings: 0
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
---- !u!114 &1389091799 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6770240913040067313, guid: 0e514b88b639cbe489b2ef8428ddce53,
-    type: 3}
-  m_PrefabInstance: {fileID: 4119351918915390912}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242ea9ec1bf32f64e85af2d59c6f85ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1397626677
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +826,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1666458825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81bcacc415a1f743bfdf703afc52027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  top:
+    m_OverrideState: 0
+    m_Value: {r: 0.254717, g: 0.022828404, b: 0.025054792, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  middle:
+    m_OverrideState: 0
+    m_Value: {r: 0.033555932, g: 0.03480506, b: 0.035748027, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  bottom:
+    m_OverrideState: 0
+    m_Value: {r: 0.07883224, g: 0.09459869, b: 0.18919738, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  gradientDiffusion:
+    m_OverrideState: 0
+    m_Value: 1.42
 --- !u!1001 &1715283500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1056,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: e6cc386e88aed6647bffd915475bbcad, type: 2}
   m_StaticLightingSkyUniqueID: 3
-  m_SkySettings: {fileID: 109292595}
+  m_SkySettings: {fileID: 1666458825}
   m_SkySettingsFromProfile: {fileID: -1008905139995932526, guid: e6cc386e88aed6647bffd915475bbcad,
     type: 2}
 --- !u!4 &1776581815
@@ -1154,73 +1117,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].effects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 1827226128182048838, guid: 5c7de4e698979b44badc8875436592bb,
-        type: 3}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].damageFrameStart
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].damageFrameEnd
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].attRange
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[0].attackWidth
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1389091799}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 3341021286118218705, guid: 5c7de4e698979b44badc8875436592bb,
-        type: 3}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[1].damageFrameStart
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[1].damageFrameEnd
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[1].attRange
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 710136198825184621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: attackAnimations.Array.data[1].attackWidth
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4119351919161116610, guid: 0e514b88b639cbe489b2ef8428ddce53,
         type: 3}
       propertyPath: m_Name
@@ -1231,26 +1127,6 @@ PrefabInstance:
       propertyPath: aiManager
       value: 
       objectReference: {fileID: 4551983}
-    - target: {fileID: 4119351919161116621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: blackboard.objectParams.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119351919161116621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: blackboard.objectParamsNames.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4119351919161116621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: blackboard.objectParams.Array.data[5]
-      value: 
-      objectReference: {fileID: 1292289528}
-    - target: {fileID: 4119351919161116621, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: blackboard.objectParamsNames.Array.data[5]
-      value: animator
-      objectReference: {fileID: 0}
     - target: {fileID: 4119351919161116622, guid: 0e514b88b639cbe489b2ef8428ddce53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1306,11 +1182,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6770240913040067313, guid: 0e514b88b639cbe489b2ef8428ddce53,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1292289528}
-    m_RemovedComponents:
-    - {fileID: 1056322893, guid: 0e514b88b639cbe489b2ef8428ddce53, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e514b88b639cbe489b2ef8428ddce53, type: 3}
