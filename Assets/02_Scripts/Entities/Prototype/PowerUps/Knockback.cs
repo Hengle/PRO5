@@ -1,31 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class Knockback : PowerUp
+public class Knockback : EnemyPowerup
 {
-    public int radius = 3;
 
+    public float force = 10.0f;
 
     public override void Activate()
     {
-        Debug.Log("Knockback power up activated");
-        
-        RaycastHit[] raycastHits = Physics.SphereCastAll(
-            player.transform.position + player.GetComponent<CharacterController>().center,
-            radius,
-            player.transform.forward,
-            radius
-        );
-        
-        foreach (RaycastHit hit in raycastHits)
+        var enemies = FindEnemies(3.0f);
+        // Apply knockback force to each enemy
+        foreach (GameObject enemy in enemies)
         {
-            GameObject enemy = hit.collider.gameObject;
-            EnemyActions eActions = enemy.GetComponent<EnemyActions>();
-            Powerups.Knockback kb = new Powerups.Knockback();
-            kb.force = 100f;
-            kb.powerupName = PowerupNames.Knockback;
-            kb.Execute(enemy);
+            Vector3 direction = (enemy.transform.position - _player.transform.position).normalized;
+            enemy.GetComponent<Rigidbody>().AddForce(direction * force, ForceMode.Impulse);
         }
+
+        Debug.Log(string.Format("Stunned {0} enemies", enemies.Count));
     }
 }

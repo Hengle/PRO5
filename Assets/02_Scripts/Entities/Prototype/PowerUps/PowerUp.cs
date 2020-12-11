@@ -14,14 +14,20 @@ public class PowerUp : MonoBehaviour
 
     public string nameText;
     public string descText;
-
-    public GameObject player;
     public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
 
 
+    protected GameObject _player;
+
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.Equals(player.GetComponents<Collider>()[1]))
+        if (other.Equals(_player.GetComponents<Collider>()[1]))
         {
             onCollect.Invoke(this);
             Destroy(gameObject);
