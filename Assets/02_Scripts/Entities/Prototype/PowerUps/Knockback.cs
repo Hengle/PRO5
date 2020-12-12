@@ -18,6 +18,6 @@ public class Knockback : EnemyPowerup
             enemy.GetComponent<Rigidbody>().AddForce(direction * force, ForceMode.Impulse);
         }
 
-        Debug.Log(string.Format("Stunned {0} enemies", enemies.Count));
+        Debug.Log(string.Format("KnockbackPowerUp: Kocked back {0} enemies", enemies.Count));
     }
 }

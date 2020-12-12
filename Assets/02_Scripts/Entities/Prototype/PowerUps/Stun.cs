@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Stun : EnemyPowerup
 {
@@ -10,11 +11,17 @@ public class Stun : EnemyPowerup
     {
         var enemies = FindEnemies(3.0f);
         // Apply knockback force to each enemy
-        foreach (GameObject enemy in enemies)
-        {
-        }
+        var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
+        foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
+
+        Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));
+    }
 
 
-        Debug.Log(string.Format("Stunned {0} enemies", enemies.Count));
+    protected IEnumerator StunDuration(EnemyActions enemyActions)
+    {
+        enemyActions.isStunned = true;
+        yield return new WaitForSeconds(duration);
+        enemyActions.isStunned = true;
     }
 }

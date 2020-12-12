@@ -106,11 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6e424326d3c7642b441163d15790dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: 
-  descText: 
-  player: {fileID: 0}
-  playerCollider: {fileID: 0}
+  nameText: Knockback
+  descText: Knock back enemies
   onCollect:
     m_PersistentCalls:
       m_Calls: []
-  radius: 3
+  force: 10
