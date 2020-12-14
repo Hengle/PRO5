@@ -36,7 +36,7 @@ MonoBehaviour:
     <child>\r\n              <SubbehaviorNode id=\"5\" />\r\n            </child>\r\n         
     </GuardAndNode>\r\n        </elem>\r\n      </children>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n   
-    <ConditionEvalNode id=\"4\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"EnemyBehaviour/CheckTargetDistance\">\r\n     
+    <ConditionEvalNode id=\"4\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"EnemyBehaviour/CheckTargetDistance\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"enemyBody\"
     type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
     <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\" isBlackboard=\"True\"

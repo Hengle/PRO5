@@ -1063,6 +1063,7 @@ GameObject:
   - component: {fileID: 2576877363223431061}
   - component: {fileID: 2576877363223431060}
   - component: {fileID: 2576877363223431058}
+  - component: {fileID: 1316906339}
   m_Layer: 11
   m_Name: Character_final_Ripped_Bloke
   m_TagString: Player
@@ -1079,7 +1080,7 @@ Transform:
   m_GameObject: {fileID: 2576877363223431070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1042652485801479816}
   - {fileID: 4538411176893929185}
@@ -1104,36 +1105,22 @@ MonoBehaviour:
   right: {x: 0, y: 0, z: 0}
   pointToLook: {x: 0, y: 0, z: 0}
   currentLook: {x: 0, y: 0, z: 0}
-  move: {x: 0, y: 0}
-  gamepadRotate: {x: 0, y: 0}
-  mouseLook: {x: 0, y: 0}
   velocity: {x: 0, y: 0, z: 0}
-  gravity: {x: 0, y: 0, z: 0}
-  isAiming: 0
-  mouseused: 0
-  gamepadused: 0
   isGrounded: 1
-  checkEnemy: 0
-  isMoving: 0
-  deltaTime: 0
-  time: 0
+  isDelaying: 0
   currentMoveSpeed: 5
   standardMoveSpeed: 6
   dashCharge: 0
   dashRechargeTime: 1
   maxDashCharge: 100
-  dashForce: 0.1
+  dashSpeed: 3
   dashDuration: 0.4
-  dashDistance: 6
-  drag: 5
   delayTime: 0.2
   dashTime: 0
-  dashTarget: {fileID: 0}
-  RayEmitter: {fileID: 4538411176893929185}
-  currentState: 0
-  selfCol: {fileID: 2576877363223431061}
+  inputManager: {fileID: 0}
   playerTemplate: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
-  currentEnemyTarget: {fileID: 0}
+  isDashing: 0
+  dashDelayOn: 1
 --- !u!114 &2576877363223431056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,10 +1133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de527f503ac3184429180d9e84ee55f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicators: {fileID: 0}
-  template: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
-  currentHealth: {fileID: 11400000, guid: 7aa13f19c163f504d99c94d8437c9aee, type: 2}
-  alive: 1
 --- !u!136 &2576877363223431061
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1190,7 +1173,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: a1406b89c8e81b142bb137ac8f9cd90a, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -1201,6 +1184,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1316906339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576877363223431070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9012d8de36e0346b474d136351d427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTemplate: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
+  currentHealth: {fileID: 11400000, guid: 7aa13f19c163f504d99c94d8437c9aee, type: 2}
+  isDashing: 0
+  alive: 1
 --- !u!1 &2944645021017931239
 GameObject:
   m_ObjectHideFlags: 0
