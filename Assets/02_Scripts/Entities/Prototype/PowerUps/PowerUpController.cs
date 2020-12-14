@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
 
-    private PowerUp _currentPowerUp = null;
+    public PowerUp _currentPowerUp = null;
 
 
     public void StorePowerUp(PowerUp powerup)
@@ -18,7 +18,12 @@ public class PowerUpController : MonoBehaviour
 
     public void ActivatePowerUp()
     {
-        _currentPowerUp.Activate();
-        _currentPowerUp = null;
+        if (_currentPowerUp != null)
+        {
+            _currentPowerUp.Activate();
+            _currentPowerUp = null;
+        }
+       
+
     }
 }

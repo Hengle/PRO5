@@ -67,6 +67,7 @@
                   </e>
                 </e>
                 <e p="Bullet.cs" t="Include" />
+                <e p="ReadMe.cs" t="Include" />
                 <e p="Shentau" t="Include">
                   <e p="ShentauActions.cs" t="Include" />
                   <e p="STScripts" t="Include">
@@ -146,6 +147,7 @@
                 </e>
               </e>
               <e p="PowerUps" t="Include">
+                <e p="EnemyPowerup.cs" t="Include" />
                 <e p="Knockback.cs" t="Include" />
                 <e p="MovementSpeedBoost.cs" t="Include" />
                 <e p="PowerUp.cs" t="Include" />
@@ -168,10 +170,12 @@
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="System" t="Include">
+            <e p="DeathDrop.cs" t="Include" />
             <e p="Input" t="Include">
               <e p="PlayerControls.cs" t="Include" />
               <e p="PlayerInputManager.cs" t="Include" />
             </e>
+            <e p="LevelManagerProto.cs" t="Include" />
             <e p="NavMeshComponents" t="Include">
               <e p="Assets" t="Include">
                 <e p="Examples" t="Include">

@@ -15,6 +15,7 @@ public class PowerUp : MonoBehaviour
     public string nameText;
     public string descText;
     public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
+    public PowerUpController puController;
 
 
     protected GameObject _player;
@@ -30,6 +31,7 @@ public class PowerUp : MonoBehaviour
         if (other.Equals(_player.GetComponents<Collider>()[1]))
         {
             onCollect.Invoke(this);
+            
             Destroy(gameObject);
         }
     }

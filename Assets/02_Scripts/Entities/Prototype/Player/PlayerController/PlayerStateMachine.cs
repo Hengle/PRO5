@@ -22,6 +22,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     [HideInInspector] public bool isGrounded = false;
     public bool isDelaying = false;
+    private bool dashPressed = false;
 
     #endregion
 
@@ -154,8 +155,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void StartDash()
     {
-        if (dashCharge >= 100 && dashDelayOn)
+        if (!dashPressed && dashCharge >= 100 && dashDelayOn)
         {
+            dashPressed = true;
             dashCharge = 0;
             isDelaying = true;
             currentMoveSpeed = 0;
@@ -188,6 +190,7 @@ public class PlayerStateMachine : MonoBehaviour
         currentMoveSpeed = standardMoveSpeed;
         dashTime = Time.time;
         playerStatistics.isDashing = false;
+        dashPressed = false;
     }
 
     #endregion

@@ -10,7 +10,7 @@ public class ProgessBarDash : ProgessBar
 
     void Update()
     {
-        // GetCurrentFill();
+        GetCurrentFill();
     }
 
     public override void GetCurrentFill()

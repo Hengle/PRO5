@@ -10,15 +10,13 @@ public class AudioObstacleDamageCollider : MonoBehaviour
     //handles if collider is active or not
     bool _disabled = false;
 
-    float _dmgOnEnter;
-    float _dmgOnStay;
+    float _dmgOnEnter = 3;
+    float _dmgOnStay = 1;
     
     public void Start()
     {
         //This solution with the bools is a bit dumb, needs rework i would say
         
-            _dmgOnEnter = gameObject.GetComponentInParent<IDamageObstacle>()._dmgOnEnter;
-            _dmgOnStay = gameObject.GetComponentInParent<IDamageObstacle>()._dmgOnStay;
     }
 
     //when triggered, the method of the parent PullTrigger gets called that handels the damage
