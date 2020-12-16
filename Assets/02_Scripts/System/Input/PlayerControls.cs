@@ -91,7 +91,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""WeaponSwitch"",
+                    ""name"": ""Charge"",
                     ""type"": ""Button"",
                     ""id"": ""860ffea1-ebda-4ca1-b6b5-59385a92a9df"",
                     ""expectedControlType"": ""Button"",
@@ -335,7 +335,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""WeaponSwitch"",
+                    ""action"": ""Charge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -346,7 +346,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""WeaponSwitch"",
+                    ""action"": ""Charge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -454,7 +454,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Skill2 = m_Gameplay.FindAction("Skill2", throwIfNotFound: true);
         m_Gameplay_Skill3 = m_Gameplay.FindAction("Skill3", throwIfNotFound: true);
         m_Gameplay_Skill4 = m_Gameplay.FindAction("Skill4", throwIfNotFound: true);
-        m_Gameplay_WeaponSwitch = m_Gameplay.FindAction("WeaponSwitch", throwIfNotFound: true);
+        m_Gameplay_Charge = m_Gameplay.FindAction("Charge", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         // uiControls
         m_uiControls = asset.FindActionMap("uiControls", throwIfNotFound: true);
@@ -517,7 +517,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Skill2;
     private readonly InputAction m_Gameplay_Skill3;
     private readonly InputAction m_Gameplay_Skill4;
-    private readonly InputAction m_Gameplay_WeaponSwitch;
+    private readonly InputAction m_Gameplay_Charge;
     private readonly InputAction m_Gameplay_Interact;
     public struct GameplayActions
     {
@@ -532,7 +532,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Skill2 => m_Wrapper.m_Gameplay_Skill2;
         public InputAction @Skill3 => m_Wrapper.m_Gameplay_Skill3;
         public InputAction @Skill4 => m_Wrapper.m_Gameplay_Skill4;
-        public InputAction @WeaponSwitch => m_Wrapper.m_Gameplay_WeaponSwitch;
+        public InputAction @Charge => m_Wrapper.m_Gameplay_Charge;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
@@ -570,9 +570,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill4.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkill4;
                 @Skill4.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkill4;
                 @Skill4.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkill4;
-                @WeaponSwitch.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWeaponSwitch;
-                @WeaponSwitch.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWeaponSwitch;
-                @WeaponSwitch.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWeaponSwitch;
+                @Charge.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
+                @Charge.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
+                @Charge.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
                 @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
@@ -607,9 +607,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Skill4.started += instance.OnSkill4;
                 @Skill4.performed += instance.OnSkill4;
                 @Skill4.canceled += instance.OnSkill4;
-                @WeaponSwitch.started += instance.OnWeaponSwitch;
-                @WeaponSwitch.performed += instance.OnWeaponSwitch;
-                @WeaponSwitch.canceled += instance.OnWeaponSwitch;
+                @Charge.started += instance.OnCharge;
+                @Charge.performed += instance.OnCharge;
+                @Charge.canceled += instance.OnCharge;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -679,7 +679,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSkill2(InputAction.CallbackContext context);
         void OnSkill3(InputAction.CallbackContext context);
         void OnSkill4(InputAction.CallbackContext context);
-        void OnWeaponSwitch(InputAction.CallbackContext context);
+        void OnCharge(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUiControlsActions

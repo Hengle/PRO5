@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgessBarDash : ProgessBar
+public class ProgressBarSkillCharge : ProgessBar
 {
     public Slider slider;
-    public PlayerStateMachine dash;
-    
+    public SkillController controller;
+    public Text text;
 
     void Update()
     {
@@ -16,10 +16,11 @@ public class ProgessBarDash : ProgessBar
 
     public override void GetCurrentFill()
     {
-        maximum = dash.maxDashCharge;
-        current = dash.dashCharge;
+        maximum = controller.maxChargeValue;
+        current = controller.currentChargeValue;
         float fillAmount = (float) current / (float) maximum;
         slider.value = fillAmount;
-        
+        text.text = controller.currentCharges.ToString();
     }
+    
 }
