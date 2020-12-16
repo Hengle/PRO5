@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
+
 #if UNITY_EDITOR
-public class ReadMe : MonoBehaviour
+public class Readme : MonoBehaviour
 {
     [SerializeField] public string show;
 }
 
-[CustomEditor(typeof(ReadMe))]
-public class InstructionEditor : Editor
+[CustomEditor(typeof(Readme))]
+public class ReadMeEditor : Editor
 {
     bool edit = false;
     public override void OnInspectorGUI()
     {
-
-        ReadMe script = (ReadMe)target;
-        GUILayout.Label("Enter any instruction for this object here: ", EditorStyles.boldLabel);
+        Readme script = (Readme)target;
+        GUILayout.Label("Instructions: ", EditorStyles.boldLabel);
         if (edit)
             script.show = EditorGUILayout.TextArea(script.show);
         else
             GUILayout.Label(script.show);
+
+        GUILayout.Space(5f);
 
         if (!edit)
             if (GUILayout.Button("Edit"))
@@ -30,12 +30,8 @@ public class InstructionEditor : Editor
             if (GUILayout.Button("Save"))
             {
                 edit = false;
+                EditorUtility.SetDirty(script);
             }
-
-        if (GUI.changed)
-        {
-            EditorUtility.SetDirty(script);
-        }
     }
 }
 #endif
