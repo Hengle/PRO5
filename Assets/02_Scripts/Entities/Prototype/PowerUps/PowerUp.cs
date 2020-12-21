@@ -7,31 +7,24 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class PowerUp : MonoBehaviour
 {
-    [System.Serializable]
-    public class PowerUpCollectEvent : UnityEvent<PowerUp>
-    {
-    }
 
     public string nameText;
     public string descText;
-    public PowerUpCollectEvent onCollect = new PowerUpCollectEvent();
-    public PowerUpController puController;
 
 
-    protected GameObject _player;
+    public GameObject _player;
 
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.Equals(_player.GetComponents<Collider>()[1]))
         {
-            onCollect.Invoke(this);
-            
+            MyEventSystem.instance.OnPowerupCollected(this);
             Destroy(gameObject);
         }
     }

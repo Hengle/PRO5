@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3892644892107474868}
   - component: {fileID: 7981483475757368246}
   - component: {fileID: 7218369976087975337}
+  - component: {fileID: 4027329983621396698}
   m_Layer: 0
   m_Name: 'PU_MovementSpeedBoost '
   m_TagString: Untagged
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4027329983621396698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355886039717785906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c42ce2ed363c3e4d9422c27649f5976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: MovementspeedBoost
+  descText: Speeds up the player
+  _player: {fileID: 0}
+  duration: 200

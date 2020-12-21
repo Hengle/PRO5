@@ -11,7 +11,6 @@ public class Shield : PowerUp
     public void Start()
     {
         descText = "Shield";
-        onCollect.Invoke(this);
     }
 
     public override void Activate()

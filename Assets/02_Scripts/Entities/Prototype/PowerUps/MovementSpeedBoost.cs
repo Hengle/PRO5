@@ -12,7 +12,6 @@ public class MovementSpeedBoost : PowerUp
     public void Start()
     {
         descText = "Movement Speed Boost";
-        onCollect.Invoke(this);
     }
 
     public override void Activate()

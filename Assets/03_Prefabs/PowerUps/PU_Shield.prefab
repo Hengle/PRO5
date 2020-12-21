@@ -106,11 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d75164814840543a31d52a9a074ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: 
-  descText: 
-  onCollect:
-    m_PersistentCalls:
-      m_Calls: []
-  puController: {fileID: 0}
+  nameText: Shield
+  descText: Shields the player
+  _player: {fileID: 0}
   duration: 200
   shieldValue: 20
