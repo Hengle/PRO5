@@ -34,9 +34,9 @@ public class MyEventSystem : MonoBehaviour
     #region PowerupEvents
 
     public event Action<PowerUp> powerupCollected;
-    public event System.Action currentPowerupActivated;
 
     #endregion PowerupEvents
+
 
     public static MyEventSystem instance;
 
@@ -120,12 +120,6 @@ public class MyEventSystem : MonoBehaviour
     public void OnPowerupCollected(PowerUp powerup)
     {
         powerupCollected?.Invoke(powerup);    
-    }
-
-
-    public void OnCurrentPowerupActivated()
-    {
-        currentPowerupActivated?.Invoke();
     }
 
     #endregion PowerupEventhandler

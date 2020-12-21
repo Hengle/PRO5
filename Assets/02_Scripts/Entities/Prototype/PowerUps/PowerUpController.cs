@@ -11,13 +11,11 @@ public class PowerUpController : MonoBehaviour
     private void Start()
     {
         MyEventSystem.instance.powerupCollected += StorePowerUp;
-        MyEventSystem.instance.currentPowerupActivated += ActivatePowerUp;
     }
 
     private void OnDisable()
     {
         MyEventSystem.instance.powerupCollected -= StorePowerUp;
-        MyEventSystem.instance.currentPowerupActivated -= ActivatePowerUp;
     }
 
 
