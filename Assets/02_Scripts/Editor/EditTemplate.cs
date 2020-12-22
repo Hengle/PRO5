@@ -42,17 +42,17 @@ public class EditTemplate : EditorWindow
             for (int i = 0; i < guid.Length; i++)
             {
                 path[i] = AssetDatabase.GUIDToAssetPath(guid[i]);
-                if (path[i].Contains("Igner"))
+                if (path[i].Contains("Avik"))
                 {
-                    templateFolder = "Enemy/Igner";
+                    templateFolder = "Enemy/Avik";
                 }
-                else if (path[i].Contains("Durga"))
+                else if (path[i].Contains("Shentau"))
                 {
-                    templateFolder = "Enemy/Durga";
+                    templateFolder = "Enemy/Shentau";
                 }
-                else if (path[i].Contains("Shirugi"))
+                else if (path[i].Contains("Jihil"))
                 {
-                    templateFolder = "Enemy/Shirugi";
+                    templateFolder = "Enemy/Jihil";
                 }
                 else if (path[i].Contains("Player"))
                 {
@@ -126,7 +126,7 @@ public class EditTemplate : EditorWindow
             GUILayout.Label("Add new Stat", EditorStyles.boldLabel);
             statfloatField = EditorGUILayout.FloatField("Value: ", statfloatField);
             _name = EditorGUILayout.TextField("Name: ", _name);
-            statName = (StatName)EditorGUILayout.EnumPopup(statName);
+            statName = (StatName)EditorGUILayout.EnumPopup("Type: ", statName);
             if (GUILayout.Button("Add Stat"))
             {
                 AddStat();
@@ -162,7 +162,7 @@ public class EditTemplate : EditorWindow
             GUILayout.Label("Add new Multiplier", EditorStyles.boldLabel);
             statfloatField = EditorGUILayout.FloatField("Value: ", statfloatField);
             _name = EditorGUILayout.TextField("Name: ", _name);
-            multName = (MultiplierName)EditorGUILayout.EnumPopup(multName);
+            multName = (MultiplierName)EditorGUILayout.EnumPopup("Type: ", multName);
 
             if (GUILayout.Button("Add Mult"))
             {
@@ -253,7 +253,7 @@ public class EditTemplate : EditorWindow
             }
         }
         _name = _name + n.ToString();
-        AssetDatabase.CreateAsset(m, "Assets/03_Scripts/Entities/StatTemplates/" + templateFolder + "/Mults/" + _name + ".asset");
+        AssetDatabase.CreateAsset(m, "Assets/02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder + "/Mults/" + _name + ".asset");
         AssetDatabase.SaveAssets();
 
 
@@ -308,7 +308,7 @@ public class EditTemplate : EditorWindow
             }
         }
         _name = _name + n.ToString();
-        AssetDatabase.CreateAsset(v, "Assets/03_Scripts/Entities/StatTemplates/" + templateFolder + "/Stats/" + _name + ".asset");
+        AssetDatabase.CreateAsset(v, "Assets/02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder + "/Stats/" + _name + ".asset");
         AssetDatabase.SaveAssets();
 
         paths = AssetDatabase.FindAssets("t:StatVariable");
