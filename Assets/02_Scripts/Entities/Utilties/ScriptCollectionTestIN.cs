@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBody : MonoBehaviour
+public class ScriptCollectionTestIN : MonoBehaviour
 {
+    // public ScriptCollection collection;
+    public int i = 3;
     private void Awake()
     {
         ScriptCollection.RegisterScript(this);

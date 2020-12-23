@@ -4,7 +4,7 @@ using UnityEditor;
 #if UNITY_EDITOR
 public class Readme : MonoBehaviour
 {
-    [SerializeField] public string show;
+    public string show;
 }
 
 [CustomEditor(typeof(Readme))]

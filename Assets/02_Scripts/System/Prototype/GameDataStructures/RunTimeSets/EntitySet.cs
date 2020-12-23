@@ -9,16 +9,16 @@ public abstract class EntitySet<T> : ScriptableObject
     {
         entityList.Add(t);
     }
-    
-    private void OnEnable()
-    {
-        entityList.Clear();
-    }
 
     public void Remove(T t)
     {
         if (entityList.Contains(t))
             entityList.Remove(t);
+    }
+
+    private void OnEnable()
+    {
+        entityList = new List<T>();
     }
 
     private void OnDisable()
