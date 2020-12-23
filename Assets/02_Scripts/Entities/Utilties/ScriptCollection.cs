@@ -5,13 +5,14 @@ using UnityEngine;
 public static class ScriptCollection
 {
     static List<Object> objects = new List<Object>();
+
     public static void NewList()
     {
         objects = new List<Object>();
     }
 
     /// <summary>
-    /// Registers a script in a list
+    /// Registers a script in a list.
     /// </summary>
     /// <param name="obj">Pass in 'this'</param>
     public static void RegisterScript(Object obj)
@@ -35,15 +36,15 @@ public static class ScriptCollection
     }
 
     /// <summary>
-    /// Removes a script of the specified type from the collection
+    /// Removes a script from the collection. Can be called at any point but mostly when the script is disabled.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public static void RemoveScript<T>()
+    /// <typeparam name="obj"></typeparam>
+    public static void RemoveScript(Object obj)
     {
         // if (obj == null)
-            objects.RemoveAt(objects.FindIndex(0, x => x.GetType().Equals(typeof(T))));
+        //     objects.RemoveAt(objects.FindIndex(0, x => x.GetType().Equals(typeof(T))));
         // else
-        //     objects.Remove(obj);
+        objects.Remove(obj);
     }
 }
 

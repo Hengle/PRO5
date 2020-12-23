@@ -6,8 +6,13 @@ public class ScriptCollectionTestIN : MonoBehaviour
 {
     // public ScriptCollection collection;
     public int i = 3;
-    private void Awake()
+    
+    private void OnEnable()
     {
         ScriptCollection.RegisterScript(this);
+    }
+    private void OnDisable()
+    {
+        ScriptCollection.RemoveScript(this);
     }
 }

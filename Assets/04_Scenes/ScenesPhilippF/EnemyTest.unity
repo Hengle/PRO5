@@ -181,44 +181,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &302931448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2576877363223431070, guid: 9fe3307324cf8d047b74149b6256bfd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1715283500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &302931450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302931448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b45a48dd1ba5e47a50adc006df41fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useMouse: 1
-  move: {x: 0, y: 0}
-  gamepadRotate: {x: 0, y: 0}
-  mouseLook: {x: 0, y: 0}
-  playerController: {fileID: 302931454}
-  powerUpController: {fileID: 0}
-  musicLayerController: {fileID: 0}
---- !u!114 &302931454 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1715283500}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302931448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536b4c3a75c44544d96ba63bcf6e3cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &907805188
+--- !u!114 &262852201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,6 +251,43 @@ MonoBehaviour:
   gradientDiffusion:
     m_OverrideState: 0
     m_Value: 1.42
+--- !u!1 &302931448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2576877363223431070, guid: 9fe3307324cf8d047b74149b6256bfd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715283500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302931450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302931448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b45a48dd1ba5e47a50adc006df41fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useMouse: 1
+  move: {x: 0, y: 0}
+  gamepadRotate: {x: 0, y: 0}
+  mouseLook: {x: 0, y: 0}
+  playerController: {fileID: 302931454}
+  powerUpController: {fileID: 0}
+  musicLayerController: {fileID: 0}
+--- !u!114 &302931454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715283500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302931448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536b4c3a75c44544d96ba63bcf6e3cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964172149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: e6cc386e88aed6647bffd915475bbcad, type: 2}
   m_StaticLightingSkyUniqueID: 3
-  m_SkySettings: {fileID: 907805188}
+  m_SkySettings: {fileID: 262852201}
   m_SkySettingsFromProfile: {fileID: -1008905139995932526, guid: e6cc386e88aed6647bffd915475bbcad,
     type: 2}
 --- !u!4 &1776581815
