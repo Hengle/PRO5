@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ScriptCollectionTestIN : MonoBehaviour
 {
-    // public ScriptCollection collection;
     public int i = 3;
-    
+
     private void OnEnable()
     {
+        ScriptCollection.NewList();
         ScriptCollection.RegisterScript(this);
     }
     private void OnDisable()

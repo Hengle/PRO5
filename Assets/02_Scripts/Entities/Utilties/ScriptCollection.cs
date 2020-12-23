@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class ScriptCollection
 {
-    static List<Object> objects = new List<Object>();
+    static List<Object> collection = new List<Object>();
 
     public static void NewList()
     {
-        objects = new List<Object>();
+        collection = new List<Object>();
     }
 
     /// <summary>
@@ -17,8 +17,8 @@ public static class ScriptCollection
     /// <param name="obj">Pass in 'this'</param>
     public static void RegisterScript(Object obj)
     {
-        if (!objects.Exists(x => x.GetType().Equals(obj.GetType())))
-            objects.Add(obj);
+        if (!collection.Exists(x => x.GetType().Equals(obj.GetType())))
+            collection.Add(obj);
     }
 
     /// <summary>
@@ -28,11 +28,7 @@ public static class ScriptCollection
     /// <returns></returns>
     public static T GetScript<T>()
     {
-        // if (objects.Exists(x => x.GetType().Equals(typeof(T))))
-        // {
-        return (T)System.Convert.ChangeType(objects.Find(x => x.GetType().Equals(typeof(T))), typeof(T));
-        // }
-        // return default(T);
+        return (T)System.Convert.ChangeType(collection.Find(x => x.GetType().Equals(typeof(T))), typeof(T));
     }
 
     /// <summary>
@@ -41,10 +37,7 @@ public static class ScriptCollection
     /// <typeparam name="obj"></typeparam>
     public static void RemoveScript(Object obj)
     {
-        // if (obj == null)
-        //     objects.RemoveAt(objects.FindIndex(0, x => x.GetType().Equals(typeof(T))));
-        // else
-        objects.Remove(obj);
+        collection.Remove(obj);
     }
 }
 
