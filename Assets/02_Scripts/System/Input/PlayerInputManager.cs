@@ -12,6 +12,7 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] PlayerStateMachine playerController;
     [SerializeField] PowerUpController powerUpController;
     [SerializeField] MusicLayerController musicLayerController;
+    [SerializeField] SkillController skillController;
 
     private void OnEnable()
     {
@@ -39,11 +40,19 @@ public class PlayerInputManager : MonoBehaviour
 
         if (musicLayerController != null)
         {
-            controls.Gameplay.Skill1.performed += ctx => musicLayerController.SnareLayer();
-            controls.Gameplay.Skill2.performed += ctx => musicLayerController.HiHatLayer();
-            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LeadBassLayer();
-            controls.Gameplay.Skill4.performed += ctx => musicLayerController.AtmoLayer();
+            controls.Gameplay.Skill1.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._snareActive, "SnareLayer", 1);
+            controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._hiHatActive, "HiHatLayer", 1);
+            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
+            controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._atmoActive, "AtmoLayer", 1);
         }
+
+        if (skillController != null)
+        {
+            controls.Gameplay.Charge.performed += ctx => skillController.chargeIsPressed(true);
+            controls.Gameplay.Charge.canceled += ctx => skillController.chargeIsPressed(false);
+        }
+
+      
 
 
         controls.Gameplay.Movement.canceled += ctx => move = Vector2.zero;
