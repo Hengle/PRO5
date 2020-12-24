@@ -78,7 +78,7 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "WeaponSwitch",
+                    "name": "Charge",
                     "type": "Button",
                     "id": "860ffea1-ebda-4ca1-b6b5-59385a92a9df",
                     "expectedControlType": "Button",
@@ -322,7 +322,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and mouse",
-                    "action": "WeaponSwitch",
+                    "action": "Charge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -333,7 +333,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "WeaponSwitch",
+                    "action": "Charge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

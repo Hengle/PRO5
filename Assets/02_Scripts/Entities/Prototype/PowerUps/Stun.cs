@@ -1,29 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class Stun : PowerUp
+public class Stun : EnemyPowerup
 {
-    public int radius;
+    public int duration = 500;
 
     public override void Activate()
     {
-        Debug.Log("Knockback power up activated");
+        var enemies = FindEnemies(3.0f);
+        // Apply knockback force to each enemy
+        var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
+        foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
 
-        RaycastHit[] raycastHits = Physics.SphereCastAll(
-            player.transform.position + player.GetComponent<CharacterController>().center,
-            radius,
-            player.transform.forward,
-            radius
-        );
+        Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));
+    }
 
-        foreach (RaycastHit hit in raycastHits)
-        {
-            GameObject enemy = hit.collider.gameObject;
-            EnemyActions eActions = enemy.GetComponent<EnemyActions>();
-            Powerups.Stun stun = new Powerups.Stun();
-            stun.powerupName = PowerupNames.Stun;
-            stun.Execute(enemy);
-        }
+
+    protected IEnumerator StunDuration(EnemyActions enemyActions)
+    {
+        enemyActions.isStunned = true;
+        yield return new WaitForSeconds(duration);
+        enemyActions.isStunned = true;
     }
 }

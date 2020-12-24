@@ -27,16 +27,16 @@ public class NavMeshUpdater : MonoBehaviour
         // // Construct and add navmesh
         // m_NavMesh = new NavMeshData();
         // m_Instance = NavMesh.AddNavMeshData(m_NavMesh);
+        ScriptCollection.RegisterScript(this);
         m_NavMesh = surface.navMeshData;
         UpdateNavMesh(false);
     }
-
-    void OnDisable()
+    private void OnDisable()
     {
-        // Unload navmesh and clear handle
+        ScriptCollection.RemoveScript(this);
         m_Instance.Remove();
     }
-
+    
     void UpdateNavMesh(bool asyncUpdate = false)
     {
         NavMeshSourceTag.Collect(ref m_Sources);

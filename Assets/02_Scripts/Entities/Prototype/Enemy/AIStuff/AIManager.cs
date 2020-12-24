@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIManager : MonoBehaviour
 {
     public string searchPlayerTag = "Player";
+    public EnemySet enemySet;
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
     [HideInInspector] public LayerMask enemyMask => LayerMask.GetMask("Enemy");
     [HideInInspector] public LayerMask playerMask => LayerMask.GetMask("Player");
@@ -19,15 +20,19 @@ public class AIManager : MonoBehaviour
     public int whiskerAmount = 11;
 
     public float activationTime = 0.2f;
-
     private void Start()
     {
         MyEventSystem.instance.activateAI += SetAIActive;
         // allSet.entityList = new List<EnemyBody>();
     }
 
+    private void OnEnable()
+    {
+        ScriptCollection.RegisterScript(this);
+    }
     private void OnDisable()
     {
+        ScriptCollection.RemoveScript(this);
         MyEventSystem.instance.activateAI -= SetAIActive;
     }
 

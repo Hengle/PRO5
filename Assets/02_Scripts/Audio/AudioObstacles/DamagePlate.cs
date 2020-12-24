@@ -13,9 +13,9 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
 
     //When active the colliders are enabled and damage can happen
     private bool _plateActive = false;
-    
-    public float _dmgOnEnter { get; set; }
-    public float _dmgOnStay { get; set; }
+
+    public float _dmgOnEnter = 3;
+    public float _dmgOnStay = 1;
     
    
     void Start()
@@ -73,7 +73,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
         {
             Debug.Log("Damage Plate hit");
             GameObject obj = c.gameObject;
-            if (!obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
+            if (obj.GetComponent<IHasHealth>() != null)
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
             }

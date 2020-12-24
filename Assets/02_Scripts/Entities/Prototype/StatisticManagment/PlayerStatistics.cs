@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatistics : StatisticController, IHasHealth
 {
@@ -41,6 +42,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
     public void OnDeath()
     {
         alive = false;
+        SceneManager.LoadSceneAsync("MainPrototype");
         // LevelEventSystem.instance.ReturnToCheckpoint(this);
     }
 

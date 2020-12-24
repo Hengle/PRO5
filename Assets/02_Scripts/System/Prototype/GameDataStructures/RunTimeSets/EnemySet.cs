@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Enemy Runtimeset", menuName ="Utilties/Enemy Runtimeset")]
 public class EnemySet : EntitySet<EnemyBody>
 {
 }

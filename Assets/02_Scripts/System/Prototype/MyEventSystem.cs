@@ -30,6 +30,14 @@ public class MyEventSystem : MonoBehaviour
     public event System.Action goalDestroyed;
     public event System.Action waveDefeated;
 
+
+    #region PowerupEvents
+
+    public event Action<PowerUp> powerupCollected;
+
+    #endregion PowerupEvents
+
+
     public static MyEventSystem instance;
 
     private void Awake()
@@ -105,6 +113,19 @@ public class MyEventSystem : MonoBehaviour
     {
         activateAI?.Invoke(enemy);
     }
+
+
+    #region PowerupEventhandler
+
+    public void OnPowerupCollected(PowerUp powerup)
+    {
+        powerupCollected?.Invoke(powerup);    
+    }
+
+    #endregion PowerupEventhandler
+
+
+
     /*public void OnSetState(PlayerMovementSate state)
     {
         SetState?.Invoke(state);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1618369196742036227}
   - component: {fileID: 1618369196742036224}
   - component: {fileID: 1618369196742036238}
+  - component: {fileID: 7829773580035718395}
   m_Layer: 0
   m_Name: PU_MovementSpeedBoost
   m_TagString: Untagged
@@ -106,7 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c42ce2ed363c3e4d9422c27649f5976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollider: {fileID: 0}
+  nameText: 
+  descText: 
   onCollect:
     m_PersistentCalls:
       m_Calls:
@@ -121,3 +123,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  puController: {fileID: 0}
+  duration: 200
+--- !u!114 &7829773580035718395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618369196742036239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c42ce2ed363c3e4d9422c27649f5976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: 
+  descText: 
+  onCollect:
+    m_PersistentCalls:
+      m_Calls: []
+  puController: {fileID: 0}
+  duration: 200
