@@ -20,14 +20,19 @@ namespace BBUnity.Actions
         [InParam("stats")]
         public EnemyStatistics stats;
 
+        AIUtilities utilities;
+
         public override void OnStart()
         {
+            if (utilities == null)
+                ScriptCollection.GetScript<AIUtilities>();
+                
             agent.isStopped = false;
         }
         public override TaskStatus OnUpdate()
         {
 
-            if ((gameObject.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(stats.GetStatValue(StatName.Range), 2))
+            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.Range)))
             {
                 return TaskStatus.COMPLETED;
             }

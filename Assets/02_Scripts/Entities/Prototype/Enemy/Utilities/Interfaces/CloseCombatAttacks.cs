@@ -5,6 +5,11 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
 {
     protected Coroutine damageWaiter;
     protected Coroutine attackTimer;
+    
+    public bool isAttacking;
+    public bool canAttack;
+    public bool canDamage;
+
     public override abstract void Attack();
     public override abstract void CancelAttack();
     public override abstract void StopAttack();
@@ -21,17 +26,17 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
         float end = (stopDamageFrame - startDamageFrame) / 24;
 
         yield return new WaitForSeconds(start);
-        actions.canDamage = true;
+        canDamage = true;
 
         damageWaiter = StartCoroutine(DamageTimer(end));
         yield return damageWaiter;
 
-        actions.canDamage = false;
+        canDamage = false;
 
         if (clipLength != 0)
             yield return new WaitForSeconds(clipLength - end);
 
-        actions.isAttacking = false;
+        isAttacking = false;
     }
 
     protected virtual IEnumerator DamageTimer(float wait)

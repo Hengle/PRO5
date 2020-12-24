@@ -8,6 +8,7 @@ public abstract class IEnemyAttacks : MonoBehaviour
     public EnemyStatistics stats => GetComponent<EnemyStatistics>();
     [SerializeField] public List<Enemy.AttackAnimations> attackAnimations;
 
+
     public abstract void Attack();
     public abstract void CancelAttack();
     public abstract void StopAttack();

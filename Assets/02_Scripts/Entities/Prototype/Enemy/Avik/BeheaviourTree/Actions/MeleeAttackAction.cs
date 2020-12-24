@@ -15,6 +15,7 @@ namespace BBUnity.Actions
         public EnemyBody enemyBody;
 
         [InParam("timer")]
+        [OutParam("timer")]
         public AIUtilities.Timer timer;
 
         [InParam("attack")]
@@ -33,24 +34,24 @@ namespace BBUnity.Actions
             if (timer == null)
             {
                 timer = new AIUtilities.Timer(stats.GetStatValue(StatName.AttackRate));
-                if (!actions.canAttack && !timer.timerStarted)
+                if (!attack.canAttack && !timer.timerStarted)
                     timer.StartTimer(() => SetCanAttack());
             }
-            else if (!actions.canAttack && !timer.timerStarted)
+            else if (!attack.canAttack && !timer.timerStarted)
             {
                 timer.StartTimer(() => SetCanAttack());
             }
-            
-            if (actions.canAttack)
+
+            if (attack.canAttack)
             {
                 StartAttack();
             }
         }
         public override TaskStatus OnUpdate()
         {
-            if (actions.isAttacking)
+            if (attack.isAttacking)
             {
-                gameObject.transform.position = animator.rootPosition;
+                // gameObject.transform.position = animator.rootPosition;
                 return TaskStatus.RUNNING;
             }
             else
@@ -65,12 +66,12 @@ namespace BBUnity.Actions
         {
             attack.Attack();
             timer.setWaitTime(stats.GetStatValue(StatName.AttackRate));
-            actions.canAttack = false;
+            attack.canAttack = false;
         }
 
         public void SetCanAttack()
         {
-            actions.canAttack = true;
+            attack.canAttack = true;
         }
         public override void OnAbort()
         {

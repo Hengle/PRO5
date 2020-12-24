@@ -20,10 +20,14 @@ namespace BBUnity.Actions
         [InParam("stats")]
         public EnemyStatistics stats;
 
+        AIUtilities utilities;
+
         public AISteering steering;
 
         public override void OnStart()
         {
+            if (utilities != null)
+                utilities = ScriptCollection.GetScript<AIUtilities>();
             if (steering == null)
                 steering = new AISteering(stats, enemyBody);
         }
@@ -48,7 +52,7 @@ namespace BBUnity.Actions
         {
             Vector3 dir = Vector3.zero;
 
-            if ((gameObject.transform.position - enemyBody.aiManager.playerTarget.position).sqrMagnitude < Mathf.Pow(enemyBody.aiManager.avoidDistance, 2))
+            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, enemyBody.aiManager.avoidDistance))
             {
                 dir = enemyBody.aiManager.playerTarget.position - gameObject.transform.position;
                 dir = dir.normalized;

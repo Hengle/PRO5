@@ -6,6 +6,19 @@ using System;
 
 public class AIUtilities : MonoBehaviour
 {
+    void OnEnable()
+    {
+        ScriptCollection.RegisterScript(this);
+    }
+    void OnDisable()
+    {
+        ScriptCollection.RemoveScript(this);
+    }
+    
+    public bool IsInRange(Transform target, Transform self, float range)
+    {
+        return (self.transform.position - target.position).sqrMagnitude < Mathf.Pow(range, 2);
+    }
     //Simple Timer that counts down until 0 from a given float value
     public class Timer
     {
