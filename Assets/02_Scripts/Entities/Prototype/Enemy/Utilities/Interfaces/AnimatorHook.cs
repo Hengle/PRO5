@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimatorHook : MonoBehaviour
 {
-    public Animator animator => GetComponent<Animator>();
+    public Animator animator;
 
     public void PlayAttackAnim(AnimationClip clip)
     {

@@ -29,6 +29,9 @@ namespace BBUnity.Actions
         [InParam("stats")]
         public EnemyStatistics stats;
 
+        [InParam("WaitTimeDone")]
+        public bool waitTimedone;
+        
         public override void OnStart()
         {
             if (timer == null)
@@ -42,7 +45,7 @@ namespace BBUnity.Actions
                 timer.StartTimer(() => SetCanAttack());
             }
 
-            if (attack.canAttack)
+            if(attack.canAttack)
             {
                 StartAttack();
             }
@@ -67,6 +70,7 @@ namespace BBUnity.Actions
             attack.Attack();
             timer.setWaitTime(stats.GetStatValue(StatName.AttackRate));
             attack.canAttack = false;
+            waitTimedone = false;
         }
 
         public void SetCanAttack()

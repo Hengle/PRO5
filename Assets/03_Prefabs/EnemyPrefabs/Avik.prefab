@@ -551,17 +551,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4119351919161116622}
+  - component: {fileID: 5373275152114399511}
   - component: {fileID: 4119351919161116621}
   - component: {fileID: 4119351919161116620}
   - component: {fileID: 4119351919161116619}
   - component: {fileID: 710136198825184621}
   - component: {fileID: 4119351919161116617}
-  - component: {fileID: 6770240913040067313}
+  - component: {fileID: 5842015562498545599}
   - component: {fileID: 4119351919161116614}
   - component: {fileID: 4119351919161116611}
   - component: {fileID: 4119351919161116613}
   - component: {fileID: 4119351919161116612}
-  - component: {fileID: 5373275152114399511}
   m_Layer: 9
   m_Name: Avik
   m_TagString: Untagged
@@ -587,6 +587,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5373275152114399511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119351919161116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea84852637b3e347a26b438e21270ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  show: 'Reference the AIManager in the EnemyBody script.
+
+    Make sure there is
+    a NavMesh baked in your scene.'
 --- !u!114 &4119351919161116621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,8 +626,10 @@ MonoBehaviour:
     boolParams: 
     boolParamsNames: []
     boolParamsLostDefaultValue: 
-    floatParams: []
-    floatParamsNames: []
+    floatParams:
+    - 1
+    floatParamsNames:
+    - MinRange
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -676,9 +694,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
-  isAttacking: 0
-  canAttack: 0
-  canDamage: 0
   hittablePowerups: 0100000000000000
 --- !u!114 &4119351919161116619
 MonoBehaviour:
@@ -707,19 +722,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAnimations:
-  - clip: {fileID: 1827226128182048838, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
-    damageFrameStart: 10
-    damageFrameEnd: 40
-    attRange: 3
-    attackWidth: 1.5
-    effects: []
   - clip: {fileID: 3341021286118218705, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
     damageFrameStart: 15
     damageFrameEnd: 30
     attRange: 2.5
     attackWidth: 2
     effects: []
-  anim: {fileID: 6770240913040067313}
+  - clip: {fileID: 0}
+    damageFrameStart: 0
+    damageFrameEnd: 0
+    attRange: 0
+    attackWidth: 0
+    effects: []
+  isAttacking: 0
+  canAttack: 0
+  canDamage: 0
+  anim: {fileID: 0}
 --- !u!114 &4119351919161116617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,7 +753,7 @@ MonoBehaviour:
   rayEmitter: {fileID: 4119351919320222299}
   hitBox: {fileID: 4119351918993028645}
   aiManager: {fileID: 0}
---- !u!114 &6770240913040067313
+--- !u!114 &5842015562498545599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,10 +762,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4119351919161116610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242ea9ec1bf32f64e85af2d59c6f85ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 243405db22521224ba3bd59cb2b94b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1292289528}
 --- !u!195 &4119351919161116614
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -814,22 +831,6 @@ CapsuleCollider:
   m_Height: 2.06
   m_Direction: 2
   m_Center: {x: 0, y: 1.83, z: -1.96}
---- !u!114 &5373275152114399511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119351919161116610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea84852637b3e347a26b438e21270ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  show: 'Reference the AIManager in the EnemyBody script.
-
-    Make sure there is
-    a NavMesh baked in your scene.'
 --- !u!1 &4119351919320222298
 GameObject:
   m_ObjectHideFlags: 0

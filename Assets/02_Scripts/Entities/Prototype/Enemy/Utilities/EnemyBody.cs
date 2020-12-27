@@ -6,6 +6,10 @@ public class EnemyBody : MonoBehaviour
 {
     public Transform rayEmitter;
     public BoxCollider hitBox;
-    public PlayerDetector playerDetector => hitBox.GetComponent<PlayerDetector>();
+    public PlayerDetector playerDetector;
     public AIManager aiManager;
+    private void Start()
+    {
+        aiManager = ScriptCollection.GetScript<AIManager>();
+    }
 }

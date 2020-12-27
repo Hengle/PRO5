@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
-
+using UnityEngine.AI;
 public class AIUtilities : MonoBehaviour
 {
     void OnEnable()
@@ -14,7 +14,31 @@ public class AIUtilities : MonoBehaviour
     {
         ScriptCollection.RemoveScript(this);
     }
-    
+
+    public void MoveNavMeshAgent(NavMeshAgent agent, Vector3 target, Vector3 moveVector, float speed)
+    {
+        agent.destination = target;
+
+        Vector3 moveTo = moveVector * speed * Time.deltaTime;
+
+        agent.Move(moveTo);
+    }
+
+    public void LookAtTarget(Transform target, Transform self, float lerpSpeed = 0)
+    {
+        Vector3 dir = target.position - self.position;
+        dir.y = 0;
+        if (lerpSpeed == 0)
+        {
+            self.transform.rotation = Quaternion.LookRotation(dir);
+        }
+        else
+        {
+            Quaternion look = Quaternion.LookRotation(dir);
+            self.transform.rotation = Quaternion.Lerp(self.transform.rotation, look, Time.deltaTime * lerpSpeed);
+        }
+    }
+
     public bool IsInRange(Transform target, Transform self, float range)
     {
         return (self.transform.position - target.position).sqrMagnitude < Mathf.Pow(range, 2);

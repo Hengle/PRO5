@@ -16,7 +16,7 @@ namespace Enemy
         Enemy.EffectType effect;
         public override void OnInspectorGUI()
         {
-            // DrawDefaultInspector();
+            DrawDefaultInspector();
             CloseCombatAttacks t = (CloseCombatAttacks)target;
             // EditorGUILayout.ObjectField(t, typeof(CloseCombatAttacks), false);
 
@@ -37,8 +37,6 @@ namespace Enemy
                         anim.damageFrameEnd = EditorGUILayout.FloatField("Damage Frame End", anim.damageFrameEnd, GUILayout.MinWidth(180f));
                         anim.attRange = EditorGUILayout.FloatField("Attack Range", anim.attRange, GUILayout.MinWidth(180f));
                         anim.attackWidth = EditorGUILayout.FloatField("Attack Width", anim.attackWidth, GUILayout.MinWidth(180f));
-                        GUILayout.Space(10f);
-
                         // GUILayout.Label("Effects");
                         // if (anim.effects.Count != 0)
                         //     foreach (Enemy.EffectsFrameContainer entry in anim.effects)
@@ -53,7 +51,6 @@ namespace Enemy
                         // effect = (Enemy.EffectType)EditorGUILayout.EnumPopup("Effect Type", effect, GUILayout.MinWidth(200f), GUILayout.MaxWidth(250f));
                         // frame = EditorGUILayout.FloatField("Frame", frame, GUILayout.MinWidth(180f), GUILayout.MaxWidth(200f));
 
-                        GUILayout.Space(10f);
                         // if (GUILayout.Button("Add Effect to Animation"))
                         // {
                         //     anim.effects.Add(new Enemy.EffectsFrameContainer(effect, frame));
@@ -67,7 +64,7 @@ namespace Enemy
 
                         count++;
 
-                        GUILayout.Space(10f);
+                        // GUILayout.Space(10f);
                     }
                 }
 
@@ -102,10 +99,8 @@ namespace Enemy
 
 
             }
-
             if (GUI.changed)
                 EditorUtility.SetDirty(t);
-
         }
 
         void AddToArray(ref Enemy.AttackAnimations[] arr)

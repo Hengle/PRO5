@@ -6,15 +6,17 @@ using Pada1.BBCore.Tasks;
 
 namespace BBUnity.Actions
 {
+    [Action("EnemyBehaviour/GetRandomRange")]
     public class GetRandomRange : GOAction
     {
-        [OutParam("Range", typeof(float))]
-        public float range;
+        [OutParam("randomRange")]
+        public float randomRange;
 
         [InParam("MinRange")]
         public float minRange;
 
-        float maxRange;
+        [InParam("maxRange")]
+        public float maxRange;
 
         [InParam("Stats")]
         public EnemyStatistics stats;
@@ -22,34 +24,17 @@ namespace BBUnity.Actions
         [InParam("Attack")]
         public CloseCombatAttacks attack;
 
-        [InParam("GetRange")]
-        [OutParam("GetRange")]
-        public bool getRange;
-
-        public override void OnStart()
-        {
-            maxRange = stats.GetStatValue(StatName.Range);
-        }
-
         public override TaskStatus OnUpdate()
         {
-            if (getRange)
-                range = GetRange();
+            // if (getRange)
+            randomRange = GetRange();
             return TaskStatus.COMPLETED;
         }
 
         float GetRange()
         {
-            float f = 0;
-            float r = Random.Range(-1f, 1f);
-            f = maxRange / 2 + r;
-            if (f < minRange)
-                return minRange;
-            if (f > maxRange)
-                return maxRange - 0.1f;
-
-            getRange = false;
-            return f;
+            Debug.Log(minRange.ToString() +" and " + maxRange.ToString());
+            return Random.Range(minRange, maxRange);
         }
     }
 }

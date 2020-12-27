@@ -7,43 +7,52 @@ using UnityEngine.AI;
 
 namespace BBUnity.Actions
 {
-    [Action("EnemyBehaviour/Chase")]
-    [Help("Chases a target")]
-    public class AvikChaseAction : GOAction
+    [Action("EnemyBehaviour/MoveAgentTo")]
+    public class MoveAgent : GOAction
     {
-        [InParam("agent")]
+
+        [InParam("MoveVector")]
+        public Vector3 moveVector;
+
+        [InParam("Agent")]
         public NavMeshAgent agent;
 
-        [InParam("enemyBody")]
+        [InParam("EnemyBody")]
         public EnemyBody enemyBody;
 
-        [InParam("stats")]
+        [InParam("Stats")]
         public EnemyStatistics stats;
 
-        AIUtilities utilities;
+        public float randomRange;
 
+        [InParam("isInRange")]
+        [OutParam("isInRange")]
+        public bool isInRange;
+
+        float currentTime;
+
+        AIUtilities utilities;
         public override void OnStart()
         {
-            if (utilities == null)
-                utilities = ScriptCollection.GetScript<AIUtilities>();
-
-            agent.isStopped = false;
+            utilities = ScriptCollection.GetScript<AIUtilities>();
         }
 
         public override TaskStatus OnUpdate()
         {
-            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.Range)))
+            // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
+            currentTime += Time.deltaTime;
+            isInRange = currentTime >= 0.4f;
+            if (isInRange)
             {
+                currentTime = 0;
                 return TaskStatus.COMPLETED;
             }
 
             Move();
-
             LookAt();
 
             return TaskStatus.RUNNING;
         }
-
         void Move()
         {
             utilities.MoveNavMeshAgent(agent,
@@ -60,14 +69,5 @@ namespace BBUnity.Actions
             }
         }
 
-        public override void OnAbort()
-        {
-            agent.isStopped = true;
-        }
-
-        public override void OnEnd()
-        {
-            agent.isStopped = true;
-        }
     }
 }

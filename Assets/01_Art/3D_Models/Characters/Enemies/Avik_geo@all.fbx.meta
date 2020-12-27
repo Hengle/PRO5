@@ -5,10 +5,10 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: attack
+    second: avik_stab_att
   - first:
       74: 3341021286118218705
-    second: swipe_att
+    second: avik_swipe_att
   - first:
       74: -5252816984213320552
     second: idle
@@ -41,7 +41,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: attack
+      name: avik_stab_att
       takeName: Take 001
       internalID: 0
       firstFrame: 756
@@ -70,10 +70,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: swipe_att
+      name: avik_swipe_att
       takeName: Take 001
       internalID: 0
-      firstFrame: 811
+      firstFrame: 819
       lastFrame: 850
       wrapMode: 0
       orientationOffsetY: 0
@@ -103,7 +103,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 17
+      lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
