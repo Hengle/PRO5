@@ -21,6 +21,9 @@ namespace BBUnity.Conditions
         [InParam("EnemyStats")]
         public EnemyStatistics stats;
 
+        [InParam("IsInRange")]
+        public bool isInRange;
+
         public override bool Check()
         {
             return CheckForPlayer();
@@ -34,6 +37,7 @@ namespace BBUnity.Conditions
             }
             else
             {
+                isInRange = false;
                 return attack.isAttacking;
             }
         }

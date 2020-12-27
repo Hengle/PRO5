@@ -45,9 +45,10 @@ MonoBehaviour:
     type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
     <entry name=\"EnemyAttack\" type=\"CloseCombatAttacks\" isBlackboard=\"True\"
     blackboard=\"attack\" />\r\n          <entry name=\"EnemyStats\" type=\"EnemyStatistics\"
-    isBlackboard=\"True\" blackboard=\"stats\" />\r\n        </inputValues>\r\n     
-    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
-    <SubbehaviorNode id=\"3\">\r\n      <_guid>d5bc5c220040cf442b708cf9227429dc</_guid>\r\n     
+    isBlackboard=\"True\" blackboard=\"stats\" />\r\n          <entry name=\"IsInRange\"
+    type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"isInRange\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"3\">\r\n      <_guid>d5bc5c220040cf442b708cf9227429dc</_guid>\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Stats\" type=\"EnemyStatistics\"
     isBlackboard=\"True\" blackboard=\"stats\" />\r\n          <entry name=\"Attack\"
     type=\"CloseCombatAttacks\" isBlackboard=\"True\" blackboard=\"attack\" />\r\n         
@@ -100,7 +101,7 @@ MonoBehaviour:
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
     id=\"2\" />\r\n          <RepeatDecorator id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"4\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"244.1868
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"244.1868
     754.9095\" name=\"EnemyBehaviour/CheckTargetDistance\" description=\"Eval\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode
     id=\"4\" />\r\n          <PrioritySelectorNode id=\"2\" />\r\n        </data>\r\n     

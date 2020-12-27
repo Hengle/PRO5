@@ -102,40 +102,40 @@ MonoBehaviour:
     id=\"5\" />\r\n          <ConditionEvalNode id=\"6\" />\r\n          <SubbehaviorNode
     id=\"7\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
     <RepeatDecorator id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"240.8692 255.2777\" name=\"Repeat\" description=\"Repeats
+    selected=\"False\" position=\"75.89002 309.9722\" name=\"Repeat\" description=\"Repeats
     the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"2\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"227.869
-    369.2779\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"62.88984
+    423.9724\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"2\" />\r\n         
     <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"3\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"14.23013 498.1664\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
+    position=\"-150.7491 552.8608\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"3\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"4\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"193.8692 510.2776\" name=\"EnemyBehaviour/MoveAgentTo\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"28.89003 564.972\" name=\"EnemyBehaviour/MoveAgentTo\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"4\" />\r\n          <SequenceNode id=\"2\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <DecoratorGuard
     id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"559.8378 591.8492\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
+    position=\"394.8587 646.5436\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <DecoratorGuard
     id=\"5\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </DecoratorGuard>\r\n    <ConditionEvalNode id=\"6\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"559.8378
-    591.8492\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"394.8587
+    646.5436\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"6\" />\r\n       
     </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode
     id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"559.8378 591.8492\" name=\"AttackBehaviour\" description=\"Simple
+    position=\"394.8587 646.5436\" name=\"AttackBehaviour\" description=\"Simple
     Attack Behaviour that works with an external timer to time it's attacks.\" cardinality=\"-1\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n 
     </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 1
+  zoom: 0.9
   subslist:
   - {fileID: 11400000, guid: dec7d283849515a42814ab2ef93df956, type: 2}
   _guid: d5bc5c220040cf442b708cf9227429dc

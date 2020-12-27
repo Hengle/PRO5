@@ -15,6 +15,10 @@ public class AIUtilities : MonoBehaviour
         ScriptCollection.RemoveScript(this);
     }
 
+    public void DestroyObject(GameObject obj, float time = 0.1f)
+    {
+        Destroy(obj, time);
+    }
     public void MoveNavMeshAgent(NavMeshAgent agent, Vector3 target, Vector3 moveVector, float speed)
     {
         agent.destination = target;
@@ -43,6 +47,7 @@ public class AIUtilities : MonoBehaviour
     {
         return (self.transform.position - target.position).sqrMagnitude < Mathf.Pow(range, 2);
     }
+
     //Simple Timer that counts down until 0 from a given float value
     public class Timer
     {
@@ -74,7 +79,7 @@ public class AIUtilities : MonoBehaviour
         }
 
         //Async operation that uses the UniTask async library
-        //Subtracts deltatime every frame/playerloop
+        //Adds deltatime every frame/playerloop
         async UniTask Timing()
         {
             while (currentTime <= waitTime)

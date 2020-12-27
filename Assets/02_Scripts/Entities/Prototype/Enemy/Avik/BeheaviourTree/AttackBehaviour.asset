@@ -83,26 +83,26 @@ MonoBehaviour:
     />\r\n          <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\"
     />\r\n          <ActionNode id=\"23\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
     </BehaviorTree>\r\n    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"235.4513 322.6108\" name=\"Repeat\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"553.229 263.722\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"19\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"223.1111
-    456.5556\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"540.8888
+    397.6667\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"19\" />\r\n         
     <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
-    <ActionNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
-    position=\"-37.88888 614.5555\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
+    <ActionNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"279.8889 555.6664\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"23\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"180 681.1111\" name=\"EnemyBehaviour/TurnToPlayer\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"502.2223 588.8887\" name=\"EnemyBehaviour/TurnToPlayer\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"23\" />\r\n          <SequenceNode
     id=\"19\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"398.3334 669.2226\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
+    position=\"716.1112 610.3335\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"19\" />\r\n          <SequenceNode id=\"19\" />\r\n       
     </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"

@@ -18,7 +18,7 @@ public class TurnToPlayerAction : GOAction
     float currentTime;
     AIUtilities utilities;
 
-
+    bool wasIn = false;
     public override void OnStart()
     {
         utilities = ScriptCollection.GetScript<AIUtilities>();
@@ -28,17 +28,22 @@ public class TurnToPlayerAction : GOAction
     {
         if (enemyBody.playerDetector.player == null)
         {
+            wasIn = false;
             utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
             return TaskStatus.RUNNING;
         }
         else
         {
             utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
-            currentTime += Time.deltaTime;
-            if (currentTime >= waitTime)
+            if (!wasIn)
             {
-                currentTime -= 0;
-                return TaskStatus.COMPLETED;
+                currentTime += Time.deltaTime;
+                if (currentTime >= waitTime)
+                {
+                    currentTime -= 0;
+                    wasIn = true;
+                    return TaskStatus.COMPLETED;
+                }
             }
             return TaskStatus.RUNNING;
         }

@@ -33,7 +33,7 @@ namespace BBUnity.Actions
 
         float GetRange()
         {
-            Debug.Log(minRange.ToString() +" and " + maxRange.ToString());
+            // Debug.Log(minRange.ToString() +" and " + maxRange.ToString());
             return Random.Range(minRange, maxRange);
         }
     }

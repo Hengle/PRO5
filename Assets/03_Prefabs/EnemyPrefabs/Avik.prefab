@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1068771468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068771469}
+  - component: {fileID: 1068771471}
+  - component: {fileID: 1068771470}
+  m_Layer: 9
+  m_Name: DetectionBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1068771469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068771468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.374, z: 0.408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4119351919161116622}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1068771471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068771468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2, y: 2, z: 4}
+  m_Center: {x: 0, y: 0, z: 1.5}
+--- !u!114 &1068771470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068771468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b451434d08442c40a60dae55dc155df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &1177114977
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4119351918993028646}
   - component: {fileID: 4119351918993028645}
-  - component: {fileID: 1980038556}
   m_Layer: 9
   m_Name: HitBox
   m_TagString: Untagged
@@ -528,20 +585,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.2, y: 2, z: 4}
-  m_Center: {x: 0, y: 0, z: 2}
---- !u!114 &1980038556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119351918993028644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b451434d08442c40a60dae55dc155df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  m_Center: {x: 0, y: 0, z: 1.5}
 --- !u!1 &4119351919161116610
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +628,7 @@ Transform:
   - {fileID: 4119351918993028646}
   - {fileID: 4119351919320222299}
   - {fileID: 1177114979}
+  - {fileID: 1068771469}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -599,10 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea84852637b3e347a26b438e21270ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  show: 'Reference the AIManager in the EnemyBody script.
-
-    Make sure there is
-    a NavMesh baked in your scene.'
+  show: Make sure there is a NavMesh baked in your scene.
 --- !u!114 &4119351919161116621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,9 +669,11 @@ MonoBehaviour:
     boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams:
+    - 0.8
     - 1
     floatParamsNames:
     - MinRange
+    - maxRange
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -723,21 +767,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackAnimations:
   - clip: {fileID: 3341021286118218705, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
-    damageFrameStart: 15
-    damageFrameEnd: 30
+    damageFrameStart: 19
+    damageFrameEnd: 17
     attRange: 2.5
-    attackWidth: 2
+    attackWidth: 2.5
     effects: []
-  - clip: {fileID: 0}
-    damageFrameStart: 0
-    damageFrameEnd: 0
-    attRange: 0
-    attackWidth: 0
+  - clip: {fileID: 1827226128182048838, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
+    damageFrameStart: 24
+    damageFrameEnd: 29
+    attRange: 4
+    attackWidth: 1.5
     effects: []
   isAttacking: 0
   canAttack: 0
   canDamage: 0
-  anim: {fileID: 0}
+  anim: {fileID: 5842015562498545599}
 --- !u!114 &4119351919161116617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayEmitter: {fileID: 4119351919320222299}
   hitBox: {fileID: 4119351918993028645}
+  playerDetector: {fileID: 1068771470}
   aiManager: {fileID: 0}
 --- !u!114 &5842015562498545599
 MonoBehaviour:
@@ -765,6 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243405db22521224ba3bd59cb2b94b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1292289528}
 --- !u!195 &4119351919161116614
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ namespace BBUnity.Actions
 
         public override void OnStart()
         {
+            agent.isStopped = false;
+            
             if (utilities != null)
                 utilities = ScriptCollection.GetScript<AIUtilities>();
             if (steering == null)

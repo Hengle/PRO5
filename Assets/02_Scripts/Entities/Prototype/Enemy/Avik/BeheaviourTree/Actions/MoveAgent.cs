@@ -10,10 +10,6 @@ namespace BBUnity.Actions
     [Action("EnemyBehaviour/MoveAgentTo")]
     public class MoveAgent : GOAction
     {
-
-        [InParam("MoveVector")]
-        public Vector3 moveVector;
-
         [InParam("Agent")]
         public NavMeshAgent agent;
 
@@ -30,28 +26,49 @@ namespace BBUnity.Actions
         public bool isInRange;
 
         float currentTime;
-
+        float rand;
         AIUtilities utilities;
         public override void OnStart()
         {
             utilities = ScriptCollection.GetScript<AIUtilities>();
+            rand = Random.Range(0.8f, 1.2f);
         }
 
         public override TaskStatus OnUpdate()
         {
             // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
-            currentTime += Time.deltaTime;
-            isInRange = currentTime >= 0.4f;
-            if (isInRange)
+            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3.8f))
             {
-                currentTime = 0;
+                agent.isStopped = true;
+                isInRange = true;
                 return TaskStatus.COMPLETED;
             }
-
-            Move();
-            LookAt();
-
-            return TaskStatus.RUNNING;
+            else
+            {
+                isInRange = false;
+                agent.isStopped = false;
+                Move();
+                LookAt();
+                return TaskStatus.RUNNING;
+            }
+            // if (!isInRange)
+            // {
+            //     agent.isStopped = false;
+            //     currentTime += Time.deltaTime;
+            //     if (currentTime >= 0.5f)
+            //     {
+            //         isInRange = true;
+            //         currentTime = 0;
+            //         agent.isStopped = true;
+            //         return TaskStatus.COMPLETED;
+            //     }
+            // }
+            // else
+            // {
+            //     Move();
+            //     LookAt();
+            // }
+            // return TaskStatus.RUNNING;
         }
         void Move()
         {
@@ -67,6 +84,11 @@ namespace BBUnity.Actions
             {
                 utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
             }
+        }
+
+        public override void OnAbort()
+        {
+            agent.isStopped = false;
         }
 
     }
