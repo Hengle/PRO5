@@ -7,6 +7,7 @@ public class ProgessBarDash : ProgessBar
 {
     public Slider slider;
     public PlayerStateMachine dash;
+    
 
     void Update()
     {
@@ -19,5 +20,6 @@ public class ProgessBarDash : ProgessBar
         current = dash.dashCharge;
         float fillAmount = (float) current / (float) maximum;
         slider.value = fillAmount;
+        
     }
 }

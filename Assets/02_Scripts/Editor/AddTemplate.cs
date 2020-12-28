@@ -6,7 +6,7 @@ public class AddTemplate : EditorWindow
 {
     string[] paths;
     string[] stuff;
-    string[] options = { "Ralger", "Avik", "Shentau", "Player" };
+    string[] options = { "Avik", "Shentau", "Jihil", "Player" };
     int index;
     float statfloatField;
     string _name;
@@ -45,10 +45,10 @@ public class AddTemplate : EditorWindow
             switch (index)
             {
                 case 0:
-                    templateFolder = "Enemy/Igner";
+                    templateFolder = "Enemy/Avik";
                     break;
                 case 1:
-                    templateFolder = "Enemy/Avik";
+                    templateFolder = "Enemy/Shentau";
                     break;
                 case 2:
                     templateFolder = "Enemy/Shentau";
@@ -58,7 +58,7 @@ public class AddTemplate : EditorWindow
                     break;
             }
 
-            GUILayout.Label("Target Folder is: 03_Scripts/Entities/StatTemplates/" + templateFolder);
+            GUILayout.Label("Target Folder is: 02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder);
             if (GUILayout.Button("Save Asset"))
             {
                 StatTemplate newasset = ScriptableObject.CreateInstance<StatTemplate>();
@@ -77,7 +77,6 @@ public class AddTemplate : EditorWindow
                 for (int i = 0; i < paths.Length; i++)
                     templates.Add((StatTemplate)AssetDatabase.LoadAssetAtPath(stuff[i], typeof(StatTemplate)));
 
-                bool yes = false;
                 foreach (StatTemplate t in templates)
                 {
                     string na = templatename + n.ToString();
@@ -88,9 +87,8 @@ public class AddTemplate : EditorWindow
                     }
                 }
                 templatename = templatename + n.ToString();
-                AssetDatabase.CreateAsset(newasset, "Assets/03_Scripts/Entities/StatTemplates/" + templateFolder + "/" + templatename + ".asset");
+                AssetDatabase.CreateAsset(newasset, "Assets/02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder + "/" + templatename + ".asset");
                 AssetDatabase.SaveAssets();
-                init = true;
 
                 templates.Clear();
 
@@ -111,6 +109,8 @@ public class AddTemplate : EditorWindow
                         asset = t;
                     }
                 }
+
+                init = true;
             }
         }
 
@@ -126,8 +126,6 @@ public class AddTemplate : EditorWindow
                         MultVariable m = (MultVariable)f.Variable;
 
                         f.Variable.Value = EditorGUILayout.FloatField("Mult: " + m.multiplierName.ToString(), m.Value, GUILayout.MinWidth(100f), GUILayout.MaxWidth(200f));
-
-
                     }
                     if (f.Variable is StatVariable)
                     {
@@ -152,7 +150,6 @@ public class AddTemplate : EditorWindow
                     AddStat();
                     statAdded = true;
                 }
-
             }
             GUILayout.Space(5f);
             if (!statAdded)
@@ -168,8 +165,6 @@ public class AddTemplate : EditorWindow
                     AddMult();
                     multAdded = true;
                 }
-
-
             }
 
         }
@@ -204,7 +199,7 @@ public class AddTemplate : EditorWindow
             }
         }
         _name = _name + n.ToString();
-        AssetDatabase.CreateAsset(m, "Assets/03_Scripts/Entities/StatTemplates/" + templateFolder + "/Mults/" + _name + ".asset");
+        AssetDatabase.CreateAsset(m, "Assets/02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder + "/Mults/" + _name + ".asset");
         AssetDatabase.SaveAssets();
 
 
@@ -260,7 +255,7 @@ public class AddTemplate : EditorWindow
         }
         _name = _name + n.ToString();
 
-        AssetDatabase.CreateAsset(v, "Assets/03_Scripts/Entities/StatTemplates/" + templateFolder + "/Stats/" + _name + ".asset");
+        AssetDatabase.CreateAsset(v, "Assets/02_Scripts/Entities/Prototype/StatTemplates/" + templateFolder + "/Stats/" + _name + ".asset");
         AssetDatabase.SaveAssets();
 
 
