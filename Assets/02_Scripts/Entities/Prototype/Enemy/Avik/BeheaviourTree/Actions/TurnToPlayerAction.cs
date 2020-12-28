@@ -15,37 +15,51 @@ public class TurnToPlayerAction : GOAction
 
     [InParam("WaitTime")]
     public float waitTime;
+
+    [InParam("InitAttack")]
+    public bool initAttack;
     float currentTime;
     AIUtilities utilities;
 
     bool wasIn = false;
     public override void OnStart()
     {
+        if (enemyBody.playerDetector.player != null)
+            wasIn = true;
+        else
+            wasIn = false;
+
         utilities = ScriptCollection.GetScript<AIUtilities>();
     }
 
     public override TaskStatus OnUpdate()
     {
-        if (enemyBody.playerDetector.player == null)
-        {
-            wasIn = false;
-            utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
-            return TaskStatus.RUNNING;
-        }
-        else
-        {
-            utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
-            if (!wasIn)
+        if (!initAttack)
+            if (enemyBody.playerDetector.player == null)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime >= waitTime)
+                wasIn = false;
+                utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
+                return TaskStatus.RUNNING;
+            }
+            else
+            {
+                utilities.LookAtTarget(enemyBody.aiManager.playerTarget, gameObject.transform, stats.GetStatValue(StatName.TurnSpeed));
+                if (!wasIn)
                 {
-                    currentTime -= 0;
-                    wasIn = true;
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= waitTime)
+                    {
+                        currentTime -= 0;
+                        wasIn = true;
+                        return TaskStatus.COMPLETED;
+                    }
+                }
+                else
+                {
                     return TaskStatus.COMPLETED;
                 }
+                return TaskStatus.RUNNING;
             }
-            return TaskStatus.RUNNING;
-        }
+        return TaskStatus.COMPLETED;
     }
 }

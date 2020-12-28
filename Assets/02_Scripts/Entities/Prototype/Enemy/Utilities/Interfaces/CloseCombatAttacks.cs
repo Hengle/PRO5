@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class CloseCombatAttacks : IEnemyAttacks
 {
     protected Coroutine damageWaiter;
     protected Coroutine attackTimer;
-    
+
     public bool isAttacking;
     public bool canAttack;
     public bool canDamage;

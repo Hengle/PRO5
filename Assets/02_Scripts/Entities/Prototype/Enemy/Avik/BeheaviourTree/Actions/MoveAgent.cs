@@ -22,22 +22,47 @@ namespace BBUnity.Actions
         [InParam("isInRange")]
         [OutParam("isInRange")]
         public bool isInRange;
+        [InParam("InitAttack")]
+        public bool initAttack;
 
         float currentTime;
         float rand;
         AIUtilities utilities;
+
+        bool countTime;
+        bool countReady;
+        
         public override void OnStart()
         {
             utilities = ScriptCollection.GetScript<AIUtilities>();
-            rand = Random.Range(0.8f, 1.2f);
+            rand = Random.Range(0.8f, 1.5f);
         }
 
         public override TaskStatus OnUpdate()
         {
-            // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
-            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3.4f))
+            if (enemyBody.playerDetector.player != null)
             {
+                countTime = true;
+            }
+
+            if (countTime)
+            {
+                currentTime += Time.deltaTime;
+                if (currentTime >= 3f)
+                {
+                    countTime = false;
+                    countReady = true;
+                    
+                    currentTime = 0;
+                }
+            }
+
+            // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
+            if (countReady || utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3f))
+            {
+                countReady = false;
                 agent.isStopped = true;
+                initAttack = true;
                 isInRange = true;
                 return TaskStatus.COMPLETED;
             }
@@ -49,25 +74,8 @@ namespace BBUnity.Actions
                 LookAt();
                 return TaskStatus.RUNNING;
             }
-            // if (!isInRange)
-            // {
-            //     agent.isStopped = false;
-            //     currentTime += Time.deltaTime;
-            //     if (currentTime >= 0.5f)
-            //     {
-            //         isInRange = true;
-            //         currentTime = 0;
-            //         agent.isStopped = true;
-            //         return TaskStatus.COMPLETED;
-            //     }
-            // }
-            // else
-            // {
-            //     Move();
-            //     LookAt();
-            // }
-            // return TaskStatus.RUNNING;
         }
+
         void Move()
         {
             utilities.MoveNavMeshAgent(agent,

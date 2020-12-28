@@ -14,8 +14,6 @@ namespace BBUnity.Actions
         [InParam("enemyBody")]
         public EnemyBody enemyBody;
 
-        [InParam("timer")]
-        [OutParam("timer")]
         public AIUtilities.Timer timer;
 
         [InParam("attack")]
@@ -24,13 +22,11 @@ namespace BBUnity.Actions
         [InParam("animator")]
         public Animator animator;
 
-        [InParam("actions")]
-        public EnemyActions actions;
         [InParam("stats")]
         public EnemyStatistics stats;
 
-        [InParam("WaitTimeDone")]
-        public bool waitTimedone;
+        [InParam("InitAttack")]
+        public bool initAttack;
         
         public override void OnStart()
         {
@@ -70,7 +66,7 @@ namespace BBUnity.Actions
             attack.Attack();
             timer.setWaitTime(stats.GetStatValue(StatName.AttackRate));
             attack.canAttack = false;
-            waitTimedone = false;
+            initAttack = false;
         }
 
         public void SetCanAttack()

@@ -24,39 +24,42 @@ MonoBehaviour:
     />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"False\"
     />\r\n          <entry name=\"MinRange\" type=\"System.Single\" isBlackboard=\"False\"
     value=\"0\" />\r\n          <entry name=\"maxRange\" type=\"System.Single\" isBlackboard=\"False\"
-    value=\"0\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"RandomTime\" type=\"System.Single\"
-    isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams>\r\n        <localValues>\r\n          <entry name=\"timer\" type=\"AIUtilities+Timer\"
-    isBlackboard=\"False\" />\r\n        </localValues>\r\n      </localParams>\r\n   
-    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
-    <child>\r\n        <SequenceNode id=\"19\" />\r\n      </child>\r\n      <inputParams
-    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
-    <SequenceNode id=\"19\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
-    id=\"17\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"23\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"12\" />\r\n       
-    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode id=\"17\"
-    action=\"EnemyBehaviour/GetRandomRange\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
-    <entry name=\"MinRange\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"MinRange\"
-    />\r\n          <entry name=\"Stats\" type=\"EnemyStatistics\" isBlackboard=\"True\"
-    blackboard=\"stats\" />\r\n          <entry name=\"Attack\" type=\"CloseCombatAttacks\"
-    isBlackboard=\"True\" blackboard=\"attack\" />\r\n          <entry name=\"GetRange\"
-    type=\"System.Boolean\" isBlackboard=\"False\" value=\"False\" />\r\n         
-    <entry name=\"maxRange\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"maxRange\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"Range\" type=\"System.Single\" isBlackboard=\"True\"
-    blackboard=\"RandomTime\" />\r\n          <entry name=\"GetRange\" type=\"System.Boolean\"
-    isBlackboard=\"True\" blackboard=\"\" />\r\n          <entry name=\"randomRange\"
-    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"RandomTime\" />\r\n       
-    </outputValues>\r\n      </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"23\" action=\"EnemyBehaviour/TurnToPlayer\">\r\n      <inputParams>\r\n       
+    value=\"0\" />\r\n          <entry name=\"InitAttack\" type=\"System.Boolean\"
+    isBlackboard=\"False\" value=\"False\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"RandomTime\" type=\"System.Single\" isBlackboard=\"True\" />\r\n       
+    </outputValues>\r\n      </outputParams>\r\n      <localParams>\r\n        <localValues>\r\n         
+    <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"False\" />\r\n       
+    </localValues>\r\n      </localParams>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
+    id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    <SequenceNode id=\"19\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
+    id=\"19\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"17\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"23\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <ActionNode id=\"12\" />\r\n        </elem>\r\n     
+    </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </SequenceNode>\r\n    <ActionNode id=\"17\" action=\"EnemyBehaviour/GetRandomRange\">\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"MinRange\"
+    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"MinRange\" />\r\n         
+    <entry name=\"Stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
+    />\r\n          <entry name=\"Attack\" type=\"CloseCombatAttacks\" isBlackboard=\"True\"
+    blackboard=\"attack\" />\r\n          <entry name=\"GetRange\" type=\"System.Boolean\"
+    isBlackboard=\"False\" value=\"False\" />\r\n          <entry name=\"maxRange\"
+    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"maxRange\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"Range\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"RandomTime\"
+    />\r\n          <entry name=\"GetRange\" type=\"System.Boolean\" isBlackboard=\"True\"
+    blackboard=\"\" />\r\n          <entry name=\"randomRange\" type=\"System.Single\"
+    isBlackboard=\"True\" blackboard=\"RandomTime\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"23\" action=\"EnemyBehaviour/TurnToPlayer\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"EnemyBody\" type=\"EnemyBody\" isBlackboard=\"True\"
     blackboard=\"enemyBody\" />\r\n          <entry name=\"Stats\" type=\"EnemyStatistics\"
     isBlackboard=\"True\" blackboard=\"stats\" />\r\n          <entry name=\"WaitTime\"
-    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"RandomTime\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </ActionNode>\r\n    <ActionNode id=\"12\" action=\"EnemyBehaviour/MeleeAttackAction\">\r\n     
+    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"RandomTime\" />\r\n         
+    <entry name=\"InitAttack\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"InitAttack\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
+    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"12\" action=\"EnemyBehaviour/MeleeAttackAction\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"enemyBody\"
     type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"enemyBody\" />\r\n         
     <entry name=\"aiManager\" type=\"AIManager\" isBlackboard=\"True\" blackboard=\"aiManager\"
@@ -67,8 +70,9 @@ MonoBehaviour:
     <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"stats\"
     />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"True\"
     blackboard=\"animator\" />\r\n          <entry name=\"WaitTimeDone\" type=\"System.Boolean\"
-    isBlackboard=\"True\" blackboard=\"waitTimeDone\" />\r\n        </inputValues>\r\n     
-    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    isBlackboard=\"True\" blackboard=\"waitTimeDone\" />\r\n          <entry name=\"InitAttack\"
+    type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"InitAttack\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
     <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"True\" blackboard=\"timer\"
     />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
     />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree
@@ -83,26 +87,26 @@ MonoBehaviour:
     />\r\n          <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\"
     />\r\n          <ActionNode id=\"23\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
     </BehaviorTree>\r\n    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"553.229 263.722\" name=\"Repeat\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"663.2289 269.2776\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"19\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"540.8888
-    397.6667\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"650.8887
+    403.2223\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"19\" />\r\n         
     <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"279.8889 555.6664\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
+    position=\"389.8889 561.2219\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"23\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"502.2223 588.8887\" name=\"EnemyBehaviour/TurnToPlayer\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"612.2222 594.4442\" name=\"EnemyBehaviour/TurnToPlayer\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"23\" />\r\n          <SequenceNode
     id=\"19\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"716.1112 609.2224\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
+    <ActionNode id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"826.1111 614.7779\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"19\" />\r\n          <SequenceNode id=\"19\" />\r\n       
     </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"

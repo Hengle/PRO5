@@ -27,19 +27,21 @@ MonoBehaviour:
     isBlackboard=\"False\" />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\"
     isBlackboard=\"False\" />\r\n          <entry name=\"isInRange\" type=\"System.Boolean\"
     isBlackboard=\"False\" />\r\n          <entry name=\"maxRange\" type=\"System.Single\"
-    isBlackboard=\"False\" value=\"35\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"Range\" type=\"System.Single\"
-    isBlackboard=\"True\" />\r\n          <entry name=\"isInRange\" type=\"System.Boolean\"
-    isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\" loops=\"-1\"
-    policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n        <SequenceNode
-    id=\"2\" />\r\n      </child>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"2\">\r\n     
-    <children>\r\n        <elem>\r\n          <ActionNode id=\"3\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <ActionNode id=\"4\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <DecoratorGuard id=\"5\" />\r\n        </elem>\r\n      </children>\r\n     
-    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n   
-    <ActionNode id=\"3\" action=\"EnemyBehaviour/GetRandomRange\">\r\n      <inputParams>\r\n       
+    isBlackboard=\"False\" value=\"35\" />\r\n          <entry name=\"InitAttack\"
+    type=\"System.Boolean\" isBlackboard=\"False\" value=\"False\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"Range\" type=\"System.Single\" isBlackboard=\"True\" />\r\n         
+    <entry name=\"isInRange\" type=\"System.Boolean\" isBlackboard=\"True\" />\r\n       
+    </outputValues>\r\n      </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n   
+    <RepeatDecorator id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
+    <child>\r\n        <SequenceNode id=\"2\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
+    <SequenceNode id=\"2\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
+    id=\"3\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"4\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <DecoratorGuard id=\"5\"
+    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
+    id=\"3\" action=\"EnemyBehaviour/GetRandomRange\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"MinRange\" type=\"System.Single\" isBlackboard=\"True\"
     blackboard=\"MinRange\" />\r\n          <entry name=\"Stats\" type=\"EnemyStatistics\"
     isBlackboard=\"True\" blackboard=\"Stats\" />\r\n          <entry name=\"Attack\"
@@ -61,49 +63,51 @@ MonoBehaviour:
     type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"Stats\" />\r\n         
     <entry name=\"randomRange\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"Range\"
     />\r\n          <entry name=\"isInRange\" type=\"System.Boolean\" isBlackboard=\"True\"
-    blackboard=\"isInRange\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"isInRange\"
-    type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"isInRange\" />\r\n       
-    </outputValues>\r\n      </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n   
-    <DecoratorGuard id=\"5\">\r\n      <guard>\r\n        <ConditionEvalNode id=\"6\"
-    />\r\n      </guard>\r\n      <child>\r\n        <SubbehaviorNode id=\"7\" />\r\n     
-    </child>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </DecoratorGuard>\r\n    <ConditionEvalNode id=\"6\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\"
-    name=\"IsInRange\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
+    blackboard=\"isInRange\" />\r\n          <entry name=\"InitAttack\" type=\"System.Boolean\"
+    isBlackboard=\"True\" blackboard=\"InitAttack\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
     <entry name=\"isInRange\" type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"isInRange\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
-    <localParams />\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"7\">\r\n     
-    <_guid>dec7d283849515a42814ab2ef93df956</_guid>\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"enemyBody\" type=\"EnemyBody\" isBlackboard=\"True\"
-    blackboard=\"EnemyBody\" />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\"
-    isBlackboard=\"True\" blackboard=\"Attack\" />\r\n          <entry name=\"actions\"
-    type=\"EnemyActions\" isBlackboard=\"True\" blackboard=\"actions\" />\r\n         
-    <entry name=\"stats\" type=\"EnemyStatistics\" isBlackboard=\"True\" blackboard=\"Stats\"
-    />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"True\"
-    blackboard=\"animator\" />\r\n          <entry name=\"waitTimeDone\" type=\"System.Boolean\"
-    isBlackboard=\"False\" value=\"False\" />\r\n          <entry name=\"MinRange\"
-    type=\"System.Single\" isBlackboard=\"True\" blackboard=\"MinRange\" />\r\n         
-    <entry name=\"maxRange\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"maxRange\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"RandomTime\" type=\"System.Single\"
-    isBlackboard=\"True\" blackboard=\"Range\" />\r\n        </outputValues>\r\n     
-    </outputParams>\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n  </runtimeInfo>\r\n 
-    <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"AttackMove\" _description=\"\"
-    _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n         
-    <RepeatDecorator id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <SequenceNode id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
-    id=\"3\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"4\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <DecoratorGuard id=\"5\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <ConditionEvalNode id=\"6\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <SubbehaviorNode id=\"7\"
-    />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n         
-    <RepeatDecorator id=\"1\" />\r\n          <SequenceNode id=\"2\" />\r\n         
-    <ActionNode id=\"3\" />\r\n          <ActionNode id=\"4\" />\r\n          <DecoratorGuard
-    id=\"5\" />\r\n          <ConditionEvalNode id=\"6\" />\r\n          <SubbehaviorNode
-    id=\"7\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
-    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"630.8347 301.0276\" name=\"Repeat\" description=\"Repeats
-    the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
+    />\r\n    </ActionNode>\r\n    <DecoratorGuard id=\"5\">\r\n      <guard>\r\n       
+    <ConditionEvalNode id=\"6\" />\r\n      </guard>\r\n      <child>\r\n       
+    <SubbehaviorNode id=\"7\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </DecoratorGuard>\r\n    <ConditionEvalNode
+    id=\"6\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"IsInRange\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"isInRange\" type=\"System.Boolean\"
+    isBlackboard=\"True\" blackboard=\"isInRange\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
+    <SubbehaviorNode id=\"7\">\r\n      <_guid>dec7d283849515a42814ab2ef93df956</_guid>\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"enemyBody\"
+    type=\"EnemyBody\" isBlackboard=\"True\" blackboard=\"EnemyBody\" />\r\n         
+    <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"True\" blackboard=\"Attack\"
+    />\r\n          <entry name=\"actions\" type=\"EnemyActions\" isBlackboard=\"True\"
+    blackboard=\"actions\" />\r\n          <entry name=\"stats\" type=\"EnemyStatistics\"
+    isBlackboard=\"True\" blackboard=\"Stats\" />\r\n          <entry name=\"animator\"
+    type=\"UnityEngine.Animator\" isBlackboard=\"True\" blackboard=\"animator\" />\r\n         
+    <entry name=\"waitTimeDone\" type=\"System.Boolean\" isBlackboard=\"False\" value=\"False\"
+    />\r\n          <entry name=\"MinRange\" type=\"System.Single\" isBlackboard=\"True\"
+    blackboard=\"MinRange\" />\r\n          <entry name=\"maxRange\" type=\"System.Single\"
+    isBlackboard=\"True\" blackboard=\"maxRange\" />\r\n          <entry name=\"InitAttack\"
+    type=\"System.Boolean\" isBlackboard=\"True\" blackboard=\"InitAttack\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"RandomTime\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"Range\"
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
+    />\r\n    </SubbehaviorNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree
+    id=\"0\" _name=\"AttackMove\" _description=\"\" _removeIfClosed=\"False\">\r\n     
+    <_rootList>\r\n        <elem>\r\n          <RepeatDecorator id=\"1\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <SequenceNode id=\"2\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <ActionNode id=\"3\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <ActionNode id=\"4\" />\r\n        </elem>\r\n        <elem>\r\n          <DecoratorGuard
+    id=\"5\" />\r\n        </elem>\r\n        <elem>\r\n          <ConditionEvalNode
+    id=\"6\" />\r\n        </elem>\r\n        <elem>\r\n          <SubbehaviorNode
+    id=\"7\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    <nodes>\r\n          <RepeatDecorator id=\"1\" />\r\n          <SequenceNode
+    id=\"2\" />\r\n          <ActionNode id=\"3\" />\r\n          <ActionNode id=\"4\"
+    />\r\n          <DecoratorGuard id=\"5\" />\r\n          <ConditionEvalNode id=\"6\"
+    />\r\n          <SubbehaviorNode id=\"7\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
+    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"630.8347 301.0276\" name=\"Repeat\"
+    description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"2\">\r\n     
     <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"617.8345
@@ -121,16 +125,16 @@ MonoBehaviour:
     id=\"0\" />\r\n          <ActionNode id=\"4\" />\r\n          <SequenceNode id=\"2\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <DecoratorGuard
     id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"950.9143 636.4882\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
+    position=\"950.9143 635.3771\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <DecoratorGuard
     id=\"5\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </DecoratorGuard>\r\n    <ConditionEvalNode id=\"6\">\r\n     
     <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"950.9143
-    636.4882\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    635.3771\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"6\" />\r\n       
     </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode
-    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"950.9143 636.4882\" name=\"AttackBehaviour\" description=\"Simple
+    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"950.9143 635.3771\" name=\"AttackBehaviour\" description=\"Simple
     Attack Behaviour that works with an external timer to time it's attacks.\" cardinality=\"-1\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n 

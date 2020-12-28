@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AvikAttack : CloseCombatAttacks
 {
     public AnimatorHook anim;
-
+   
+   
     public override void Attack()
     {
         int i = GetAttackType();
@@ -22,7 +24,6 @@ public class AvikAttack : CloseCombatAttacks
                                                 attackAnimations[i].damageFrameEnd,
                                                 attackAnimations[i].clip.length));
     }
-
     public override void CancelAttack()
     {
         isAttacking = false;
@@ -43,9 +44,10 @@ public class AvikAttack : CloseCombatAttacks
 
     public override bool DoDamage()
     {
-        if (canDamage & enemyBody.playerDetector.player != null)
+        PlayerDetector damageHitbox = enemyBody.hitBox.GetComponent<PlayerDetector>();
+        if (canDamage & damageHitbox.player != null)
         {
-            MyEventSystem.instance.OnAttack(enemyBody.playerDetector.player.GetComponent<IHasHealth>(), stats.GetStatValue(StatName.BaseDmg));
+            MyEventSystem.instance.OnAttack(damageHitbox.player.GetComponent<IHasHealth>(), stats.GetStatValue(StatName.BaseDmg));
             return true;
         }
         return false;
