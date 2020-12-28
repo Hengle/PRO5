@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 namespace Enemy
 {
-    [CustomEditor(typeof(CloseCombatAttacks), true)]
+    [CustomEditor(typeof(IEnemyAttacks), true)]
     public class AttackAnimationsEditor : Editor
     {
         float frame = 0;
@@ -18,7 +18,7 @@ namespace Enemy
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
-            CloseCombatAttacks t = (CloseCombatAttacks)target;
+            IEnemyAttacks t = (IEnemyAttacks)target;
             // EditorGUILayout.ObjectField(t, typeof(CloseCombatAttacks), false);
             // if (GUILayout.Button("FindBools"))
             // {

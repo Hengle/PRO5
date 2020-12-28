@@ -840,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1432388763
+--- !u!114 &1595159113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: e6cc386e88aed6647bffd915475bbcad, type: 2}
   m_StaticLightingSkyUniqueID: 3
-  m_SkySettings: {fileID: 1432388763}
+  m_SkySettings: {fileID: 1595159113}
   m_SkySettingsFromProfile: {fileID: -1008905139995932526, guid: e6cc386e88aed6647bffd915475bbcad,
     type: 2}
 --- !u!4 &1776581815
