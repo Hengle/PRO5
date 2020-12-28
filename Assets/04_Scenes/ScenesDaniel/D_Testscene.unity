@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.10030575, g: 0.04198858, b: 0.068557255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3261,6 +3261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PU_MovementSpeedBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 4027329983621396698, guid: 627f05bb4b922aa4180194db520a2e49,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1316906332}
     - target: {fileID: 5859237687815795997, guid: 627f05bb4b922aa4180194db520a2e49,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3574,6 +3579,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4723770504283489688, guid: 4652b23181f8267458b7fddab5a080ac,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1316906332}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4652b23181f8267458b7fddab5a080ac, type: 3}
 --- !u!1001 &6395965136317014639
