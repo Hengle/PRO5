@@ -19,7 +19,7 @@ ScriptedImporter:
     preset: " <sbspreset pkgurl=\"pkg://Sci-Fi-Modified\" label=\"\" >\n  <presetinput
       identifier=\"paint_per_panel_brightness_variation\" uid=\"3480172993\" type=\"0\"
       value=\"0.454\" />\n  <presetinput identifier=\"rust_spreading\" uid=\"3480146997\"
-      type=\"0\" value=\"0.156\" />\n  <presetinput identifier=\"bevel_size_big_panels\"
+      type=\"0\" value=\"0.086\" />\n  <presetinput identifier=\"bevel_size_big_panels\"
       uid=\"3480142875\" type=\"0\" value=\"-0.0267\" />\n </sbspreset>\n"
     shaderName: HDRP/Lit
     materialProperties:
