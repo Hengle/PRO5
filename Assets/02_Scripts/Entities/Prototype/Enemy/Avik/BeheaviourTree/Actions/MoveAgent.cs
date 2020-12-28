@@ -19,8 +19,6 @@ namespace BBUnity.Actions
         [InParam("Stats")]
         public EnemyStatistics stats;
 
-        public float randomRange;
-
         [InParam("isInRange")]
         [OutParam("isInRange")]
         public bool isInRange;
@@ -37,7 +35,7 @@ namespace BBUnity.Actions
         public override TaskStatus OnUpdate()
         {
             // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
-            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3.8f))
+            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3.4f))
             {
                 agent.isStopped = true;
                 isInRange = true;

@@ -17,21 +17,21 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             //start effects or whatever
-            // agent.enabled = false;
+            agent.enabled = false;
         }
 
         public override TaskStatus OnUpdate()
         {
-            return TaskStatus.COMPLETED;
+            return TaskStatus.RUNNING;
         }
 
         public override void OnAbort()
         {
-            // agent.enabled = true;
+            agent.enabled = true;
         }
         public override void OnEnd()
         {
-            // agent.enabled = true;
+            agent.enabled = true;
         }
     }
 }

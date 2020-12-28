@@ -12,11 +12,11 @@ namespace BBUnity.Actions
         [OutParam("randomRange")]
         public float randomRange;
 
-        [InParam("MinRange")]
-        public float minRange;
+        [InParam("MinRange", typeof(float))]
+        public float minRange = 0.0f;
 
-        [InParam("maxRange")]
-        public float maxRange;
+        [InParam("maxRange", typeof(float))]
+        public float maxRange = 0.0f;
 
         [InParam("Stats")]
         public EnemyStatistics stats;

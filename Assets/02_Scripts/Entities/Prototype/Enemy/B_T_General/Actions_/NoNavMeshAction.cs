@@ -14,13 +14,13 @@ namespace BBUnity.Actions
         public NavMeshAgent agent;
         public override void OnStart()
         {
-            // agent.enabled = false;
-            // ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 4f);
+            agent.enabled = false;
+            ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 4f);
         }
 
         public override TaskStatus OnUpdate()
         {
-            return TaskStatus.COMPLETED;
+            return TaskStatus.RUNNING;
         }
     }
 }
