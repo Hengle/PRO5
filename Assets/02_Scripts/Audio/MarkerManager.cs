@@ -45,9 +45,10 @@ public class MarkerManager : MonoBehaviour
                 switch (marker[i])
                 {
                     case 'S':
+                       // Debug.Log("Snare");
                         if (MyEventSystem.instance == null)
                         {
-
+                            Debug.Log("Eventsystem is null");
                             
                         }
                         else
@@ -56,7 +57,7 @@ public class MarkerManager : MonoBehaviour
                             _musicInstance.getParameterByName("SnareLayer", out active);
                             if (!_snareLock && active == 1) 
                             {
-                                //Debug.Log("Snare");
+                                Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
                             }
                             lockInstrument("lockSnare");
@@ -64,17 +65,21 @@ public class MarkerManager : MonoBehaviour
                         break;
 
                     case 'K':
+
+                        //Debug.Log("Kick");
                         if (MyEventSystem.instance == null)
                         {
                             
                         }
                         else
                         {
+                          
                             float active;
                             _musicInstance.getParameterByName("KickLayer", out active);
+                            active = 1;
                             if (!_kickLock && active == 1)
                             {
-                               // Debug.Log("Kick");
+                                Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
                             }
                             lockInstrument("lockKick");
