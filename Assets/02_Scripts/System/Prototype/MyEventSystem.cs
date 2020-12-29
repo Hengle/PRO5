@@ -37,6 +37,13 @@ public class MyEventSystem : MonoBehaviour
 
     #endregion PowerupEvents
 
+    #region TeleportEvents
+
+    //public event Action<>
+    public event Action<Transform> teleportPlayer;
+
+    #endregion TeleportsEvents
+
 
     public static MyEventSystem instance;
 
@@ -123,6 +130,15 @@ public class MyEventSystem : MonoBehaviour
     }
 
     #endregion PowerupEventhandler
+
+    #region TeleportEventhandler
+
+    public void OnTeleportPlayer(Transform targetPosition)
+    {
+        teleportPlayer?.Invoke(targetPosition);
+    }
+
+    #endregion TeleportEventhandler
 
 
 
