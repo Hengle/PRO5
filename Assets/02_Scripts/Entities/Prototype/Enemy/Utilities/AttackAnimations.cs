@@ -21,6 +21,7 @@ namespace Enemy
         [SerializeField] public float damageFrameEnd;
         [SerializeField] public float attRange;
         [SerializeField] public float attackWidth;
+
         [SerializeField] public List<SoundEffectContainer> soundFX;
         [SerializeField] public List<ParticleEffectContainer> particleFX;
         [SerializeField] public List<VFXContainer> VFX;
@@ -50,5 +51,4 @@ namespace Enemy
     {
         //Add vfx reference
     }
-
 }
