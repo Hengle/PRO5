@@ -24,6 +24,25 @@ public class EnemyActions : MonoBehaviour
     {
         return hittablePowerups != null ? hittablePowerups.Contains(name) : false;
     }
+    private void OnDrawGizmos()
+    {
+        float deg = 50;
+        float dott;
+        float currentAngle = 0;
+        for (int i = 0; i < deg; i++)
+        {
+            currentAngle += 360f / deg;
+
+            float y = Mathf.Sin(Mathf.Deg2Rad + currentAngle);
+            float x = Mathf.Cos(Mathf.Deg2Rad + currentAngle);
+            Vector3 pos = new Vector3(x, 0, y) * 4f + gameObject.transform.position;
+            dott = Vector3.Dot((pos - gameObject.transform.position).normalized, (body.aiManager.playerTarget.position - gameObject.transform.position).normalized);
+            if (dott < 0.4f)
+            {
+                Gizmos.DrawLine(gameObject.transform.position, pos);
+            }
+        }
+    }
 }
 
 // namespace Powerups
@@ -31,7 +50,7 @@ public class EnemyActions : MonoBehaviour
 //     public abstract class Action : MonoBehaviour
 //     {
 //         public PowerupNames powerupName;
-                
+
 //         public abstract void Execute(GameObject exec);
 //     }
 
