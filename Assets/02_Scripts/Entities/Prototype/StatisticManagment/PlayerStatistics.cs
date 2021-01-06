@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStatistics : StatisticController, IHasHealth
 {
     public FloatVariable currentHealth;
+    public FloatVariable shieldValue;
     public bool isDashing = false;
     public bool alive = true;
     protected override void InitStats()
@@ -33,7 +34,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
     {
         //float damage = baseDmg * (baseDmg/(baseDmg + enemy.GetStat(EnemyStatName.defense)))
         float newDamage = damage * damage / (damage + GetStatValue(StatName.Defense));
-        currentHealth.Value -= newDamage;
+        currentHealth.Value -= Shield(newDamage);;
         // SetStatValue(StatName.MaxHealth, GetStatValue(StatName.MaxHealth) - damage);
         Debug.Log(gameObject.name + " just took " + newDamage + " damage.");
         CheckHealth();
@@ -61,5 +62,17 @@ public class PlayerStatistics : StatisticController, IHasHealth
                 currentHealth.Value += healAmount;
             }
         }
+    }
+
+    public float Shield(float newDamage)
+    {
+        if (shieldValue.Value > 0)
+        {
+            float shieldTemp = shieldValue.Value;
+            shieldValue.Value -= newDamage;
+            newDamage -= shieldTemp;
+        }
+
+        return newDamage;
     }
 }

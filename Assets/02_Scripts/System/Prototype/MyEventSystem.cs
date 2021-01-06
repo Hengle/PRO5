@@ -93,7 +93,7 @@ public class MyEventSystem : MonoBehaviour
     {
         if (Kick == null)
         {
-            Debug.LogError("No OnKick event");
+           // Debug.LogError("No OnKick event");
         }
         else
         {

@@ -20,18 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/SkillController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerSkill.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerSkill.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerControls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgessBarDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgessBarDash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/MovementSpeedBoost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/MovementSpeedBoost.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/Shield.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MyEventSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MyEventSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgressBarSkillCharge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgressBarSkillCharge.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/MainPrototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/MainPrototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HoudiniEngineAssetCache/Working.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,57 +42,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/4f/9a918d6a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/27/8ae5761e/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/be/78ad4475/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/a5/ef94794f/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02_Scripts/System/DeathDrop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/a5/ef94794f/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/be/78ad4475/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/4f/9a918d6a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/GrenadeMovementController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerAttackStates/AttackStateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/AttackMovementState.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/AnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/AnimatorController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/Weapons/Weapons.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/ObstacleInterface.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Editor/StatMultMonitor.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerMovementController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashMovementController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/DashScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/OldScripts/DashMovementController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/OldScripts/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MyEventSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/MovementSpeedBoost.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/PowerUpController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/PowerUp.cs" />
-        <option value="$PROJECT_DIR$/Assets/DeathDrop.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/SceneManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/LevelManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/DeathDrop.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/IDamageObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/LevelManagerProto.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/SkillController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/Player/PlayerController/PlayerStateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/UI/UIPrototype.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerSkill.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Input/PlayerInputManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgessBarDash.cs" />
-        <option value="$PROJECT_DIR$/Assets/02_Scripts/UI/ProgressBarSkillCharge.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/Shield.cs" />
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" />
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MyEventSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/PowerUps/MovementSpeedBoost.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1kMwpYh9uT4DBN1HBkgQ4I7dKp8" />
   <component name="ProjectViewState">
@@ -103,6 +65,12 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -112,7 +80,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -121,7 +89,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -157,6 +125,9 @@
       <workItem from="1608110965802" duration="2566000" />
       <workItem from="1608117007861" duration="2493000" />
       <workItem from="1608129878819" duration="3991000" />
+      <workItem from="1608134917674" duration="504000" />
+      <workItem from="1608223731897" duration="385000" />
+      <workItem from="1609925675068" duration="2102000" />
     </task>
     <servers />
   </component>

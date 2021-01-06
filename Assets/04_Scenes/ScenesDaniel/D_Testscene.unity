@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10030575, g: 0.04198858, b: 0.068557255, a: 1}
+  m_IndirectSpecularColor: {r: 0.10019389, g: 0.041937, b: 0.06847949, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -479,29 +479,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 330222168, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 330222169, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 549988483, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.454
       objectReference: {fileID: 0}
     - target: {fileID: 549988483, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 826190486, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.219
       objectReference: {fileID: 0}
     - target: {fileID: 826190486, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281795320, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1281795321, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7180470494043939353, guid: e08f36e81d9126648933cebcd3cfd743,
         type: 3}
@@ -1676,18 +1684,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826190485}
   m_CullTransparentMesh: 0
---- !u!114 &831560751 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4666554593969875180, guid: ea48bd8c3b2bd3a429b57159edabea4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5069279509731281881}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed6e424326d3c7642b441163d15790dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &954339756
 Mesh:
   m_ObjectHideFlags: 0
@@ -2130,8 +2126,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statTemplate: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
   currentHealth: {fileID: 11400000, guid: 7aa13f19c163f504d99c94d8437c9aee, type: 2}
+  shieldValue: {fileID: 11400000, guid: 390a3861299e0ba4084358f85b1f36c8, type: 2}
   isDashing: 0
   alive: 1
+--- !u!114 &1325537723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4723770504283489688, guid: 4652b23181f8267458b7fddab5a080ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 6197476113259010979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d75164814840543a31d52a9a074ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1363455940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2278,6 +2287,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2547457114853272021, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: shieldValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5928dc97050876240b395150c1bfcda4,
+        type: 2}
     - target: {fileID: 2576877363223431057, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
       propertyPath: m_Enabled
@@ -2320,6 +2335,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2576877363223431059, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}
+    - {fileID: 1316906339, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}
+    - {fileID: 2547457114853272021, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}
 --- !u!1001 &1507995424
 PrefabInstance:
@@ -3419,6 +3436,11 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1316906332}
+    - target: {fileID: 4027329983621396698, guid: 627f05bb4b922aa4180194db520a2e49,
+        type: 3}
+      propertyPath: duration
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5859237687815795997, guid: 627f05bb4b922aa4180194db520a2e49,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3621,11 +3643,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1680749943267476285, guid: ea48bd8c3b2bd3a429b57159edabea4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680749943267476286, guid: ea48bd8c3b2bd3a429b57159edabea4a,
         type: 3}
       propertyPath: _currentPowerUp
       value: 
-      objectReference: {fileID: 831560751}
+      objectReference: {fileID: 1325537723}
     - target: {fileID: 3238229725401378379, guid: ea48bd8c3b2bd3a429b57159edabea4a,
         type: 3}
       propertyPath: m_LocalPosition.x

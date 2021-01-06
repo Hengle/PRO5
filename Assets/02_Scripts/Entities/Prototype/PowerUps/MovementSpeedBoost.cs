@@ -6,8 +6,10 @@ using UnityEngine.Events;
 public class MovementSpeedBoost : PowerUp
 {
 
-    public int duration = 200;
-
+    public int duration = 6;
+    public float speedMult = 2;
+    public PlayerStateMachine pc => _player.GetComponent<PlayerStateMachine>();
+    
 
     public void Start()
     {
@@ -25,11 +27,13 @@ public class MovementSpeedBoost : PowerUp
     {
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(2);
+        pc.currentMoveSpeed = pc.currentMoveSpeed * speedMult;
 
-        yield return new WaitForSeconds(duration * 1000f);
+        yield return new WaitForSeconds(duration);
 
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(1);
+        pc.currentMoveSpeed = pc.standardMoveSpeed;
 
     }
 }

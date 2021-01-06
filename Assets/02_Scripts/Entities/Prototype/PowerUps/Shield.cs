@@ -8,6 +8,8 @@ public class Shield : PowerUp
     public int shieldValue = 20;
 
 
+    public PlayerStatistics playsterstatistics => _player.GetComponent<PlayerStatistics>();
+
     public void Start()
     {
         descText = "Shield";
@@ -24,11 +26,13 @@ public class Shield : PowerUp
     {
         // @Alex
         // _player.ActivateShield(shieldValue)
+        playsterstatistics.shieldValue.Value = shieldValue;
 
         yield return new WaitForSeconds(duration * 1000f);
 
         // @Alex
         // _player.DecativateShield(shieldValue);
+        playsterstatistics.shieldValue.Value = 0;
 
     }
 }
