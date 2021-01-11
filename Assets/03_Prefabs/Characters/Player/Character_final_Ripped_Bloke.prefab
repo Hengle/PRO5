@@ -1064,7 +1064,6 @@ GameObject:
   - component: {fileID: 2576877363223431060}
   - component: {fileID: 2576877363223431058}
   - component: {fileID: 1316906339}
-  - component: {fileID: 2547457114853272021}
   m_Layer: 11
   m_Name: Character_final_Ripped_Bloke
   m_TagString: Player
@@ -1186,22 +1185,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1316906339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576877363223431070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9012d8de36e0346b474d136351d427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statTemplate: {fileID: 11400000, guid: 35828f959b355c44fbfd210bfba36934, type: 2}
-  currentHealth: {fileID: 11400000, guid: 7aa13f19c163f504d99c94d8437c9aee, type: 2}
-  isDashing: 0
-  alive: 1
---- !u!114 &2547457114853272021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchPlayerTag: Player
+  enemySet: {fileID: 0}
   playerTarget: {fileID: 0}
   avoidDistance: 5
   obstacleAvoidDistance: 2
@@ -115,6 +116,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   powerUpController: {fileID: 0}
   musicLayerController: {fileID: 7822653780029092399}
+  skillController: {fileID: 0}
 --- !u!1 &1977086773
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +240,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3016386617375203225}
   - component: {fileID: 1547495642}
-  - component: {fileID: 6082842502534389228}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -261,18 +262,6 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547495642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016386617375203207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a027a9b4645841f4ebe51f072534410d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6082842502534389228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
