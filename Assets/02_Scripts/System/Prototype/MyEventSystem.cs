@@ -38,8 +38,6 @@ public class MyEventSystem : MonoBehaviour
     #endregion PowerupEvents
 
     #region TeleportEvents
-
-    //public event Action<>
     public event Action<Transform> teleportPlayer;
 
     #endregion TeleportsEvents
@@ -67,51 +65,52 @@ public class MyEventSystem : MonoBehaviour
 
     public void OnSnare()
     {
-        if (Snare == null)
-        {
-            Debug.LogError("No Snare event");
-        }
-        else
-        {
-            Snare();
-        }
+        // if (Snare == null)
+        // {
+        //     Debug.LogError("No Snare event");
+        // }
+        // else
+        // {
+        Snare?.Invoke();
+        // }
     }
 
     public void OnHiHat()
     {
-        if (HiHat == null)
-        {
-            Debug.LogError("No HiHat event");
-        }
-        else
-        {
-            HiHat();
-        }
+        // if (HiHat == null)
+        // {
+        //     Debug.LogError("No HiHat event");
+        // }
+        // else
+        // {
+        HiHat?.Invoke();
+        // }
     }
 
     public void OnKick()
     {
-        if (Kick == null)
-        {
-            Debug.LogError("No OnKick event");
-        }
-        else
-        {
-            Kick();
-        }
+        //     if (Kick == null)
+        //     {
+        //         Debug.LogError("No OnKick event");
+        //     }
+        //     else
+        //     {
+        Kick?.Invoke();
+        // }
     }
 
     public void OnDeactivate()
     {
-        if (Deactivate == null)
-        {
-            Debug.Log("KickEvent has no subscriber");
-        }
-        else
-        {
-            Deactivate();
-        }
+        // if (Deactivate == null)
+        // {
+        //     Debug.Log("KickEvent has no subscriber");
+        // }
+        // else
+        // {
+        Deactivate?.Invoke();
+        // }
     }
+
     public void OnAttack(IHasHealth entity, float basedmg)
     {
         Attack?.Invoke(entity, basedmg);
@@ -126,7 +125,7 @@ public class MyEventSystem : MonoBehaviour
 
     public void OnPowerupCollected(PowerUp powerup)
     {
-        powerupCollected?.Invoke(powerup);    
+        powerupCollected?.Invoke(powerup);
     }
 
     #endregion PowerupEventhandler

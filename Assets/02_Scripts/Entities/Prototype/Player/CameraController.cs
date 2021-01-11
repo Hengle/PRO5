@@ -13,19 +13,19 @@ public class CameraController : MonoBehaviour
     public float gamepadDist = 5f;
     Plane groundPlane;
     Vector3 s;
-
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void Start()
     {
         playercontrols = player.gameObject.GetComponent<PlayerStateMachine>();
-        StartCoroutine(WaitForStart());
+        transform.position = player.transform.position;
     }
 
     private void Update()
     {
-        if (inputManager.useMouse)
-            GetCamPosition();
-        else
-            GamePadCam();
+        GetCamPosition();
 
         s.y = player.transform.position.y;
         transform.position = Vector3.Lerp(transform.position, s, Time.deltaTime * cameraFollowSpeed);
@@ -63,11 +63,5 @@ public class CameraController : MonoBehaviour
         Vector3 f = player.position + moveD * gamepadDist;
         Vector3 dist = f - player.position;
         s = player.position + dist * targetBias;
-    }
-
-    IEnumerator WaitForStart()
-    {
-        yield return new WaitForEndOfFrame();
-        transform.position = player.transform.position;
     }
 }

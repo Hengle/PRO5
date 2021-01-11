@@ -29,7 +29,7 @@ public class UIPrototype : MonoBehaviour
         }
         else
         {
-           imgArray[3].DOColor(unactiveColor, 0.1f);
+            imgArray[3].DOColor(unactiveColor, 0.1f);
         }
 
         if (_controller._hiHatActive)
