@@ -39,8 +39,8 @@ public abstract class AudioObstacle : MonoBehaviour
     Sequence tweenSeq;
 
     bool test = false;
-    
-   
+
+
 
     void Start()
     {
@@ -77,7 +77,7 @@ public abstract class AudioObstacle : MonoBehaviour
     //Jedes Obstacle hat eine Aktion die immer auf das zugehörige Event aktiviert wird.
     protected abstract void objectAction();
 
-   
+
 
 
 
@@ -123,9 +123,14 @@ public abstract class AudioObstacle : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        removeActionFromEvent();
+    }
+
     //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
     protected void emissionChange(int mode = 0)
-    {  
+    {
         if (_material.HasProperty("EmissionIntensity"))
         {
             //On and OFF
@@ -152,8 +157,4 @@ public abstract class AudioObstacle : MonoBehaviour
             }
         }
     }
-
-
-
-
 }
