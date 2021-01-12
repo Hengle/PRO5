@@ -411,6 +411,147 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cheats"",
+            ""id"": ""51c67e37-5558-4c43-92b3-70433e3e10c6"",
+            ""actions"": [
+                {
+                    ""name"": ""GodMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""87f82733-e05e-4668-b7e5-d112fdb608bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RemoveSkillChargtime"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc8db5d2-c30b-4fa2-9e38-b06520f57e9b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fullhealth"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7dd912d-db96-4b1f-a8eb-c251bfc9d8d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""DestroyAllEnemies"",
+                    ""type"": ""Button"",
+                    ""id"": ""1bd07c21-7ad1-44ca-9e01-ea886760f3fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""NoDashCooldown"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba47ebcf-21b1-4a3d-af4f-7a152306516b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChargeSuperSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""5150f6a6-62cb-4496-9399-c2ddf017e289"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TeleportTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb0ea735-faa7-4f2f-9d71-671c103e3a33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""eeb4f43b-d8b3-438f-b2b4-6e79bad83579"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""RemoveSkillChargtime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6e23a3b-f083-435a-a10d-b9cb1f19ce94"",
+                    ""path"": ""<Keyboard>/f7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""TeleportTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4185b9f5-2870-4781-85bc-dfede82c69de"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22183587-b3c6-4ebd-9b4d-48ffa0f50017"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Fullhealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0bb7f36-1831-4579-b6dd-ce660214b026"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""DestroyAllEnemies"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b79be796-ceac-4ad6-afb9-62ceab24b890"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""NoDashCooldown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06281a3f-58e1-4302-b786-a82e76371ff6"",
+                    ""path"": ""<Keyboard>/f6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""ChargeSuperSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -459,6 +600,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // uiControls
         m_uiControls = asset.FindActionMap("uiControls", throwIfNotFound: true);
         m_uiControls_Pause = m_uiControls.FindAction("Pause", throwIfNotFound: true);
+        // Cheats
+        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+        m_Cheats_GodMode = m_Cheats.FindAction("GodMode", throwIfNotFound: true);
+        m_Cheats_RemoveSkillChargtime = m_Cheats.FindAction("RemoveSkillChargtime", throwIfNotFound: true);
+        m_Cheats_Fullhealth = m_Cheats.FindAction("Fullhealth", throwIfNotFound: true);
+        m_Cheats_DestroyAllEnemies = m_Cheats.FindAction("DestroyAllEnemies", throwIfNotFound: true);
+        m_Cheats_NoDashCooldown = m_Cheats.FindAction("NoDashCooldown", throwIfNotFound: true);
+        m_Cheats_ChargeSuperSkill = m_Cheats.FindAction("ChargeSuperSkill", throwIfNotFound: true);
+        m_Cheats_TeleportTest = m_Cheats.FindAction("TeleportTest", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -650,6 +800,87 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public UiControlsActions @uiControls => new UiControlsActions(this);
+
+    // Cheats
+    private readonly InputActionMap m_Cheats;
+    private ICheatsActions m_CheatsActionsCallbackInterface;
+    private readonly InputAction m_Cheats_GodMode;
+    private readonly InputAction m_Cheats_RemoveSkillChargtime;
+    private readonly InputAction m_Cheats_Fullhealth;
+    private readonly InputAction m_Cheats_DestroyAllEnemies;
+    private readonly InputAction m_Cheats_NoDashCooldown;
+    private readonly InputAction m_Cheats_ChargeSuperSkill;
+    private readonly InputAction m_Cheats_TeleportTest;
+    public struct CheatsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public CheatsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @GodMode => m_Wrapper.m_Cheats_GodMode;
+        public InputAction @RemoveSkillChargtime => m_Wrapper.m_Cheats_RemoveSkillChargtime;
+        public InputAction @Fullhealth => m_Wrapper.m_Cheats_Fullhealth;
+        public InputAction @DestroyAllEnemies => m_Wrapper.m_Cheats_DestroyAllEnemies;
+        public InputAction @NoDashCooldown => m_Wrapper.m_Cheats_NoDashCooldown;
+        public InputAction @ChargeSuperSkill => m_Wrapper.m_Cheats_ChargeSuperSkill;
+        public InputAction @TeleportTest => m_Wrapper.m_Cheats_TeleportTest;
+        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
+        public void SetCallbacks(ICheatsActions instance)
+        {
+            if (m_Wrapper.m_CheatsActionsCallbackInterface != null)
+            {
+                @GodMode.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnGodMode;
+                @GodMode.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnGodMode;
+                @GodMode.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnGodMode;
+                @RemoveSkillChargtime.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnRemoveSkillChargtime;
+                @RemoveSkillChargtime.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnRemoveSkillChargtime;
+                @RemoveSkillChargtime.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnRemoveSkillChargtime;
+                @Fullhealth.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnFullhealth;
+                @Fullhealth.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnFullhealth;
+                @Fullhealth.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnFullhealth;
+                @DestroyAllEnemies.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnDestroyAllEnemies;
+                @DestroyAllEnemies.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnDestroyAllEnemies;
+                @DestroyAllEnemies.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnDestroyAllEnemies;
+                @NoDashCooldown.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnNoDashCooldown;
+                @NoDashCooldown.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnNoDashCooldown;
+                @NoDashCooldown.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnNoDashCooldown;
+                @ChargeSuperSkill.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnChargeSuperSkill;
+                @ChargeSuperSkill.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnChargeSuperSkill;
+                @ChargeSuperSkill.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnChargeSuperSkill;
+                @TeleportTest.started -= m_Wrapper.m_CheatsActionsCallbackInterface.OnTeleportTest;
+                @TeleportTest.performed -= m_Wrapper.m_CheatsActionsCallbackInterface.OnTeleportTest;
+                @TeleportTest.canceled -= m_Wrapper.m_CheatsActionsCallbackInterface.OnTeleportTest;
+            }
+            m_Wrapper.m_CheatsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @GodMode.started += instance.OnGodMode;
+                @GodMode.performed += instance.OnGodMode;
+                @GodMode.canceled += instance.OnGodMode;
+                @RemoveSkillChargtime.started += instance.OnRemoveSkillChargtime;
+                @RemoveSkillChargtime.performed += instance.OnRemoveSkillChargtime;
+                @RemoveSkillChargtime.canceled += instance.OnRemoveSkillChargtime;
+                @Fullhealth.started += instance.OnFullhealth;
+                @Fullhealth.performed += instance.OnFullhealth;
+                @Fullhealth.canceled += instance.OnFullhealth;
+                @DestroyAllEnemies.started += instance.OnDestroyAllEnemies;
+                @DestroyAllEnemies.performed += instance.OnDestroyAllEnemies;
+                @DestroyAllEnemies.canceled += instance.OnDestroyAllEnemies;
+                @NoDashCooldown.started += instance.OnNoDashCooldown;
+                @NoDashCooldown.performed += instance.OnNoDashCooldown;
+                @NoDashCooldown.canceled += instance.OnNoDashCooldown;
+                @ChargeSuperSkill.started += instance.OnChargeSuperSkill;
+                @ChargeSuperSkill.performed += instance.OnChargeSuperSkill;
+                @ChargeSuperSkill.canceled += instance.OnChargeSuperSkill;
+                @TeleportTest.started += instance.OnTeleportTest;
+                @TeleportTest.performed += instance.OnTeleportTest;
+                @TeleportTest.canceled += instance.OnTeleportTest;
+            }
+        }
+    }
+    public CheatsActions @Cheats => new CheatsActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -685,5 +916,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IUiControlsActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface ICheatsActions
+    {
+        void OnGodMode(InputAction.CallbackContext context);
+        void OnRemoveSkillChargtime(InputAction.CallbackContext context);
+        void OnFullhealth(InputAction.CallbackContext context);
+        void OnDestroyAllEnemies(InputAction.CallbackContext context);
+        void OnNoDashCooldown(InputAction.CallbackContext context);
+        void OnChargeSuperSkill(InputAction.CallbackContext context);
+        void OnTeleportTest(InputAction.CallbackContext context);
     }
 }
