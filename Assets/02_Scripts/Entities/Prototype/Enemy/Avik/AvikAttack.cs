@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class AvikAttack : CloseCombatAttacks
 {
     public AnimatorHook anim;
-   
-   
     public override void Attack()
     {
         int i = GetAttackType();
@@ -22,27 +20,30 @@ public class AvikAttack : CloseCombatAttacks
 
         attackTimer = StartCoroutine(AttackTimer(attackAnimations[i].damageFrameStart,
                                                 attackAnimations[i].damageFrameEnd,
+                                                attackAnimations[i],
                                                 attackAnimations[i].clip.length));
     }
-    public override void CancelAttack()
-    {
-        isAttacking = false;
-        canDamage = false;
+    
+    // public override void CancelAttack()
+    // {
+    //     isAttacking = false;
+    //     canDamage = false;
 
-        if (attackTimer != null)
-            StopCoroutine(attackTimer);
+    //     if (attackTimer != null)
+    //         StopCoroutine(attackTimer);
 
-        if (damageWaiter != null)
-            StopCoroutine(damageWaiter);
+    //     if (damageWaiter != null)
+    //         StopCoroutine(damageWaiter);
 
-        //Cancel animation into stun animation
-    }
+    //     CancelEffects();
+    //     //Cancel animation into stun animation
+    // }
 
     public override void StopAttack()
     {
     }
 
-    public override bool DoDamage()
+    protected override bool DoDamage()
     {
         PlayerDetector damageHitbox = enemyBody.hitBox.GetComponent<PlayerDetector>();
         if (canDamage & damageHitbox.player != null)

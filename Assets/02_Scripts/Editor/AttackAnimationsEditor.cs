@@ -8,22 +8,17 @@ namespace Enemy
     public class AttackAnimationsEditor : Editor
     {
         float frame = 0;
-        bool foldout = false;
-        Enemy.EffectType effect;
+        bool foldout = true;
+        EffectType effect;
 
         List<bool> animationFoldout = new List<bool>();
         List<bool> effectFoldout = new List<bool>();
         bool doOnce = true;
-
+        CompareFloats flaotC = new CompareFloats();
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
             IEnemyAttacks t = (IEnemyAttacks)target;
-            // EditorGUILayout.ObjectField(t, typeof(CloseCombatAttacks), false);
-            // if (GUILayout.Button("FindBools"))
-            // {
-            //     doOnce = true;
-            // }
 
             if (animationFoldout.Count == 0)
                 doOnce = true;
@@ -92,16 +87,32 @@ namespace Enemy
                                     for (int j = 0; j < t.attackAnimations[i].soundFX.Count; j++)
                                     {
                                         GUILayout.BeginHorizontal();
-
-                                        t.attackAnimations[i].soundFX[j].soundEffect = (AudioClip)EditorGUILayout.ObjectField(t.attackAnimations[i].soundFX[j].soundEffect, typeof(AudioClip), true, GUILayout.MaxWidth(250f));
-
-                                        EditorGUILayout.LabelField("At Frame:", GUILayout.MaxWidth(60f), GUILayout.MaxWidth(50f));
-                                        EditorGUILayout.LabelField(t.attackAnimations[i].soundFX[j].frame.ToString(), GUILayout.MaxWidth(60f));
+                                        if (t.attackAnimations[i].soundFX[j].soundEffect != null)
+                                        {
+                                            t.attackAnimations[i].soundFX[j].soundEffect.effectName = EditorGUILayout.TextField(t.attackAnimations[i].soundFX[j].soundEffect.effectName, GUILayout.MaxWidth(100f));
+                                            EditorGUILayout.LabelField("On Command:", GUILayout.MaxWidth(60f));
+                                            t.attackAnimations[i].soundFX[j].soundEffect.playOnCommand = EditorGUILayout.Toggle(t.attackAnimations[i].soundFX[j].soundEffect.playOnCommand, GUILayout.MaxWidth(40f));
+                                            EditorGUILayout.LabelField("On Collision:", GUILayout.MaxWidth(60f));
+                                            t.attackAnimations[i].soundFX[j].soundEffect.playOnCollision = EditorGUILayout.Toggle(t.attackAnimations[i].soundFX[j].soundEffect.playOnCollision, GUILayout.MaxWidth(40f));
+                                            if (t.attackAnimations[i].soundFX[j].soundEffect.playOnCommand)
+                                            {
+                                                EditorGUILayout.LabelField("At Frame:", GUILayout.MaxWidth(50f));
+                                                t.attackAnimations[i].soundFX[j].frame = EditorGUILayout.FloatField(t.attackAnimations[i].soundFX[j].frame, GUILayout.MaxWidth(60f));
+                                            }
+                                            if (t.attackAnimations[i].soundFX[j].soundEffect.playOnCollision)
+                                            {
+                                                t.attackAnimations[i].soundFX[j].frame = 99;
+                                                t.attackAnimations[i].soundFX[j].SetActive(false);
+                                            }
+                                        }
 
                                         if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
+                                        {
+                                            t.attackAnimations[i].soundFX[j].SetActive(true);
                                             t.attackAnimations[i].soundFX.Remove(t.attackAnimations[i].soundFX[j]);
+                                        }
                                         GUILayout.EndHorizontal();
-
+                                        t.attackAnimations[i].soundFX[j].soundEffect = (SoundEffectController)EditorGUILayout.ObjectField(t.attackAnimations[i].soundFX[j].soundEffect, typeof(SoundEffectController), true, GUILayout.MaxWidth(250f));
                                     }
 
                                 GUILayout.Space(10f);
@@ -111,21 +122,36 @@ namespace Enemy
                                     for (int j = 0; j < t.attackAnimations[i].particleFX.Count; j++)
                                     {
                                         GUILayout.BeginHorizontal();
-
-                                        t.attackAnimations[i].particleFX[j].particleSystem = (ParticleSystem)EditorGUILayout.ObjectField(t.attackAnimations[i].particleFX[j].particleSystem, typeof(ParticleSystem), true, GUILayout.MaxWidth(250f));
-
-                                        EditorGUILayout.LabelField("At Frame:", GUILayout.MaxWidth(60f), GUILayout.MaxWidth(50f));
-                                        EditorGUILayout.LabelField(t.attackAnimations[i].particleFX[j].frame.ToString(), GUILayout.MaxWidth(60f));
-
+                                        if (t.attackAnimations[i].particleFX[j].particleSystem != null)
+                                        {
+                                            t.attackAnimations[i].particleFX[j].particleSystem.effectName = EditorGUILayout.TextField(t.attackAnimations[i].particleFX[j].particleSystem.effectName, GUILayout.MaxWidth(100f));
+                                            EditorGUILayout.LabelField("On Command:", GUILayout.MaxWidth(60f));
+                                            t.attackAnimations[i].particleFX[j].particleSystem.playOnCommand = EditorGUILayout.Toggle(t.attackAnimations[i].particleFX[j].particleSystem.playOnCommand, GUILayout.MaxWidth(40f));
+                                            EditorGUILayout.LabelField("On Collision:", GUILayout.MaxWidth(60f));
+                                            t.attackAnimations[i].particleFX[j].particleSystem.playOnCollision = EditorGUILayout.Toggle(t.attackAnimations[i].particleFX[j].particleSystem.playOnCollision, GUILayout.MaxWidth(40f));
+                                            if (t.attackAnimations[i].particleFX[j].particleSystem.playOnCommand)
+                                            {
+                                                EditorGUILayout.LabelField("At Frame:", GUILayout.MaxWidth(60f), GUILayout.MaxWidth(50f));
+                                                t.attackAnimations[i].particleFX[j].frame = EditorGUILayout.FloatField(t.attackAnimations[i].particleFX[j].frame, GUILayout.MaxWidth(60f));
+                                            }
+                                            if (t.attackAnimations[i].particleFX[j].particleSystem.playOnCollision)
+                                            {
+                                                t.attackAnimations[i].particleFX[j].frame = 99;
+                                                t.attackAnimations[i].particleFX[j].SetActive(false);
+                                            }
+                                        }
                                         if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
+                                        {
+                                            t.attackAnimations[i].particleFX[j].SetActive(true);
                                             t.attackAnimations[i].particleFX.Remove(t.attackAnimations[i].particleFX[j]);
+                                        }
                                         GUILayout.EndHorizontal();
-
+                                        t.attackAnimations[i].particleFX[j].particleSystem = (ParticleEffectController)EditorGUILayout.ObjectField(t.attackAnimations[i].particleFX[j].particleSystem, typeof(ParticleEffectController), true, GUILayout.MaxWidth(250f));
                                     }
 
                                 GUILayout.Space(10f);
-                                GUILayout.Label("VFX", EditorStyles.boldLabel);
 
+                                GUILayout.Label("VFX", EditorStyles.boldLabel);
                                 if (t.attackAnimations[i].VFX.Count != 0)
                                     for (int j = 0; j < t.attackAnimations[i].VFX.Count; j++)
                                     {
@@ -134,7 +160,7 @@ namespace Enemy
                                         // t.attackAnimations[i].VFX[j].soundEffect = (AudioClip)EditorGUILayout.ObjectField(t.attackAnimations[i].VFX[j].soundEffect, typeof(AudioClip), true, GUILayout.MaxWidth(250f));
 
                                         EditorGUILayout.LabelField("At Frame:", GUILayout.MaxWidth(60f), GUILayout.MaxWidth(50f));
-                                        EditorGUILayout.LabelField(t.attackAnimations[i].VFX[j].frame.ToString(), GUILayout.MaxWidth(60f));
+                                        t.attackAnimations[i].VFX[j].frame = EditorGUILayout.FloatField(t.attackAnimations[i].VFX[j].frame, GUILayout.MaxWidth(60f));
 
                                         if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                                             t.attackAnimations[i].VFX.Remove(t.attackAnimations[i].VFX[j]);
@@ -144,8 +170,9 @@ namespace Enemy
 
                                 GUILayout.Space(10f);
                                 GUILayout.BeginHorizontal();
+
                                 EditorGUILayout.LabelField("Effect Type: ", GUILayout.MaxWidth(80f));
-                                effect = (Enemy.EffectType)EditorGUILayout.EnumPopup(effect, GUILayout.MaxWidth(100f));
+                                effect = (EffectType)EditorGUILayout.EnumPopup(effect, GUILayout.MaxWidth(100f));
                                 EditorGUILayout.LabelField("At Frame: ", GUILayout.MaxWidth(80f));
                                 frame = EditorGUILayout.FloatField(frame, GUILayout.MaxWidth(50f));
 
@@ -155,19 +182,19 @@ namespace Enemy
                                     switch (effect)
                                     {
                                         case EffectType.SoundEffect:
-                                            Enemy.SoundEffectContainer s = new Enemy.SoundEffectContainer();
+                                            SoundEffectContainer s = new SoundEffectContainer();
                                             s.frame = frame;
                                             s.type = effect;
                                             t.attackAnimations[i].soundFX.Add(s);
                                             break;
                                         case EffectType.ParticleEffect:
-                                            Enemy.ParticleEffectContainer p = new Enemy.ParticleEffectContainer();
+                                            ParticleEffectContainer p = new ParticleEffectContainer();
                                             p.frame = frame;
                                             p.type = effect;
                                             t.attackAnimations[i].particleFX.Add(p);
                                             break;
                                         case EffectType.VFX:
-                                            Enemy.VFXContainer v = new Enemy.VFXContainer();
+                                            VFXContainer v = new VFXContainer();
                                             v.frame = frame;
                                             v.type = effect;
                                             t.attackAnimations[i].VFX.Add(v);
@@ -183,15 +210,6 @@ namespace Enemy
                         GUILayout.Label("___________________________________________________");
                         GUILayout.Space(10f);
                     }
-
-
-                    // if (GUILayout.Button("Remove Effect"))
-                    // {
-                    //     if (anim.effects.Find(x => x.type.Equals(effect)) != null)
-                    //         anim.effects.RemoveAt(anim.effects.FindIndex(0, anim.effects.Count, x => x.type.Equals(effect)));
-                    // }
-
-                    // GUILayout.Space(10f);
                 }
                 EditorGUILayout.Separator();
 
@@ -201,34 +219,47 @@ namespace Enemy
                     animationFoldout.Add(false);
                     effectFoldout.Add(false);
                 }
-
             }
 
             if (GUI.changed)
+            {
+                for (int i = 0; i < t.attackAnimations.Count; i++)
+                {
+                    if (t.attackAnimations[i].particleFX.Count != 0)
+                        t.attackAnimations[i].particleFX.Sort(flaotC);
+                    if (t.attackAnimations[i].soundFX.Count != 0)
+                        t.attackAnimations[i].soundFX.Sort(flaotC);
+                }
                 EditorUtility.SetDirty(t);
-        }
-
-        void AddToArray(ref Enemy.AttackAnimations[] arr)
-        {
-            var old = arr;
-            arr = new Enemy.AttackAnimations[arr.Length + 1];
-            for (int i = 0; i < old.Length; i++)
-            {
-                arr[i] = old[i];
-            }
-            arr[arr.Length] = new Enemy.AttackAnimations();
-        }
-
-        void RemoveLast(ref Enemy.AttackAnimations[] arr)
-        {
-            var old = arr;
-            arr = new Enemy.AttackAnimations[arr.Length - 1];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = old[i];
             }
         }
+    }
+}
 
+public class CompareFloats : IComparer<EffectContainer>
+{
+    int IComparer<EffectContainer>.Compare(EffectContainer x, EffectContainer y)
+    {
+        // SoundEffectContainer s = null;
+        // SoundEffectContainer s1 = null;
+        // ParticleEffectContainer p = null;
+        // ParticleEffectContainer p1 = null;
 
+        // if (x is SoundEffectContainer)
+        //     s = (SoundEffectContainer)x;
+        // if (x is ParticleEffectContainer)
+        //     p = (ParticleEffectContainer)x;
+
+        // if (x is SoundEffectContainer)
+        //     s1 = (SoundEffectContainer)y;
+        // if (x is ParticleEffectContainer)
+        //     p1 = (ParticleEffectContainer)y;
+
+        // if (s != null && s.soundEffect.playOnCollision || p != null && p.particleSystem.playOnCollision)
+        //     return 0;
+        // if (s1 != null && s1.soundEffect.playOnCollision || p1 != null && p1.particleSystem.playOnCollision)
+        //     return 1;
+
+        return x.frame.CompareTo(y.frame);
     }
 }

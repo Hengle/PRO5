@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 4119351919161116619}
   - component: {fileID: 710136198825184621}
   - component: {fileID: 4119351919161116617}
+  - component: {fileID: 6816444494992399275}
   - component: {fileID: 5842015562498545599}
   - component: {fileID: 4119351919161116614}
   - component: {fileID: 4119351919161116611}
@@ -771,13 +772,17 @@ MonoBehaviour:
     damageFrameEnd: 17
     attRange: 2.5
     attackWidth: 2.5
-    effects: []
+    soundFX: []
+    particleFX: []
+    VFX: []
   - clip: {fileID: 1827226128182048838, guid: 5c7de4e698979b44badc8875436592bb, type: 3}
     damageFrameStart: 24
     damageFrameEnd: 29
     attRange: 4
     attackWidth: 1.5
-    effects: []
+    soundFX: []
+    particleFX: []
+    VFX: []
   isAttacking: 0
   canAttack: 0
   canDamage: 0
@@ -798,6 +803,21 @@ MonoBehaviour:
   hitBox: {fileID: 4119351918993028645}
   playerDetector: {fileID: 1068771470}
   aiManager: {fileID: 0}
+--- !u!114 &6816444494992399275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119351919161116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f9e4d83cfd7cf4db27816656096190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFX: []
+  particleFX: []
+  VFX: []
 --- !u!114 &5842015562498545599
 MonoBehaviour:
   m_ObjectHideFlags: 0
