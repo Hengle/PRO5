@@ -12,6 +12,7 @@ public class EffectsListEditor : EditorWindow
 
     bool SFXfoldout = true;
     bool PFXfoldout = true;
+    
     [MenuItem("Tools/Custom Window/Effects list")]
     public static void ShowWindow()
     {

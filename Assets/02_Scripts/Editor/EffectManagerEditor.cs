@@ -6,7 +6,7 @@ using UnityEditor;
 public class EffectManagerEditor : Editor
 {
     float frame = 0;
-    bool foldout = true;
+    bool foldout = false;
     EffectType effect;
 
     public override void OnInspectorGUI()
@@ -43,7 +43,7 @@ public class EffectManagerEditor : Editor
                         t.soundFX[j].playOnCollision = EditorGUILayout.Toggle(t.soundFX[j].playOnCommand, GUILayout.MaxWidth(40f));
                         // t.particleFX[j].particle = (ParticleSystem)EditorGUILayout.ObjectField(t.particleFX[j].particle, typeof(ParticleSystem), true, GUILayout.MaxWidth(250f));
                     }
-                    t.soundFX[j] = (SoundEffectController)EditorGUILayout.ObjectField(t.soundFX[j].soundEffect, typeof(SoundEffectController), true, GUILayout.MaxWidth(250f));
+                    t.soundFX[j] = (SoundEffectController)EditorGUILayout.ObjectField(t.soundFX[j], typeof(SoundEffectController), true, GUILayout.MaxWidth(200));
 
                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                         t.soundFX.Remove(t.soundFX[j]);
