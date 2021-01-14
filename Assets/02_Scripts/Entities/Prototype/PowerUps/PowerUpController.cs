@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-
+    public PlayerStateMachine playerController;
     public PowerUp _currentPowerUp = null;
 
 
@@ -30,10 +30,9 @@ public class PowerUpController : MonoBehaviour
     {
         if (_currentPowerUp != null)
         {
-            _currentPowerUp.Activate();
+            _currentPowerUp.Activate(playerController);
+            // Destroy(_currentPowerUp.gameObject);
             _currentPowerUp = null;
         }
-       
-
     }
 }

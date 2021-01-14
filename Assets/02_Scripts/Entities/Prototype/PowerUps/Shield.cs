@@ -13,14 +13,14 @@ public class Shield : PowerUp
         descText = "Shield";
     }
 
-    public override void Activate()
+    public override void Activate(PlayerStateMachine player)
     {
         Debug.Log("Shield power up activated");
-        StartCoroutine(ActivateForDuration(duration));
+        StartCoroutine(ActivateForDuration(duration, player));
     }
 
 
-    protected virtual IEnumerator ActivateForDuration(int duration)
+    protected virtual IEnumerator ActivateForDuration(int duration, PlayerStateMachine player)
     {
         // @Alex
         // _player.ActivateShield(shieldValue)
@@ -29,6 +29,6 @@ public class Shield : PowerUp
 
         // @Alex
         // _player.DecativateShield(shieldValue);
-
+        Destroy(gameObject);
     }
 }

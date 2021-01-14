@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: Knockback
   descText: Knock back enemies
-  onCollect:
-    m_PersistentCalls:
-      m_Calls: []
+  powerupName: 0
+  _player: {fileID: 0}
   force: 10
+  radius: 4

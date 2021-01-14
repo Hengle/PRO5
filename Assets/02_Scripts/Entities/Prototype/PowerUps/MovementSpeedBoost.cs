@@ -14,14 +14,14 @@ public class MovementSpeedBoost : PowerUp
         descText = "Movement Speed Boost";
     }
 
-    public override void Activate()
+    public override void Activate(PlayerStateMachine player)
     {
         Debug.Log("MovementSpeedBoost power up activated");
-        StartCoroutine(ActivateForDuration(duration));
+        StartCoroutine(ActivateForDuration(duration, player));
     }
 
 
-    protected virtual IEnumerator ActivateForDuration(int duration)
+    protected virtual IEnumerator ActivateForDuration(int duration, PlayerStateMachine player)
     {
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(2);
@@ -30,6 +30,6 @@ public class MovementSpeedBoost : PowerUp
 
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(1);
-
+        Destroy(gameObject);
     }
 }
