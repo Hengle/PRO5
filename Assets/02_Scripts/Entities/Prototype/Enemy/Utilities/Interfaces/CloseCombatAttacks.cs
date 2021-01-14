@@ -39,12 +39,13 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
         float start = startDamageFrame / 24;
         float end = (stopDamageFrame - startDamageFrame) / 24;
 
-        foreach (EffectContainer effect in anim.soundFX)
-            StartEffects(effect);
+        if (anim.soundFX != null && anim.soundFX.Count != 0)
+            foreach (EffectContainer effect in anim.soundFX)
+                StartEffects(effect);
 
-
-        foreach (EffectContainer effect in anim.particleFX)
-            StartEffects(effect);
+        if (anim.particleFX != null && anim.particleFX.Count != 0)
+            foreach (EffectContainer effect in anim.particleFX)
+                StartEffects(effect);
 
 
         yield return new WaitForSeconds(start);

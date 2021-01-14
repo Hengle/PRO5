@@ -17,7 +17,7 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             //start effects or whatever
-            agent.enabled = false;
+            agent.isStopped = true;
         }
 
         public override TaskStatus OnUpdate()
@@ -27,11 +27,11 @@ namespace BBUnity.Actions
 
         public override void OnAbort()
         {
-            agent.enabled = true;
+            agent.isStopped = false;
         }
         public override void OnEnd()
         {
-            agent.enabled = true;
+            agent.isStopped = false;
         }
     }
 }

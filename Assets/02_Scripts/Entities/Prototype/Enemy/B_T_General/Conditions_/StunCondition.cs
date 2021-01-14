@@ -13,9 +13,17 @@ namespace BBUnity.Conditions
         [InParam("EnemyActions")]
         public EnemyActions actions;
 
+        [InParam("agent")]
+        public NavMeshAgent agent;
         public override bool Check()
         {
-            return actions.isStunned;
+            if (actions.isStunned)
+                return true;
+            else
+            {
+                agent.isStopped = false;
+                return false;
+            }
         }
     }
 }

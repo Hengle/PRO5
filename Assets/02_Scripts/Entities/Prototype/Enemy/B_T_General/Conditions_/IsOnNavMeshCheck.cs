@@ -14,7 +14,7 @@ namespace BBUnity.Conditions
         public NavMeshAgent agent;
         public override bool Check()
         {
-            if (Physics.Raycast(gameObject.transform.position + new Vector3(0, 1f,0), Vector3.down, 3f, LayerMask.GetMask("Floor")))
+            if (agent.isOnNavMesh && Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor")))
                 return false;
             else
                 return true;

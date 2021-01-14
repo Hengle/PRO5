@@ -22,10 +22,10 @@ public abstract class IEnemyAttacks : MonoBehaviour
     {
         if (effectCoroutines.Count != 0)
         {
-            foreach (Coroutine coroutine in effectCoroutines)
+            for(int i = 0; i< effectCoroutines.Count; i++)
             {
-                StopCoroutine(coroutine);
-                effectCoroutines.Remove(coroutine);
+                StopCoroutine(effectCoroutines[i]);
+                effectCoroutines.Remove(effectCoroutines[i]);
             }
         }
         DeactivateCollisionEffects();
