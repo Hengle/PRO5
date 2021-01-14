@@ -20,9 +20,9 @@ ScriptedImporter:
       identifier=\"$outputsize\" uid=\"1590624231\" type=\"8\" value=\"10,10\" />\n 
       <presetinput identifier=\"rustFactor\" uid=\"931853096\" type=\"0\" value=\"0.511\"
       />\n  <presetinput identifier=\"baseColorPipe\" uid=\"931827680\" type=\"3\"
-      value=\"0.358491,0.358491,0.358491,1\" />\n  <presetinput identifier=\"rustColor\"
+      value=\"0.301887,0.266972,0.249199,1\" />\n  <presetinput identifier=\"rustColor\"
       uid=\"931978735\" type=\"3\" value=\"0,0,0,1\" />\n  <presetinput identifier=\"smoothnessRemap\"
-      uid=\"931981201\" type=\"0\" value=\"0.452\" />\n </sbspreset>\n"
+      uid=\"931981201\" type=\"0\" value=\"0.268\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}

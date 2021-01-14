@@ -1139,11 +1139,11 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://WallTrim\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"1490588845\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"panelColor\"
+      uid=\"1490588845\" type=\"8\" value=\"11,11\" />\n  <presetinput identifier=\"panelColor\"
       uid=\"832114418\" type=\"3\" value=\"1,0.971643,0,1\" />\n  <presetinput identifier=\"baseColorWall\"
-      uid=\"832166343\" type=\"3\" value=\"0.396226,0.396226,0.396226,1\" />\n  <presetinput
-      identifier=\"rustColor\" uid=\"832166327\" type=\"3\" value=\"0.141509,0.113084,0.100792,1\"
-      />\n  <presetinput identifier=\"rustLevel\" uid=\"831765174\" type=\"0\" value=\"1\"
+      uid=\"832166343\" type=\"3\" value=\"0.223052,0.221387,0.235849,1\" />\n  <presetinput
+      identifier=\"rustColor\" uid=\"832166327\" type=\"3\" value=\"0.292453,0.226112,0.197268,1\"
+      />\n  <presetinput identifier=\"rustLevel\" uid=\"831765174\" type=\"0\" value=\"0.388\"
       />\n </sbspreset>\n"
     shaderName: HDRP/Lit
     materialProperties:
@@ -1659,8 +1659,8 @@ ScriptedImporter:
     - label: Default
       bOverride: 0
       bLockRatio: 1
-      textureWidth: 1024
-      textureHeight: 1024
+      textureWidth: 2048
+      textureHeight: 2048
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
