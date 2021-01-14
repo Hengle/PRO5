@@ -2,13 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AnimatorHook : MonoBehaviour
+public class AnimatorHook : MonoBehaviour
 {
     public Animator animator;
 
-    public abstract void StartAttackAnim(AnimationClip clip);
+    public void PlayAttackAnim(AnimationClip clip)
+    {
+        animator.Play(clip.name);
+    }
 
-    public abstract void CancleAnim();
+    public void AnimTransition(AnimationClip clip, AnimationClip clip2, float transition)
+    {
+
+    }
+
+    public void CancleAnim(Animation clip)
+    {
+        animator.CrossFade(clip.name, 0.1f);
+    }
+
+    public void CancleAnim()
+    {
+        animator.SetTrigger("Cancel");
+    }
 
 }
 

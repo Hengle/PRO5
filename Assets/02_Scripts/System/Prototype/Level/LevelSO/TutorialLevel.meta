@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/02_Scripts/System/Prototype/Level/LevelSO/TutorialLevel.meta
 guid: e18941d4dcbec854ca7eb7fdd80a5086
+=======
+guid: 0d972351303f02545ab3bef3074948ce
+>>>>>>> Enemies:Assets/01_Art/3D_Models/Characters/Enemies/Shentau.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

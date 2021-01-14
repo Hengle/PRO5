@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 public class NavMeshUpdater : MonoBehaviour
 {
-    NavMeshSurface surface => GetComponent<NavMeshSurface>();
+    public NavMeshSurface surface => GetComponent<NavMeshSurface>();
     Transform m_Tracked;
     // The size of the build bounds
     public Vector3 m_Size = new Vector3(80.0f, 20.0f, 80.0f);
-    NavMeshData m_NavMesh;
+    public NavMeshData m_NavMesh;
     AsyncOperation m_Operation;
     NavMeshDataInstance m_Instance;
     List<NavMeshBuildSource> m_Sources = new List<NavMeshBuildSource>();
-
     IEnumerator Start()
     {
         while (true)
@@ -29,6 +28,7 @@ public class NavMeshUpdater : MonoBehaviour
         // m_Instance = NavMesh.AddNavMeshData(m_NavMesh);
         ScriptCollection.RegisterScript(this);
         m_NavMesh = surface.navMeshData;
+
         UpdateNavMesh(false);
     }
     private void OnDisable()
