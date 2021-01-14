@@ -121,9 +121,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UnlitColorMap:
-        m_Texture: {fileID: 2800000, guid: 7924115734edf6d45a0543e3a0b4d306, type: 3}
-        m_Scale: {x: 0.3, y: 0.3}
-        m_Offset: {x: 0.02, y: 1.68}
+        m_Texture: {fileID: 2800000, guid: d90d6332d2522b84e9514817aaf15674, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
