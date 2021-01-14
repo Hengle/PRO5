@@ -552,6 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119351918993028646}
   - component: {fileID: 4119351918993028645}
+  - component: {fileID: 88085501}
   m_Layer: 9
   m_Name: HitBox
   m_TagString: Untagged
@@ -586,6 +587,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: 1.5}
+--- !u!114 &88085501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119351918993028644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b451434d08442c40a60dae55dc155df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &4119351919161116610
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,12 +615,12 @@ GameObject:
   - component: {fileID: 4119351919161116619}
   - component: {fileID: 710136198825184621}
   - component: {fileID: 4119351919161116617}
-  - component: {fileID: 6816444494992399275}
   - component: {fileID: 5842015562498545599}
   - component: {fileID: 4119351919161116614}
   - component: {fileID: 4119351919161116611}
   - component: {fileID: 4119351919161116613}
   - component: {fileID: 4119351919161116612}
+  - component: {fileID: 4119351918915390916}
   m_Layer: 9
   m_Name: Avik
   m_TagString: Untagged
@@ -671,7 +685,7 @@ MonoBehaviour:
     boolParamsLostDefaultValue: 
     floatParams:
     - 0.8
-    - 1
+    - 1.8
     floatParamsNames:
     - MinRange
     - maxRange
@@ -803,21 +817,6 @@ MonoBehaviour:
   hitBox: {fileID: 4119351918993028645}
   playerDetector: {fileID: 1068771470}
   aiManager: {fileID: 0}
---- !u!114 &6816444494992399275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119351919161116610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f9e4d83cfd7cf4db27816656096190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFX: []
-  particleFX: []
-  VFX: []
 --- !u!114 &5842015562498545599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +849,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2.53
-  m_BaseOffset: 0
+  m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &4119351919161116611
@@ -861,8 +860,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4119351919161116610}
   serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
+  m_Mass: 1
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -879,10 +878,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.1
-  m_Height: 3.24
+  m_Radius: 1
+  m_Height: 3.03
   m_Direction: 1
-  m_Center: {x: 0, y: 1.62, z: 0}
+  m_Center: {x: 0, y: 1.51, z: 0}
 --- !u!136 &4119351919161116612
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -892,11 +891,27 @@ CapsuleCollider:
   m_GameObject: {fileID: 4119351919161116610}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
+  m_Enabled: 0
+  m_Radius: 0.3
   m_Height: 2.06
   m_Direction: 2
   m_Center: {x: 0, y: 1.83, z: -1.96}
+--- !u!114 &4119351918915390916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119351919161116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db17679dd1d04a46947df3adde2c1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFX:
+  - {fileID: 0}
+  particleFX: []
+  VFX: []
 --- !u!1 &4119351919320222298
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4119351919320222298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.288, z: 0}
+  m_LocalPosition: {x: 0, y: 1.288, z: 0.625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4119351919161116622}
