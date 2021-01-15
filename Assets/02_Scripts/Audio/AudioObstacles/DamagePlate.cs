@@ -16,15 +16,20 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
 
     public float _dmgOnEnter = 3;
     public float _dmgOnStay = 1;
-    
-   
+
+    private AudioObstacleDamageCollider _childCollider;
+
+
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
+        _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
-        _dmgOnEnter = 30;
-        _dmgOnStay = 5;
-        _holdValue = true;
+        //_dmgOnEnter = 30;
+        //_dmgOnStay = 5;
+       // _holdValue = true;
+
+        _childCollider = transform.GetComponentInChildren<AudioObstacleDamageCollider>();
     }
     
     
@@ -38,6 +43,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     //NormalMode meanst objeact actives on the Beat for a certain duration and deactives immediatle after this duration
     protected override void objectAction()
     {
+     
         increaseIntervalCounter();
         if (checkInterval())
         {
@@ -49,12 +55,12 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
                     _holdHelper = false;
                     _plateActive = true;
 
-                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
+                    _childCollider.EnableSelf();
                 }
                 else
                 {
                     emissionChange(2);
-                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
+                    _childCollider.DisableSelf();
                     _holdHelper = true;
                 }
             }
@@ -76,12 +82,9 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
             if (obj.GetComponent<IHasHealth>() != null)
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
-            }
-            
+            }         
         }    
     }
-
-   
 
     public void shortDurationHelper()
     {

@@ -17,6 +17,8 @@ public abstract class AudioObstacle : MonoBehaviour
     public bool m_onKick;
     public bool m_onHiHat;
 
+    public bool _useThisEmission;
+
     protected bool addedToEvent = false;
 
     //Interval in which the object calls the method "objectAction"
@@ -34,6 +36,8 @@ public abstract class AudioObstacle : MonoBehaviour
     public float m_maxEmissionIntensity = 10;
     public float m_minEmissionIntensity = 0.1f;
     protected Material _material;
+    protected Color _emissionColor;
+    
 
     //Tweening Sequence
     Sequence tweenSeq;
@@ -131,30 +135,31 @@ public abstract class AudioObstacle : MonoBehaviour
     //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
     protected void emissionChange(int mode = 0)
     {
-        if (_material.HasProperty("EmissionIntensity"))
+        if (_useThisEmission)
         {
             //On and OFF
             if (mode == 0)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(m_maxEmissionIntensity, "EmissionIntensity", m_actionInDuration))
-                .Append(_material.DOFloat(m_minEmissionIntensity, "EmissionIntensity", m_actionOutDuration))
+                .Append(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
+                .Append(_material.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
             //ON
             else if (mode == 1)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(m_maxEmissionIntensity, "EmissionIntensity", m_actionInDuration))
+                 .Append(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
                 .SetEase(Ease.Flash);
             }
             //OFF
             else if (mode == 2)
             {
                 tweenSeq = DOTween.Sequence()
-                .Append(_material.DOFloat(m_minEmissionIntensity, "EmissionIntensity", m_actionOutDuration))
+                .Append(_material.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
                 .SetEase(Ease.Flash);
             }
         }
+   
     }
 }

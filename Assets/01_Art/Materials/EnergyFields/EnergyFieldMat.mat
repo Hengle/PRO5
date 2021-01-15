@@ -262,7 +262,7 @@ Material:
     - EmissionBlueColor: {r: 1, g: 1, b: 1, a: 0}
     - EmissionRedColor: {r: 1, g: 0, b: 0, a: 0}
     - Vector2_7307314A: {r: 1, g: 0, b: 0, a: 0}
-    - Vector2_D92CBA7F: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_D92CBA7F: {r: 2, g: 2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

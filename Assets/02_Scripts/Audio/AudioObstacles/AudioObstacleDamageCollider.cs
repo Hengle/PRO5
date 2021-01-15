@@ -10,7 +10,7 @@ public class AudioObstacleDamageCollider : MonoBehaviour
     //handles if collider is active or not
     bool _disabled = false;
 
-    float _dmgOnEnter = 3;
+    float _dmgOnEnter = 25;
     float _dmgOnStay = 1;
     
     public void Start()
