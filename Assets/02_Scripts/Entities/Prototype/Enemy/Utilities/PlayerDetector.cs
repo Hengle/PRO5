@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    public PlayerBody player;
+    public PlayerStatistics player;
 
     void OnTriggerEnter(Collider other)
     {
-        PlayerBody p = other.gameObject.GetComponent<PlayerBody>();
+        PlayerStatistics p = other.gameObject.GetComponent<PlayerStatistics>();
         if (p != null)
             player = p;
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerBody>())
+        if (other.gameObject.GetComponent<PlayerStatistics>())
             player = null;
     }
 }

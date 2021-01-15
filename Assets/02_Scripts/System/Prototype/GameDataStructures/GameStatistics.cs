@@ -9,13 +9,16 @@
     AttackRate,
     BaseDmg,
     StunResist,
+    ChargeTime
 }
+
 public class GameStatistics
 {
     private float v;
     private StatName _name;
 
-    public GameStatistics(float value, StatName name){
+    public GameStatistics(float value, StatName name)
+    {
         v = value;
         _name = name;
     }

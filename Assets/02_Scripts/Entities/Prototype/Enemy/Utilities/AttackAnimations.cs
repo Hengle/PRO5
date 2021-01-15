@@ -1,38 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
+using UnityEngine.VFX;
 
 namespace Enemy
 {
-    public enum EffectType
-    {
-        Trail,
-        Explosion
-    }
-
     [System.Serializable]
     public class AttackAnimations
     {
-        [SerializeField] public AnimationClip clip;
-        // public PlayableAsset playable;
-        [SerializeField] public float damageFrameStart;
-        [SerializeField] public float damageFrameEnd;
-        [SerializeField] public float attRange;
-        [SerializeField] public float attackWidth;
-        [SerializeField] public List<EffectsFrameContainer> effects = new List<EffectsFrameContainer>();
-    }
+        public AnimationClip clip;
+        public float damageFrameStart;
+        public float damageFrameEnd;
+        public float attRange;
+        public float attackWidth;
 
-    [System.Serializable]
-    public class EffectsFrameContainer
-    {
-        [SerializeField] public EffectType type;
-        [SerializeField] public float frame;
-        public EffectsFrameContainer(EffectType _type, float _frame)
-        {
-            type = _type;
-            frame = _frame;
-        }
+        public List<SoundEffectContainer> soundFX;
+        public List<ParticleEffectContainer> particleFX;
+        public List<VFXContainer> VFX;
     }
-
 }

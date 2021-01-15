@@ -11,6 +11,11 @@ public static class ScriptCollection
         collection = new List<Object>();
     }
 
+    public static void ClearList()
+    {
+        collection.Clear();
+    }
+
     /// <summary>
     /// Registers a script in a list.
     /// </summary>
@@ -28,17 +33,24 @@ public static class ScriptCollection
     /// <returns></returns>
     public static T GetScript<T>()
     {
-        return (T)System.Convert.ChangeType(collection.Find(x => x.GetType().Equals(typeof(T))), typeof(T));
+        Object o = collection.Find(x => x.GetType().Equals(typeof(T)));
+        if (o is T)
+            return (T)System.Convert.ChangeType(o, typeof(T));
+        else
+            return default(T);
     }
 
     /// <summary>
-    /// Removes a script from the collection. Can be called at any point but mostly when the script is disabled.
+    /// Removes a script from the collection. Should be called in OnDisable().
     /// </summary>
     /// <typeparam name="obj"></typeparam>
     public static void RemoveScript(Object obj)
     {
         collection.Remove(obj);
     }
+
+    public static List<Object> ReturnList()
+    {
+        return collection;
+    }
 }
-
-

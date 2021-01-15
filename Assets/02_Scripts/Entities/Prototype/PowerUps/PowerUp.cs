@@ -7,11 +7,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class PowerUp : MonoBehaviour
 {
-
     public string nameText;
     public string descText;
 
-
+    public PowerupNames powerupName;
     public GameObject _player;
 
 
@@ -25,11 +24,12 @@ public class PowerUp : MonoBehaviour
         if (other.Equals(_player.GetComponents<Collider>()[1]))
         {
             MyEventSystem.instance.OnPowerupCollected(this);
-            Destroy(gameObject);
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 
-    public virtual void Activate()
+    public virtual void Activate(PlayerStateMachine player)
     {
         throw new NotImplementedException("Activate method not implemented yet!");
     }

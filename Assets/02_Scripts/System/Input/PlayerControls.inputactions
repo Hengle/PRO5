@@ -398,6 +398,147 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cheats",
+            "id": "51c67e37-5558-4c43-92b3-70433e3e10c6",
+            "actions": [
+                {
+                    "name": "GodMode",
+                    "type": "Button",
+                    "id": "87f82733-e05e-4668-b7e5-d112fdb608bc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RemoveSkillChargtime",
+                    "type": "Button",
+                    "id": "dc8db5d2-c30b-4fa2-9e38-b06520f57e9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Fullhealth",
+                    "type": "Button",
+                    "id": "c7dd912d-db96-4b1f-a8eb-c251bfc9d8d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DestroyAllEnemies",
+                    "type": "Button",
+                    "id": "1bd07c21-7ad1-44ca-9e01-ea886760f3fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "NoDashCooldown",
+                    "type": "Button",
+                    "id": "ba47ebcf-21b1-4a3d-af4f-7a152306516b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ChargeSuperSkill",
+                    "type": "Button",
+                    "id": "5150f6a6-62cb-4496-9399-c2ddf017e289",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TeleportTest",
+                    "type": "Button",
+                    "id": "bb0ea735-faa7-4f2f-9d71-671c103e3a33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "eeb4f43b-d8b3-438f-b2b4-6e79bad83579",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "RemoveSkillChargtime",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6e23a3b-f083-435a-a10d-b9cb1f19ce94",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "TeleportTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4185b9f5-2870-4781-85bc-dfede82c69de",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "GodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22183587-b3c6-4ebd-9b4d-48ffa0f50017",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "Fullhealth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0bb7f36-1831-4579-b6dd-ce660214b026",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "DestroyAllEnemies",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b79be796-ceac-4ad6-afb9-62ceab24b890",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "NoDashCooldown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06281a3f-58e1-4302-b786-a82e76371ff6",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "ChargeSuperSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

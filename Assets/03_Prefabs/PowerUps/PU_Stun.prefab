@@ -108,5 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: Stun
   descText: Stun enemies
+  powerupName: 1
   _player: {fileID: 0}
   duration: 500

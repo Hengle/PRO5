@@ -22,12 +22,13 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     public float _dmgOnStay { get; set; }
 
     public bool _holdValue = false;
-    public bool _holdHelper;
+    protected bool _holdHelper;
 
     // Start is called before the first frame update
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
+        _emissionColor = _material.GetColor("_EmissiveColor");
         _energyWall = this.gameObject.transform.GetChild(0).gameObject;
         _minLength = _energyWall.transform.localScale.y;
         addActionToEvent();
@@ -54,6 +55,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
             {
                 if (_holdHelper)
                 {
+                    emissionChange(1);
                     foreach (Transform child in transform)
                     {
                         Sequence _tweenSeq = DOTween.Sequence()
@@ -66,6 +68,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 }
                 else
                 {
+                    emissionChange(2);
                     foreach (Transform child in transform)
                     {
                         Sequence _tweenSeq = DOTween.Sequence()
@@ -79,6 +82,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
             }
             else
             {
+                emissionChange();
                 foreach (Transform child in transform)
                 {
                     Sequence _tweenSeq = DOTween.Sequence()

@@ -8,7 +8,6 @@ public class ScriptCollectionTestIN : MonoBehaviour
 
     private void OnEnable()
     {
-        ScriptCollection.NewList();
         ScriptCollection.RegisterScript(this);
     }
     private void OnDisable()

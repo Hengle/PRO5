@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 
 [RequireComponent(typeof(FMODUnity.StudioEventEmitter))]
-class SpectrumManager : MonoBehaviour
+public class SpectrumManager : MonoBehaviour
 {
 
     public static SpectrumManager _instance;

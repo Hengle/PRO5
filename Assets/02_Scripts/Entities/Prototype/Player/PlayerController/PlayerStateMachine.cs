@@ -23,15 +23,24 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public bool isGrounded = false;
     public bool isDelaying = false;
     private bool dashPressed = false;
+    public bool isDashing;
 
     #endregion
 
     #region __________float__________
 
-    [Header("Move Settings")] public float currentMoveSpeed, standardMoveSpeed = 7.0f;
+    [Header("Move Settings")]
+    public float currentMoveSpeed;
+    public float standardMoveSpeed = 7.0f;
 
     [Header("Dash Settings")]
-    public float dashCharge, dashRechargeTime, maxDashCharge, dashSpeed = 1.0f, dashDuration = 0.3f, delayTime;
+    public float dashCharge;
+    public float dashRechargeTime;
+    public float maxDashCharge;
+    public float dashSpeed = 1.0f;
+    public float dashDuration = 0.3f;
+    public float delayTime;
+    public bool dashDelayOn = false;
 
     [HideInInspector] public float dashTime;
     private float timeStartDash, timeSinceStarted, delayCountdown;
@@ -40,15 +49,15 @@ public class PlayerStateMachine : MonoBehaviour
 
     #region __________other__________
 
-    [HideInInspector] public PlayerStatistics playerStatistics => GetComponent<PlayerStatistics>();
+    PlayerStatistics playerStatistics => GetComponent<PlayerStatistics>();
     [HideInInspector] public LayerMask groundMask => LayerMask.GetMask("Ground");
     public PlayerInputManager inputManager;
-    [HideInInspector] public CharacterController characterController => GetComponent<CharacterController>();
+    CharacterController characterController => GetComponent<CharacterController>();
     [SerializeField] private StatTemplate playerTemplate;
     private Plane groundPlane;
     private Camera mainCam => GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-    public bool isDashing, dashDelayOn = false;
+
 
     #endregion
 
@@ -70,7 +79,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         foreach (FloatReference f in playerTemplate.statList)
         {
-            StatVariable s = (StatVariable) f.Variable;
+            StatVariable s = (StatVariable)f.Variable;
             if (s.statName.ToString().Equals("Speed"))
             {
                 standardMoveSpeed = s.Value;
@@ -98,7 +107,7 @@ public class PlayerStateMachine : MonoBehaviour
         IsGrounded();
         velocity.y = 0;
         characterController.Move(((Vector3.Normalize(currentMoveDirection) + velocity) * currentMoveSpeed) *
-                                 Time.deltaTime);
+                                    Time.deltaTime);
 
         Vector2 move = inputManager.move;
         Vector3 direction = new Vector3(move.x, 0, move.y);
@@ -168,7 +177,7 @@ public class PlayerStateMachine : MonoBehaviour
                 currentMoveDirection = currentLookDirection;
             }
             currentMoveSpeed = standardMoveSpeed * dashSpeed;
-            
+
             if (dashDelayOn)
             {
                 Invoke("setDelay", dashDuration);
@@ -186,14 +195,14 @@ public class PlayerStateMachine : MonoBehaviour
         dashTime = Time.time;
         Invoke("setMovementBack", delayTime);
     }
-    
+
     public void setMovementBack()
     {
         currentMoveSpeed = standardMoveSpeed;
         playerStatistics.isDashing = false;
         dashPressed = false;
     }
-    
+
     /*public void DelayUpdate()
     {
         if (isDelaying)
@@ -208,15 +217,15 @@ public class PlayerStateMachine : MonoBehaviour
             }
         }
     }*/
-    
-  
+
+
 
     #endregion
 
 
     void PlayDeath()
     {
-        
+
     }
     /*void DashDelay()
   {

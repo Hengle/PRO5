@@ -110,3 +110,6 @@ MonoBehaviour:
   Kick: 0
   Snare: 0
   HiHat: 0
+  Triangle: {fileID: 2100000, guid: 2d0f39ed37ce16747a1adc13fe9dfac6, type: 2}
+  Square: {fileID: 2100000, guid: ce80a1159415eb2498e2343293d1ffc6, type: 2}
+  Hexagon: {fileID: 2100000, guid: 31d7b5b5ed9395042baf27d9abdd4a3d, type: 2}

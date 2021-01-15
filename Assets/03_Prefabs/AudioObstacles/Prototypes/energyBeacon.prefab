@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ababe3b202901d41b27fb975dad9831, type: 2}
+  - {fileID: 2100000, guid: 23940bafffcecba4db0b37b9f8048160, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,19 +95,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_onSnare: 0
   m_onKick: 0
-  m_onHighHat: 1
-  m_onSkillActive: 0
-  m_intervalBeat: 0
+  m_onHiHat: 0
+  _useThisEmission: 0
+  _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
-  m_startInterval: 0
   m_actionInDuration: 0.25
   m_actionOutDuration: 0.25
-  lengthChange: 0
-  lengthOfLaser: 10
-  m_activateComponent: 0
-  dmgOnEnter: 30
-  dmgOnStay: 5
+  m_maxEmissionIntensity: 10
+  m_minEmissionIntensity: 0.1
+  _maxLength: 0
+  _holdValue: 0
 --- !u!1 &2156105138112298539
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,13 +132,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2156105138112298539}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
+  m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: -0.49999997, w: 0.5000001}
   m_LocalPosition: {x: 0, y: 1.289, z: 0}
-  m_LocalScale: {x: 2.5766418, y: 0.21585, z: 0.1254}
+  m_LocalScale: {x: 0.057379235, y: 4.4406395, z: 2.4722}
   m_Children: []
   m_Father: {fileID: 1902418236255974468}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: -90.00001}
 --- !u!33 &2156105138112298711
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -16,15 +16,20 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
 
     public float _dmgOnEnter = 3;
     public float _dmgOnStay = 1;
-    
-   
+
+    private AudioObstacleDamageCollider _childCollider;
+
+
     void Start()
     {
         _material = GetComponent<MeshRenderer>().material;
+        _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
-        _dmgOnEnter = 30;
-        _dmgOnStay = 5;
-        _holdValue = true;
+        //_dmgOnEnter = 30;
+        //_dmgOnStay = 5;
+       // _holdValue = true;
+
+        _childCollider = transform.GetComponentInChildren<AudioObstacleDamageCollider>();
     }
     
     
@@ -81,12 +86,9 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
             if (obj.GetComponent<IHasHealth>() != null)
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
-            }
-            
+            }         
         }    
     }
-
-   
 
     public void shortDurationHelper()
     {
