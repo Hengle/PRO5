@@ -37,7 +37,7 @@ public class AudioEmission : MonoBehaviour
     void Update()
     {
 
-       //_material.DOFloat(SpectrumManager._instance.getFqBandBuffer8(_audioBand1) * 10000, "_EmissiveColor", 0);
+        //_material.DOFloat(SpectrumManager._instance.getFqBandBuffer8(_audioBand1) * 10000, "_EmissiveColor", 0);
 
         _material.DOVector(color * spectrumManager.getFqBandBuffer8(_audioBand1) * emissiveStrength, "_EmissiveColor", 0);
 
