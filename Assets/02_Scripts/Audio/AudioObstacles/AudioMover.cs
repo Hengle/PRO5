@@ -29,6 +29,8 @@ public class AudioMover : AudioObstacle
 
     //If the object should move back and forth
     public bool _backAndForth = true;
+    public bool audioTurner;
+    public int rotation = 45;
 
     // Calculating border ranges
     void Start()
@@ -51,43 +53,55 @@ public class AudioMover : AudioObstacle
     {
         increaseIntervalCounter();
 
-        if (_moveX != 0)
+        if (audioTurner)
         {
             if (_intervalBeat && checkInterval())
             {
-                transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration);
-            }
-
-            if (_backAndForth && !checkInterval())
-            {
-                transform.DOLocalMoveX(_moveXMinBorder, m_actionInDuration);
+                gameObject.transform.Rotate(Vector3.up * rotation);
             }
         }
-
-        if (_moveZ != 0)
+        else
         {
-            if (_intervalBeat && checkInterval())
+            if (_moveX != 0)
             {
-                transform.DOLocalMoveZ(_moveZMaxBorder, m_actionInDuration);
+                if (_intervalBeat && checkInterval())
+                {
+                    transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration);
+                }
+
+                if (_backAndForth && !checkInterval())
+                {
+                    transform.DOLocalMoveX(_moveXMinBorder, m_actionInDuration);
+                }
             }
-            else if (_backAndForth && !checkInterval())
+
+            if (_moveZ != 0)
             {
-                transform.DOLocalMoveZ(_moveZMinBorder, m_actionInDuration);
+                if (_intervalBeat && checkInterval())
+                {
+                    transform.DOLocalMoveZ(_moveZMaxBorder, m_actionInDuration);
+                }
+                else if (_backAndForth && !checkInterval())
+                {
+                    transform.DOLocalMoveZ(_moveZMinBorder, m_actionInDuration);
+                }
+            }
+
+            if (_moveY != 0)
+            {
+                if (_intervalBeat && checkInterval())
+                {
+                    transform.DOLocalMoveY(_moveYMaxBorder, m_actionInDuration);
+
+                }
+                else if (_backAndForth && !checkInterval())
+                {
+                    transform.DOLocalMoveY(_moveYMinBorder, m_actionInDuration);
+                }
             }
         }
 
-        if (_moveY != 0)
-        {
-            if (_intervalBeat && checkInterval())
-            {
-                transform.DOLocalMoveY(_moveYMaxBorder, m_actionInDuration);
-
-            }
-            else if (_backAndForth && !checkInterval())
-            {
-                transform.DOLocalMoveY(_moveYMinBorder, m_actionInDuration);
-            }
-        }
+        
     }
     
 

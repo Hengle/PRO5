@@ -4,8 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-//should work
-public class LaserTurret : AudioObstacle, IDamageObstacle
+
+public class BoomBox : AudioObstacle, IDamageObstacle
 {
     private float _minLength;
     public float _maxLength;
@@ -102,12 +102,14 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         {
             Debug.Log("Turret hit");
             GameObject obj = c.gameObject;
-            if (!obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
+            if (obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
             {
-                MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
+                
             }
         }
     }
+    
+  
 
 
     public void ShortDurationHelper()
@@ -123,4 +125,5 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         _turretActive = false;
         gameObject.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
     }
+
 }

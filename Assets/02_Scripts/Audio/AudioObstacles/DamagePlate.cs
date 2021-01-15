@@ -38,32 +38,37 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     //NormalMode meanst objeact actives on the Beat for a certain duration and deactives immediatle after this duration
     protected override void objectAction()
     {
-        increaseIntervalCounter();
-        if (checkInterval())
+        if (!_holdOnMusic)
         {
-            if (_holdValue)
+            increaseIntervalCounter();
+            if (checkInterval())
             {
-                if (_holdHelper)
+           
+                if (_holdValue)
                 {
-                    emissionChange(1);
-                    _holdHelper = false;
-                    _plateActive = true;
+                    if (_holdHelper)
+                    {
+                        emissionChange(1);
+                        _holdHelper = false;
+                        _plateActive = true;
 
-                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
+                        transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
+                    }
+                    else
+                    {
+                        emissionChange(2);
+                        transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
+                        _holdHelper = true;
+                    }
                 }
                 else
                 {
-                    emissionChange(2);
-                    transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
-                    _holdHelper = true;
+                    emissionChange();
+                    shortDurationHelper();
                 }
             }
-            else
-            {
-                emissionChange();
-                shortDurationHelper();
-            }
         }
+       
     }
 
     //Gets called from dmg collider (child of this object)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using BBUnity.Actions;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,18 @@ using UnityEngine.SceneManagement;
 //Handles Event Subscribing
 //Intervall
 //Material Emission
+enum musicEvents{
+
+    m_onSnare,
+    m_onKick,
+    m_onHitHat
+}
 public abstract class AudioObstacle : MonoBehaviour
 {
     //Subscribe to Event
-    public bool m_onSnare;
-    public bool m_onKick;
-    public bool m_onHiHat;
+    //public bool m_onSnare;
+    //public bool m_onKick;
+    //public bool m_onHiHat;
 
     protected bool addedToEvent = false;
 
@@ -39,17 +46,26 @@ public abstract class AudioObstacle : MonoBehaviour
     Sequence tweenSeq;
 
     bool test = false;
-    
-   
+    public bool _holdOnMusic;
+    [SerializeField]private musicEvents _events;
+    [SerializeField] public MusicLayerController mlc;
+
+
+
 
     void Start()
     {
+        
     }
 
     void Update()
     {
-
+        if (_holdOnMusic)
+        {
+            //if()
+        }
     }
+    
 
     //Wenn Intervall-Modusk aktviert ist wird bei jedem Musik-Marker der IntervallCounter hinaufgezählt
     protected void increaseIntervalCounter()
@@ -86,7 +102,7 @@ public abstract class AudioObstacle : MonoBehaviour
     {
         addedToEvent = true;
 
-        if (m_onSnare)
+        /*if (m_onSnare)
         {
             MyEventSystem.instance.Snare += objectAction;
         }
@@ -99,6 +115,22 @@ public abstract class AudioObstacle : MonoBehaviour
         if (m_onHiHat)
         {
             MyEventSystem.instance.HiHat += objectAction;
+        }*/
+
+        switch (_events)
+        {
+            case musicEvents.m_onKick:
+                MyEventSystem.instance.Kick += objectAction;
+                break;
+            case musicEvents.m_onSnare:
+                MyEventSystem.instance.Snare += objectAction;
+                break;
+            case musicEvents.m_onHitHat:
+                MyEventSystem.instance.HiHat += objectAction;
+                break;
+            default:
+                break;
+                
         }
     }
 
@@ -106,8 +138,23 @@ public abstract class AudioObstacle : MonoBehaviour
     protected void removeActionFromEvent()
     {
         addedToEvent = false;
+        switch (_events)
+        {
+            case musicEvents.m_onKick:
+                MyEventSystem.instance.Kick -= objectAction;
+                break;
+            case musicEvents.m_onSnare:
+                MyEventSystem.instance.Snare -= objectAction;
+                break;
+            case musicEvents.m_onHitHat:
+                MyEventSystem.instance.HiHat -= objectAction;
+                break;
+            default:
+                break;
+                
+        }
 
-        if (m_onSnare)
+        /*if (m_onSnare)
         {
             MyEventSystem.instance.Snare -= objectAction;
         }
@@ -120,7 +167,7 @@ public abstract class AudioObstacle : MonoBehaviour
         if (m_onHiHat)
         {
             MyEventSystem.instance.HiHat -= objectAction;
-        }
+        }*/
     }
 
     //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
