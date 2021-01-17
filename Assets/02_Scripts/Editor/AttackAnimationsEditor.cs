@@ -107,7 +107,8 @@ public class AttackAnimationsEditor : Editor
 
                                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                                     {
-                                        t.attackAnimations[i].soundFX[j].SetActive(true);
+                                        if (t.attackAnimations[i].soundFX[j].soundEffect != null)
+                                            t.attackAnimations[i].soundFX[j].SetActive(true);
                                         t.attackAnimations[i].soundFX.Remove(t.attackAnimations[i].soundFX[j]);
                                     }
                                     GUILayout.EndHorizontal();
@@ -141,7 +142,8 @@ public class AttackAnimationsEditor : Editor
                                     }
                                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                                     {
-                                        t.attackAnimations[i].particleFX[j].SetActive(true);
+                                        if (t.attackAnimations[i].particleFX[j].particleSystem != null)
+                                            t.attackAnimations[i].particleFX[j].SetActive(true);
                                         t.attackAnimations[i].particleFX.Remove(t.attackAnimations[i].particleFX[j]);
                                     }
                                     GUILayout.EndHorizontal();

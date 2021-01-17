@@ -6,6 +6,11 @@ public class SoundEffectController : IEffectController
 {
     public StudioEventEmitter soundEffect;
 
+    private void Start()
+    {
+
+    }
+
     public override void PlayEffect()
     {
         if (playOnCommand)

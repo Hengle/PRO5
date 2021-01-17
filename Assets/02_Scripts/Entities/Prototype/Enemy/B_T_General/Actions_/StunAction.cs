@@ -13,11 +13,15 @@ namespace BBUnity.Actions
         [InParam("agent")]
         public NavMeshAgent agent;
 
+        [InParam("animator")]
+        public Animator animator;
 
         public override void OnStart()
         {
             //start effects or whatever
-            agent.isStopped = true;
+            agent.enabled = false;
+            animator.SetBool("isStunned", true);
+
         }
 
         public override TaskStatus OnUpdate()
@@ -27,11 +31,13 @@ namespace BBUnity.Actions
 
         public override void OnAbort()
         {
-            agent.isStopped = false;
+            animator.SetBool("isStunned", false);
+            agent.enabled = true;
         }
         public override void OnEnd()
         {
-            agent.isStopped = false;
+            animator.SetBool("isStunned", false);
+            agent.enabled = true;
         }
     }
 }
