@@ -17,6 +17,7 @@ public class TeleportTarget : MonoBehaviour
 
     private void TeleportPlayerToThis(Transform player) 
     {
+        player.GetComponent<PlayerStateMachine>().isTeleporting = true;
         player.transform.position = transform.position;
         player.transform.rotation = transform.rotation;
     }

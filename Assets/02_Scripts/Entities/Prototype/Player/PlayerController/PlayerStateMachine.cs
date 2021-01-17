@@ -21,6 +21,7 @@ public class PlayerStateMachine : MonoBehaviour
     #region __________bool__________
 
     [HideInInspector] public bool isGrounded = false;
+    [HideInInspector] public bool isTeleporting = false;
     public bool isDelaying = false;
     private bool dashPressed = false;
     public bool isDashing;
@@ -93,7 +94,15 @@ public class PlayerStateMachine : MonoBehaviour
         isDashing = playerStatistics.isDashing;
 
         //DelayUpdate();
-        Move();
+
+        // Delay movement for one frame
+        if (!isTeleporting)
+        {
+            Move();
+        } else
+        {
+            isTeleporting = false;
+        }
         UpdateLookDirection();
         DashCooldown();
     }
