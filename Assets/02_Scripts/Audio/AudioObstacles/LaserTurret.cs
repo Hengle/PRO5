@@ -22,7 +22,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     public float _dmgOnStay { get; set; }
 
     public bool _holdValue = false;
-    protected bool _holdHelper;
+    public bool _holdHelper;
 
     // Start is called before the first frame update
     void Start()

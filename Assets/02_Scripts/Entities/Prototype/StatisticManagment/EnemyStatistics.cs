@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStatistics : StatisticController, IHasHealth
 {
     public float currentHealth;
+    public float skillChargeOnDeath;
     protected override void InitStats()
     {
         multList = new List<Multiplier>();
@@ -47,7 +48,7 @@ public class EnemyStatistics : StatisticController, IHasHealth
 
     public void OnDeath()
     {
-        // MyEventSystem.instance.OnEnemyDeath(this);
+        MyEventSystem.instance.OnEnemyDeath(GetComponent<EnemyBody>());
         Destroy(gameObject);
     }
     #endregion

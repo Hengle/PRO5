@@ -139,18 +139,17 @@ public class MyEventSystem : MonoBehaviour
 
     #endregion TeleportEventhandler
 
-
+    public void OnEnemyDeath(EnemyBody enemy)
+    {
+        onEnemyDeath?.Invoke(enemy);
+    }
 
     /*public void OnSetState(PlayerMovementSate state)
     {
         SetState?.Invoke(state);
     }
     
-   public void OnEnemyDeath(EnemyBody enemy)
-   {
-       if (onEnemyDeath != null)
-           onEnemyDeath(enemy);
-   }
+
 
 
 
