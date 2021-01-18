@@ -21,8 +21,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     public float _dmgOnStay { get; set; }
 
-    public bool _holdValue = false;
-    protected bool _holdHelper;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -41,53 +40,10 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     // Update is called once per frame
     void Update()
     {
-        if (_holdOnMusic)
-        {
-            if (m_onSnare)
-            {
-                if (mlc._snareActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._snareActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-
-            if (m_onKick)
-            {
-                if (mlc._leadBassActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._leadBassActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-
-            if (m_onHiHat)
-            {
-                if (mlc._hiHatActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._hiHatActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-        }
+        
     }
 
-    void emissionActive()
+    protected  override void emissionActive()
     {
         emissionChange(1);
         foreach (Transform child in transform)
@@ -97,9 +53,10 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
                 .SetEase(Ease.Flash);
         }
+        
     }
 
-    void emissionDeactive()
+    protected  override void emissionDeactive()
     {
         emissionChange(2);
         foreach (Transform child in transform)
@@ -124,36 +81,20 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 {
                     if (_holdHelper)
                     {
-                        emissionChange(1);
-                        foreach (Transform child in transform)
-                        {
-                            Sequence _tweenSeq = DOTween.Sequence()
-                                .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                                .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"),
-                                    m_actionInDuration))
-                                .SetEase(Ease.Flash);
-                        }
+                        emissionActive();
 
                         _holdHelper = false;
                     }
                     else
                     {
-                        emissionChange(2);
-                        foreach (Transform child in transform)
-                        {
-                            Sequence _tweenSeq = DOTween.Sequence()
-                                .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                                .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"),
-                                    m_actionOutDuration))
-                                .SetEase(Ease.Flash);
-                        }
-
+                        emissionDeactive();
                         _holdHelper = true;
                     }
                 }
                 else
                 {
                     emissionChange();
+                    //ShortDurationHelper();
                     foreach (Transform child in transform)
                     {
                         Sequence _tweenSeq = DOTween.Sequence()

@@ -9,6 +9,7 @@ public class AudioMarkerEmission : AudioObstacle
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
     public bool _holdValue = false;
     public bool _holdHelper;
+    private AudioObstacle _audioObstacleImplementation;
 
 
     // Start is called before the first frame update
@@ -20,10 +21,7 @@ public class AudioMarkerEmission : AudioObstacle
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     protected override void objectAction()
     {
@@ -49,6 +47,7 @@ public class AudioMarkerEmission : AudioObstacle
             }
         }
     }
+    
 
 
 }

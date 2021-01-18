@@ -40,6 +40,7 @@ public class BoomBox : AudioObstacle, IDamageObstacle
         _dmgOnEnter = 30;
         _dmgOnStay = 5;
     }
+    
 
 
     // Update is called once per frame

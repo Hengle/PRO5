@@ -18,6 +18,7 @@
               <e p="AudioObstacleDamageCollider.cs" t="Include" />
               <e p="AudioObstacleStunCollider.cs" t="Include" />
               <e p="BoomBox.cs" t="Include" />
+              <e p="DamageAudioObstacle.cs" t="Include" />
               <e p="DamagePlate.cs" t="Include" />
               <e p="IDamageObstacle.cs" t="Include" />
               <e p="LaserTurret.cs" t="Include" />

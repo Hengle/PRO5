@@ -1,26 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using BBUnity.Actions;
-using UnityEngine;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 
-//Base Class for every AudioObstacle
-//Handles Event Subscribing
-//Intervall
-//Material Emission
-public enum musicEvent
+public abstract class DamageAudioObstacle : AudioObstacle
 {
-    Snare,
-    Kick,
-    HiHat
-}
-
-public abstract class AudioObstacle : MonoBehaviour
-{
-    //Subscribe to Event
+     //Subscribe to Event
     public bool m_onSnare;
     public bool m_onKick;
     public bool m_onHiHat;
@@ -143,7 +128,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     //Die Objekt-Action die in der Kind-Klasse dann definiert wird.
     //Jedes Obstacle hat eine Aktion die immer auf das zugehörige Event aktiviert wird.
-    protected abstract void objectAction();
+    //protected abstract void objectAction();
 
 
     //Wird beim start aufegrufen und checkt anhand der Booleans zu welchen Event es subscriben sollte

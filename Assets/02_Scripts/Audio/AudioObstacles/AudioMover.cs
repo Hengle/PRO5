@@ -65,6 +65,7 @@ public class AudioMover : AudioObstacle
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
 
+    
     //Movement Code that works not right
     //Doesnt work in Normal Mode 
     protected override void objectAction()
@@ -191,4 +192,5 @@ public class AudioMover : AudioObstacle
         _moveZMinBorder = transform.localPosition.z - _moveZ;
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
+    
 }

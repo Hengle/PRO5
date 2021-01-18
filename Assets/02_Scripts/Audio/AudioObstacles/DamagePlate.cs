@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class DamagePlate : AudioObstacle, IDamageObstacle
 {
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
-    public bool _holdValue = false;
-    public bool _holdHelper;
 
     //When active the colliders are enabled and damage can happen
     private bool _plateActive = false;
@@ -34,67 +32,21 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     }
 
 
-    void Update()
-    {
-        if (_holdOnMusic)
-        {
-            if (m_onSnare)
-            {
-                if (mlc._snareActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._snareActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-            
-            if (m_onKick)
-            {
-                if (mlc._leadBassActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._leadBassActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-            
-            if (m_onHiHat)
-            {
-                if (mlc._hiHatActive && !alreadyDone)
-                {
-                    emissionActive();
-                    alreadyDone = true;
-                }
-                else if (!mlc._hiHatActive && alreadyDone)
-                {
-                    emissionDeactive();
-                    alreadyDone = false;
-                }
-            }
-            
-        }
-    }
+  
 
-    void emissionActive()
+    protected override void emissionActive()
     {
+       
         emissionChange(1);
-
         _plateActive = true;
 
         transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
     }
 
-    void emissionDeactive()
+    protected override void emissionDeactive()
     {
         emissionChange(2);
+        _plateActive = false;
         transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
     }
 
@@ -112,16 +64,12 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
                 {
                     if (_holdHelper)
                     {
-                        emissionChange(1);
-                        _holdHelper = false;
-                        _plateActive = true;
-
-                        transform.GetComponentInChildren<AudioObstacleDamageCollider>().EnableSelf();
+                       emissionActive();
+                       _holdHelper = false;
                     }
                     else
                     {
-                        emissionChange(2);
-                        transform.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
+                        emissionDeactive();
                         _holdHelper = true;
                     }
                 }
