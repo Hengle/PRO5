@@ -143,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 1606030433, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
       propertyPath: skillController
       value: 
-      objectReference: {fileID: 1517712922}
+      objectReference: {fileID: 0}
     - target: {fileID: 1977086773, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -249,7 +249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _skillController
       value: 
-      objectReference: {fileID: 1517712922}
+      objectReference: {fileID: 0}
     - target: {fileID: 9030912145320328691, guid: 5757c2c1f968ae14da2978f806fff79a,
         type: 3}
       propertyPath: playerController
@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 670095406, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: controller
       value: 
-      objectReference: {fileID: 1517712922}
+      objectReference: {fileID: 0}
     - target: {fileID: 826190486, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -376,6 +376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PrototypeUI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180470494201640412, guid: e08f36e81d9126648933cebcd3cfd743,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08f36e81d9126648933cebcd3cfd743, type: 3}
@@ -465,6 +470,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431058, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431058, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431058, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e201145fdb2711548bd2793470aaa717, type: 2}
     - target: {fileID: 2576877363223431070, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
       propertyPath: m_Name
@@ -475,8 +495,39 @@ PrefabInstance:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1461267299}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1517712920}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: delayTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
+        type: 3}
+      propertyPath: dashRechargeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe3307324cf8d047b74149b6256bfd8, type: 3}
+--- !u!95 &1517712920 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2576877363223431058, guid: 9fe3307324cf8d047b74149b6256bfd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1517712919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1517712921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2576877363223431071, guid: 9fe3307324cf8d047b74149b6256bfd8,
@@ -487,18 +538,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 536b4c3a75c44544d96ba63bcf6e3cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1517712922 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1517712922, guid: 9fe3307324cf8d047b74149b6256bfd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1517712919}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73142ca38310435469df9c13530dc146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1517712923 stripped

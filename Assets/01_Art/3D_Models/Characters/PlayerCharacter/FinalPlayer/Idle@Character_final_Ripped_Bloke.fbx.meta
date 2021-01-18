@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 2be080065897fe74990ded96e0f51819
+guid: 8d4fb275ed2d14f419027fdde63a3642
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: RunCycle
+    second: Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: RunCycle
+      name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 27
+      firstFrame: 1
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -53,7 +53,7 @@ ModelImporter:
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
