@@ -47,6 +47,8 @@ public class NavMeshUpdater : MonoBehaviour
             m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
         else
             NavMeshBuilder.UpdateNavMeshData(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
+
+        NavMesh.AddNavMeshData(m_NavMesh);
     }
 
     static Vector3 Quantize(Vector3 v, Vector3 quant)

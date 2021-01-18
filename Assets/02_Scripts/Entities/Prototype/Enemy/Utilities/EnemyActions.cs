@@ -24,26 +24,105 @@ public class EnemyActions : MonoBehaviour
     {
         return hittablePowerups != null ? hittablePowerups.Contains(name) : false;
     }
-    
-    // private void OnDrawGizmos()
-    // {
-    //     float deg = 50;
-    //     float dott;
-    //     float currentAngle = 0;
-    //     for (int i = 0; i < deg; i++)
-    //     {
-    //         currentAngle += 360f / deg;
 
-    //         float y = Mathf.Sin(Mathf.Deg2Rad + currentAngle);
-    //         float x = Mathf.Cos(Mathf.Deg2Rad + currentAngle);
-    //         Vector3 pos = new Vector3(x, 0, y) * 4f + gameObject.transform.position;
-    //         dott = Vector3.Dot((pos - gameObject.transform.position).normalized, (body.aiManager.playerTarget.position - gameObject.transform.position).normalized);
-    //         if (dott < 0.4f)
-    //         {
-    //             Gizmos.DrawLine(gameObject.transform.position, pos);
-    //         }
-    //     }
-    // }
+    private void OnDrawGizmos()
+    {
+        RaycastHit tempRayWallHit;
+        float deg = 50;
+        float dot;
+        float dot2;
+        float currentAngle = 0;
+        Vector3 dir = Vector3.zero;
+        for (int i = 0; i < deg; i++)
+        {
+            currentAngle += 360f / deg;
+
+            float y = Mathf.Sin(Mathf.Deg2Rad + currentAngle);
+            float x = Mathf.Cos(Mathf.Deg2Rad + currentAngle);
+            Vector3 pos = new Vector3(x, 0, y) * 4f + gameObject.transform.position;
+
+            Vector3 cornerDir = Vector3.zero;
+
+            int count = 0;
+            if (Physics.Raycast(gameObject.transform.position, Vector3.right, out tempRayWallHit, 3f, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir += Vector3.right / 2;
+            }
+
+            if (Physics.Raycast(gameObject.transform.position, -Vector3.right, out tempRayWallHit, 3f, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir -= Vector3.right / 2;
+            }
+
+            if (Physics.Raycast(gameObject.transform.position, Vector3.forward, out tempRayWallHit, 3f, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir += Vector3.forward / 2;
+            }
+
+            if (Physics.Raycast(gameObject.transform.position, -Vector3.forward, out tempRayWallHit, 3f, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir -= Vector3.forward / 2;
+            }
+
+
+            if (count == 1)
+            {
+                // if (Physics.Raycast(gameObject.transform.position, (pos - gameObject.transform.position).normalized, out rayHit, 8f, LayerMask.GetMask("Wall")))
+                // {
+                dot = Vector3.Dot((body.aiManager.playerTarget.position - gameObject.transform.position).normalized, (pos - gameObject.transform.position).normalized);
+                dot2 = Vector3.Dot(cornerDir.normalized, (pos - gameObject.transform.position).normalized);
+                if (dot2 <= 0.2f && dot <= 0.6f)
+                {
+                    Gizmos.color = Color.blue;
+                    Gizmos.DrawLine(gameObject.transform.position, pos);
+                }
+                // dot = Vector3.Dot((pos - gameObject.transform.position).normalized, (body.aiManager.playerTarget.position - gameObject.transform.position).normalized);
+                // if (dot < 0.5f)
+                // {
+                //     Gizmos.DrawLine(gameObject.transform.position, pos);
+                // }
+                // }
+            }
+            else if (count == 2)
+            {
+                // if (Physics.Raycast(gameObject.transform.position, cornerDir.normalized, out rayCornerHit, 6f, LayerMask.GetMask("Wall")))
+                // {
+                dot = Vector3.Dot(cornerDir.normalized,
+                                    (pos - gameObject.transform.position).normalized);
+                if (CheckAngle(dot, -0.5f))
+                {
+                    Gizmos.color = Color.blue;
+                    Gizmos.DrawLine(gameObject.transform.position, pos);
+                }
+                // }
+            }
+            else
+            {
+                dot = Vector3.Dot((pos - gameObject.transform.position).normalized, (body.aiManager.playerTarget.position - gameObject.transform.position).normalized);
+                if (dot < 0.6f)
+                {
+                    Gizmos.color = Color.white;
+                    Gizmos.DrawLine(gameObject.transform.position, pos);
+                }
+            }
+        }
+    }
+
+    bool CheckAngle(float dot, float angle)
+    {
+        // if (angle >= 0)
+        // {
+        return dot < angle;
+        // }
+        // else
+        // {
+        //     return dot > angle;
+        // }
+    }
 }
 
 #region stuff

@@ -14,7 +14,7 @@ namespace Enemy
         public float attRange;
         public float attackWidth;
 
-        public List<SoundEffectContainer> soundFX;
+        public List<SoundEffectControllerContainer> soundFX;
         public List<ParticleEffectContainer> particleFX;
         public List<VFXContainer> VFX;
     }

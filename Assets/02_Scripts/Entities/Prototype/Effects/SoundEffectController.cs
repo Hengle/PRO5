@@ -22,4 +22,9 @@ public class SoundEffectController : IEffectController
     {
         soundEffect.Stop();
     }
+
+    public virtual void PlayEffect(bool random, string name = null)
+    {
+
+    }
 }

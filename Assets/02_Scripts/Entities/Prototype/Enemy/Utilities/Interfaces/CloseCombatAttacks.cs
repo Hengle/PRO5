@@ -47,7 +47,6 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
             foreach (EffectContainer effect in anim.particleFX)
                 StartEffects(effect);
 
-
         yield return new WaitForSeconds(start);
 
         canDamage = true;

@@ -55,90 +55,207 @@ public class AIUtilities : MonoBehaviour
 
     public class RandomPointLocator
     {
-        public Vector3 point;
+        NavMeshHit hit;
+        Vector3 random;
+        Vector3 basePos;
+        float maxDist;
+        bool isRunning = false;
+        RaycastHit rayCornerHit;
+        RaycastHit rayWallHit;
 
-        public List<Vector3> movePoints = new List<Vector3>();
-
-        /// <summary>
-        /// Finds a list of points on a Navmesh in a direction away from the player with a minimum angle (dot product).
-        /// </summary>
-        /// <param name="amount">The amount of points you want</param>
-        /// <param name="minAngle">The minimum angle written as the dot product</param>
-        /// <param name="maxDist">The maximum distance from the center</param>
-        /// <param name="minDist">The minimum distance from the center</param>
-        /// <param name="self">The center</param>
-        /// <param name="playerTarget">The player</param>
-        /// <returns>Returns a list of Vector3 positions</returns>
-        public async UniTask FindMultPoints(float amount, float minAngle, float minDist, float maxDist, Transform self, Transform playerTarget)
+        public List<Vector3> wayPoints = new List<Vector3>();
+        public void FindWaypoints(GameObject obj, EnemyBody enemyBody, float minAngle, float maxAngle, float awayFromWallAngle, float minWallDistance, bool async, int amount = 3, System.Action Finished = null)
+        {
+            if (async)
+                FindWaypointsAsync(obj, enemyBody, minAngle, maxAngle, awayFromWallAngle, minWallDistance, Finished, amount);
+            else
+                FindWaypointsNotAsync(obj, enemyBody, minAngle, maxAngle, awayFromWallAngle, minWallDistance, amount);
+        }
+        public async UniTask FindWaypointsAsync(GameObject obj, EnemyBody enemyBody, float minAngle, float maxAngle, float awayFromWallAngle, float minWallDistance, System.Action Finished, int amount = 3)
         {
             float dot = 1;
-            Vector3 random = self.position;
-            bool done = false;
+            float dot2 = 2;
+
+            random = Vector3.zero;
+            basePos = obj.transform.position;
+
+            float tempMinAngle = minAngle;
+
+            Vector3 cornerDir = Vector3.zero;
 
             for (int i = 0; i < amount; i++)
+            {
+                bool done = false;
+                int c = 0;
+                Vector3 playerPos = enemyBody.aiManager.playerTarget.position;
                 while (!done)
                 {
-                    float dist = Random.Range(minDist, maxDist);
-                    Vector3 unit = Random.insideUnitSphere * maxDist;
-                    random = self.transform.position + unit;
+                    float a = Random.Range(0f, 1f) * 2 * Mathf.PI;
+                    maxDist = Random.Range(8f, 10f);
 
-                    dot = Vector3.Dot((playerTarget.position - self.position).normalized,
-                                        (new Vector3(random.x, self.position.y, random.z) - self.position).normalized);
+                    float x = Mathf.Cos(a);
+                    float y = Mathf.Sin(a);
 
-                    if (dot < minAngle)
+                    Vector3 unit = new Vector3(x, 0, y) * maxDist;
+                    random = basePos + unit;
+
+                    int wallcheck = CheckForWalls(ref cornerDir, minWallDistance);
+
+                    //Get dot product from player to target position
+                    dot = Vector3.Dot((new Vector3(playerPos.x, basePos.y, playerPos.z) - basePos).normalized,
+                                                                (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
+
+                    if (wallcheck == 1) //Behaviour when there is only one wall near the enemy
                     {
-                        if (IsOnNavMesh(random, maxDist))
-                        {
-                            Debug.Log("HIT");
-                            done = true;
-                            movePoints.Add(new Vector3(random.x, self.position.y, random.z));
-                        }
-                    }
-                    await UniTask.Yield();
-                }
-        }
+                        dot2 = Vector3.Dot(cornerDir.normalized,
+                                            (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
 
-        /// <summary>
-        /// Finds a point on a Navmesh in a direction away from the player with a minimum angle (dot product).
-        /// </summary>
-        /// <param name="minAngle">The minimum angle written as the dot product</param>
-        /// <param name="maxDist">The maximum distance from the center</param>
-        /// <param name="minDist">The minimum distance from the center</param>
-        /// <param name="self">The center</param>
-        /// <param name="playerTarget">The player</param>
-        /// <returns>Returns a single position as Vector3</returns>
-        public async UniTaskVoid FindSinglePoint(float minAngle, float maxDist, float minDist, Transform self, Transform playerTarget)
+                        done = CheckAngle(dot, tempMinAngle, obj) && CheckAngle(dot2, awayFromWallAngle, obj) &&
+                            !CheckLineOfSight(new Vector3(random.x, basePos.y, random.z), obj, maxDist);
+                    }
+                    else if (wallcheck == 2) //Behaviour if there are to walls near the enemy (Enemy in a corner)
+                    {
+
+                        dot = Vector3.Dot(cornerDir.normalized,
+                                            (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
+                        if (CheckAngle(dot, -0.5f, obj) && !CheckLineOfSight(new Vector3(random.x, basePos.y, random.z), obj, maxDist))
+                        {
+                            done = true;
+                        }
+
+                    }
+                    else // normal Behaviour when no walls are near
+                    {
+                        done = CheckAngle(dot, minAngle, obj) && !CheckLineOfSight(new Vector3(random.x, obj.transform.position.y, random.z), obj, maxDist);
+                    }
+
+                    c++;
+                    if (c >= 3)
+                    {
+                        await UniTask.Yield();
+                        c = 0;
+                    }
+                }
+
+                tempMinAngle += 0.1f;
+            }
+            Finished();
+        }
+        public void FindWaypointsNotAsync(GameObject obj, EnemyBody enemyBody, float minAngle, float maxAngle, float awayFromWallAngle, float minWallDistance, int amount = 2)
         {
             float dot = 1;
-            Vector3 random = self.position;
-            bool done = false;
-            point = Vector3.zero;
-            while (!done)
+            float dot2 = 2;
+
+            random = Vector3.zero;
+            basePos = obj.transform.position;
+
+            float tempMinAngle = minAngle;
+
+            Vector3 cornerDir = Vector3.zero;
+
+            for (int i = 0; i < amount; i++)
             {
-                float dist = Random.Range(minDist, maxDist);
-                Vector3 unit = Random.insideUnitSphere * maxDist;
-                random = self.position + unit;
+                bool done = false;
 
-                dot = Vector3.Dot((playerTarget.position - self.position).normalized,
-                                    (new Vector3(random.x, self.transform.position.y, random.z) - self.transform.position).normalized);
-
-                if (dot < minAngle)
+                Vector3 playerPos = enemyBody.aiManager.playerTarget.position;
+                while (!done)
                 {
-                    if (IsOnNavMesh(random, maxDist))
+                    float a = Random.Range(0f, 1f) * 2 * Mathf.PI;
+                    maxDist = Random.Range(8f, 10f);
+
+                    float x = Mathf.Cos(a);
+                    float y = Mathf.Sin(a);
+
+                    Vector3 unit = new Vector3(x, 0, y) * maxDist;
+                    random = basePos + unit;
+
+                    int wallcheck = CheckForWalls(ref cornerDir, minWallDistance);
+
+                    //Get dot product from player to target position
+                    dot = Vector3.Dot((new Vector3(playerPos.x, basePos.y, playerPos.z) - basePos).normalized,
+                                                                (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
+
+                    //Behaviour when there is only one wall near the enemy
+                    if (wallcheck == 1)
                     {
-                        Debug.Log("HIT");
-                        done = true;
-                        point = new Vector3(random.x, self.transform.position.y, random.z);
+                        dot2 = Vector3.Dot(cornerDir.normalized,
+                                            (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
+
+                        done = CheckAngle(dot, tempMinAngle, obj) && CheckAngle(dot2, awayFromWallAngle, obj) &&
+                            !CheckLineOfSight(new Vector3(random.x, basePos.y, random.z), obj, maxDist);
                     }
+                    else if (wallcheck == 2) //Behaviour if there are to walls near the enemy (Enemy in a corner)
+                    {
+
+                        dot = Vector3.Dot(cornerDir.normalized,
+                                            (new Vector3(random.x, basePos.y, random.z) - basePos).normalized);
+                        done = CheckAngle(dot, -0.5f, obj) && !CheckLineOfSight(new Vector3(random.x, basePos.y, random.z), obj, maxDist);
+                    }
+                    else // normal Behaviour when no walls are near
+                    {
+                        done = CheckAngle(dot, minAngle, obj) && !CheckLineOfSight(new Vector3(random.x, obj.transform.position.y, random.z), obj, maxDist);
+                    }
+
                 }
-                await UniTask.Yield();
+
+                tempMinAngle += 0.1f;
             }
+        }
+
+        bool CheckLineOfSight(Vector3 pos, GameObject obj, float maxDist)
+        {
+            return Physics.Raycast(obj.transform.position, (pos - obj.transform.position).normalized, maxDist, LayerMask.GetMask("Wall"));
+        }
+
+        int CheckForWalls(ref Vector3 cornerDir, float minWallDistance)
+        {
+            RaycastHit tempHit = new RaycastHit();
+            int count = 0;
+            if (Physics.Raycast(basePos, Vector3.right, out tempHit, minWallDistance, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir += Vector3.right / 2;
+            }
+
+            if (Physics.Raycast(basePos, -Vector3.right, out tempHit, minWallDistance, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir -= Vector3.right / 2;
+            }
+
+            if (Physics.Raycast(basePos, Vector3.forward, out tempHit, minWallDistance, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir += Vector3.forward;
+            }
+
+            if (Physics.Raycast(basePos, -Vector3.forward, out tempHit, minWallDistance, LayerMask.GetMask("Wall")))
+            {
+                count++;
+                cornerDir -= Vector3.forward;
+            }
+
+            return count;
+        }
+
+        bool CheckAngle(float dot, float angle, GameObject obj)
+        {
+            if (dot < angle)
+            {
+                if (IsOnNavMesh(random, maxDist))
+                {
+                    Debug.Log("Find");
+                    basePos = new Vector3(random.x, obj.transform.position.y, random.z);
+                    wayPoints.Add(basePos);
+                    return true;
+                }
+            }
+            return false;
         }
 
         bool IsOnNavMesh(Vector3 random, float maxDist)
         {
-            NavMeshHit hit;
-            return NavMesh.SamplePosition(random, out hit, 0.5f, NavMesh.AllAreas);
+            return NavMesh.SamplePosition(random, out hit, 0.4f, -1);
         }
     }
     //Simple Timer that counts down until 0 from a given float value
@@ -160,14 +277,14 @@ public class AIUtilities : MonoBehaviour
         }
 
 
-        async public void StartTimer(System.Action SetCanAttack)
+        async public void StartTimer(System.Action Finish)
         {
             timerDone = false;
             timerStarted = true;
             //Starting the async function
             await Timing();
 
-            SetCanAttack();
+            Finish();
             timerStarted = false;
         }
 
