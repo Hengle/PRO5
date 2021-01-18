@@ -44,6 +44,8 @@ public class PlayerInputManager : MonoBehaviour
             controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._hiHatActive, "HiHatLayer", 1);
             controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
             controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._atmoActive, "AtmoLayer", 1);
+            
+
         }
 
         if (skillController != null)

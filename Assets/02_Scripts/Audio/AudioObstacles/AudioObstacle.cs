@@ -11,18 +11,13 @@ using UnityEngine.SceneManagement;
 //Handles Event Subscribing
 //Intervall
 //Material Emission
-enum musicEvents{
 
-    m_onSnare,
-    m_onKick,
-    m_onHitHat
-}
 public abstract class AudioObstacle : MonoBehaviour
 {
     //Subscribe to Event
-    //public bool m_onSnare;
-    //public bool m_onKick;
-    //public bool m_onHiHat;
+    public bool m_onSnare;
+    public bool m_onKick;
+    public bool m_onHiHat;
 
     public bool _useThisEmission;
 
@@ -44,14 +39,14 @@ public abstract class AudioObstacle : MonoBehaviour
     public float m_minEmissionIntensity = 0.1f;
     protected Material _material;
     protected Color _emissionColor;
-    
+    protected bool alreadyDone = false;
 
     //Tweening Sequence
     Sequence tweenSeq;
 
     bool test = false;
     public bool _holdOnMusic;
-    [SerializeField]private musicEvents _events;
+    
     [SerializeField] public MusicLayerController mlc;
 
 
@@ -64,10 +59,7 @@ public abstract class AudioObstacle : MonoBehaviour
 
     void Update()
     {
-        if (_holdOnMusic)
-        {
-            //if()
-        }
+        
     }
     
 
@@ -106,7 +98,7 @@ public abstract class AudioObstacle : MonoBehaviour
     {
         addedToEvent = true;
 
-        /*if (m_onSnare)
+        if (m_onSnare)
         {
             MyEventSystem.instance.Snare += objectAction;
         }
@@ -119,9 +111,9 @@ public abstract class AudioObstacle : MonoBehaviour
         if (m_onHiHat)
         {
             MyEventSystem.instance.HiHat += objectAction;
-        }*/
+        }
 
-        switch (_events)
+        /*switch (_events)
         {
             case musicEvents.m_onKick:
                 MyEventSystem.instance.Kick += objectAction;
@@ -135,14 +127,14 @@ public abstract class AudioObstacle : MonoBehaviour
             default:
                 break;
                 
-        }
+        }*/
     }
 
     //Unsubscribe vom Event 
     protected void removeActionFromEvent()
     {
         addedToEvent = false;
-        switch (_events)
+        /*switch (_events)
         {
             case musicEvents.m_onKick:
                 MyEventSystem.instance.Kick -= objectAction;
@@ -156,9 +148,9 @@ public abstract class AudioObstacle : MonoBehaviour
             default:
                 break;
                 
-        }
+        }*/
 
-        /*if (m_onSnare)
+        if (m_onSnare)
         {
             MyEventSystem.instance.Snare -= objectAction;
         }
@@ -171,7 +163,7 @@ public abstract class AudioObstacle : MonoBehaviour
         if (m_onHiHat)
         {
             MyEventSystem.instance.HiHat -= objectAction;
-        }*/
+        }
     }
 
     private void OnDisable()

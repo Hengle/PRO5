@@ -1,16 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
+public enum backandforth
+{
+    normal,
+    steps
+}
 
+public enum rotate
+{
+    first,
+    none
+}
 
 //Needs rework
 //works only in interval mode and not in normal mode
 public class AudioMover : AudioObstacle
 {
-
     //Move with Axis
     public float _moveX = 0;
     public float _moveY = 0;
@@ -28,21 +39,28 @@ public class AudioMover : AudioObstacle
     private float _moveZMaxBorder;
 
     //If the object should move back and forth
-    public bool _backAndForth = true;
-    public bool audioTurner;
-    public int rotation = 45;
+    public int rotation = -45;
+    private int forthCount = 0;
+    private int backCount = 3;
+    public int backMax = 3;
+    public int forthMax = 3;
+
+    public rotate rot;
+    public backandforth backandforth;
+    private bool count;
 
     // Calculating border ranges
     void Start()
     {
+        mlc = FindObjectOfType<MusicLayerController>();
         addActionToEvent();
 
-        _moveXMinBorder = transform.localPosition.x;
+        _moveXMinBorder = transform.localPosition.x - _moveX;
         _moveXMaxBorder = transform.localPosition.x + _moveX;
 
         _moveYMinBorder = transform.localPosition.y;
         _moveYMaxBorder = transform.localPosition.y + _moveY;
-        
+
         _moveZMinBorder = transform.localPosition.z;
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
@@ -53,63 +71,124 @@ public class AudioMover : AudioObstacle
     {
         increaseIntervalCounter();
 
-        if (audioTurner)
+        switch (rot)
         {
-            if (_intervalBeat && checkInterval())
-            {
-                gameObject.transform.Rotate(Vector3.up * rotation);
-            }
+            case rotate.first:
+                AudioRotate();
+                activateMoveMethod();
+                break;
+            case rotate.none:
+                activateMoveMethod();
+                break;
         }
-        else
-        {
-            if (_moveX != 0)
-            {
-                if (_intervalBeat && checkInterval())
-                {
-                    transform.DOLocalMoveX(_moveXMaxBorder, m_actionInDuration);
-                }
-
-                if (_backAndForth && !checkInterval())
-                {
-                    transform.DOLocalMoveX(_moveXMinBorder, m_actionInDuration);
-                }
-            }
-
-            if (_moveZ != 0)
-            {
-                if (_intervalBeat && checkInterval())
-                {
-                    transform.DOLocalMoveZ(_moveZMaxBorder, m_actionInDuration);
-                }
-                else if (_backAndForth && !checkInterval())
-                {
-                    transform.DOLocalMoveZ(_moveZMinBorder, m_actionInDuration);
-                }
-            }
-
-            if (_moveY != 0)
-            {
-                if (_intervalBeat && checkInterval())
-                {
-                    transform.DOLocalMoveY(_moveYMaxBorder, m_actionInDuration);
-
-                }
-                else if (_backAndForth && !checkInterval())
-                {
-                    transform.DOLocalMoveY(_moveYMinBorder, m_actionInDuration);
-                }
-            }
-        }
-
-        
     }
-    
+
+    void AudioRotate()
+    {
+        if (_intervalBeat && checkInterval())
+        {
+            gameObject.transform.Rotate(Vector3.up * rotation);
+        }
+    }
+
+    void activateMoveMethod()
+    {
+        if (_moveX != 0)
+        {
+            Move('x', _moveXMaxBorder, _moveXMinBorder, m_actionInDuration);
+        }
+
+        if (_moveZ != 0)
+        {
+            Move('z', _moveZMaxBorder, _moveZMinBorder, m_actionInDuration);
+        }
+
+        if (_moveY != 0)
+        {
+            Move('y', _moveYMaxBorder, _moveYMinBorder, m_actionInDuration);
+        }
+    }
+
+    void Move(char direction, float forthDistance, float backDistance, float duration)
+    {
+        if (_intervalBeat)
+        {
+            switch (backandforth)
+            {
+                case backandforth.normal:
+                    if (checkInterval())
+                    {
+                        makeMove(direction, forthDistance, duration);
+                    }
+
+                    if (!checkInterval())
+                    {
+                        makeMove(direction, backDistance, duration);
+                    }
+
+                    break;
+
+                case backandforth.steps:
+                    if (checkInterval())
+                    {
+                        switch (count)
+                        {
+                            case true:
+                                makeMove(direction, backDistance, duration);
+                                backCount++;
+                                if (backCount == backMax)
+                                {
+                                    count = false;
+                                    backCount = 0;
+                                }
+
+                                break;
+
+                            case false:
+
+                                makeMove(direction, forthDistance, duration);
+                                forthCount++;
+                                if (forthCount == forthMax)
+                                {
+                                    count = true;
+                                    forthCount = 0;
+                                }
+
+                                break;
+                        }
+                    }
+
+                    break;
+            }
+        }
+    }
+
+    void makeMove(char dir, float dis, float dur)
+    {
+        switch (dir)
+        {
+            case 'x':
+                transform.DOLocalMoveX(dis, dur);
+                break;
+            case 'y':
+                transform.DOLocalMoveY(dis, dur);
+                break;
+            case 'z':
+                transform.DOLocalMoveZ(dis, dur);
+                break;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
+        _moveXMinBorder = transform.localPosition.x - _moveX;
+        _moveXMaxBorder = transform.localPosition.x + _moveX;
+
+        _moveYMinBorder = transform.localPosition.y - _moveY;
+        _moveYMaxBorder = transform.localPosition.y + _moveY;
+
+        _moveZMinBorder = transform.localPosition.z - _moveZ;
+        _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
-
 }
-
-

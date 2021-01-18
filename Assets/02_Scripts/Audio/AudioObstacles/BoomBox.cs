@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,11 @@ public class BoomBox : AudioObstacle, IDamageObstacle
     public bool _holdValue = false;
     public bool _holdHelper;
 
+    public float radius = 5;
+    public float duration = 5;
+    public float force;
+    public bool shouldStun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,15 +46,13 @@ public class BoomBox : AudioObstacle, IDamageObstacle
     void Update()
     {
     }
-    
-   
+
 
     protected override void objectAction()
     {
         increaseIntervalCounter();
         if (checkInterval())
         {
-            
             emissionChange();
             if (_holdValue)
             {
@@ -87,6 +91,7 @@ public class BoomBox : AudioObstacle, IDamageObstacle
                         .Append(child.DOScaleY(_minLength, m_actionOutDuration))
                         .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
                         .SetEase(Ease.Flash);
+                    
                 }
             }
         }
@@ -98,18 +103,47 @@ public class BoomBox : AudioObstacle, IDamageObstacle
 
     public void PullTrigger(Collider c, float dmg)
     {
+        Debug.Log("enemy stunned");
         if (_turretActive)
         {
-            Debug.Log("Turret hit");
+            Debug.Log(c.name);
+            /*var enemies = stuff();
+            // Apply knockback force to each enemy
+            var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
+            foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
+
+            Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));*/
+          
             GameObject obj = c.gameObject;
-            if (obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
+            
+            if (obj.GetComponent<EnemyBody>())
             {
-                
+                Vector3 direction = (obj.transform.position - transform.position).normalized;
+
+                var rigidbody = obj.GetComponent<Rigidbody>();
+                var mass = rigidbody.mass;
+                var drag = rigidbody.drag;
+
+                var addForce = mass * (Mathf.Pow(drag + 1, 2)) + force;
+                obj.GetComponent<Rigidbody>().AddForce(direction * addForce, ForceMode.Impulse);
+                if (shouldStun)
+                {
+                    StartCoroutine(StunDuration(obj.GetComponent<EnemyActions>()));
+
+                }
             }
         }
     }
     
-  
+
+    protected IEnumerator StunDuration(EnemyActions enemyActions)
+    {
+        enemyActions.isStunned = true;
+        Debug.Log("enemy stunned3");
+        yield return new WaitForSeconds(duration);
+        enemyActions.isStunned = false;
+        //Destroy(this.gameObject);
+    }
 
 
     public void ShortDurationHelper()
@@ -125,5 +159,4 @@ public class BoomBox : AudioObstacle, IDamageObstacle
         _turretActive = false;
         gameObject.GetComponentInChildren<AudioObstacleDamageCollider>().DisableSelf();
     }
-
 }

@@ -11,7 +11,7 @@
       <e p="Assets" t="Include">
         <e p="02_Scripts" t="Include">
           <e p="Audio" t="Include">
-            <e p="AudioEmission.cs" t="Include" />
+            <e p="AudioMarkerEmission.cs" t="Include" />
             <e p="AudioObstacles" t="Include">
               <e p="AudioMover.cs" t="Include" />
               <e p="AudioObstacle.cs" t="Include" />
@@ -23,6 +23,7 @@
               <e p="LaserTurret.cs" t="Include" />
               <e p="LayerSymbolManager.cs" t="Include" />
             </e>
+            <e p="AudioSpectrumEmission.cs" t="Include" />
             <e p="FmodTimeline.cs" t="Include" />
             <e p="MarkerManager.cs" t="Include" />
             <e p="SpectrumManager.cs" t="Include" />
@@ -31,11 +32,22 @@
             <e p="AddTemplate.cs" t="Include" />
             <e p="AttackAnimationsEditor.cs" t="Include" />
             <e p="EditTemplate.cs" t="Include" />
+            <e p="EffectManagerEditor.cs" t="Include" />
+            <e p="EffectsListEditor.cs" t="Include" />
             <e p="SOTemplateEditor.cs" t="Include" />
             <e p="StatMultMonitor.cs" t="Include" />
           </e>
           <e p="Entities" t="Include">
             <e p="Prototype" t="Include">
+              <e p="Effects" t="Include">
+                <e p="EffectContainer.cs" t="Include" />
+                <e p="EffectManager.cs" t="Include" />
+                <e p="Interfaces" t="Include">
+                  <e p="IEffectController.cs" t="Include" />
+                </e>
+                <e p="ParticleEffectController.cs" t="Include" />
+                <e p="SoundEffectController.cs" t="Include" />
+              </e>
               <e p="Enemy" t="Include">
                 <e p="AIStuff" t="Include">
                   <e p="AIManager.cs" t="Include" />
@@ -49,19 +61,23 @@
                   </e>
                   <e p="StateMachineController.cs" t="Include" />
                 </e>
-                <e p="BeheaviourTree" t="Include">
-                  <e p="Avik" t="Include">
+                <e p="Avik" t="Include">
+                  <e p="AvikAttack.cs" t="Include" />
+                  <e p="BeheaviourTree" t="Include">
                     <e p="Actions" t="Include">
                       <e p="AvikChaseAction.cs" t="Include" />
                       <e p="AvoidAction.cs" t="Include" />
-                      <e p="CanAttackCheck.cs" t="Include" />
+                      <e p="GetRandomRange.cs" t="Include" />
                       <e p="MeleeAttackAction.cs" t="Include" />
+                      <e p="MoveAgent.cs" t="Include" />
+                      <e p="TurnToPlayerAction.cs" t="Include" />
                     </e>
-                    <e p="AvikAnimatorHook.cs" t="Include" />
-                    <e p="AvikAttack.cs" t="Include" />
                     <e p="Conditions" t="Include">
                       <e p="AvikPlayerDistanceDec.cs" t="Include" />
                       <e p="AvoidDecision.cs" t="Include" />
+                      <e p="CanAttackCheck.cs" t="Include" />
+                      <e p="InRangeCondition.cs" t="Include" />
+                      <e p="IsInHitbox.cs" t="Include" />
                     </e>
                     <e p="OLDDecisions" t="Include">
                       <e p="AvikPlayerInFrontDec.cs" t="Include" />
@@ -69,8 +85,25 @@
                     </e>
                   </e>
                 </e>
+                <e p="B_T_General" t="Include">
+                  <e p="Actions_" t="Include">
+                    <e p="NoNavMeshAction.cs" t="Include" />
+                    <e p="StunAction.cs" t="Include" />
+                  </e>
+                  <e p="Conditions_" t="Include">
+                    <e p="IsOnNavMeshCheck.cs" t="Include" />
+                    <e p="StunCondition.cs" t="Include" />
+                  </e>
+                </e>
                 <e p="Bullet.cs" t="Include" />
                 <e p="Shentau" t="Include">
+                  <e p="BehaviourTree" t="Include">
+                    <e p="Actions" t="Include">
+                      <e p="FindPointOnNavMesh.cs" t="Include" />
+                      <e p="FollowAction.cs" t="Include" />
+                      <e p="NewBehaviourScript.cs" t="Include" />
+                    </e>
+                  </e>
                   <e p="ShentauActions.cs" t="Include" />
                   <e p="STScripts" t="Include">
                     <e p="Actions" t="Include">
@@ -155,6 +188,7 @@
                 <e p="MovementSpeedBoost.cs" t="Include" />
                 <e p="PowerUp.cs" t="Include" />
                 <e p="PowerUpController.cs" t="Include" />
+                <e p="PowerupNames.cs" t="Include" />
                 <e p="RespawnTest.cs" t="Include" />
                 <e p="Shield.cs" t="Include" />
                 <e p="Stun.cs" t="Include" />
@@ -179,7 +213,6 @@
               <e p="ScriptCollectionTestOUT.cs" t="Include" />
             </e>
           </e>
-          <e p="SimpleCameraController.cs" t="Include" />
           <e p="System" t="Include">
             <e p="DeathDrop.cs" t="Include" />
             <e p="Input" t="Include">
@@ -275,6 +308,7 @@
                 <e p="StatTemplate.cs" t="Include" />
                 <e p="StatVariable.cs" t="Include" />
               </e>
+              <e p="GameManager.cs" t="Include" />
               <e p="HealthManager.cs" t="Include" />
               <e p="Level" t="Include">
                 <e p="Area.cs" t="Include" />
@@ -297,6 +331,7 @@
                   <e p="PuzzleObjective.cs" t="Include" />
                 </e>
               </e>
+              <e p="SceneLoader.cs" t="Include" />
               <e p="SpawnSystem" t="Include">
                 <e p="SpawnManager.cs" t="Include" />
                 <e p="Spawnpointstuff" t="Include">
@@ -333,94 +368,94 @@
             </e>
           </e>
         </e>
-        <e p="Plugins" t="Include">
-          <e p="BehaviorBricks" t="Include">
-            <e p="Actions" t="Include">
-              <e p="System" t="Include">
-                <e p="Animation" t="Include">
-                  <e p="PlayAnimation.cs" t="Include" />
-                </e>
-                <e p="Audio" t="Include">
-                  <e p="PlaySound.cs" t="Include" />
-                </e>
-                <e p="Basic" t="Include">
-                  <e p="SetBool.cs" t="Include" />
-                  <e p="SetFloat.cs" t="Include" />
-                  <e p="SetInt.cs" t="Include" />
-                  <e p="SetVector3.cs" t="Include" />
-                  <e p="toggleBool.cs" t="Include" />
-                  <e p="WaitForSeconds.cs" t="Include" />
-                </e>
-                <e p="GameObject" t="Include">
-                  <e p="AddComponent.cs" t="Include" />
-                  <e p="ClosestGameObjectFromList.cs" t="Include" />
-                  <e p="ClosestGameObjectWithTag.cs" t="Include" />
-                  <e p="Destroy.cs" t="Include" />
-                  <e p="FindGameObjectByName.cs" t="Include" />
-                  <e p="FindGameObjectByTag.cs" t="Include" />
-                  <e p="GetComponent.cs" t="Include" />
-                  <e p="Instantiate.cs" t="Include" />
-                  <e p="LookAt.cs" t="Include" />
-                  <e p="SendMessage.cs" t="Include" />
-                  <e p="SetActive.cs" t="Include" />
-                </e>
-                <e p="Navigation" t="Include">
-                  <e p="MoveToGameObject.cs" t="Include" />
-                  <e p="MoveToPosition.cs" t="Include" />
-                  <e p="MoveToRandomPosition.cs" t="Include" />
-                </e>
-                <e p="Physics" t="Include">
-                  <e p="ApplyForce.cs" t="Include" />
-                  <e p="FromMouseToWorld.cs" t="Include" />
-                  <e p="SetVelocity.cs" t="Include" />
-                </e>
-                <e p="Vector3" t="Include">
-                  <e p="GetRandomInArea.cs" t="Include" />
-                </e>
+        <e p="BehaviorBricks" t="Include">
+          <e p="Actions" t="Include">
+            <e p="System" t="Include">
+              <e p="Animation" t="Include">
+                <e p="PlayAnimation.cs" t="Include" />
+              </e>
+              <e p="Audio" t="Include">
+                <e p="PlaySound.cs" t="Include" />
+              </e>
+              <e p="Basic" t="Include">
+                <e p="SetBool.cs" t="Include" />
+                <e p="SetFloat.cs" t="Include" />
+                <e p="SetInt.cs" t="Include" />
+                <e p="SetVector3.cs" t="Include" />
+                <e p="toggleBool.cs" t="Include" />
+                <e p="WaitForSeconds.cs" t="Include" />
+              </e>
+              <e p="GameObject" t="Include">
+                <e p="AddComponent.cs" t="Include" />
+                <e p="ClosestGameObjectFromList.cs" t="Include" />
+                <e p="ClosestGameObjectWithTag.cs" t="Include" />
+                <e p="Destroy.cs" t="Include" />
+                <e p="FindGameObjectByName.cs" t="Include" />
+                <e p="FindGameObjectByTag.cs" t="Include" />
+                <e p="GetComponent.cs" t="Include" />
+                <e p="Instantiate.cs" t="Include" />
+                <e p="LookAt.cs" t="Include" />
+                <e p="SendMessage.cs" t="Include" />
+                <e p="SetActive.cs" t="Include" />
+              </e>
+              <e p="Navigation" t="Include">
+                <e p="MoveToGameObject.cs" t="Include" />
+                <e p="MoveToPosition.cs" t="Include" />
+                <e p="MoveToRandomPosition.cs" t="Include" />
+              </e>
+              <e p="Physics" t="Include">
+                <e p="ApplyForce.cs" t="Include" />
+                <e p="FromMouseToWorld.cs" t="Include" />
+                <e p="SetVelocity.cs" t="Include" />
+              </e>
+              <e p="Vector3" t="Include">
+                <e p="GetRandomInArea.cs" t="Include" />
               </e>
             </e>
-            <e p="BehaviorExecutor.cs" t="Include" />
-            <e p="BrickAsset.cs" t="Include" />
-            <e p="Conditions" t="Include">
-              <e p="System" t="Include">
-                <e p="Basic" t="Include">
-                  <e p="CheckBool.cs" t="Include" />
-                  <e p="CheckButton.cs" t="Include" />
-                  <e p="CheckKey.cs" t="Include" />
-                  <e p="CheckMouseButton.cs" t="Include" />
-                </e>
-                <e p="Perception" t="Include">
-                  <e p="IsTargetClose.cs" t="Include" />
-                  <e p="IsTargetCloseAndInSight.cs" t="Include" />
-                  <e p="IsTargetInSight.cs" t="Include" />
-                </e>
+          </e>
+          <e p="BehaviorExecutor.cs" t="Include" />
+          <e p="BrickAsset.cs" t="Include" />
+          <e p="Conditions" t="Include">
+            <e p="System" t="Include">
+              <e p="Basic" t="Include">
+                <e p="CheckBool.cs" t="Include" />
+                <e p="CheckButton.cs" t="Include" />
+                <e p="CheckKey.cs" t="Include" />
+                <e p="CheckMouseButton.cs" t="Include" />
+              </e>
+              <e p="Perception" t="Include">
+                <e p="IsTargetClose.cs" t="Include" />
+                <e p="IsTargetCloseAndInSight.cs" t="Include" />
+                <e p="IsTargetInSight.cs" t="Include" />
               </e>
             </e>
-            <e p="Editor" t="Include">
-              <e p="BehaviorExecutorEditor.cs" t="Include" />
-            </e>
-            <e p="readme.txt" t="Include" />
-            <e p="Samples" t="Include">
-              <e p="ProgrammersQuickStartGuide" t="Include">
-                <e p="Done" t="Include">
-                  <e p="DoneBulletScript.cs" t="Include" />
-                  <e p="DoneDayNightCycle.cs" t="Include" />
-                  <e p="DoneIsNight.cs" t="Include" />
-                  <e p="DoneShoot.cs" t="Include" />
-                  <e p="DoneShootOnce.cs" t="Include" />
-                  <e p="DoneSleepForever.cs" t="Include" />
-                </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="BehaviorExecutorEditor.cs" t="Include" />
+          </e>
+          <e p="readme.txt" t="Include" />
+          <e p="Samples" t="Include">
+            <e p="ProgrammersQuickStartGuide" t="Include">
+              <e p="Done" t="Include">
+                <e p="DoneBulletScript.cs" t="Include" />
+                <e p="DoneDayNightCycle.cs" t="Include" />
+                <e p="DoneIsNight.cs" t="Include" />
+                <e p="DoneShoot.cs" t="Include" />
+                <e p="DoneShootOnce.cs" t="Include" />
+                <e p="DoneSleepForever.cs" t="Include" />
               </e>
-              <e p="QuickStartGuide" t="Include">
-                <e p="Done" t="Include">
-                  <e p="Resources" t="Include">
-                    <e p="MassSpawner.cs" t="Include" />
-                    <e p="Spawner.cs" t="Include" />
-                  </e>
+            </e>
+            <e p="QuickStartGuide" t="Include">
+              <e p="Done" t="Include">
+                <e p="Resources" t="Include">
+                  <e p="MassSpawner.cs" t="Include" />
+                  <e p="Spawner.cs" t="Include" />
                 </e>
               </e>
             </e>
           </e>
+        </e>
+        <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
               <e p="Modules" t="Include">

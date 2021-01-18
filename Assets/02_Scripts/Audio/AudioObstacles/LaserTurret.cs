@@ -27,6 +27,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     // Start is called before the first frame update
     void Start()
     {
+        mlc = FindObjectOfType<MusicLayerController>();
         _material = GetComponent<MeshRenderer>().material;
         _emissionColor = _material.GetColor("_EmissiveColor");
         _energyWall = this.gameObject.transform.GetChild(0).gameObject;
@@ -40,57 +41,128 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     // Update is called once per frame
     void Update()
     {
+        if (_holdOnMusic)
+        {
+            if (m_onSnare)
+            {
+                if (mlc._snareActive && !alreadyDone)
+                {
+                    emissionActive();
+                    alreadyDone = true;
+                }
+                else if (!mlc._snareActive && alreadyDone)
+                {
+                    emissionDeactive();
+                    alreadyDone = false;
+                }
+            }
+
+            if (m_onKick)
+            {
+                if (mlc._leadBassActive && !alreadyDone)
+                {
+                    emissionActive();
+                    alreadyDone = true;
+                }
+                else if (!mlc._leadBassActive && alreadyDone)
+                {
+                    emissionDeactive();
+                    alreadyDone = false;
+                }
+            }
+
+            if (m_onHiHat)
+            {
+                if (mlc._hiHatActive && !alreadyDone)
+                {
+                    emissionActive();
+                    alreadyDone = true;
+                }
+                else if (!mlc._hiHatActive && alreadyDone)
+                {
+                    emissionDeactive();
+                    alreadyDone = false;
+                }
+            }
+        }
     }
-    
-   
+
+    void emissionActive()
+    {
+        emissionChange(1);
+        foreach (Transform child in transform)
+        {
+            Sequence _tweenSeq = DOTween.Sequence()
+                .Append(child.DOScaleY(_maxLength, m_actionInDuration))
+                .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                .SetEase(Ease.Flash);
+        }
+    }
+
+    void emissionDeactive()
+    {
+        emissionChange(2);
+        foreach (Transform child in transform)
+        {
+            Sequence _tweenSeq = DOTween.Sequence()
+                .Append(child.DOScaleY(_minLength, m_actionOutDuration))
+                .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                .SetEase(Ease.Flash);
+        }
+    }
+
 
     protected override void objectAction()
     {
-        increaseIntervalCounter();
-        if (checkInterval())
+        if (!_holdOnMusic)
         {
-            
-            emissionChange();
-            if (_holdValue)
+            increaseIntervalCounter();
+            if (checkInterval())
             {
-                if (_holdHelper)
+                emissionChange();
+                if (_holdValue)
                 {
-                    emissionChange(1);
+                    if (_holdHelper)
+                    {
+                        emissionChange(1);
+                        foreach (Transform child in transform)
+                        {
+                            Sequence _tweenSeq = DOTween.Sequence()
+                                .Append(child.DOScaleY(_maxLength, m_actionInDuration))
+                                .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"),
+                                    m_actionInDuration))
+                                .SetEase(Ease.Flash);
+                        }
+
+                        _holdHelper = false;
+                    }
+                    else
+                    {
+                        emissionChange(2);
+                        foreach (Transform child in transform)
+                        {
+                            Sequence _tweenSeq = DOTween.Sequence()
+                                .Append(child.DOScaleY(_minLength, m_actionOutDuration))
+                                .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"),
+                                    m_actionOutDuration))
+                                .SetEase(Ease.Flash);
+                        }
+
+                        _holdHelper = true;
+                    }
+                }
+                else
+                {
+                    emissionChange();
                     foreach (Transform child in transform)
                     {
                         Sequence _tweenSeq = DOTween.Sequence()
                             .Append(child.DOScaleY(_maxLength, m_actionInDuration))
                             .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
-                            .SetEase(Ease.Flash);
-                    }
-
-                    _holdHelper = false;
-                }
-                else
-                {
-                    emissionChange(2);
-                    foreach (Transform child in transform)
-                    {
-                        Sequence _tweenSeq = DOTween.Sequence()
                             .Append(child.DOScaleY(_minLength, m_actionOutDuration))
                             .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
                             .SetEase(Ease.Flash);
                     }
-
-                    _holdHelper = true;
-                }
-            }
-            else
-            {
-                emissionChange();
-                foreach (Transform child in transform)
-                {
-                    Sequence _tweenSeq = DOTween.Sequence()
-                        .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                        .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
-                        .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                        .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
-                        .SetEase(Ease.Flash);
                 }
             }
         }

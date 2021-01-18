@@ -536,31 +536,7 @@ ScriptedImporter:
       filterMode: 1
       aniso: 1
     colorSpaceList: []
-    inputTextureMap:
-    - inputName: input_ao
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_AOMap.png
-      texture2D: {fileID: 2800000, guid: dd10a9966b831104cad93a90aba9fb65, type: 3}
-    - inputName: input_ID
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_ColorMap.png
-      texture2D: {fileID: 2800000, guid: 4dd8f7c18a4b0c240b54330f4dee2ece, type: 3}
-    - inputName: input_curvature
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_CurvatureMap.png
-      texture2D: {fileID: 2800000, guid: 8db4e0ea745559b43b40b6854447288e, type: 3}
-    - inputName: input_height
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_HeightMap.png
-      texture2D: {fileID: 2800000, guid: dd0816e18fd3b5c49ade6d43b1c9fe92, type: 3}
-    - inputName: input_worldSpace
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_WorldSpaceNormals.png
-      texture2D: {fileID: 2800000, guid: 036f5143697565442a54c569afdfe3da, type: 3}
-    - inputName: input_posZ
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_PosMapZ.png
-      texture2D: {fileID: 2800000, guid: 8fe63a55321bd11419444aa56391f533, type: 3}
-    - inputName: input_posY
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_PosMapY.png
-      texture2D: {fileID: 2800000, guid: bb7a07bc1a57a8b419f7945d8bc94a77, type: 3}
-    - inputName: input_posX
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V5/crate_low_5_PosMapX.png
-      texture2D: {fileID: 2800000, guid: 8eb91a0b09c564243a43458547db53e2, type: 3}
+    inputTextureMap: []
     targetSettingList:
     - label: Default
       bOverride: 0
@@ -1102,31 +1078,7 @@ ScriptedImporter:
       filterMode: 1
       aniso: 1
     colorSpaceList: []
-    inputTextureMap:
-    - inputName: input_ao
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_AOMap.png
-      texture2D: {fileID: 2800000, guid: 361439944bc371845ac89b398205092b, type: 3}
-    - inputName: input_ID
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_ColorMap.png
-      texture2D: {fileID: 2800000, guid: 0a2b65d97285d94428f794bb9ee7245f, type: 3}
-    - inputName: input_curvature
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_CurvatureMap.png
-      texture2D: {fileID: 2800000, guid: be8d588a62d77c247a7ab1885046a8f2, type: 3}
-    - inputName: input_height
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_HeightMap.png
-      texture2D: {fileID: 2800000, guid: 4bae6305bd7f06b4ab6d527c35f86be1, type: 3}
-    - inputName: input_worldSpace
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_WorldSpaceNormals.png
-      texture2D: {fileID: 2800000, guid: a0e6e99ed61720e49a2c0eaabaeeacde, type: 3}
-    - inputName: input_posX
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_PosMapX.png
-      texture2D: {fileID: 2800000, guid: 2f7d2caa5a365d14a9528054ee0f6454, type: 3}
-    - inputName: input_posY
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_PosMapY.png
-      texture2D: {fileID: 2800000, guid: 159f9726d0a8a5f4ba6551db306b3d3d, type: 3}
-    - inputName: input_posZ
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V1/crate_low_1_PosMapZ.png
-      texture2D: {fileID: 2800000, guid: 04f3e64ddd5568e4eabbce6d6fdc2bb1, type: 3}
+    inputTextureMap: []
     targetSettingList:
     - label: Default
       bOverride: 0
@@ -1668,31 +1620,7 @@ ScriptedImporter:
       filterMode: 1
       aniso: 1
     colorSpaceList: []
-    inputTextureMap:
-    - inputName: input_ao
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_AOMap.png
-      texture2D: {fileID: 2800000, guid: 98bd43cdc608a3f458e1e41ff798d49c, type: 3}
-    - inputName: input_ID
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_ColorMap.png
-      texture2D: {fileID: 2800000, guid: e05d47d017cff984896da3354487b49e, type: 3}
-    - inputName: input_curvature
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_CurvatureMap.png
-      texture2D: {fileID: 2800000, guid: e2b8ca6dd55deb84989fc891163eb429, type: 3}
-    - inputName: input_height
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_HeightMap.png
-      texture2D: {fileID: 2800000, guid: 6c9abe26370feaf44b63f836fcb0de00, type: 3}
-    - inputName: input_posY
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_PosMapY.png
-      texture2D: {fileID: 2800000, guid: 5c335c004d1e99a498b73c1656ae2c9f, type: 3}
-    - inputName: input_worldSpace
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_WorldSpaceNormals.png
-      texture2D: {fileID: 2800000, guid: 0bec73d4de72c824a884defad5e73155, type: 3}
-    - inputName: input_posX
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_PosMapX.png
-      texture2D: {fileID: 2800000, guid: e2b7de873d02c1945b24454e7daab31b, type: 3}
-    - inputName: input_posZ
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V4/crate_e_low_4_PosMapZ.png
-      texture2D: {fileID: 2800000, guid: ee7c3b82315e11145b59d2956df0bf6e, type: 3}
+    inputTextureMap: []
     targetSettingList:
     - label: Default
       bOverride: 0
@@ -2234,31 +2162,7 @@ ScriptedImporter:
       filterMode: 1
       aniso: 1
     colorSpaceList: []
-    inputTextureMap:
-    - inputName: input_ao
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_AOMap.png
-      texture2D: {fileID: 2800000, guid: d6ab40bb09f9f9e4d850d7271ff1b784, type: 3}
-    - inputName: input_ID
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_ColorMap.png
-      texture2D: {fileID: 2800000, guid: 89344265d547eb948af6d7b31efcb290, type: 3}
-    - inputName: input_curvature
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_CurvatureMap.png
-      texture2D: {fileID: 2800000, guid: c21057d97bd2fd64ba777182de24b4df, type: 3}
-    - inputName: input_height
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_HeightMap.png
-      texture2D: {fileID: 2800000, guid: 3d92b6938e403114baf50c1e4da83a74, type: 3}
-    - inputName: input_worldSpace
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_WorldSpaceNormals.png
-      texture2D: {fileID: 2800000, guid: 96a550242fa868b4ab65a2d97ad4a4df, type: 3}
-    - inputName: input_posX
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_PosMapX.png
-      texture2D: {fileID: 2800000, guid: 8e1d9a7d741827b44bf1ff8bfb834d5c, type: 3}
-    - inputName: input_posY
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_PosMapY.png
-      texture2D: {fileID: 2800000, guid: 917a58e76c050584a926f3f57b51adc9, type: 3}
-    - inputName: input_posZ
-      texturePath: Assets/01_Art/Textures/CrateGenerator/MeshMaps/V2/crate_low_2_PosMapZ.png
-      texture2D: {fileID: 2800000, guid: 715324766ebcd91449523bdd88d0fa28, type: 3}
+    inputTextureMap: []
     targetSettingList:
     - label: Default
       bOverride: 0

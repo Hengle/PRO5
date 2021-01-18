@@ -17,12 +17,15 @@ public class LayerSymbolManager : MonoBehaviour
     public Material Square;
     public Material Hexagon;
 
+    private List<AudioObstacle> _audioObstacles;
+
     //TODO
     //Das Script sollte das AudioObstacle fragen auf welche Spur es hört damit das Symbol automatisch zugewiesen werden kann
 
 
     void Start()
     {
+        askAudioObstacle();
         //Offsets
         float triangle = 0.02f;
         float square = 0.35f;
@@ -43,6 +46,15 @@ public class LayerSymbolManager : MonoBehaviour
         {
             _renderer.material = Triangle;
         }
+    }
+
+    void askAudioObstacle()
+    {
+        //hi obstacle which layer are you hearing
+        _audioObstacles = new List<AudioObstacle>(gameObject.GetComponents<AudioObstacle>());
+        if (_audioObstacles[0].m_onKick) Kick = true;
+        else if (_audioObstacles[0].m_onSnare) Snare = true;
+        else if (_audioObstacles[0].m_onHiHat) HiHat = true;
     }
 
     

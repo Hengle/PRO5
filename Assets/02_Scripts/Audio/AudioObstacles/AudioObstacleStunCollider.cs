@@ -17,13 +17,14 @@ public class AudioObstacleStunCollider : MonoBehaviour
     //when triggered, the method of the parent PullTrigger gets called that handels the damage
     void OnTriggerEnter(Collider c)
     {
+        Debug.Log("enemy stunned4");
         gameObject.GetComponentInParent<IDamageObstacle>().PullTrigger(c, _dmgOnEnter);
     }
 
-    private void OnTriggerStay(Collider c)
+    /*private void OnTriggerStay(Collider c)
     {
         gameObject.GetComponentInParent<IDamageObstacle>().PullTrigger(c, _dmgOnStay);
-    }
+    }*/
 
     public void DisableSelf()
     {
