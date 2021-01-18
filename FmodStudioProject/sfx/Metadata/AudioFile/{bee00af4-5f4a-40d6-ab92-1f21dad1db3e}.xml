@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{bee00af4-5f4a-40d6-ab92-1f21dad1db3e}">
+		<property name="assetPath">
+			<value>powerup_activate.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.91428571428571426</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11de781b-2e6e-4834-8118-b8fc2a472b47}</destination>
+		</relationship>
+	</object>
+</objects>
