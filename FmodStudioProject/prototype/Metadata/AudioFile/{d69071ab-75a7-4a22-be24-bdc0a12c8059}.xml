@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{d69071ab-75a7-4a22-be24-bdc0a12c8059}">
+		<property name="assetPath">
+			<value>enemy2_charge.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.9779591836734696</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{27daec36-9c41-4184-ac22-2c21c8415874}</destination>
+		</relationship>
+	</object>
+</objects>
