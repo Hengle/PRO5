@@ -44,7 +44,7 @@ public class AttackAnimationsEditor : Editor
                 for (int i = 0; i < t.attackAnimations.Count; i++)
                 {
                     if (t.attackAnimations[i].soundFX == null)
-                        t.attackAnimations[i].soundFX = new List<SoundEffectContainer>();
+                        t.attackAnimations[i].soundFX = new List<SoundEffectControllerContainer>();
 
                     if (t.attackAnimations[i].particleFX == null)
                         t.attackAnimations[i].particleFX = new List<ParticleEffectContainer>();
@@ -183,7 +183,7 @@ public class AttackAnimationsEditor : Editor
                                 switch (effect)
                                 {
                                     case EffectType.SoundEffect:
-                                        SoundEffectContainer s = new SoundEffectContainer();
+                                        SoundEffectControllerContainer s = new SoundEffectControllerContainer();
                                         s.frame = frame;
                                         s.type = effect;
                                         t.attackAnimations[i].soundFX.Add(s);

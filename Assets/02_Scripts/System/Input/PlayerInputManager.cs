@@ -41,9 +41,9 @@ public class PlayerInputManager : MonoBehaviour
         if (musicLayerController != null)
         {
             controls.Gameplay.Skill1.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._snareActive, "SnareLayer", 1);
-            controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._hiHatActive, "HiHatLayer", 1);
-            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
-            controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._atmoActive, "AtmoLayer", 1);
+            controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._hiHatActive, "HiHatLayer", 1);
+            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
+            controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._atmoActive, "AtmoLayer", 1);
         }
 
         if (skillController != null)
@@ -51,9 +51,6 @@ public class PlayerInputManager : MonoBehaviour
             controls.Gameplay.Charge.performed += ctx => skillController.chargeIsPressed(true);
             controls.Gameplay.Charge.canceled += ctx => skillController.chargeIsPressed(false);
         }
-
-      
-
 
         controls.Gameplay.Movement.canceled += ctx => move = Vector2.zero;
         controls.Gameplay.Rotate.canceled += ctx => gamepadRotate = Vector2.zero;
