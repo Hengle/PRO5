@@ -30,7 +30,7 @@ public abstract class IEnemyAttacks : MonoBehaviour
     {
         if (effectCoroutines.Count != 0)
         {
-            for(int i = 0; i< effectCoroutines.Count; i++)
+            for (int i = 0; i < effectCoroutines.Count; i++)
             {
                 StopCoroutine(effectCoroutines[i]);
                 effectCoroutines.Remove(effectCoroutines[i]);
@@ -41,8 +41,14 @@ public abstract class IEnemyAttacks : MonoBehaviour
 
     IEnumerator StartEffect(EffectContainer effect)
     {
-        float start = effect.frame / 24;
-        yield return start;
+        float start;
+
+        if (effect.frame != 0)
+            start = effect.frame / 24;
+        else
+            start = 0;
+
+        yield return new WaitForSeconds(start);
         effect.PlayEffect();
     }
 

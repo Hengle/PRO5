@@ -35,15 +35,17 @@ public class EffectManagerEditor : Editor
                 for (int j = 0; j < t.soundFX.Count; j++)
                 {
                     GUILayout.BeginHorizontal();
-
+                    t.soundFX[j] = (SoundEffectController)EditorGUILayout.ObjectField(t.soundFX[j], typeof(SoundEffectController), true, GUILayout.MaxWidth(200));
                     if (t.soundFX[j] != null)
                     {
                         t.soundFX[j].effectName = EditorGUILayout.TextField(t.soundFX[j].effectName, GUILayout.MaxWidth(60f));
-                        t.soundFX[j].playOnCommand = EditorGUILayout.Toggle(t.soundFX[j].playOnCommand, GUILayout.MaxWidth(40f));
-                        t.soundFX[j].playOnCollision = EditorGUILayout.Toggle(t.soundFX[j].playOnCommand, GUILayout.MaxWidth(40f));
+                        GUILayout.Label("On Command", GUILayout.MaxWidth(80f));
+                        t.soundFX[j].playOnCommand = EditorGUILayout.Toggle(t.soundFX[j].playOnCommand, GUILayout.MaxWidth(20f));
+                        GUILayout.Label("On Collision", GUILayout.MaxWidth(70f));
+                        t.soundFX[j].playOnCollision = EditorGUILayout.Toggle(t.soundFX[j].playOnCollision, GUILayout.MaxWidth(20f));
                         // t.particleFX[j].particle = (ParticleSystem)EditorGUILayout.ObjectField(t.particleFX[j].particle, typeof(ParticleSystem), true, GUILayout.MaxWidth(250f));
                     }
-                    t.soundFX[j] = (SoundEffectController)EditorGUILayout.ObjectField(t.soundFX[j], typeof(SoundEffectController), true, GUILayout.MaxWidth(200));
+
 
                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                         t.soundFX.Remove(t.soundFX[j]);
@@ -61,8 +63,10 @@ public class EffectManagerEditor : Editor
                     if (t.particleFX[j] != null)
                     {
                         t.particleFX[j].effectName = EditorGUILayout.TextField(t.particleFX[j].effectName, GUILayout.MaxWidth(60f));
-                        t.particleFX[j].playOnCommand = EditorGUILayout.Toggle(t.particleFX[j].playOnCommand, GUILayout.MaxWidth(40f));
-                        t.particleFX[j].playOnCollision = EditorGUILayout.Toggle(t.particleFX[j].playOnCommand, GUILayout.MaxWidth(40f));
+                        GUILayout.Label("On Command", GUILayout.MaxWidth(80f));
+                        t.particleFX[j].playOnCommand = EditorGUILayout.Toggle(t.particleFX[j].playOnCommand, GUILayout.MaxWidth(20));
+                        GUILayout.Label("On Collision", GUILayout.MaxWidth(70f));
+                        t.particleFX[j].playOnCollision = EditorGUILayout.Toggle(t.particleFX[j].playOnCollision, GUILayout.MaxWidth(20));
                         // t.particleFX[j].particle = (ParticleSystem)EditorGUILayout.ObjectField(t.particleFX[j].particle, typeof(ParticleSystem), true, GUILayout.MaxWidth(250f));
                     }
                     t.particleFX[j] = (ParticleEffectController)EditorGUILayout.ObjectField(t.particleFX[j], typeof(ParticleEffectController), true, GUILayout.MaxWidth(200f));

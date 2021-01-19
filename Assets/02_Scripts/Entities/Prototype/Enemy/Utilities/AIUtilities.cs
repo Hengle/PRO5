@@ -9,6 +9,7 @@ public class AIUtilities : MonoBehaviour
     {
         ScriptCollection.RegisterScript(this);
     }
+    
     void OnDisable()
     {
         ScriptCollection.RemoveScript(this);

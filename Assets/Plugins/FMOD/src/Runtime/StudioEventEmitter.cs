@@ -19,10 +19,10 @@ namespace FMODUnity
         public float OverrideMaxDistance = -1.0f;
 
         protected FMOD.Studio.EventDescription eventDescription;
-        public  FMOD.Studio.EventDescription EventDescription { get { return eventDescription; } }
+        public FMOD.Studio.EventDescription EventDescription { get { return eventDescription; } }
 
         protected FMOD.Studio.EventInstance instance;
-        public  FMOD.Studio.EventInstance EventInstance { get { return instance; } }
+        public FMOD.Studio.EventInstance EventInstance { get { return instance; } }
 
         private bool hasTriggered = false;
         private bool isQuitting = false;
@@ -30,7 +30,7 @@ namespace FMODUnity
 
         private const string SnapshotString = "snapshot";
 
-        void Start() 
+        void Start()
         {
             RuntimeUtils.EnforceLibraryOrder();
             if (Preload)
@@ -40,13 +40,13 @@ namespace FMODUnity
                 RuntimeManager.StudioSystem.update();
                 FMOD.Studio.LOADING_STATE loadingState;
                 eventDescription.getSampleLoadingState(out loadingState);
-                while(loadingState == FMOD.Studio.LOADING_STATE.LOADING)
+                while (loadingState == FMOD.Studio.LOADING_STATE.LOADING)
                 {
-                    #if WINDOWS_UWP
+#if WINDOWS_UWP
                     System.Threading.Tasks.Task.Delay(1).Wait();
-                    #else
+#else
                     System.Threading.Thread.Sleep(1);
-                    #endif
+#endif
                     eventDescription.getSampleLoadingState(out loadingState);
                 }
             }
@@ -107,8 +107,18 @@ namespace FMODUnity
             }
         }
 
+        public void ChangeEvent(string newEvent)
+        {
+            Event = newEvent;
+            Stop();
+            Lookup();
+        }
         public void Play()
         {
+            if (hasTriggered)
+            {
+                Lookup();
+            }
             if (TriggerOnce && hasTriggered)
             {
                 return;
@@ -166,7 +176,7 @@ namespace FMODUnity
                 }
             }
 
-            foreach(var param in Params)
+            foreach (var param in Params)
             {
                 instance.setParameterByID(param.ID, param.Value);
             }

@@ -16,12 +16,15 @@ namespace BBUnity.Actions
         [InParam("animator")]
         public Animator animator;
 
+        [InParam("EffectManager", typeof(EffectManager))]
+        public EffectManager effectManager;
+
         public override void OnStart()
         {
             //start effects or whatever
-            agent.enabled = false;
+            agent.isStopped = true;
             animator.SetBool("isStunned", true);
-
+            effectManager.PlaySoundEffect("stun");
         }
 
         public override TaskStatus OnUpdate()
@@ -32,12 +35,14 @@ namespace BBUnity.Actions
         public override void OnAbort()
         {
             animator.SetBool("isStunned", false);
-            agent.enabled = true;
+            agent.isStopped = false;
+            effectManager.StopSoundEffect("stun");
         }
         public override void OnEnd()
         {
             animator.SetBool("isStunned", false);
-            agent.enabled = true;
+            agent.isStopped = false;
+            effectManager.StopSoundEffect("stun");
         }
     }
 }

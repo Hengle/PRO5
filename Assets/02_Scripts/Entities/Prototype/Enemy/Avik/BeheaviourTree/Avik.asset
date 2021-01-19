@@ -25,13 +25,14 @@ MonoBehaviour:
     />\r\n          <entry name=\"animator\" type=\"UnityEngine.Animator\" isBlackboard=\"False\"
     />\r\n          <entry name=\"MinRange\" type=\"System.Single\" isBlackboard=\"False\"
     value=\"0\" />\r\n          <entry name=\"maxRange\" type=\"System.Single\" isBlackboard=\"False\"
-    value=\"0\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"isInRange\" type=\"System.Boolean\"
-    isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\" loops=\"-1\"
-    policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n        <PrioritySelectorNode
-    id=\"2\" />\r\n      </child>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
+    value=\"0\" />\r\n          <entry name=\"EffectManager\" type=\"EffectManager\"
+    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"isInRange\"
+    type=\"System.Boolean\" isBlackboard=\"True\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator
+    id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    <PrioritySelectorNode id=\"2\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
     id=\"2\">\r\n      <children>\r\n        <elem>\r\n          <GuardAndNode>\r\n           
     <guard>\r\n              <ConditionEvalNode id=\"15\" />\r\n            </guard>\r\n           
     <child>\r\n              <ActionNode id=\"14\" />\r\n            </child>\r\n         
@@ -55,9 +56,10 @@ MonoBehaviour:
     <ActionNode id=\"14\" action=\"EnemyBehaviour/StunAction\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\"
     isBlackboard=\"True\" blackboard=\"agent\" />\r\n          <entry name=\"animator\"
-    type=\"UnityEngine.Animator\" isBlackboard=\"True\" blackboard=\"animator\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"17\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\"
+    type=\"UnityEngine.Animator\" isBlackboard=\"True\" blackboard=\"animator\" />\r\n         
+    <entry name=\"EffectManager\" type=\"EffectManager\" isBlackboard=\"True\" blackboard=\"EffectManager\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
+    <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"17\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\"
     name=\"EnemyBehaviour/IsOnNavMesh\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
     <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\" isBlackboard=\"True\"
     blackboard=\"agent\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
@@ -138,7 +140,7 @@ MonoBehaviour:
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"15\" />\r\n          <PrioritySelectorNode
     id=\"2\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
-    <ActionNode id=\"14\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    <ActionNode id=\"14\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
     position=\"313.75 688.75\" name=\"EnemyBehaviour/StunAction\" description=\"\"
     cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"14\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
