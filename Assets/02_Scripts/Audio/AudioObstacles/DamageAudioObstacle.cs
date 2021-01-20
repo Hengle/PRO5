@@ -92,13 +92,13 @@ public abstract class DamageAudioObstacle : AudioObstacle
         return currentActiveLayer;
     }
 
-    protected virtual void emissionActive()
+    protected override void emissionActive()
     {
         emissionChange(1);
     }
 
 
-    protected virtual void emissionDeactive()
+    protected override void emissionDeactive()
     {
         emissionChange(2); 
     }

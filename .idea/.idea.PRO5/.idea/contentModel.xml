@@ -25,6 +25,7 @@
               <e p="LayerSymbolManager.cs" t="Include" />
             </e>
             <e p="AudioSpectrumEmission.cs" t="Include" />
+            <e p="AudioSpectrumEmissionExtended.cs" t="Include" />
             <e p="FmodTimeline.cs" t="Include" />
             <e p="MarkerManager.cs" t="Include" />
             <e p="SpectrumManager.cs" t="Include" />
@@ -48,6 +49,7 @@
                 </e>
                 <e p="ParticleEffectController.cs" t="Include" />
                 <e p="SoundEffectController.cs" t="Include" />
+                <e p="SoundEffectsList.cs" t="Include" />
               </e>
               <e p="Enemy" t="Include">
                 <e p="AIStuff" t="Include">
@@ -101,8 +103,7 @@
                   <e p="BehaviourTree" t="Include">
                     <e p="Actions" t="Include">
                       <e p="FindPointOnNavMesh.cs" t="Include" />
-                      <e p="FollowAction.cs" t="Include" />
-                      <e p="NewBehaviourScript.cs" t="Include" />
+                      <e p="RunAwayAction.cs" t="Include" />
                     </e>
                   </e>
                   <e p="ShentauActions.cs" t="Include" />
@@ -190,9 +191,13 @@
                 <e p="PowerUp.cs" t="Include" />
                 <e p="PowerUpController.cs" t="Include" />
                 <e p="PowerupNames.cs" t="Include" />
+                <e p="PowerUpSpawner.cs" t="Include" />
                 <e p="RespawnTest.cs" t="Include" />
                 <e p="Shield.cs" t="Include" />
                 <e p="Stun.cs" t="Include" />
+              </e>
+              <e p="SceneManagement" t="Include">
+                <e p="ScenenManager.cs" t="Include" />
               </e>
               <e p="StatisticManagment" t="Include">
                 <e p="EnemyStatistics.cs" t="Include" />
@@ -208,6 +213,7 @@
               </e>
             </e>
             <e p="Utilties" t="Include">
+              <e p="OutOfBoundsTrigger.cs" t="Include" />
               <e p="ReadMe.cs" t="Include" />
               <e p="ScriptCollection.cs" t="Include" />
               <e p="ScriptCollectionTestIN.cs" t="Include" />
@@ -455,6 +461,50 @@
               </e>
             </e>
           </e>
+        </e>
+        <e p="Fullscreen" t="Include">
+          <e p="Editor" t="Include">
+            <e p="After.cs" t="Include" />
+            <e p="Cmd.cs" t="Include" />
+            <e p="DisableSceneView.cs" t="Include" />
+            <e p="Displays" t="Include">
+              <e p="DisplayInfo.windows.cs" t="Include" />
+            </e>
+            <e p="Disposables.cs" t="Include" />
+            <e p="Fullscreen.cs" t="Include" />
+            <e p="FullscreenCallbacks.cs" t="Include" />
+            <e p="FullscreenContainer.cs" t="Include" />
+            <e p="FullscreenContainerInternal.cs" t="Include" />
+            <e p="FullscreenOnPlay.cs" t="Include" />
+            <e p="FullscreenPreferences.cs" t="Include" />
+            <e p="FullscreenRects.cs" t="Include" />
+            <e p="FullscreenUtility.cs" t="Include" />
+            <e p="FullscreenView.cs" t="Include" />
+            <e p="FullscreenWindow.cs" t="Include" />
+            <e p="GlobalToolbarHiding.cs" t="Include" />
+            <e p="Integration.cs" t="Include" />
+            <e p="InternalTypes.cs" t="Include" />
+            <e p="KeepFullscreenBelow.cs" t="Include" />
+            <e p="Linux" t="Include">
+              <e p="NativeFullscreenHook.cs" t="Include" />
+              <e p="wmctrl.cs" t="Include" />
+            </e>
+            <e p="Logger.cs" t="Include" />
+            <e p="MenuItems.cs" t="Include" />
+            <e p="Patcher.cs" t="Include" />
+            <e p="PlaceholderWindow.cs" t="Include" />
+            <e p="PrefItem.cs" t="Include" />
+            <e p="ReflectionUtility.cs" t="Include" />
+            <e p="Shortcut.cs" t="Include" />
+            <e p="ViewPyramid.cs" t="Include" />
+            <e p="Windows" t="Include">
+              <e p="GDI32.cs" t="Include" />
+              <e p="ShCore.cs" t="Include" />
+              <e p="Structs.cs" t="Include" />
+              <e p="User32.cs" t="Include" />
+            </e>
+          </e>
+          <e p="FullscreenEditor.asmdef" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
@@ -2153,6 +2203,7 @@
         </e>
         <e p="Training.xml" t="Include" />
       </e>
+      <e p="FullscreenEditor.csproj" t="IncludeRecursive" />
       <e p="LocalPackages" t="Include">
         <e p="com.unity.render-pipelines.high-definition-config" t="Include">
           <e p="Runtime" t="Include">

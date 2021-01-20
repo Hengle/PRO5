@@ -10,7 +10,9 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     private float _minLength;
     public float _maxLength;
     GameObject _energyWall;
+
     private Material _childMaterial;
+
     //when active the collider is enabled and damage can happen
     private bool _turretActive = true;
 
@@ -21,12 +23,11 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     public float _dmgOnStay { get; set; }
 
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        mlc = FindObjectOfType<MusicLayerController>();
+        //mlc = FindObjectOfType<MusicLayerController>();
         _material = GetComponent<MeshRenderer>().material;
         _emissionColor = _material.GetColor("_EmissiveColor");
         _energyWall = this.gameObject.transform.GetChild(0).gameObject;
@@ -35,7 +36,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         _dmgOnEnter = 30;
         _dmgOnStay = 5;
         _materials.Add(_material);
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
             _materials.Add(child.GetComponent<MeshRenderer>().material);
         }
@@ -45,7 +46,6 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     protected override void emissionActive()
@@ -58,7 +58,6 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
                 .SetEase(Ease.Flash);
         }
-        
     }
 
     protected override void emissionDeactive()
@@ -76,44 +75,39 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     protected override void objectAction()
     {
-        if (!_holdOnMusic)
+        increaseIntervalCounter();
+        if (checkInterval())
         {
-            increaseIntervalCounter();
-            if (checkInterval())
+            emissionChange();
+            if (_holdValue)
             {
-                emissionChange();
-                if (_holdValue)
+                if (_holdHelper)
                 {
-                    if (_holdHelper)
-                    {
-                        emissionActive();
+                    emissionActive();
 
-                        _holdHelper = false;
-                    }
-                    else
-                    {
-                        emissionDeactive();
-                        _holdHelper = true;
-                    }
+                    _holdHelper = false;
                 }
                 else
                 {
-                    emissionChange();
-                    //ShortDurationHelper();
-                    foreach (Transform child in transform)
-                    {
-                        Sequence _tweenSeq = DOTween.Sequence()
-                            .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                            .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
-                            .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                            .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
-                            .SetEase(Ease.Flash);
-                    }
+                    emissionDeactive();
+                    _holdHelper = true;
+                }
+            }
+            else
+            {
+                emissionChange();
+                //ShortDurationHelper();
+                foreach (Transform child in transform)
+                {
+                    Sequence _tweenSeq = DOTween.Sequence()
+                        .Append(child.DOScaleY(_maxLength, m_actionInDuration))
+                        .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                        .Append(child.DOScaleY(_minLength, m_actionOutDuration))
+                        .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                        .SetEase(Ease.Flash);
                 }
             }
         }
-
-
     }
 
 

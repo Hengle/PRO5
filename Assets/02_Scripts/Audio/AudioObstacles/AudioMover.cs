@@ -52,7 +52,7 @@ public class AudioMover : AudioObstacle
     // Calculating border ranges
     void Start()
     {
-        mlc = FindObjectOfType<MusicLayerController>();
+        //mlc = FindObjectOfType<MusicLayerController>();
         addActionToEvent();
 
         _moveXMinBorder = transform.localPosition.x - _moveX;
@@ -192,5 +192,13 @@ public class AudioMover : AudioObstacle
         _moveZMinBorder = transform.localPosition.z - _moveZ;
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
     }
-    
+
+    protected override void emissionActive()
+    {
+        
+    }
+
+    protected override void emissionDeactive()
+    {
+    }
 }

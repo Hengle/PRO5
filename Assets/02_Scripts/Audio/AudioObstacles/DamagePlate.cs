@@ -20,7 +20,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
 
     void Start()
     {
-        mlc = FindObjectOfType<MusicLayerController>();
+        //mlc = FindObjectOfType<MusicLayerController>();
         _material = GetComponent<MeshRenderer>().material;
         _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
@@ -56,8 +56,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     //NormalMode meanst objeact actives on the Beat for a certain duration and deactives immediatle after this duration
     protected override void objectAction()
     {
-        if (!_holdOnMusic)
-        {
+       
             increaseIntervalCounter();
             if (checkInterval())
             {
@@ -80,7 +79,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
                     shortDurationHelper();
                 }
             }
-        }
+        
     }
 
     //Gets called from dmg collider (child of this object)

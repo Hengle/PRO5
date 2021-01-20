@@ -52,9 +52,20 @@ public class LayerSymbolManager : MonoBehaviour
     {
         //hi obstacle which layer are you hearing
         _audioObstacles = new List<AudioObstacle>(gameObject.GetComponentsInParent<AudioObstacle>());
-        if (_audioObstacles[0].m_onKick) Kick = true;
-        else if (_audioObstacles[0].m_onSnare) Snare = true;
-        else if (_audioObstacles[0].m_onHiHat) HiHat = true;
+        switch (_audioObstacles[0].ListeningOnLayer)
+        {
+            case musicEvent.Snare:
+                Snare = true;
+                break;
+            case musicEvent.HiHat:
+                HiHat = true;
+                break;
+            case musicEvent.LeadBass:
+                break;
+            case musicEvent.Kick:
+                Kick = true;
+                break;
+        }
     }
 
     

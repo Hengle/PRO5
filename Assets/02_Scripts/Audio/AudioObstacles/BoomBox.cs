@@ -48,6 +48,14 @@ public class BoomBox : AudioObstacle, IDamageObstacle
     {
     }
 
+    protected override void emissionActive()
+    {
+    }
+
+    protected override void emissionDeactive()
+    {
+    }
+
 
     protected override void objectAction()
     {

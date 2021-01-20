@@ -24,6 +24,15 @@ public class AudioMarkerEmission : AudioObstacle
     // Update is called once per frame
 
 
+    protected override void emissionActive()
+    {
+        
+    }
+
+    protected override void emissionDeactive()
+    {
+    }
+
     protected override void objectAction()
     {
         increaseIntervalCounter();
