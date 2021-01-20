@@ -12,7 +12,7 @@ public class EffectsListEditor : EditorWindow
 
     bool SFXfoldout = true;
     bool PFXfoldout = true;
-    
+
     [MenuItem("Tools/Custom Window/Effects list")]
     public static void ShowWindow()
     {
@@ -42,25 +42,27 @@ public class EffectsListEditor : EditorWindow
             if (sArr != null && sArr.Length != 0)
                 for (int i = 0; i < sArr.Length; i++)
                 {
-                    if (sArr[i].effectName.ToLower().Contains(SFXsearchText.ToLower()))
-                    {
-                        sArr[i] = (SoundEffectController)EditorGUILayout.ObjectField(sArr[i], typeof(SoundEffectController), false, GUILayout.MaxWidth(150f));
-                        sArr[i].soundEffect = (FMODUnity.StudioEventEmitter)EditorGUILayout.ObjectField(sArr[i].soundEffect, typeof(FMODUnity.StudioEventEmitter), true, GUILayout.MaxWidth(150f));
-                        GUILayout.BeginHorizontal();
+                    if (sArr[i] != null)
+                        if (sArr[i].effectName.ToLower().Contains(SFXsearchText.ToLower()))
+                        {
+                            sArr[i] = (SoundEffectController)EditorGUILayout.ObjectField(sArr[i], typeof(SoundEffectController), false, GUILayout.MaxWidth(150f));
 
-                        sArr[i].effectName = EditorGUILayout.TextField(sArr[i].effectName, GUILayout.MaxWidth(70f));
+                            sArr[i].soundEffect = (FMODUnity.StudioEventEmitter)EditorGUILayout.ObjectField(sArr[i].soundEffect, typeof(FMODUnity.StudioEventEmitter), true, GUILayout.MaxWidth(150f));
+                            GUILayout.BeginHorizontal();
 
-                        GUILayout.Label("On Collision", GUILayout.MaxWidth(70f));
-                        sArr[i].playOnCollision = EditorGUILayout.Toggle(sArr[i].playOnCollision, GUILayout.MaxWidth(20f));
+                            sArr[i].effectName = EditorGUILayout.TextField(sArr[i].effectName, GUILayout.MaxWidth(70f));
 
-                        GUILayout.Label("On Command", GUILayout.MaxWidth(80f));
-                        sArr[i].playOnCommand = EditorGUILayout.Toggle(sArr[i].playOnCommand, GUILayout.MaxWidth(20f));
+                            GUILayout.Label("On Collision", GUILayout.MaxWidth(70f));
+                            sArr[i].playOnCollision = EditorGUILayout.Toggle(sArr[i].playOnCollision, GUILayout.MaxWidth(20f));
 
-                        GUILayout.Label("Active", GUILayout.MaxWidth(45f));
-                        sArr[i].active = EditorGUILayout.Toggle(sArr[i].active, GUILayout.MaxWidth(20f));
-                        GUILayout.EndHorizontal();
-                        GUILayout.Space(15f);
-                    }
+                            GUILayout.Label("On Command", GUILayout.MaxWidth(80f));
+                            sArr[i].playOnCommand = EditorGUILayout.Toggle(sArr[i].playOnCommand, GUILayout.MaxWidth(20f));
+
+                            GUILayout.Label("Active", GUILayout.MaxWidth(45f));
+                            sArr[i].active = EditorGUILayout.Toggle(sArr[i].active, GUILayout.MaxWidth(20f));
+                            GUILayout.EndHorizontal();
+                            GUILayout.Space(15f);
+                        }
                 }
         }
 
@@ -82,6 +84,7 @@ public class EffectsListEditor : EditorWindow
                     if (pArr[i].effectName.ToLower().Contains(PFXsearchText.ToLower()))
                     {
                         pArr[i] = (ParticleEffectController)EditorGUILayout.ObjectField(pArr[i], typeof(ParticleEffectController), false, GUILayout.MaxWidth(150f));
+
                         pArr[i].particle = (ParticleSystem)EditorGUILayout.ObjectField(pArr[i].particle, typeof(ParticleSystem), true, GUILayout.MaxWidth(150f));
                         GUILayout.BeginHorizontal();
 

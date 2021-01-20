@@ -17,7 +17,7 @@ public abstract class EffectContainer
 }
 
 [System.Serializable]
-public class SoundEffectContainer : EffectContainer
+public class SoundEffectControllerContainer : EffectContainer
 {
     //Placeholder for Fmod event
     public SoundEffectController soundEffect;
@@ -32,6 +32,27 @@ public class SoundEffectContainer : EffectContainer
     public override bool IsOnCollision()
     {
         return soundEffect.playOnCollision;
+    }
+}
+
+[System.Serializable]
+public class EventEmitterContainer : EffectContainer
+{
+    public string name;
+    public FMODUnity.StudioEventEmitter eventEmitter;
+    public override bool IsOnCollision()
+    {
+        return false;   
+    }
+
+    public override void PlayEffect()
+    {
+        eventEmitter.Play();
+    }
+
+    public override void SetActive(bool active)
+    {
+        
     }
 }
 

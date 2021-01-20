@@ -14,6 +14,8 @@ public class AudioSpectrumEmission : MonoBehaviour
     private Material _material;
     private Color color;
 
+ 
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +23,15 @@ public class AudioSpectrumEmission : MonoBehaviour
         spectrumManager = GameObject.Find("AudioManager").GetComponent<SpectrumManager>();
         _material = GetComponent<MeshRenderer>().material;
         color = _material.GetColor("_EmissiveColor");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _material.DOVector(color * spectrumManager.getFqBandBuffer8(_audioBand1) * emissiveStrength, "_EmissiveColor", 0);
+
+            _material.DOVector(color * spectrumManager.getFqBandBuffer8(_audioBand1) * emissiveStrength, "_EmissiveColor", 0);
+         
     }
 }
 

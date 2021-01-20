@@ -10,7 +10,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     private float _minLength;
     public float _maxLength;
     GameObject _energyWall;
-
+    private Material _childMaterial;
     //when active the collider is enabled and damage can happen
     private bool _turretActive = true;
 
@@ -34,6 +34,11 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         addActionToEvent();
         _dmgOnEnter = 30;
         _dmgOnStay = 5;
+        _materials.Add(_material);
+        foreach(Transform child in transform)
+        {
+            _materials.Add(child.GetComponent<MeshRenderer>().material);
+        }
     }
 
 
@@ -107,6 +112,8 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 }
             }
         }
+
+
     }
 
 

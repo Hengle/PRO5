@@ -15,6 +15,8 @@ public class MyEventSystem : MonoBehaviour
     public event System.Action Snare;
     public event System.Action Kick;
     public event System.Action HiHat;
+    public event System.Action LeadBass;
+    public event System.Action Atmo;
     public event System.Action Deactivate;
 
     public event System.Action AimGrenade;
@@ -65,58 +67,36 @@ public class MyEventSystem : MonoBehaviour
 
     public void OnSnare()
     {
-        // if (Snare == null)
-        // {
-        //     Debug.LogError("No Snare event");
-        // }
-        // else
-        // {
         Snare?.Invoke();
-        // }
+
     }
 
     public void OnHiHat()
     {
-        // if (HiHat == null)
-        // {
-        //     Debug.LogError("No HiHat event");
-        // }
-        // else
-        // {
         HiHat?.Invoke();
-        // }
+
     }
 
     public void OnKick()
     {
-        if (Kick == null)
-        {
-           // Debug.LogError("No OnKick event");
-        }
-        else
-        {
-            Kick();
-        }
-        //     if (Kick == null)
-        //     {
-        //         Debug.LogError("No OnKick event");
-        //     }
-        //     else
-        //     {
         Kick?.Invoke();
-        // }
     }
+
+    public void OnLeadBass()
+    {
+        LeadBass?.Invoke();
+    }
+
+    public void OnAtmo()
+    {
+
+        Atmo?.Invoke();
+    }
+
 
     public void OnDeactivate()
     {
-        // if (Deactivate == null)
-        // {
-        //     Debug.Log("KickEvent has no subscriber");
-        // }
-        // else
-        // {
         Deactivate?.Invoke();
-        // }
     }
 
     public void OnAttack(IHasHealth entity, float basedmg)
@@ -147,18 +127,17 @@ public class MyEventSystem : MonoBehaviour
 
     #endregion TeleportEventhandler
 
-
+    public void OnEnemyDeath(EnemyBody enemy)
+    {
+        onEnemyDeath?.Invoke(enemy);
+    }
 
     /*public void OnSetState(PlayerMovementSate state)
     {
         SetState?.Invoke(state);
     }
     
-   public void OnEnemyDeath(EnemyBody enemy)
-   {
-       if (onEnemyDeath != null)
-           onEnemyDeath(enemy);
-   }
+
 
 
 

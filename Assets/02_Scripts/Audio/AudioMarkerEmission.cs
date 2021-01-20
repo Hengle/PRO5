@@ -18,6 +18,7 @@ public class AudioMarkerEmission : AudioObstacle
         _material = GetComponent<MeshRenderer>().material;
         _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
+        _materials.Add(_material);
     }
 
     // Update is called once per frame

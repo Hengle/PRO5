@@ -9,7 +9,7 @@ public class PowerUp : MonoBehaviour
 {
     public string nameText;
     public string descText;
-
+    public FMODUnity.StudioEventEmitter soundEffect;
     public PowerupNames powerupName;
     public GameObject _player;
 

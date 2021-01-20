@@ -21,9 +21,11 @@ public class PlayerStateMachine : MonoBehaviour
     #region __________bool__________
 
     [HideInInspector] public bool isGrounded = false;
+    [HideInInspector] public bool isTeleporting = false;
     public bool isDelaying = false;
     private bool dashPressed = false;
     public bool isDashing;
+    public bool isMoving;
 
     #endregion
 
@@ -57,7 +59,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Plane groundPlane;
     private Camera mainCam => GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-
+    public Animator anim;
 
     #endregion
 
@@ -93,7 +95,16 @@ public class PlayerStateMachine : MonoBehaviour
         isDashing = playerStatistics.isDashing;
 
         //DelayUpdate();
-        Move();
+
+        // Delay movement for one frame
+        if (!isTeleporting)
+        {
+            Move();
+        }
+        else
+        {
+            isTeleporting = false;
+        }
         UpdateLookDirection();
         DashCooldown();
     }
@@ -166,6 +177,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (!dashPressed && dashCharge >= 100)
         {
+            anim.SetBool("isDashing", true);
             dashPressed = true;
             dashCharge = 0;
             //isDelaying = true;
@@ -201,6 +213,7 @@ public class PlayerStateMachine : MonoBehaviour
         currentMoveSpeed = standardMoveSpeed;
         playerStatistics.isDashing = false;
         dashPressed = false;
+        anim.SetBool("isDashing", false);
     }
 
     /*public void DelayUpdate()
@@ -222,7 +235,17 @@ public class PlayerStateMachine : MonoBehaviour
 
     #endregion
 
-
+    public void MoveAnim(bool isMoving)
+    {
+        if (isMoving)
+        {
+            anim.SetBool("isMoving", isMoving);
+        }
+        else
+        {
+            anim.SetBool("isMoving", isMoving);
+        }
+    }
     void PlayDeath()
     {
 

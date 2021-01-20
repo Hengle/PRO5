@@ -5,7 +5,6 @@ using System.Linq;
 
 public class EnemyPowerup : PowerUp
 {
-
     protected List<GameObject> FindEnemies(float radius, PowerupNames powerupName, PlayerStateMachine player)
     {
         List<GameObject> enemies = new List<GameObject>();

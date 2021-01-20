@@ -43,7 +43,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
     public void OnDeath()
     {
         alive = false;
-        SceneManager.LoadSceneAsync("MainPrototype");
+        // SceneManager.LoadSceneAsync("MainPrototype");
         // LevelEventSystem.instance.ReturnToCheckpoint(this);
     }
 

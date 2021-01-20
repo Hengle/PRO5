@@ -125,17 +125,17 @@ MonoBehaviour:
     id=\"0\" />\r\n          <ActionNode id=\"4\" />\r\n          <SequenceNode id=\"2\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <DecoratorGuard
     id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"950.9143 635.3771\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
+    position=\"952.0254 634.266\" name=\"Guard\" description=\"Guard\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <DecoratorGuard
     id=\"5\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </DecoratorGuard>\r\n    <ConditionEvalNode id=\"6\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"950.9143
-    635.3771\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"952.0254
+    634.266\" name=\"IsInRange\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"6\" />\r\n       
     </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode
-    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
-    position=\"950.9143 635.3771\" name=\"AttackBehaviour\" description=\"Simple
-    Attack Behaviour that works with an external timer to time it's attacks.\" cardinality=\"-1\"
+    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"952.0254 634.266\" name=\"AttackBehaviour\" description=\"Simple Attack
+    Behaviour that works with an external timer to time it's attacks.\" cardinality=\"-1\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n 
     </editorInfo>\r\n</BehaviorBricks>"

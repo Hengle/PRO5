@@ -29,11 +29,13 @@ public class PlayerInputManager : MonoBehaviour
         controls = new PlayerControls();
 
         controls.Gameplay.Movement.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Movement.performed += ctx => playerController.MoveAnim(true);
+        controls.Gameplay.Movement.canceled += ctx => playerController.MoveAnim(false);
         controls.Gameplay.Rotate.performed += ctx => gamepadRotate = ctx.ReadValue<Vector2>();
         controls.Gameplay.Look.performed += ctx => mouseLook = ctx.ReadValue<Vector2>();
 
         if (playerController != null)
-            controls.Gameplay.Dash.performed += ctx => playerController.StartDash(); ;
+            controls.Gameplay.Dash.performed += ctx => playerController.StartDash();
 
         if (powerUpController != null)
             controls.Gameplay.ActivatePowerUp.performed += ctx => powerUpController.ActivatePowerUp();
@@ -53,9 +55,6 @@ public class PlayerInputManager : MonoBehaviour
             controls.Gameplay.Charge.performed += ctx => skillController.chargeIsPressed(true);
             controls.Gameplay.Charge.canceled += ctx => skillController.chargeIsPressed(false);
         }
-
-      
-
 
         controls.Gameplay.Movement.canceled += ctx => move = Vector2.zero;
         controls.Gameplay.Rotate.canceled += ctx => gamepadRotate = Vector2.zero;

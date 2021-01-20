@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2152854920336281883}
   - component: {fileID: 2498312454485040005}
   - component: {fileID: 2104655211717462337}
+  - component: {fileID: 3056843067185382547}
   m_Layer: 0
   m_Name: Child B
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3056843067185382547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551784924755132633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86e35df4a3e0a647b423d5c4f2fd299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioBand1: 0
+  emissiveStrength: 0.5
 --- !u!1 &4902919618443106099
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +151,7 @@ GameObject:
   - component: {fileID: 5364954333642602853}
   - component: {fileID: 8639776577563168367}
   - component: {fileID: 2336661468074875259}
+  - component: {fileID: 989902862984363578}
   m_Layer: 0
   m_Name: Child A
   m_TagString: Untagged
@@ -204,3 +220,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &989902862984363578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334927867807191424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86e35df4a3e0a647b423d5c4f2fd299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioBand1: 0
+  emissiveStrength: 0.5

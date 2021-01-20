@@ -30,9 +30,33 @@ public class SkillController : MonoBehaviour
 
     private void Start()
     {
+        MyEventSystem.instance.onEnemyDeath += AddCharge;
         timeReset();
     }
 
+    private void OnDisable()
+    {
+        MyEventSystem.instance.onEnemyDeath -= AddCharge;
+    }
+    
+    void AddCharge(EnemyBody stats)
+    {
+        var charge = stats.GetComponent<EnemyStatistics>().skillChargeOnDeath;
+        if (currentChargeValue + charge >= maxChargeValue)
+        {
+            float temp = currentChargeValue + charge;
+            while (temp >= maxChargeValue || currentCharges == maxCharges)
+            {
+                currentCharges++;
+                temp -= maxChargeValue;
+            }
+            currentChargeValue = temp;
+        }
+        else
+        {
+            currentChargeValue += charge;
+        }
+    }
     private void Update()
     {
         /*which kind of charge type

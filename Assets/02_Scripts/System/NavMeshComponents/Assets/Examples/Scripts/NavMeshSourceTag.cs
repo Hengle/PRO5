@@ -62,7 +62,7 @@ public class NavMeshSourceTag : MonoBehaviour
             if (modifier != null)
                 s.area = modifier.area;
             else
-                s.area = 0;
+                s.area = NavMesh.GetAreaFromName("Walkable");
                 
             sources.Add(s);
         }

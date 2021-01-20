@@ -8,6 +8,8 @@ public class EnemyBody : MonoBehaviour
     public BoxCollider hitBox;
     public PlayerDetector playerDetector;
     public AIManager aiManager;
+
+    
     private void Start()
     {
         aiManager = ScriptCollection.GetScript<AIManager>();

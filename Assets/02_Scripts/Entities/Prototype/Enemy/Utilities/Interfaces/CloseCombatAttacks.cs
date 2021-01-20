@@ -36,7 +36,12 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
     //Times the damage window with the provided frames from the attack animation and starts effects
     protected virtual IEnumerator AttackTimer(float startDamageFrame, float stopDamageFrame, Enemy.AttackAnimations anim, float clipLength = 0)
     {
-        float start = startDamageFrame / 24;
+        float start;
+        if (startDamageFrame != 0)
+            start = startDamageFrame / 24;
+        else
+            start = 0;
+            
         float end = (stopDamageFrame - startDamageFrame) / 24;
 
         if (anim.soundFX != null && anim.soundFX.Count != 0)
@@ -46,7 +51,6 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
         if (anim.particleFX != null && anim.particleFX.Count != 0)
             foreach (EffectContainer effect in anim.particleFX)
                 StartEffects(effect);
-
 
         yield return new WaitForSeconds(start);
 

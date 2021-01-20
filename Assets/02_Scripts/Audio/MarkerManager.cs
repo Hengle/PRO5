@@ -12,10 +12,10 @@ public class MarkerManager : MonoBehaviour
     private bool _kickLock = false;
     private bool _snareLock = false;
     private bool _hiHatLock = false;
+    private bool _leadBassLock = false;
+    private bool _atmoLock = false;
 
-    private bool _kickSkillLock = false;
-    private bool m_snareSkillLock = false;
-    private bool _hiHatSkillLock = false;
+
 
     public FMODUnity.StudioEventEmitter _emitter;
     FMOD.Studio.EventInstance _musicInstance;
@@ -57,7 +57,7 @@ public class MarkerManager : MonoBehaviour
                             _musicInstance.getParameterByName("SnareLayer", out active);
                             if (!_snareLock && active == 1) 
                             {
-                                Debug.Log("Snare");
+                               // Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
                             }
                             lockInstrument("lockSnare");
@@ -79,7 +79,7 @@ public class MarkerManager : MonoBehaviour
                             active = 1;
                             if (!_kickLock && active == 1)
                             {
-                                Debug.Log("Kick");
+                              //  Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
                             }
                             lockInstrument("lockKick");
@@ -105,7 +105,38 @@ public class MarkerManager : MonoBehaviour
                     case 'R':
                         _emitter.SetParameter("nextPart", 0);
                         break;
-                    case 'X':
+                    case 'L':
+                        if (MyEventSystem.instance == null)
+                        {
+
+                        }
+                        else
+                        {
+                            float active;
+                            _musicInstance.getParameterByName("LeadBassLayer", out active);
+                            if (!_leadBassLock && active == 1)
+                            {
+                                //Debug.Log("HiHat");
+                                MyEventSystem.instance.OnLeadBass();
+                            }
+                            lockInstrument("lockLeadBass");
+                        }
+                        break;
+                    case 'A':
+                        if (MyEventSystem.instance == null)
+                        {
+
+                        }
+                        else
+                        {
+                            float active;
+                            _musicInstance.getParameterByName("AtmoLayer", out active);
+                            if (!_atmoLock && active == 1)
+                            {
+                                MyEventSystem.instance.OnAtmo();
+                            }
+                            lockInstrument("lockAtmo");
+                        }
                         break;
 
                 }
@@ -141,6 +172,23 @@ public class MarkerManager : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         _hiHatLock = false;
     }
+
+    IEnumerator lockLeadBass()
+    {
+
+        _leadBassLock = true;
+        yield return new WaitForSeconds(.01f);
+        _leadBassLock = false;
+    }
+
+    IEnumerator lockAtmo()
+    {
+
+        _atmoLock = true;
+        yield return new WaitForSeconds(.1f);
+        _atmoLock = false;
+    }
+
 
     void debugJumpToMusicPart()
     {

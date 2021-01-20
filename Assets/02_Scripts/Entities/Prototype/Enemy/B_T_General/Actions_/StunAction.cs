@@ -13,11 +13,18 @@ namespace BBUnity.Actions
         [InParam("agent")]
         public NavMeshAgent agent;
 
+        [InParam("animator")]
+        public Animator animator;
+
+        [InParam("EffectManager", typeof(EffectManager))]
+        public EffectManager effectManager;
 
         public override void OnStart()
         {
             //start effects or whatever
             agent.isStopped = true;
+            animator.SetBool("isStunned", true);
+            effectManager.PlaySoundEffect("stun");
         }
 
         public override TaskStatus OnUpdate()
@@ -27,11 +34,15 @@ namespace BBUnity.Actions
 
         public override void OnAbort()
         {
+            animator.SetBool("isStunned", false);
             agent.isStopped = false;
+            effectManager.StopSoundEffect("stun");
         }
         public override void OnEnd()
         {
+            animator.SetBool("isStunned", false);
             agent.isStopped = false;
+            effectManager.StopSoundEffect("stun");
         }
     }
 }
