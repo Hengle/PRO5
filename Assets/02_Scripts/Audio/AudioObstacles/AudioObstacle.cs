@@ -45,17 +45,17 @@ public abstract class AudioObstacle : MonoBehaviour
     public float m_minEmissionIntensity = 0.1f;
     protected Material _material;
     protected Color _emissionColor;
-    protected bool alreadyDone = false;
+    public bool alreadyDone;
 
     //Tweening Sequence
     Sequence tweenSeq;
 
     bool test = false;
-    public bool _holdOnMusic;
+    public bool _holdOnMusic = true;
 
     [SerializeField] public MusicLayerController mlc;
-    public musicEvent a;
-    private bool currentActiveLayer;
+    public musicEvent ListeningOnLayer;
+    public bool currentActiveLayer;
     public bool _holdValue = false;
     protected bool _holdHelper;
     
@@ -72,10 +72,15 @@ public abstract class AudioObstacle : MonoBehaviour
 
     void HoldMusicEffect()
     {
+        Debug.Log("test1");
         if (_holdOnMusic)
         {
-            if (checkActiveMusicLayer() && !alreadyDone)
+            Debug.Log("test2");
+            currentActiveLayer = checkActiveMusicLayer();
+            if (checkActiveMusicLayer() && alreadyDone == false)
             {
+                Debug.Log("test3");
+
                 emissionActive();
                 alreadyDone = true;
             }
@@ -89,22 +94,23 @@ public abstract class AudioObstacle : MonoBehaviour
 
     public bool checkActiveMusicLayer()
     {
-        switch (a)
+        bool tmp = false;
+        switch (ListeningOnLayer)
         {
             case musicEvent.Snare:
-                currentActiveLayer = mlc._snareActive;
+                tmp = mlc._snareActive;
                 break;
 
             case musicEvent.HiHat:
-                currentActiveLayer = mlc._hiHatActive;
+                tmp = mlc._hiHatActive;
                 break;
             
             case musicEvent.Kick:
-                currentActiveLayer = mlc._leadBassActive;
+                tmp = mlc._leadBassActive;
                 break;
         }
 
-        return currentActiveLayer;
+        return tmp;
     }
 
     protected virtual void emissionActive()

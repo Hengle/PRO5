@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 7206293571444625911}
   - component: {fileID: 4892337029069907261}
   - component: {fileID: 6405788739256976617}
+  - component: {fileID: -846688120682200858}
   m_Layer: 0
   m_Name: damagePlate
   m_TagString: Untagged
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_onSnare: 1
   m_onKick: 0
   m_onHiHat: 0
+  _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
@@ -160,7 +162,29 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
+  alreadyDone: 0
+  _holdOnMusic: 0
+  mlc: {fileID: 0}
+  ListeningOnLayer: 0
+  currentActiveLayer: 0
   _holdValue: 0
-  _holdHelper: 0
   _dmgOnEnter: 3
   _dmgOnStay: 1
+--- !u!114 &-846688120682200858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405788739256976616}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331778590690dc943a401777daa93323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Kick: 0
+  Snare: 0
+  HiHat: 0
+  Triangle: {fileID: 0}
+  Square: {fileID: 0}
+  Hexagon: {fileID: 0}

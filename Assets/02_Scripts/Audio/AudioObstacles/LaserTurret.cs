@@ -43,7 +43,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         
     }
 
-    protected  override void emissionActive()
+    protected override void emissionActive()
     {
         emissionChange(1);
         foreach (Transform child in transform)
@@ -56,7 +56,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         
     }
 
-    protected  override void emissionDeactive()
+    protected override void emissionDeactive()
     {
         emissionChange(2);
         foreach (Transform child in transform)
