@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3299279094663625697}
   - component: {fileID: 733404573336391467}
   - component: {fileID: 1237768492958314237}
-  - component: {fileID: -2879216218962081558}
   m_Layer: 0
   m_Name: energyBeaconWall
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23940bafffcecba4db0b37b9f8048160, type: 2}
+  - {fileID: 2100000, guid: 75dd2feaca6a7f44fb388ae32a10855d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,9 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7212d56a36f0a4bb57cd3026811811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 0
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -106,31 +108,9 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
   _holdValue: 0
+  _materials: []
   _maxLength: 0
---- !u!114 &-2879216218962081558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237768492958314238}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331778590690dc943a401777daa93323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kick: 0
-  Snare: 0
-  HiHat: 0
-  Triangle: {fileID: 0}
-  Square: {fileID: 0}
-  Hexagon: {fileID: 0}
 --- !u!1 &2156105138112298539
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +125,7 @@ GameObject:
   - component: {fileID: 2156105138112298537}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +211,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1902418236255974468}
     m_Modifications:
+    - target: {fileID: 302330454220816861, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: Snare
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536980778807139604, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5f3e3d06513e52448b69a081ea4afa6, type: 2}
     - target: {fileID: 6149636350882702173, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,6 +280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundLayerSymbol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916390866174325603, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908282b20876a2840b56678b72c94b6c, type: 3}

@@ -48,6 +48,7 @@ public class AudioMover : AudioObstacle
     public rotate rot;
     public backandforth backandforth;
     private bool count;
+    private Material _symbolMat;
 
     // Calculating border ranges
     void Start()
@@ -63,6 +64,16 @@ public class AudioMover : AudioObstacle
 
         _moveZMinBorder = transform.localPosition.z;
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
+
+        _material = GetComponent<MeshRenderer>().material;
+        _emissionColor = _material.GetColor("_EmissiveColor");
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Mover")
+            {
+                _symbolMat = child.GetComponent<Renderer>().material;
+            }
+        }
     }
 
     
@@ -71,6 +82,11 @@ public class AudioMover : AudioObstacle
     protected override void objectAction()
     {
         increaseIntervalCounter();
+
+        Sequence _tweenSeq = DOTween.Sequence()
+        .Join(_symbolMat.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
+        .Append(_symbolMat.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
+        .SetEase(Ease.Flash);
 
         switch (rot)
         {
@@ -88,7 +104,7 @@ public class AudioMover : AudioObstacle
     {
         if (_intervalBeat && checkInterval())
         {
-            gameObject.transform.Rotate(Vector3.up * rotation);
+            gameObject.transform.DORotate(Vector3.up * rotation,m_actionInDuration,RotateMode.LocalAxisAdd);
         }
     }
 
@@ -195,6 +211,7 @@ public class AudioMover : AudioObstacle
 
     protected override void emissionActive()
     {
+
         
     }
 

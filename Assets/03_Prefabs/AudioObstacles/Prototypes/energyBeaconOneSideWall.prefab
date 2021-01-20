@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1072114261744158550}
   - component: {fileID: 2955519640789644188}
   - component: {fileID: 3604253011202495050}
-  - component: {fileID: 8873066515831780445}
   m_Layer: 0
   m_Name: energyBeaconOneSideWall
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23940bafffcecba4db0b37b9f8048160, type: 2}
+  - {fileID: 2100000, guid: 75dd2feaca6a7f44fb388ae32a10855d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,9 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7212d56a36f0a4bb57cd3026811811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 1
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -106,31 +108,9 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
   _holdValue: 0
+  _materials: []
   _maxLength: 3
---- !u!114 &8873066515831780445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3604253011202495049}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331778590690dc943a401777daa93323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kick: 0
-  Snare: 0
-  HiHat: 0
-  Triangle: {fileID: 0}
-  Square: {fileID: 0}
-  Hexagon: {fileID: 0}
 --- !u!1 &4523171851357897372
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +126,7 @@ GameObject:
   - component: {fileID: 4523171851357897369}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +420,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 00000000
+  m_SelectedVertices: 
 --- !u!1001 &1799452964849990778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,13 +436,13 @@ PrefabInstance:
     - target: {fileID: 302330454220816861, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: Snare
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 536980778807139604, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 31d7b5b5ed9395042baf27d9abdd4a3d, type: 2}
+      objectReference: {fileID: 2100000, guid: b5f3e3d06513e52448b69a081ea4afa6, type: 2}
     - target: {fileID: 6149636350882702173, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -522,6 +502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundLayerSymbol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916390866174325603, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908282b20876a2840b56678b72c94b6c, type: 3}

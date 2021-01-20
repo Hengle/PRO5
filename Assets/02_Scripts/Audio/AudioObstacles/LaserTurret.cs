@@ -33,12 +33,14 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         _energyWall = this.gameObject.transform.GetChild(0).gameObject;
         _minLength = _energyWall.transform.localScale.y;
         addActionToEvent();
-        _dmgOnEnter = 30;
-        _dmgOnStay = 5;
+       
         _materials.Add(_material);
         foreach (Transform child in transform)
         {
-            _materials.Add(child.GetComponent<MeshRenderer>().material);
+            if (child.tag == "Turret")
+            {
+                _materials.Add(child.GetComponent<Renderer>().material);
+            }
         }
     }
 
@@ -53,10 +55,14 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         emissionChange(1);
         foreach (Transform child in transform)
         {
-            Sequence _tweenSeq = DOTween.Sequence()
+            if(child.tag == "Turret")
+            {
+                Sequence _tweenSeq = DOTween.Sequence()
                 .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
                 .SetEase(Ease.Flash);
+            }
+
         }
     }
 
@@ -65,10 +71,13 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         emissionChange(2);
         foreach (Transform child in transform)
         {
-            Sequence _tweenSeq = DOTween.Sequence()
+            if (child.tag == "Turret")
+            {
+                Sequence _tweenSeq = DOTween.Sequence()
                 .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
                 .SetEase(Ease.Flash);
+            }
         }
     }
 
@@ -78,7 +87,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         increaseIntervalCounter();
         if (checkInterval())
         {
-            emissionChange();
+            //emissionChange();
             if (_holdValue)
             {
                 if (_holdHelper)
@@ -101,9 +110,9 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 {
                     Sequence _tweenSeq = DOTween.Sequence()
                         .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                        .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                        .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
                         .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                        .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                        .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
                         .SetEase(Ease.Flash);
                 }
             }

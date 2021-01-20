@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3427620209315300761}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,9 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7212d56a36f0a4bb57cd3026811811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 1
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -198,10 +201,8 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  a: 0
   _holdValue: 0
+  _materials: []
   _maxLength: 0
 --- !u!114 &5892756582155642998
 MonoBehaviour:
@@ -215,9 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb265fdf481d814ba90a004d7c86a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 0
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -226,10 +230,8 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  a: 0
   _holdValue: 0
+  _materials: []
   _moveX: 5
   _moveY: 0
   _moveZ: 0

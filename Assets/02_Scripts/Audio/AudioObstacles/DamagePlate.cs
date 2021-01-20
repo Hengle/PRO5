@@ -10,7 +10,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
 
     //When active the colliders are enabled and damage can happen
-    private bool _plateActive = false;
+    public bool _plateActive = false;
 
     public float _dmgOnEnter = 3;
     public float _dmgOnStay = 1;
@@ -24,12 +24,14 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
         _material = GetComponent<MeshRenderer>().material;
         _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
-        //_dmgOnEnter = 30;
-        //_dmgOnStay = 5;
         // _holdValue = true;
         _materials.Add(_material);
-
         _childCollider = transform.GetComponentInChildren<AudioObstacleDamageCollider>();
+        if (_plateActive)
+        {
+            emissionActive();
+            _holdHelper = false;
+        }
     }
 
 

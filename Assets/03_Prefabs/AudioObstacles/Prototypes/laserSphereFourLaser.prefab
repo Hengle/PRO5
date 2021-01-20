@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5853662901341842692}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3637373793942209686}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,7 @@ Transform:
   - {fileID: 1109607668899014852}
   - {fileID: 6322488102808399503}
   - {fileID: 5113360768613371315}
+  - {fileID: 2168169454501667614}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,9 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7212d56a36f0a4bb57cd3026811811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 1
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -319,12 +323,8 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
   _holdValue: 0
+  _materials: []
   _maxLength: 3
 --- !u!114 &8156021964441208106
 MonoBehaviour:
@@ -338,9 +338,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb265fdf481d814ba90a004d7c86a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 0
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -349,12 +352,8 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
   _holdValue: 0
+  _materials: []
   _moveX: 5
   _moveY: 0
   _moveZ: 0
@@ -373,13 +372,13 @@ PrefabInstance:
     - target: {fileID: 302330454220816861, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: Snare
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 536980778807139604, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 31d7b5b5ed9395042baf27d9abdd4a3d, type: 2}
+      objectReference: {fileID: 2100000, guid: b5f3e3d06513e52448b69a081ea4afa6, type: 2}
     - target: {fileID: 6149636350882702173, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -440,6 +439,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundLayerSymbol
       objectReference: {fileID: 0}
+    - target: {fileID: 8916390866174325603, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908282b20876a2840b56678b72c94b6c, type: 3}
 --- !u!4 &5113360768613371315 stripped
@@ -447,4 +451,84 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6149636350882702173, guid: 908282b20876a2840b56678b72c94b6c,
     type: 3}
   m_PrefabInstance: {fileID: 1414599959909445358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6384452288681460939
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8825879269893545874}
+    m_Modifications:
+    - target: {fileID: 1488610822301620636, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ef8948c6f551444db5212791cb1a59b, type: 2}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522775869539989483, guid: d038abab21a6cfa4a88ddad665d1b17b,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundLayerArrowSymbol
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d038abab21a6cfa4a88ddad665d1b17b, type: 3}
+--- !u!4 &2168169454501667614 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5083652649050793941, guid: d038abab21a6cfa4a88ddad665d1b17b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6384452288681460939}
   m_PrefabAsset: {fileID: 0}
