@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 
 //Base Class for every AudioObstacle
@@ -16,6 +17,8 @@ public abstract class AudioObstacle : MonoBehaviour
     public bool m_onSnare;
     public bool m_onKick;
     public bool m_onHiHat;
+    public bool m_onLeadBass;
+    public bool m_onAtmo;
 
     public bool _useThisEmission;
 
@@ -44,7 +47,8 @@ public abstract class AudioObstacle : MonoBehaviour
 
     bool test = false;
 
-
+    [HideInInspector]
+    public List<Material> _materials;
 
     void Start()
     {
@@ -104,6 +108,17 @@ public abstract class AudioObstacle : MonoBehaviour
         {
             MyEventSystem.instance.HiHat += objectAction;
         }
+
+        if (m_onLeadBass)
+        {
+            MyEventSystem.instance.LeadBass += objectAction;
+        }
+
+        if (m_onAtmo)
+        {
+
+            MyEventSystem.instance.Atmo += objectAction;
+        }
     }
 
     //Unsubscribe vom Event 
@@ -125,6 +140,19 @@ public abstract class AudioObstacle : MonoBehaviour
         {
             MyEventSystem.instance.HiHat -= objectAction;
         }
+
+        if (m_onLeadBass)
+        {
+            MyEventSystem.instance.LeadBass -= objectAction;
+        }
+
+        if (m_onAtmo)
+        {
+            MyEventSystem.instance.Atmo -= objectAction;
+        }
+
+
+
     }
 
     private void OnDisable()
@@ -135,29 +163,41 @@ public abstract class AudioObstacle : MonoBehaviour
     //Änderung der Emission wenn die Aktion des Obstacles ausgeführt wird
     protected void emissionChange(int mode = 0)
     {
+
+        
         if (_useThisEmission)
         {
             //On and OFF
             if (mode == 0)
             {
-                tweenSeq = DOTween.Sequence()
-                .Append(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
-                .Append(_material.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
-                .SetEase(Ease.Flash);
+
+                foreach (Material _material in _materials)
+                {
+                    tweenSeq = DOTween.Sequence()
+                    .Append(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
+                    .Append(_material.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
+                    .SetEase(Ease.Flash);
+                }
             }
             //ON
             else if (mode == 1)
             {
-                tweenSeq = DOTween.Sequence()
+                foreach (Material _material in _materials)
+                {
+                    tweenSeq = DOTween.Sequence()
                  .Append(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
                 .SetEase(Ease.Flash);
+                }
             }
             //OFF
             else if (mode == 2)
             {
-                tweenSeq = DOTween.Sequence()
+                foreach (Material _material in _materials)
+                {
+                    tweenSeq = DOTween.Sequence()
                 .Append(_material.DOVector(_emissionColor * m_minEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
                 .SetEase(Ease.Flash);
+                }
             }
         }
    

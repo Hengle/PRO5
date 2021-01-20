@@ -27,7 +27,8 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
         addActionToEvent();
         //_dmgOnEnter = 30;
         //_dmgOnStay = 5;
-       // _holdValue = true;
+        // _holdValue = true;
+        _materials.Add(_material);
 
         _childCollider = transform.GetComponentInChildren<AudioObstacleDamageCollider>();
     }

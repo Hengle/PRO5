@@ -10,7 +10,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     private float _minLength;
     public float _maxLength;
     GameObject _energyWall;
-
+    private Material _childMaterial;
     //when active the collider is enabled and damage can happen
     private bool _turretActive = true;
 
@@ -34,6 +34,11 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         addActionToEvent();
         _dmgOnEnter = 30;
         _dmgOnStay = 5;
+        _materials.Add(_material);
+        foreach(Transform child in transform)
+        {
+            _materials.Add(child.GetComponent<MeshRenderer>().material);
+        }
     }
 
 
@@ -57,7 +62,6 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                     {
                         Sequence _tweenSeq = DOTween.Sequence()
                             .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                            .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
                             .SetEase(Ease.Flash);
                     }
 
@@ -69,8 +73,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                     foreach (Transform child in transform)
                     {
                         Sequence _tweenSeq = DOTween.Sequence()
-                            .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                            .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
+                            .Append(child.DOScaleY(_minLength, m_actionOutDuration))                        
                             .SetEase(Ease.Flash);
                     }
 
@@ -83,14 +86,14 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 foreach (Transform child in transform)
                 {
                     Sequence _tweenSeq = DOTween.Sequence()
-                        .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                        .Join(_material.DOFloat(1, Shader.PropertyToID("EmissionIntensity"), m_actionInDuration))
+                        .Append(child.DOScaleY(_maxLength, m_actionInDuration))                       
                         .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                        .Join(_material.DOFloat(0, Shader.PropertyToID("EmissionIntensity"), m_actionOutDuration))
                         .SetEase(Ease.Flash);
                 }
             }
         }
+
+
     }
 
 

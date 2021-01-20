@@ -18,11 +18,11 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://MetalRust\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"1590624231\" type=\"8\" value=\"10,10\" />\n 
-      <presetinput identifier=\"rustFactor\" uid=\"931853096\" type=\"0\" value=\"0.628\"
+      <presetinput identifier=\"rustFactor\" uid=\"931853096\" type=\"0\" value=\"0.624\"
       />\n  <presetinput identifier=\"baseColorPipe\" uid=\"931827680\" type=\"3\"
       value=\"0.149786,0.206957,0.207547,1\" />\n  <presetinput identifier=\"rustColor\"
       uid=\"931978735\" type=\"3\" value=\"0,0,0,1\" />\n  <presetinput identifier=\"smoothnessRemap\"
-      uid=\"931981201\" type=\"0\" value=\"0.34\" />\n </sbspreset>\n"
+      uid=\"931981201\" type=\"0\" value=\"0.235\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}

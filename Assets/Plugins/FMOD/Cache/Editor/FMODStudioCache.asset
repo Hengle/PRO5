@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8889616919976882352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-8771980368277798982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466808983945924
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-8654231992959756216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-8554269179087252375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_laser_sustained
+  m_EditorClassIdentifier: 
+  Path: event:/env_laser_sustained
+  guid: 47f11e4398c09f4d87ff5720434bfeb2
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11232
+--- !u!114 &-8448339060441488620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-8265281838424885579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,6 +128,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7777325427849999237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-7760645887070498556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +161,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-7633309070098260182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +179,132 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-7613232515607353909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_laser3
+  m_EditorClassIdentifier: 
+  Path: event:/env_laser3
+  guid: fa10b71e1c2d5f4f9ffd610e0285e49f
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 835
+--- !u!114 &-7533568418248581654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466989060985692
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-7334342505556743361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466847314321828
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7279682935708623610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_push
+  m_EditorClassIdentifier: 
+  Path: event:/char_push
+  guid: a507ae98813d8640abd3be96381dc1c0
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1201
+--- !u!114 &-7197546174292164009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy1_attack
+  m_EditorClassIdentifier: 
+  Path: event:/enemy1_attack
+  guid: f4b0326f8be17a4d8952faaba212b489
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 679
+--- !u!114 &-7153776951562802387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466983407673051
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7059682833345788379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +321,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
+--- !u!114 &-6922845838908744217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-6909398788354705971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,13 +370,130 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FmodStudioProject/prototype/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637417324549648641
+  lastModified: 637466991207017729
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 928
+    Value: 2100
   Exists: 1
+--- !u!114 &-6426260200775832774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy_stunned
+  m_EditorClassIdentifier: 
+  Path: event:/enemy_stunned
+  guid: adae5ff5e3348a4ba638308bc5f2288a
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3787
+--- !u!114 &-6126670350051478680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-6038490835333312943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466985616837889
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-6017057354167013093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-6016243668039579788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_death_hurt
+  m_EditorClassIdentifier: 
+  Path: event:/char_death_hurt
+  guid: 2065683e6f18704e9613ab87b43e12b7
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
 --- !u!114 &-5902006872546988871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-5788091958165771093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,6 +562,48 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-4781559606951225716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_shield
+  m_EditorClassIdentifier: 
+  Path: event:/char_shield
+  guid: 335301aab84438459113c22762ec17f2
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26096
+--- !u!114 &-4778653553088980713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466991206836065
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4618452789192958697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +620,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+  Exists: 0
+--- !u!114 &-4603968215626080197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466846973011526
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &-4444133121545578010
 MonoBehaviour:
@@ -227,6 +657,122 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-4396140269527170254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_dash
+  m_EditorClassIdentifier: 
+  Path: event:/char_dash
+  guid: e85628f56b717d4f89c86bb63d799e61
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 261
+--- !u!114 &-4125721548792532134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-3944116627257860083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-3929284244118862023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-3919553792839165427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-3814271842155065887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/char_footsteps
+  guid: 3f8207d1a8eefa4fae6a738d92c05431
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4884
 --- !u!114 &-3809927709554506801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +790,47 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-3538834991809902789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy_spawn
+  m_EditorClassIdentifier: 
+  Path: event:/enemy_spawn
+  guid: d8ac8f283764c5409f21afdb6f243958
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1593
+--- !u!114 &-3532306179497829841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-3419947311227286260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +866,88 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-3330999927001468006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy2_attack
+  m_EditorClassIdentifier: 
+  Path: event:/enemy2_attack
+  guid: 52878d557a1d394daaddb3f2afcbd5d9
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1044
+--- !u!114 &-3312320105168592234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char_footstep
+  m_EditorClassIdentifier: 
+  Path: event:/char_footstep
+  guid: 4b98445e5cfee84eb9716636495efa9c
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 287
+--- !u!114 &-3124036379130785063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-2412428973821417582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-2081889853999330904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +965,47 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-1794446458900096815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_boombox
+  m_EditorClassIdentifier: 
+  Path: event:/env_boombox
+  guid: 633e7a95501c1547a44a0dcd1c24a1ef
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1880
+--- !u!114 &-1724716962438069067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-1611739675651291643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +1023,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-1123157784605973023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466819858623744
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-781133206925146037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +1092,47 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-339310291077385132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_deactivate
+  m_EditorClassIdentifier: 
+  Path: event:/env_deactivate
+  guid: 03c29e5e052b984fb145ac6984568771
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992
+--- !u!114 &-172242292311963468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-52087440986167173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +1150,7 @@ MonoBehaviour:
   lastModified: 637448389830000000
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-37987251391248523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,16 +1182,166 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6536101578818183081}
-  - {fileID: -52087440986167173}
+  - {fileID: -4778653553088980713}
   EditorEvents:
   - {fileID: 1561948197316325616}
+  - {fileID: 184996521179172804}
+  - {fileID: -339310291077385132}
+  - {fileID: 8992177551839685497}
+  - {fileID: -6016243668039579788}
+  - {fileID: 210046708779416289}
+  - {fileID: -4781559606951225716}
+  - {fileID: 2699877696685564216}
+  - {fileID: -3814271842155065887}
+  - {fileID: 5505920811982465887}
+  - {fileID: 7505880892721886254}
+  - {fileID: -8554269179087252375}
+  - {fileID: 2995335148364467456}
+  - {fileID: -3312320105168592234}
+  - {fileID: 8121544701316813795}
+  - {fileID: -3330999927001468006}
+  - {fileID: -1794446458900096815}
+  - {fileID: 762601812270434401}
+  - {fileID: 9192793238476050644}
+  - {fileID: -7279682935708623610}
+  - {fileID: -6426260200775832774}
+  - {fileID: 6429059538613168176}
+  - {fileID: 6598305265452189132}
+  - {fileID: -3538834991809902789}
+  - {fileID: -4396140269527170254}
+  - {fileID: -7197546174292164009}
+  - {fileID: -7613232515607353909}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -52087440986167173}
+  - {fileID: -4778653553088980713}
   StringsBanks:
   - {fileID: -6536101578818183081}
-  stringsBankWriteTime: 637417324549648641
+  stringsBankWriteTime: 637466991207017729
   cacheVersion: 3
+--- !u!114 &45684938229959912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637466821455717525
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &88272612672581837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &184996521179172804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy2_charge
+  m_EditorClassIdentifier: 
+  Path: event:/enemy2_charge
+  guid: 00a106ea89c09d458c876ab59c5ffc45
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2977
+--- !u!114 &210046708779416289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/lvl_fail
+  m_EditorClassIdentifier: 
+  Path: event:/lvl_fail
+  guid: 26114ea652acef4a91a55e39f25fb3af
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1933
+--- !u!114 &314951509503621230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &762601812270434401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/powerup_activate
+  m_EditorClassIdentifier: 
+  Path: event:/powerup_activate
+  guid: 76f8db8b8521114894eab19afe45c4da
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 914
 --- !u!114 &953708406015607746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +1359,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &1196208461103332180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &1561948197316325616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,18 +1391,60 @@ MonoBehaviour:
   Path: event:/pro5_demo_full
   guid: 61840bcbcb65504599d1463540f53d03
   Banks:
-  - {fileID: -52087440986167173}
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4618452789192958697}
-  - {fileID: 3617699808827929311}
-  - {fileID: -7760645887070498556}
-  - {fileID: -7059682833345788379}
+  - {fileID: 7434117961627673888}
+  - {fileID: 3745263588750934951}
+  - {fileID: 4051705459156730357}
+  - {fileID: 5196806132702966675}
   MinDistance: 0
   MaxDistance: 0
   Length: 54648
+--- !u!114 &2201869028201366299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &2699877696685564216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy_preattack
+  m_EditorClassIdentifier: 
+  Path: event:/enemy_preattack
+  guid: 3d6ae8aa181e984b9a9c9268f96f2eb9
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 809
 --- !u!114 &2765121493045585042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +1462,65 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &2995335148364467456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy_death
+  m_EditorClassIdentifier: 
+  Path: event:/enemy_death
+  guid: 49c6c478b6c92c4681c018d6b3d8e9aa
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1880
+--- !u!114 &3136684390527157712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &3617699808827929311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &3745263588750934951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -518,6 +1554,40 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &4051705459156730357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &4109746334653436334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &4144191137364107684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +1622,57 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &4163976148160445413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &4257327062389082173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &4271427218847328184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &4956811901733886068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +1724,98 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &5196806132702966675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &5505920811982465887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy3_explosion
+  m_EditorClassIdentifier: 
+  Path: event:/enemy3_explosion
+  guid: 40191ac018be8143aa6c147390bf634b
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1462
+--- !u!114 &5600721200678597104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5929082307691146572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5934972201426995822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5949932192974037356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +1851,54 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &6429059538613168176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_activate
+  m_EditorClassIdentifier: 
+  Path: event:/env_activate
+  guid: c33d398cb4e45a4b9ace1427803e5e9a
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992
+--- !u!114 &6598305265452189132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_laser
+  m_EditorClassIdentifier: 
+  Path: event:/env_laser
+  guid: d021ffa4b141de43b94d808702038cc5
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 470
 --- !u!114 &6610752851240515822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +1968,64 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &7434117961627673888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &7505880892721886254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemy3_countdown
+  m_EditorClassIdentifier: 
+  Path: event:/enemy3_countdown
+  guid: 41f97032f2f74b4d90a78c82a8620f79
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6112
+--- !u!114 &7805685813351441946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &7946482866033560189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +2044,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &8121544701316813795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/powerup_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/powerup_pickup
+  guid: 4fbad538ac67284ba87978ff346b6d8c
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3291
+--- !u!114 &8280603352983917450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &8481407679554653763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,3 +2119,68 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &8892049189157993273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &8992177551839685497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/env_laser2
+  m_EditorClassIdentifier: 
+  Path: event:/env_laser2
+  guid: 1a9afb5d1caae54fb41d9686dc86d956
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 313
+--- !u!114 &9192793238476050644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/lvl_clear
+  m_EditorClassIdentifier: 
+  Path: event:/lvl_clear
+  guid: 804df5012da2394e95379edd43cdea61
+  Banks:
+  - {fileID: -7153776951562802387}
+  - {fileID: -4778653553088980713}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4153

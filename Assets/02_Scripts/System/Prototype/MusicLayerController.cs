@@ -70,24 +70,50 @@ public class MusicLayerController : MonoBehaviour
     {
         if (!skill && _skillController.currentCharges > 0)
         {
+
+            
+   
+
             _musicEvent.SetParameter(skillName, 1);
             skill = true;
             //skillListAdder(skill);
             _skillController.chargeUse(uses);
             Debug.Log(skill);
-            
+
+            //Thomas added this, quick but dirty fix for enabling atmo layer 
+            if (skillName == "AtmoLayer")
+            {
+                MyEventSystem.instance.OnAtmo();
+            }
+
         }
+
+        
         else
         {
+            if (skillName == "AtmoLayer")
+            {
+                if (skill)
+                {
+                    MyEventSystem.instance.OnAtmo();
+                }
+            }
+
             _musicEvent.SetParameter(skillName, 0);
             skill = false;
-            Debug.Log(skill);
+
+
         }
     }
-    
-   
-    
-    
+
+
+    IEnumerator atmoEnable()
+    {
+        yield return new WaitForSeconds(.1f);
+        MyEventSystem.instance.OnAtmo();
+    }
+
+
 
 
     //normal
