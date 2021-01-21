@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{ba720de4-7ddf-406c-83cb-3a2288d4dfd8}">
+		<property name="assetPath">
+			<value>track2_kick.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>25.652244897959182</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{27daec36-9c41-4184-ac22-2c21c8415874}</destination>
+		</relationship>
+	</object>
+</objects>
