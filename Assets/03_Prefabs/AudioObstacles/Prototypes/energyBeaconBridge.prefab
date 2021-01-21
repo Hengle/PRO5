@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3847857959170389563}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23940bafffcecba4db0b37b9f8048160, type: 2}
+  - {fileID: 2100000, guid: 75dd2feaca6a7f44fb388ae32a10855d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -188,23 +188,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7212d56a36f0a4bb57cd3026811811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 0
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
   m_actionInDuration: 0.25
   m_actionOutDuration: 0.25
-  m_maxEmissionIntensity: 10
-  m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
+  m_maxEmissionIntensity: 5
+  m_minEmissionIntensity: 1
   _holdValue: 0
+  _materials: []
   _maxLength: 0
 --- !u!114 &8106664342502080760
 MonoBehaviour:
@@ -221,9 +220,13 @@ MonoBehaviour:
   Kick: 0
   Snare: 0
   HiHat: 0
-  Triangle: {fileID: 0}
-  Square: {fileID: 0}
-  Hexagon: {fileID: 0}
+  LeadBass: 0
+  Atmo: 0
+  HiHatMat: {fileID: 0}
+  LeadBassMat: {fileID: 0}
+  AtmoMat: {fileID: 0}
+  SnareMat: {fileID: 0}
+  KickMat: {fileID: 0}
 --- !u!1001 &4419688238527213274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,6 +234,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3669570649326779478}
     m_Modifications:
+    - target: {fileID: 302330454220816861, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: Snare
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536980778807139604, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5f3e3d06513e52448b69a081ea4afa6, type: 2}
     - target: {fileID: 6149636350882702173, guid: 908282b20876a2840b56678b72c94b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,6 +303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundLayerSymbol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916390866174325603, guid: 908282b20876a2840b56678b72c94b6c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908282b20876a2840b56678b72c94b6c, type: 3}

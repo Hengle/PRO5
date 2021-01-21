@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4052246221784777780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.45, y: 0.86, z: -1.58}
+  m_LocalPosition: {x: 1.62, y: 0.86, z: -1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6029825429503499858}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0105448, y: 2.5064523, z: 3.003345}
-  m_Center: {x: 0.043722868, y: 0.3746413, z: 0.07887149}
+  m_Size: {x: 3.330193, y: 2.5064523, z: 3.3229918}
+  m_Center: {x: 0.05133319, y: 0.3746413, z: 0.07126117}
 --- !u!114 &5264339746170851777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: -846688120682200858}
   m_Layer: 0
   m_Name: damagePlate
-  m_TagString: Untagged
+  m_TagString: Plate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20544bad9681d7a42b285379a6629b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ListeningOnLayer: 0
   m_onSnare: 1
   m_onKick: 0
   m_onHiHat: 0
+  m_onLeadBass: 0
+  m_onAtmo: 0
   _useThisEmission: 0
   _intervalBeat: 0
   m_interval: 2
@@ -162,14 +165,11 @@ MonoBehaviour:
   m_actionOutDuration: 0.25
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
-  alreadyDone: 0
-  _holdOnMusic: 0
-  mlc: {fileID: 0}
-  ListeningOnLayer: 0
-  currentActiveLayer: 0
   _holdValue: 0
-  _dmgOnEnter: 3
-  _dmgOnStay: 1
+  _holdHelper: 0
+  _materials: []
+  _dmgOnEnter: 50
+  _dmgOnStay: 30
 --- !u!114 &-846688120682200858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +185,10 @@ MonoBehaviour:
   Kick: 0
   Snare: 0
   HiHat: 0
-  Triangle: {fileID: 0}
-  Square: {fileID: 0}
-  Hexagon: {fileID: 0}
+  LeadBass: 0
+  Atmo: 0
+  HiHatMat: {fileID: 0}
+  LeadBassMat: {fileID: 0}
+  AtmoMat: {fileID: 0}
+  SnareMat: {fileID: 0}
+  KickMat: {fileID: 0}

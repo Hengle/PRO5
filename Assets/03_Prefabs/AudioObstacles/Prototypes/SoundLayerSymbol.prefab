@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 6149636350882702173}
   - component: {fileID: 4615825103876478896}
   - component: {fileID: 536980778807139604}
-  - component: {fileID: 7609895423610864581}
   - component: {fileID: 302330454220816861}
   m_Layer: 0
   m_Name: SoundLayerSymbol
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8916390866174325603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.057919074, y: 0.057919074, z: 0.057919074}
+  m_LocalScale: {x: 0.087521516, y: 0.087521516, z: 0.087521516}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +49,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8916390866174325603}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -81,20 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7609895423610864581
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8916390866174325603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &302330454220816861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +95,10 @@ MonoBehaviour:
   Kick: 0
   Snare: 0
   HiHat: 0
-  Triangle: {fileID: 2100000, guid: 2d0f39ed37ce16747a1adc13fe9dfac6, type: 2}
-  Square: {fileID: 2100000, guid: ce80a1159415eb2498e2343293d1ffc6, type: 2}
-  Hexagon: {fileID: 2100000, guid: 31d7b5b5ed9395042baf27d9abdd4a3d, type: 2}
+  LeadBass: 0
+  Atmo: 0
+  HiHatMat: {fileID: 2100000, guid: 2d0f39ed37ce16747a1adc13fe9dfac6, type: 2}
+  LeadBassMat: {fileID: 2100000, guid: ce80a1159415eb2498e2343293d1ffc6, type: 2}
+  AtmoMat: {fileID: 2100000, guid: 31d7b5b5ed9395042baf27d9abdd4a3d, type: 2}
+  SnareMat: {fileID: 2100000, guid: b5f3e3d06513e52448b69a081ea4afa6, type: 2}
+  KickMat: {fileID: 2100000, guid: d8d266c7e2848e74c80f55462896d868, type: 2}

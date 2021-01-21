@@ -25,10 +25,15 @@ public abstract class AudioObstacle : MonoBehaviour
 {
     //Subscribe to Event
 
+    //[SerializeField] public MusicLayerController mlc;
+    public musicEvent ListeningOnLayer;
+
     [HideInInspector]public bool m_onSnare, m_onKick, m_onHiHat, m_onLeadBass, m_onAtmo;
     public bool _useThisEmission;
 
     protected bool addedToEvent = false;
+
+
 
     //Interval in which the object calls the method "objectAction"
     public bool _intervalBeat;
@@ -54,8 +59,7 @@ public abstract class AudioObstacle : MonoBehaviour
     bool test = false;
     //public bool _holdOnMusic = true;
 
-    //[SerializeField] public MusicLayerController mlc;
-    public musicEvent ListeningOnLayer;
+
 
     //public bool currentActiveLayer;
     public bool _holdValue = false;
@@ -89,10 +93,15 @@ public abstract class AudioObstacle : MonoBehaviour
 
                 break;
         }*/
+        if (_holdValue)
+        {
+            _holdHelper = true;
+        }
     }
 
     void Start()
     {
+
     }
 
     void deactivatebolls()
@@ -191,31 +200,6 @@ public abstract class AudioObstacle : MonoBehaviour
     {
         addedToEvent = true;
 
-        /*if (m_onSnare)
-        {
-            MyEventSystem.instance.Snare += objectAction;
-        }
-
-        if (m_onKick)
-        {
-            MyEventSystem.instance.Kick += objectAction;
-        }
-
-        if (m_onHiHat)
-        {
-            MyEventSystem.instance.HiHat += objectAction;
-        }
-
-        if (m_onLeadBass)
-        {
-            MyEventSystem.instance.LeadBass += objectAction;
-        }
-
-        if (m_onAtmo)
-        {
-            MyEventSystem.instance.Atmo += objectAction;
-        }*/
-
         switch (ListeningOnLayer)
         {
             case musicEvent.Kick:
@@ -282,31 +266,6 @@ public abstract class AudioObstacle : MonoBehaviour
             default:
                 break;
         }
-
-        /*if (m_onSnare)
-        {
-            MyEventSystem.instance.Snare -= objectAction;
-        }
-
-        if (m_onKick)
-        {
-            MyEventSystem.instance.Kick -= objectAction;
-        }
-
-        if (m_onHiHat)
-        {
-            MyEventSystem.instance.HiHat -= objectAction;
-        }
-
-        if (m_onLeadBass)
-        {
-            MyEventSystem.instance.LeadBass -= objectAction;
-        }
-
-        if (m_onAtmo)
-        {
-            MyEventSystem.instance.Atmo -= objectAction;
-        }*/
     }
 
     private void OnDisable()
