@@ -9,15 +9,17 @@ public class PlayerStatistics : StatisticController, IHasHealth
     public FloatVariable shieldValue;
     public bool isDashing = false;
     public bool alive = true;
+
     protected override void InitStats()
     {
         multList = new List<Multiplier>();
         statList = new List<GameStatistics>();
         foreach (FloatReference f in statTemplate.statList)
         {
-            StatVariable s = (StatVariable)f.Variable;
+            StatVariable s = (StatVariable) f.Variable;
             statList.Add(new GameStatistics(f.Value, s.statName));
         }
+
         currentHealth.Value = GetStatValue(StatName.MaxHealth);
     }
 
@@ -34,7 +36,8 @@ public class PlayerStatistics : StatisticController, IHasHealth
     {
         //float damage = baseDmg * (baseDmg/(baseDmg + enemy.GetStat(EnemyStatName.defense)))
         float newDamage = damage * damage / (damage + GetStatValue(StatName.Defense));
-        currentHealth.Value -= Shield(newDamage);;
+        currentHealth.Value -= Shield(newDamage);
+        ;
         // SetStatValue(StatName.MaxHealth, GetStatValue(StatName.MaxHealth) - damage);
         Debug.Log(gameObject.name + " just took " + newDamage + " damage.");
         CheckHealth();
@@ -66,12 +69,17 @@ public class PlayerStatistics : StatisticController, IHasHealth
 
     public float Shield(float newDamage)
     {
-        if (shieldValue.Value > 0)
+        if (shieldValue)
         {
-            float shieldTemp = shieldValue.Value;
-            shieldValue.Value -= newDamage;
-            newDamage -= shieldTemp;
+            if (shieldValue.Value > 0)
+            {
+                float shieldTemp = shieldValue.Value;
+                shieldValue.Value -= newDamage;
+                newDamage -= shieldTemp;
+            }
         }
+        
+
 
         return newDamage;
     }
