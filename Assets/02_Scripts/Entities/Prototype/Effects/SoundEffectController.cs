@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+
+[System.Serializable]
 public class SoundEffectController : IEffectController
 {
     protected string eventBaseDir = "event:/";

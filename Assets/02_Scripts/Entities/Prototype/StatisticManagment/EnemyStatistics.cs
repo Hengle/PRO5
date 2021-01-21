@@ -36,6 +36,7 @@ public class EnemyStatistics : StatisticController, IHasHealth
         // SetStatValue(StatName.MaxHealth, (GetStatValue(StatName.MaxHealth) - calcDamage));
 
         Debug.Log(gameObject.name + " just took " + calcDamage + " damage.");
+        GetComponent<EffectManager>().PlayParticleEffect("damage");
         currentHealth -= calcDamage;
         CheckHealth();
         // damage = damage * damage / (damage + (enemy.GetStatValue(StatName.defense) * MultiplierManager.instance.GetEnemyMultValue(MultiplierName.defense)));

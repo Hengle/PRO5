@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(IEnemyAttacks), true)]
+[CanEditMultipleObjects]
 public class AttackAnimationsEditor : Editor
 {
     float frame = 0;
@@ -85,6 +86,7 @@ public class AttackAnimationsEditor : Editor
                             if (t.attackAnimations[i].soundFX.Count != 0)
                                 for (int j = 0; j < t.attackAnimations[i].soundFX.Count; j++)
                                 {
+                                    
                                     GUILayout.BeginHorizontal();
                                     if (t.attackAnimations[i].soundFX[j].soundEffect != null)
                                     {

@@ -8,8 +8,8 @@ using FMODUnity;
 /// </summary>
 public class EffectManager : MonoBehaviour
 {
-    [HideInInspector] public List<SoundEffectController> soundFX = new List<SoundEffectController>();
-    [HideInInspector] public List<ParticleEffectController> particleFX = new List<ParticleEffectController>();
+    [HideInInspector] [SerializeField] public List<SoundEffectController> soundFX = new List<SoundEffectController>();
+    [HideInInspector] [SerializeField] public List<ParticleEffectController> particleFX = new List<ParticleEffectController>();
     [HideInInspector] public List<VFXContainer> VFX;
 
 

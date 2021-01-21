@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
+
 namespace Enemy
 {
     [System.Serializable]
@@ -14,8 +15,8 @@ namespace Enemy
         public float attRange;
         public float attackWidth;
 
-        public List<SoundEffectControllerContainer> soundFX;
-        public List<ParticleEffectContainer> particleFX;
+        public List<SoundEffectControllerContainer> soundFX = new List<SoundEffectControllerContainer>();
+        public List<ParticleEffectContainer> particleFX = new List<ParticleEffectContainer>();
         public List<VFXContainer> VFX;
     }
 }

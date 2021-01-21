@@ -5,6 +5,8 @@ using UnityEngine;
 /// <summary>
 /// Used as a simple extension for Particle Systems for ease of use. Can be referenced in the EffectController.
 /// </summary>
+
+[System.Serializable]
 public class ParticleEffectController : IEffectController
 {
     public ParticleSystem particle;

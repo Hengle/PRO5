@@ -19,7 +19,6 @@ public abstract class EffectContainer
 [System.Serializable]
 public class SoundEffectControllerContainer : EffectContainer
 {
-    //Placeholder for Fmod event
     public SoundEffectController soundEffect;
     public override void PlayEffect()
     {
