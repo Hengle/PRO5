@@ -34,11 +34,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         _minLength = _energyWall.transform.localScale.y;
         addActionToEvent();
 
-        if (_startAsActive)
-        {
-            emissionActive();
-            _holdHelper = false;
-        }
+
 
         _materials.Add(_material);
         foreach (Transform child in transform)
@@ -47,6 +43,12 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
             {
                 _materials.Add(child.GetComponent<Renderer>().material);
             }
+        }
+
+        if (_startAsActive)
+        {
+            emissionActive();
+            _holdHelper = false;
         }
     }
 
