@@ -66,12 +66,13 @@ public class AudioMover : AudioObstacle
         _moveZMaxBorder = transform.localPosition.z + _moveZ;
 
         _material = GetComponent<MeshRenderer>().material;
-        _emissionColor = _material.GetColor("_EmissiveColor");
+        
         foreach (Transform child in transform)
         {
             if (child.tag == "Mover")
-            {
+            {     
                 _symbolMat = child.GetComponent<Renderer>().material;
+                _emissionColor = _symbolMat.GetColor("_EmissiveColor");
             }
         }
     }

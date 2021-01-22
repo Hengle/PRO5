@@ -213,7 +213,7 @@ ScriptedImporter:
       - name: _EmissiveColorMode
         float: 1
       - name: _EmissiveExposureWeight
-        float: 0.846
+        float: 0.939
       - name: _EmissiveIntensity
         float: 1
       - name: _EmissiveIntensityUnit

@@ -15,13 +15,13 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     //when active the collider is enabled and damage can happen
     private bool _turretActive = true;
+    public bool _startAsActive = false;
+    public float _dmgOnEnter = 30;
+    public float _dmgOnStay = 5;
 
-    //public float _dmgOnEnter = 30;
-    //public float _dmgOnStay = 5;
+   // public float _dmgOnEnter { get; set; }
 
-    public float _dmgOnEnter { get; set; }
-
-    public float _dmgOnStay { get; set; }
+   //public float _dmgOnStay { get; set; }
 
 
     // Start is called before the first frame update
@@ -33,7 +33,13 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         _energyWall = this.gameObject.transform.GetChild(0).gameObject;
         _minLength = _energyWall.transform.localScale.y;
         addActionToEvent();
-       
+
+        if (_startAsActive)
+        {
+            emissionActive();
+            _holdHelper = false;
+        }
+
         _materials.Add(_material);
         foreach (Transform child in transform)
         {
@@ -52,7 +58,8 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     protected override void emissionActive()
     {
-        emissionChange(1);
+       
+        emissionChange(1);  
         foreach (Transform child in transform)
         {
             if(child.tag == "Turret")
@@ -68,7 +75,8 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     protected override void emissionDeactive()
     {
-        emissionChange(2);
+       
+        emissionChange(2);   
         foreach (Transform child in transform)
         {
             if (child.tag == "Turret")
@@ -129,7 +137,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         {
             Debug.Log("Turret hit");
             GameObject obj = c.gameObject;
-            if (!obj.GetComponent<EnemyBody>() & obj.GetComponent<IHasHealth>() != null)
+            if (obj.GetComponent<IHasHealth>() != null)
             {
                 MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
             }

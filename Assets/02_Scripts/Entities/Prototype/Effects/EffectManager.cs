@@ -22,7 +22,7 @@ public class EffectManager : MonoBehaviour
 
     public void PlayParticleEffect(string name)
     {
-        soundFX.Find(x => x.effectName.Equals(name)).PlayEffect();
+        particleFX.Find(x => x.effectName.Equals(name)).PlayEffect();
     }
 
     public void StopSoundEffect(string name)

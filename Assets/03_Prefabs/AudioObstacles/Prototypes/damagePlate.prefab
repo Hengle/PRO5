@@ -166,8 +166,8 @@ MonoBehaviour:
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
   _holdValue: 0
-  _holdHelper: 0
   _materials: []
+  _plateActive: 0
   _dmgOnEnter: 50
   _dmgOnStay: 30
 --- !u!114 &-846688120682200858
@@ -187,8 +187,12 @@ MonoBehaviour:
   HiHat: 0
   LeadBass: 0
   Atmo: 0
-  HiHatMat: {fileID: 0}
-  LeadBassMat: {fileID: 0}
-  AtmoMat: {fileID: 0}
-  SnareMat: {fileID: 0}
+  HiHatMat: {fileID: 2945154810990985473, guid: f3a3d00ecb6588345b47295e84774725,
+    type: 3}
+  LeadBassMat: {fileID: 4046912889880829554, guid: f3a3d00ecb6588345b47295e84774725,
+    type: 3}
+  AtmoMat: {fileID: -3695149770853244433, guid: f3a3d00ecb6588345b47295e84774725,
+    type: 3}
+  SnareMat: {fileID: -2389491250643301920, guid: f3a3d00ecb6588345b47295e84774725,
+    type: 3}
   KickMat: {fileID: 0}
