@@ -18,10 +18,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     //public float _dmgOnEnter = 30;
     //public float _dmgOnStay = 5;
-
-    public float _dmgOnEnter { get; set; }
-
-    public float _dmgOnStay { get; set; }
+    
 
 
     // Start is called before the first frame update

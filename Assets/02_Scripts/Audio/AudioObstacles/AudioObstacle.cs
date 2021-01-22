@@ -65,6 +65,9 @@ public abstract class AudioObstacle : MonoBehaviour
     public bool _holdValue = false;
     protected bool _holdHelper;
 
+    public float dmgOnEnter;
+    public float dmgOnStay;
+
 
     [HideInInspector] public List<Material> _materials;
 
