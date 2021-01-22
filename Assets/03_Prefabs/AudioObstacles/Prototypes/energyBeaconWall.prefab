@@ -106,7 +106,7 @@ MonoBehaviour:
   m_intervalCounter: 0
   m_actionInDuration: 0.25
   m_actionOutDuration: 0.25
-  m_maxEmissionIntensity: 10
+  m_maxEmissionIntensity: 5
   m_minEmissionIntensity: 0.1
   _holdValue: 0
   _materials: []

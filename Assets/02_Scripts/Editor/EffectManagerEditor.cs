@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 [CustomEditor(typeof(EffectManager), true)]
+[CanEditMultipleObjects]
 public class EffectManagerEditor : Editor
 {
     float frame = 0;

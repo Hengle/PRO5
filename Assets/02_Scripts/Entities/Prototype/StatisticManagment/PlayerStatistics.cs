@@ -40,6 +40,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
         ;
         // SetStatValue(StatName.MaxHealth, GetStatValue(StatName.MaxHealth) - damage);
         Debug.Log(gameObject.name + " just took " + newDamage + " damage.");
+        GetComponent<EffectManager>().PlayParticleEffect("damage");
         CheckHealth();
     }
 
