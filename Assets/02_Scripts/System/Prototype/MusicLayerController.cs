@@ -30,10 +30,10 @@ public class MusicLayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _snareActive = false;
-        _hiHatActive = false;
-        _leadBassActive = false;
-        _atmoActive = false;
+        _snareActive = true;
+        _hiHatActive = true;
+        _leadBassActive = true;
+        _atmoActive = true;
     }
 
     /*void skillListAdder(MusicLayerSkill layerSkill)

@@ -55,7 +55,7 @@ public class MarkerManager : MonoBehaviour
                         {
                             float active;
                             _musicInstance.getParameterByName("SnareLayer", out active);
-                            if (!_snareLock && active == 1) 
+                            if (!_snareLock) 
                             {
                                // Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
@@ -77,7 +77,7 @@ public class MarkerManager : MonoBehaviour
                             float active;
                             _musicInstance.getParameterByName("KickLayer", out active);
                             active = 1;
-                            if (!_kickLock && active == 1)
+                            if (!_kickLock)
                             {
                               //  Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
@@ -94,7 +94,7 @@ public class MarkerManager : MonoBehaviour
                         {
                             float active;
                             _musicInstance.getParameterByName("HiHatLayer", out active);
-                            if (!_hiHatLock && active == 1)
+                            if (!_hiHatLock)
                             {
                                 //Debug.Log("HiHat");
                                 MyEventSystem.instance.OnHiHat();
@@ -114,7 +114,7 @@ public class MarkerManager : MonoBehaviour
                         {
                             float active;
                             _musicInstance.getParameterByName("LeadBassLayer", out active);
-                            if (!_leadBassLock && active == 1)
+                            if (!_leadBassLock)
                             {
                                 //Debug.Log("HiHat");
                                 MyEventSystem.instance.OnLeadBass();
@@ -131,7 +131,7 @@ public class MarkerManager : MonoBehaviour
                         {
                             float active;
                             _musicInstance.getParameterByName("AtmoLayer", out active);
-                            if (!_atmoLock && active == 1)
+                            if (!_atmoLock)
                             {
                                 MyEventSystem.instance.OnAtmo();
                             }

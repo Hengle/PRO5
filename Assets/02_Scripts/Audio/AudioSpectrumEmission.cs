@@ -21,7 +21,7 @@ public class AudioSpectrumEmission : MonoBehaviour
     void Start()
     {
         spectrumManager = GameObject.Find("AudioManager").GetComponent<SpectrumManager>();
-        _material = GetComponent<MeshRenderer>().material;
+        _material = GetComponent<Renderer>().material;
         color = _material.GetColor("_EmissiveColor");
 
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{bca1e358-eca6-497d-9b63-1cf8b651b7c9}">
+		<property name="assetPath">
+			<value>cinematic.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>64.052244897959184</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{27daec36-9c41-4184-ac22-2c21c8415874}</destination>
+		</relationship>
+	</object>
+</objects>
