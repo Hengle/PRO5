@@ -49675,6 +49675,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: laserSphereTwoLaser
       objectReference: {fileID: 0}
+    - target: {fileID: 9053302091969429258, guid: 16023e851d5451248a919c3a9404cb1a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9053302091969429259, guid: 16023e851d5451248a919c3a9404cb1a,
         type: 3}
       propertyPath: dmgOnEnter
@@ -51000,11 +51005,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1950848836, guid: 8da3518963ef03c4dbe1446df298c767, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.454
       objectReference: {fileID: 0}
     - target: {fileID: 1950848836, guid: 8da3518963ef03c4dbe1446df298c767, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 214748871543602459, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
@@ -51079,12 +51084,12 @@ PrefabInstance:
     - target: {fileID: 4914410308362133418, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.454
       objectReference: {fileID: 0}
     - target: {fileID: 4914410308362133418, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4914410308596061619, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
@@ -51099,17 +51104,22 @@ PrefabInstance:
     - target: {fileID: 4914410308648820159, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.219
       objectReference: {fileID: 0}
     - target: {fileID: 4914410308648820159, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6342404408517454671, guid: 8da3518963ef03c4dbe1446df298c767,
         type: 3}
       propertyPath: m_Name
       value: BaseScenePrep
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342404408517454671, guid: 8da3518963ef03c4dbe1446df298c767,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da3518963ef03c4dbe1446df298c767, type: 3}
