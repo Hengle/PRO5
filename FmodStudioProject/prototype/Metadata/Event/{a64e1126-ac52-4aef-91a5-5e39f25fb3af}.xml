@@ -5,7 +5,7 @@
 			<value>lvl_fail</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{13c60ef0-8040-4628-920b-f79150134dea}">
 		<relationship name="effects">
 			<destination>{554be897-a9a9-4590-857a-05f1060b1231}</destination>
-			<destination>{60005a43-9f1c-40b4-b40d-cbc97ee8b212}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{aecf1782-4f29-47ca-a40b-fa2fe58f9b13}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{3ce52d78-56aa-4096-9b45-641cf644912c}" />
 	<object class="MixerBusFader" id="{554be897-a9a9-4590-857a-05f1060b1231}" />
-	<object class="SpatialiserEffect" id="{60005a43-9f1c-40b4-b40d-cbc97ee8b212}" />
 	<object class="MixerBusFader" id="{3ce0de92-c1ea-48df-b7bf-dfdd567b851e}" />
 </objects>

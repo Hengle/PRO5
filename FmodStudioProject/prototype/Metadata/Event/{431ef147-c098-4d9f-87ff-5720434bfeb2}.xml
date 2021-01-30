@@ -5,7 +5,7 @@
 			<value>env_laser_sustained</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{79a2e488-b130-4857-8720-0a21fe839bc0}">
 		<relationship name="effects">
 			<destination>{9cf4eabf-5ead-40f7-a984-1edca2dca230}</destination>
-			<destination>{5d88ee96-ccf0-4c44-84d9-d7fcd56135a5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{788cd34c-db9f-49c0-b5f2-c641c30e8a67}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{892ff487-b805-4ab7-aa29-21f416d0c067}" />
 	<object class="MixerBusFader" id="{9cf4eabf-5ead-40f7-a984-1edca2dca230}" />
-	<object class="SpatialiserEffect" id="{5d88ee96-ccf0-4c44-84d9-d7fcd56135a5}" />
 	<object class="MixerBusFader" id="{9e05fa5b-14cc-4a5e-8e02-07869eb02958}" />
 </objects>

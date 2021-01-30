@@ -5,7 +5,7 @@
 			<value>env_deactivate</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{8ffdc53e-9f71-4e04-aebf-fdd05949de4d}">
 		<relationship name="effects">
 			<destination>{704f1ecb-f301-474d-968a-f7cf66b1333c}</destination>
-			<destination>{944be033-57c0-4c08-a85f-10e6739660c7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{991ba95e-968f-406a-973b-023ed63b838f}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{0381c2d1-779b-438d-8c16-dbd37cffbec7}" />
 	<object class="MixerBusFader" id="{704f1ecb-f301-474d-968a-f7cf66b1333c}" />
-	<object class="SpatialiserEffect" id="{944be033-57c0-4c08-a85f-10e6739660c7}" />
 	<object class="MixerBusFader" id="{56c66e41-d0d0-4ac9-807f-146311d39461}" />
 </objects>

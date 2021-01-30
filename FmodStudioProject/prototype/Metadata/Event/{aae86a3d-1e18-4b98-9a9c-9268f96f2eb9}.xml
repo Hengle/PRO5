@@ -5,7 +5,7 @@
 			<value>enemy_preattack</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{60273ff2-ef5a-4e66-8c41-f81d5749c76b}">
 		<relationship name="effects">
 			<destination>{396cd5d7-0753-405f-bd4b-9125637cb4ce}</destination>
-			<destination>{f4d2cfa7-5924-4232-bafe-c97ad8e6f75c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1e3679ac-3889-423e-bc24-30ed5bfe9929}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{bc421964-40d2-4f55-a3dd-4bfe1c5a2e03}" />
 	<object class="MixerBusFader" id="{396cd5d7-0753-405f-bd4b-9125637cb4ce}" />
-	<object class="SpatialiserEffect" id="{f4d2cfa7-5924-4232-bafe-c97ad8e6f75c}" />
 	<object class="MixerBusFader" id="{88bf3aa4-4245-43e9-af1d-05cd04240e09}" />
 </objects>
