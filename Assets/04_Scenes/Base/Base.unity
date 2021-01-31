@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 49f4c4e840cdfc4448f4b2e12f907c52, type: 2}
 --- !u!114 &4925452 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4925452, guid: 9fe3307324cf8d047b74149b6256bfd8,
@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1517712928}
+    - target: {fileID: 1097293485, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
+      propertyPath: enemySet
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1606030433, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
       propertyPath: playerController
       value: 
@@ -435,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 1556470412479264141, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.56
+      value: -13.55
       objectReference: {fileID: 0}
     - target: {fileID: 1556470412479264141, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
@@ -445,7 +449,7 @@ PrefabInstance:
     - target: {fileID: 1556470412479264141, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.76
+      value: -13.47
       objectReference: {fileID: 0}
     - target: {fileID: 1556470412479264141, guid: 9fe3307324cf8d047b74149b6256bfd8,
         type: 3}

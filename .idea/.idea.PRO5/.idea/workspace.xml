@@ -21,17 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/3D_Models/Environment/Floors &amp; Walls.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Textures/DmgPlate/Circle.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Textures/DmgPlate/Hexagon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Prefabs/Environment/Crates_2Collider.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.bank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Master.strings.bank" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/Base/Base.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/Base/Base.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +56,13 @@
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamageAudioObstacle.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioMarkerEmission.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioMover.cs" />
-      <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LayerSymbolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Entities/Prototype/StatisticManagment/PlayerStatistics.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LaserTurret.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/DamagePlate.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacle.cs" />
       <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/AudioObstacleDamageCollider.cs" />
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioSpectrumEmission.cs" />
+      <option value="$PROJECT_DIR$/Assets/02_Scripts/Audio/AudioObstacles/LayerSymbolManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1kMwpYh9uT4DBN1HBkgQ4I7dKp8" />
@@ -157,6 +148,10 @@
       <workItem from="1611159534460" duration="668000" />
       <workItem from="1611246359446" duration="385000" />
       <workItem from="1611304835877" duration="1028000" />
+      <workItem from="1611437271479" duration="6000" />
+      <workItem from="1611438012307" duration="93000" />
+      <workItem from="1611481933924" duration="1899000" />
+      <workItem from="1612093737888" duration="1012000" />
     </task>
     <servers />
   </component>
