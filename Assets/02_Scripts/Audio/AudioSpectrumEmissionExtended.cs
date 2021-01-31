@@ -61,7 +61,7 @@ public class AudioSpectrumEmissionExtended : MonoBehaviour
             _material.DOVector(color * spectrumManager.getFqBandBuffer8(_audioBand1) * emissiveStrength, "_EmissiveColor", 0.25f);
         } else
         {
-            _material.DOVector(new Vector4(0,0,0,0), "_EmissiveColor", 0.25f);
+            _material.DOVector(color, "_EmissiveColor", 0.25f);
         }
     }
 }

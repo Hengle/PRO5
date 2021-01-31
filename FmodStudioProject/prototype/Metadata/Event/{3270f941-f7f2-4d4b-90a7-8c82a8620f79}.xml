@@ -5,7 +5,7 @@
 			<value>enemy3_countdown</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{b8deebe0-1c15-4a11-a0ba-0f6fc2fc5e59}">
 		<relationship name="effects">
 			<destination>{b65c3c53-98cd-4d2f-8a1e-63f8dd19fcab}</destination>
-			<destination>{f7298743-efe3-406d-8946-dfc594526654}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{35da6dec-7e7a-4650-bebe-b0638c306713}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{d7cd29e2-9646-431a-9bf6-ae0f515c9c72}" />
 	<object class="MixerBusFader" id="{b65c3c53-98cd-4d2f-8a1e-63f8dd19fcab}" />
-	<object class="SpatialiserEffect" id="{f7298743-efe3-406d-8946-dfc594526654}" />
 	<object class="MixerBusFader" id="{36d0ea58-5168-4c0d-afd8-120f5d692d2d}" />
 </objects>

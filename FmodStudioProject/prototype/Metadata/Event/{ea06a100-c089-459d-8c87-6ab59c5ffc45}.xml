@@ -5,7 +5,7 @@
 			<value>enemy2_charge</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{838ac7c0-353d-419e-9ef3-fcdfd4139ce3}">
 		<relationship name="effects">
 			<destination>{ad48a94b-e002-4314-afab-6c008cfa669e}</destination>
-			<destination>{299c1602-ec08-4fb1-9983-981c1b4c58e3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f4badf71-b88f-4cfd-b24d-b2abd43a3bbb}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{03662887-1bd1-45bb-839d-770b042679b9}" />
 	<object class="MixerBusFader" id="{ad48a94b-e002-4314-afab-6c008cfa669e}" />
-	<object class="SpatialiserEffect" id="{299c1602-ec08-4fb1-9983-981c1b4c58e3}" />
 	<object class="MixerBusFader" id="{2be873bc-d682-4a1f-8b10-08b595c43812}" />
 </objects>

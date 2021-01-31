@@ -5,7 +5,7 @@
 			<value>enemy_stunned</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{3ac0ed9b-82f2-4971-850f-804291aa0889}">
 		<relationship name="effects">
 			<destination>{4762893a-42a2-481f-a805-235b13c3f554}</destination>
-			<destination>{5f213839-fd81-4b9c-9eb2-2f63a9821ebe}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{517acfcf-c058-49f4-8481-b080ac26acda}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{b5296aaf-c8e8-4f32-af2e-4391cc832f86}" />
 	<object class="MixerBusFader" id="{4762893a-42a2-481f-a805-235b13c3f554}" />
-	<object class="SpatialiserEffect" id="{5f213839-fd81-4b9c-9eb2-2f63a9821ebe}" />
 	<object class="MixerBusFader" id="{a5449f34-058f-4566-bbd7-0f5cb77548c0}" />
 </objects>

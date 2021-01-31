@@ -5,7 +5,7 @@
 			<value>enemy_spawn</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{3bb466ef-f326-4593-8252-4451a154431a}">
 		<relationship name="effects">
 			<destination>{3fe46690-027d-4dbb-b095-b0f850ce2140}</destination>
-			<destination>{4921efb3-b9d8-407d-8c88-911936b70d49}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e8e7a0f3-9967-4c5f-8a69-d4015cda69cc}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{886a0fbb-9254-41e0-a7b5-6355ac77ae35}" />
 	<object class="MixerBusFader" id="{3fe46690-027d-4dbb-b095-b0f850ce2140}" />
-	<object class="SpatialiserEffect" id="{4921efb3-b9d8-407d-8c88-911936b70d49}" />
 	<object class="MixerBusFader" id="{b3ce3954-ff13-4d60-b21e-116ceed9aacf}" />
 </objects>
