@@ -44,12 +44,18 @@ public class MyEventSystem : MonoBehaviour
 
     #endregion TeleportsEvents
 
+    public event System.Action onUpdateNavMesh;
 
     public static MyEventSystem instance;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void OnUpdateNavMesh()
+    { 
+        onUpdateNavMesh?.Invoke();
     }
 
     public void WaveDefeated()
