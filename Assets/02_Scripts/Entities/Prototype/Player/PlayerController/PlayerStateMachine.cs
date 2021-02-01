@@ -248,7 +248,7 @@ public class PlayerStateMachine : MonoBehaviour
     }
     void PlayDeath()
     {
-
+        ScriptCollection.GetScript<ScenenManager>().LoadFirstLevel();
     }
     /*void DashDelay()
   {
