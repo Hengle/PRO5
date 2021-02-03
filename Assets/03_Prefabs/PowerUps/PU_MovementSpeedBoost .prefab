@@ -112,9 +112,8 @@ MonoBehaviour:
   soundEffect: {fileID: 0}
   powerupName: 2
   _player: {fileID: 0}
-  duration: 200
+  duration: 5
   speedMult: 2
-  pc: {fileID: 0}
 --- !u!1001 &6675248754590028558
 PrefabInstance:
   m_ObjectHideFlags: 0

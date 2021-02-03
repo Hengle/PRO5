@@ -12,6 +12,10 @@ public class Shield : PowerUp
 
     public void Start()
     {
+        //Thomas fügte diese Zeile hinzu, da ansonsten aus irgendeinem Grund der Spieler nicht gefunden werden kann
+        //Obwohl in der parent Class PowerUp das selbe ausgeführt wird
+        if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
+
         descText = "Shield";
     }
 

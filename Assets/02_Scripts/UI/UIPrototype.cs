@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class UIPrototype : MonoBehaviour
 {
 
     public MusicLayerController _controller;
+    public PowerUpController _puController;
     public Canvas canvas;
     private Image[] imgArray;
 
@@ -17,11 +19,71 @@ public class UIPrototype : MonoBehaviour
     Color activeColorYellow = Color.yellow;
     Color unactiveColorYellow = new Color(0.66f, 0.64f, 0.26f);
 
+    Color powerUpSymbolEnabled = new Color(1, 1, 1, 1);
+    Color powerUpSymbolDisabled = new Color(1, 1, 1, 0);
+
     // Start is called before the first frame update
     void Start()
     {
         imgArray = canvas.GetComponentsInChildren<Image>();
         imgArray[2].DOColor(Color.white, 0.1f);
+
+       //MyEventSystem.instance.powerupCollected += EnablePowerUpSymbol;
+    }
+
+
+    public void EnablePowerUpSymbol(PowerUp powerUp)
+    {
+
+            switch (powerUp.powerupName)
+        {
+            case PowerupNames.Speedboost:
+                {
+                    imgArray[7].DOColor(powerUpSymbolEnabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Knockback:
+                {
+                    imgArray[5].DOColor(powerUpSymbolEnabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Shield:
+                {
+                    imgArray[6].DOColor(powerUpSymbolEnabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Stun:
+                {
+                    imgArray[8].DOColor(powerUpSymbolEnabled, 0.1f);
+                }
+                break;
+        }
+    }
+    public void DisablePowerUpSymbol(PowerUp powerUp)
+    {
+        switch (powerUp.powerupName)
+        {
+            case PowerupNames.Speedboost:
+                {
+                    imgArray[7].DOColor(powerUpSymbolDisabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Knockback:
+                {
+                    imgArray[5].DOColor(powerUpSymbolDisabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Shield:
+                {
+                    imgArray[6].DOColor(powerUpSymbolDisabled, 0.1f);
+                }
+                break;
+            case PowerupNames.Stun:
+                {
+                    imgArray[8].DOColor(powerUpSymbolDisabled, 0.1f);
+                }
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -64,6 +126,24 @@ public class UIPrototype : MonoBehaviour
         {
             imgArray[3].DOColor(unactiveColorYellow, 0.1f);
         }
+
+
+
+        /*
+         * ------
+        if (_puController._currentPowerUp.powerupName.Equals("Speedboost"))
+        {
+            Debug.Log("Worked");
+            imgArray[5].DOColor(new Color(1, 1, 1, 1), 0.1f);
+        }
+        else
+        {
+           
+        }
+        *--------
+        */
+
+
 
 
         /*

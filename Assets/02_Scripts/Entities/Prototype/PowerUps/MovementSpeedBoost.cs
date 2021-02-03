@@ -13,12 +13,17 @@ public class MovementSpeedBoost : PowerUp
 
     public void Start()
     {
+        //Thomas fügte diese Zeile hinzu, da ansonsten aus irgendeinem Grund der Spieler nicht gefunden werden kann
+        //Obwohl in der parent Class PowerUp das selbe ausgeführt wird
+        if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
+
         descText = "Movement Speed Boost";
     }
 
     public override void Activate(PlayerStateMachine player)
     {
         Debug.Log("MovementSpeedBoost power up activated");
+        player.GetComponent<EffectManager>().PlayParticleEffect("speedBoost");
         StartCoroutine(ActivateForDuration(duration, player));
     }
 
@@ -31,6 +36,7 @@ public class MovementSpeedBoost : PowerUp
 
         yield return new WaitForSeconds(duration);
 
+        Debug.Log("MovementSpeedBoost power up deactivated");
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(1);
         pc.currentMoveSpeed = pc.standardMoveSpeed;
