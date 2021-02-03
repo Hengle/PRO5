@@ -17,16 +17,19 @@ public class EffectManager : MonoBehaviour
 
     public void PlaySoundEffect(string name)
     {
-        soundFX.Find(x => x.effectName.Equals(name)).PlayEffect();
+        if (soundFX.Exists(x => x.effectName.Equals(name)))
+            soundFX.Find(x => x.effectName.Equals(name)).PlayEffect();
     }
 
     public void PlayParticleEffect(string name)
     {
-        particleFX.Find(x => x.effectName.Equals(name)).PlayEffect();
+        if (particleFX.Exists(x => x.effectName.Equals(name)))
+            particleFX.Find(x => x.effectName.Equals(name)).PlayEffect();
     }
 
     public void StopSoundEffect(string name)
     {
-        soundFX.Find(x => x.effectName.Equals(name)).StopEffect();
+        if (soundFX.Exists(x => x.effectName.Equals(name)))
+            soundFX.Find(x => x.effectName.Equals(name)).StopEffect();
     }
 }
