@@ -18,29 +18,45 @@ namespace BBUnity.Actions
 
         [InParam("EffectManager", typeof(EffectManager))]
         public EffectManager effectManager;
-
+        [InParam("EnemyActions")]
+        public EnemyActions actions;
         public override void OnStart()
         {
             //start effects or whatever
-            agent.isStopped = true;
+    
             animator.SetBool("isStunned", true);
             effectManager.PlaySoundEffect("stun");
         }
 
         public override TaskStatus OnUpdate()
         {
-            return TaskStatus.RUNNING;
+            if (actions.isStunned || !Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor")))
+            {
+                agent.isStopped = true;
+                agent.enabled = false;
+                return TaskStatus.RUNNING;
+            }
+            else
+            {
+                agent.isStopped = false;
+                agent.enabled = true;
+                return TaskStatus.COMPLETED;
+            }
+
         }
 
         public override void OnAbort()
         {
             animator.SetBool("isStunned", false);
+            agent.enabled = true;
             agent.isStopped = false;
+
             effectManager.StopSoundEffect("stun");
         }
         public override void OnEnd()
         {
             animator.SetBool("isStunned", false);
+            agent.enabled = true;
             agent.isStopped = false;
             effectManager.StopSoundEffect("stun");
         }

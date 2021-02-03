@@ -18,9 +18,14 @@ namespace BBUnity.Conditions
         public override bool Check()
         {
             if (actions.isStunned)
+            {
+                agent.isStopped = true;
+                agent.enabled = false;
                 return true;
+            }
             else
             {
+                agent.enabled = true;
                 agent.isStopped = false;
                 return false;
             }

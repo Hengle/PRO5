@@ -12,12 +12,29 @@ namespace BBUnity.Conditions
     {
         [InParam("agent")]
         public NavMeshAgent agent;
+
+        float waitTime = 0.1f;
+        float currentTime;
         public override bool Check()
         {
             if (agent.isOnNavMesh && Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor")))
+            {
+                currentTime = 0;
                 return false;
+            }
             else
+            {
+                // if (currentTime < waitTime)
+                // {
+                //     currentTime += Time.deltaTime;
+                //     return false;
+                // }
+                // else
+                // {
+                //     currentTime = 0;
                 return true;
+                // }
+            }
         }
     }
 }
