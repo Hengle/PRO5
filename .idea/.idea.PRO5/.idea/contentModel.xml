@@ -103,6 +103,7 @@
                   <e p="BehaviourTree" t="Include">
                     <e p="Actions" t="Include">
                       <e p="FindPointOnNavMesh.cs" t="Include" />
+                      <e p="FollowPlayer.cs" t="Include" />
                       <e p="RunAwayAction.cs" t="Include" />
                     </e>
                   </e>
