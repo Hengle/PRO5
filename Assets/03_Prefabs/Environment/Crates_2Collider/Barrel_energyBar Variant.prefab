@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!65 &6487433823206589915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462600743670960321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9449999, y: 3.9614453, z: 1.7320509}
+  m_Center: {x: 0, y: 7.0567226, z: 0}
+--- !u!65 &609866504907675338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139259967183126936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9449999, y: 3.076, z: 1.7320509}
+  m_Center: {x: 0, y: 1.538, z: 0}
+--- !u!1001 &7361924332604467206
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 52769517532741236, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_Name
+      value: Barrel_energyBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6091738
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.891014
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 860373570188059854, guid: 934bdd21319a49f419b2e877acdb2f3c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9035868402708027226, guid: 934bdd21319a49f419b2e877acdb2f3c, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 934bdd21319a49f419b2e877acdb2f3c, type: 3}
+--- !u!1 &8462600743670960321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1394987402334271687, guid: 934bdd21319a49f419b2e877acdb2f3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7361924332604467206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139259967183126936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8906680492948695454, guid: 934bdd21319a49f419b2e877acdb2f3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7361924332604467206}
+  m_PrefabAsset: {fileID: 0}

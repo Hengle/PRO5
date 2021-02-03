@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7403611065653152326}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2943078631724464917, guid: a1711f2adfa4e3949b7549b0a68d0430, type: 3}
 --- !u!23 &6216525695221537279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -108,4 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: Respawn Test
   descText: Teleport player to teleport target
+  soundEffect: {fileID: 0}
+  powerupName: 0
   _player: {fileID: 0}

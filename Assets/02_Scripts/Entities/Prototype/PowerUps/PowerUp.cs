@@ -26,6 +26,8 @@ public class PowerUp : MonoBehaviour
             MyEventSystem.instance.OnPowerupCollected(this);
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+
         }
     }
 

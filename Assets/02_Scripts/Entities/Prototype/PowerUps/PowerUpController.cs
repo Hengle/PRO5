@@ -6,6 +6,7 @@ public class PowerUpController : MonoBehaviour
 {
     public PlayerStateMachine playerController;
     public PowerUp _currentPowerUp = null;
+    public UIPrototype ui;
 
     public SoundEffectsList PU_activation;
 
@@ -22,11 +23,17 @@ public class PowerUpController : MonoBehaviour
 
     public void StorePowerUp(PowerUp powerup)
     {
+        if (_currentPowerUp != null)
+        {
+            ui.DisablePowerUpSymbol(_currentPowerUp);
+        }
+        
 
         PU_activation.PlayEffect(false, "powerup_pickup");
         Debug.Log(string.Format("Stored {0}", powerup));
         _currentPowerUp = powerup;
         powerup.transform.parent = playerController.transform;
+        ui.EnablePowerUpSymbol(powerup);
     }
 
 
@@ -40,6 +47,7 @@ public class PowerUpController : MonoBehaviour
 
             _currentPowerUp.Activate(playerController);
             // Destroy(_currentPowerUp.gameObject);
+            ui.DisablePowerUpSymbol(_currentPowerUp);
             _currentPowerUp = null;
         }
     }

@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Runtime.InteropServices;
-
+using UnityEngine.iOS;
 
 [RequireComponent(typeof(FMODUnity.StudioEventEmitter))]
+
+public class Game: MonoBehaviour
+{
+
+}
+
+
 public class SpectrumManager : MonoBehaviour
 {
 
@@ -106,6 +113,19 @@ public class SpectrumManager : MonoBehaviour
         musicInstance.getChannelGroup(out channelGroup);
     }
 
+
+    public Game CreateAwesomeTopDownActionPuzzleGameWithCyberSoundtrack(String AIandSystems, String MusicObstacles, String PowerUp, String EnvironmentArt, String CharacterArt, String CrazySound)
+    {
+        return null;
+    }
+
+    
+    
+
+
+
+
+
     void Update()
     {
         //BPM Calculation Methods
@@ -137,7 +157,7 @@ public class SpectrumManager : MonoBehaviour
             //Checking if the channels already loaded
             if (fftData.numchannels == 0)
             {
-                Debug.Log("keine FFT Channels vorhanden");
+                //Debug.Log("keine FFT Channels vorhanden");
             }
             //Checking if the channels already loaded
             if (fftData.numchannels > 0)
@@ -202,42 +222,10 @@ public class SpectrumManager : MonoBehaviour
     }
 
     //smootht die Werte damit diese nicht so zappeln
-    void BandBuffer8()
-    {
-        
-        for (int g = 0; g < 8; ++g)
-        {
-            if (_freqBand8[g] > _bandBuffer8[g])
-            {
-                _bandBuffer8[g] = _freqBand8[g];
-                _bufferDecrease[g] = _smoothBuffer;
-            }
 
-            if (_freqBand8[g] < _bandBuffer8[g])
-            {
-                _bufferDecrease[g] = (_bandBuffer8[g] - _freqBand8[g]) / 8;
-                _bandBuffer8[g] -= _bufferDecrease[g];
-            }
-        }    
-    }
 
     //damit bekommen wir die Lautstärke
-    void GetAmplitude(int bandAmount)
-    {
-        float _currentAmplitude = 0;
-        float _CurrentAmplitudeBuffer = 0;
-        for (int i = 0; i < bandAmount; i++)
-        {
-            _currentAmplitude += _audioBand8[i];
-            _CurrentAmplitudeBuffer += _audioBandBuffer8[i];
-        }
-        if (_currentAmplitude > _amplitudeHighest)
-        {
-            _amplitudeHighest = _currentAmplitude;
-        }
-        _amplitude = _currentAmplitude / _amplitudeHighest;
-        _amplitudeBuffer = _CurrentAmplitudeBuffer / _amplitudeHighest;
-    }
+
 
     //kann für jeden Track angepasst werden
     //damit die Werte auch gleich am Anfang smooth sind, ohne dem AudioProfile brauchen diese ein bisschen bis sie sich einpendeln
@@ -257,7 +245,65 @@ public class SpectrumManager : MonoBehaviour
         }
     }
 
+
+
+    void BandBuffer8()
+    {
+
+        for (int g = 0; g < 8; ++g)
+        {
+            if (_freqBand8[g] > _bandBuffer8[g])
+            {
+                _bandBuffer8[g] = _freqBand8[g];
+                _bufferDecrease[g] = _smoothBuffer;
+            }
+
+            if (_freqBand8[g] < _bandBuffer8[g])
+            {
+                _bufferDecrease[g] = (_bandBuffer8[g] - _freqBand8[g]) / 8;
+                _bandBuffer8[g] -= _bufferDecrease[g];
+            }
+        }
+    }
+
+
+
+
+    /*
+
+    public Game createPRO5()
+    {
+        Game waveform = CreateAwesomeTopDownActionPuzzleGameWithCyberSoundtrack();
+        return waveform;
+    }
+    */
+
+
+    void GetAmplitude(int bandAmount)
+    {
+        float _currentAmplitude = 0;
+        float _CurrentAmplitudeBuffer = 0;
+        for (int i = 0; i < bandAmount; i++)
+        {
+            _currentAmplitude += _audioBand8[i];
+            _CurrentAmplitudeBuffer += _audioBandBuffer8[i];
+        }
+        if (_currentAmplitude > _amplitudeHighest)
+        {
+            _amplitudeHighest = _currentAmplitude;
+        }
+        _amplitude = _currentAmplitude / _amplitudeHighest;
+        _amplitudeBuffer = _CurrentAmplitudeBuffer / _amplitudeHighest;
+    }
+
+
+
+
 }
+
+
+
+
 
 
 

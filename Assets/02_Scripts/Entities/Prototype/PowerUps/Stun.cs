@@ -10,6 +10,7 @@ public class Stun : EnemyPowerup
     public override void Activate(PlayerStateMachine player)
     {
         var enemies = FindEnemies(radius, powerupName, player);
+        player.GetComponent<EffectManager>().PlayParticleEffect("stun");
         // Apply knockback force to each enemy
         var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
         foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
