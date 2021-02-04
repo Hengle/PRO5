@@ -109,11 +109,12 @@ MonoBehaviour:
   m_maxEmissionIntensity: 5
   m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 0
+  dmgOnStay: 0
   _materials: []
   _maxLength: 3
   _startAsActive: 0
-  _dmgOnEnter: 30
-  _dmgOnStay: 5
+  useNavMesh: 0
 --- !u!1 &4523171851357897372
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +128,7 @@ GameObject:
   - component: {fileID: 4523171851357897375}
   - component: {fileID: 4523171851357897374}
   - component: {fileID: 4523171851357897369}
+  - component: {fileID: 6340265056772012365}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Turret
@@ -424,6 +426,22 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!208 &6340265056772012365
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523171851357897372}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: -0.5, y: 0.5, z: -0.5}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1799452964849990778
 PrefabInstance:
   m_ObjectHideFlags: 0
