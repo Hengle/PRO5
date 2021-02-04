@@ -21,7 +21,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     //public float _dmgOnEnter = 30;
     //public float _dmgOnStay = 5;
 
-    public bool useNavMeshForBridges = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,18 +55,6 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     // Update is called once per frame
     void Update()
     {
-
-        if (useNavMeshForBridges)
-        {
-            if (transform.GetChild(0).localScale.y == 0)
-            {
-                transform.GetComponentInChildren<NavMeshObstacle>().enabled = false;
-            }
-            else
-            {
-                transform.GetComponentInChildren<NavMeshObstacle>().enabled = true;
-            }
-        }
 
     }
 
