@@ -3729,7 +3729,7 @@ ScriptedImporter:
       - name: _EmissionColor
         color: {r: 1, g: 1, b: 1, a: 1}
       - name: _EmissiveColor
-        color: {r: 0, g: 25.688938, b: 23.940477, a: 1}
+        color: {r: 34.29675, g: 26.809835, b: 0, a: 1}
       - name: _EmissiveColorLDR
         color: {r: 0, g: 0, b: 0, a: 1}
       - name: _InvPrimScale
