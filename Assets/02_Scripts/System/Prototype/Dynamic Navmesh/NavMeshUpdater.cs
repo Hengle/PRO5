@@ -13,11 +13,20 @@ public class NavMeshUpdater : MonoBehaviour
     NavMeshDataInstance m_Instance;
     List<NavMeshBuildSource> m_Sources = new List<NavMeshBuildSource>();
 
+    public bool updateNavMesh = false;
+
     private void Start()
     {
         UpdateNavMesh();
         MyEventSystem.instance.onUpdateNavMesh += UpdateNavMeshAsync;
+        if (updateNavMesh)
+        {
+            InvokeRepeating("UpdateNavMesh", 2.0f, 0.3f);
+        }
+
     }
+
+
 
     // IEnumerator Start()
     // {
