@@ -184,18 +184,7 @@ public class ScenenManager : MonoBehaviour
 
     private void Start()
     {
-        switch (startScene)
-        {
-            case SceneType.StartMenu:
-                LoadStartMenuScene();
-                break;
-            case SceneType.Level:
-                LoadFirstLevel();
-                break;
-            default:
-                LoadStartMenuScene();
-                break;
-        }
+
     }
 
 

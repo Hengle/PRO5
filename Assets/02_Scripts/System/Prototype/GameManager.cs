@@ -7,6 +7,7 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     //GameManager for starting games and managing game over states
+    public ScenenManager.SceneType startScene;
     public Canvas transitionCanvas;
     public Animation transitionImage;
     public ScenenManager scenenManager;
@@ -14,15 +15,43 @@ public class GameManager : MonoBehaviour
     public bool gamePaused = false;
     public static GameManager instance;
 
+#if UNITY_EDITOR
+    public bool editing;
+#endif
+
+    private void Start()
+    {
+        instance = this;
+#if UNITY_EDITOR
+        if (!editing)
+        {
+#endif
+            switch (startScene)
+            {
+                case ScenenManager.SceneType.StartMenu:
+                    scenenManager.LoadStartMenuScene();
+                    break;
+                case ScenenManager.SceneType.Level:
+                    scenenManager.LoadFirstLevel();
+                    break;
+                default:
+                    scenenManager.LoadStartMenuScene();
+                    break;
+            }
+#if UNITY_EDITOR
+        }
+        else
+        {
+            GlobalEventSystem.instance.OnLoadFinish();
+            MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
+        }
+#endif
+    }
     // public SceneLoader sceneLoader;
     private void OnEnable()
     {
         DOTween.SetTweensCapacity(1500, 125);
         ScriptCollection.NewList();
-    }
-    private void Awake()
-    {
-        instance = this;
     }
 
     public void InitAll()
@@ -65,7 +94,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver()
-    {   
+    {
 
     }
 
