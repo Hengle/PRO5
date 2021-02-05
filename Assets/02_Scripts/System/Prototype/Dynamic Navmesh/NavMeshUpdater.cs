@@ -17,6 +17,7 @@ public class NavMeshUpdater : MonoBehaviour
 
     private void Start()
     {
+        surface.BuildNavMesh();
         UpdateNavMesh();
         MyEventSystem.instance.onUpdateNavMesh += UpdateNavMeshAsync;
         // if (updateNavMesh)

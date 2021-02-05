@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeleportTarget : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         MyEventSystem.instance.teleportPlayer += TeleportPlayerToThis;
     }
