@@ -48,18 +48,18 @@ public class AudioLight : MonoBehaviour
             }
             if (m_onHiHat)
             {
-                MyEventSystem.instance.Snare += objectAction;
+                MyEventSystem.instance.HiHat += objectAction;
             }
             if (m_onLeadBass)
             {
-                MyEventSystem.instance.Kick += objectAction;
+                MyEventSystem.instance.LeadBass += objectAction;
             }
             if (m_onAtmo)
             {
-                MyEventSystem.instance.Kick += objectAction;
+                MyEventSystem.instance.Atmo += objectAction;
             }
         }
-
+        light.DOIntensity(0, 0.25f);
     }
 
     // Update is called once per frame

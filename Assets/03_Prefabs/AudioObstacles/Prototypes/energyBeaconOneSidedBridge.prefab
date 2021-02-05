@@ -106,11 +106,14 @@ MonoBehaviour:
   m_intervalCounter: 0
   m_actionInDuration: 0.25
   m_actionOutDuration: 0.25
-  m_maxEmissionIntensity: 10
+  m_maxEmissionIntensity: 1
   m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 0
+  dmgOnStay: 0
   _materials: []
   _maxLength: 3
+  _startAsActive: 0
 --- !u!1 &4504929921217149137
 GameObject:
   m_ObjectHideFlags: 0

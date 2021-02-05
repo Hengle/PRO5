@@ -7,8 +7,7 @@ public class AudioMarkerEmission : AudioObstacle
 {
 
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
-    // public bool _holdValue = false;
-    // public bool _holdHelper;
+
     private AudioObstacle _audioObstacleImplementation;
 
 
@@ -19,6 +18,7 @@ public class AudioMarkerEmission : AudioObstacle
         _emissionColor = _material.GetColor("_EmissiveColor");
         addActionToEvent();
         _materials.Add(_material);
+        emissionChange(2);
     }
 
     // Update is called once per frame

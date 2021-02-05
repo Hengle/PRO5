@@ -200,11 +200,14 @@ MonoBehaviour:
   m_intervalCounter: 0
   m_actionInDuration: 0.25
   m_actionOutDuration: 0.25
-  m_maxEmissionIntensity: 5
-  m_minEmissionIntensity: 1
+  m_maxEmissionIntensity: 1
+  m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 0
+  dmgOnStay: 0
   _materials: []
   _maxLength: 0
+  _startAsActive: 0
 --- !u!114 &8106664342502080760
 MonoBehaviour:
   m_ObjectHideFlags: 0

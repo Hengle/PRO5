@@ -1689,7 +1689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d130bbeb9b43b603c1194ed3a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySet: {fileID: 0}
   openDoor: 0
+  enemyAmount: 0
 --- !u!1 &290068154667032756
 GameObject:
   m_ObjectHideFlags: 0
@@ -30408,13 +30410,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7973647134338433942}
-  m_LocalRotation: {x: -0.004992764, y: 0.9996463, z: -0.0021041816, w: 0.026037123}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000119209275}
   m_LocalPosition: {x: 0, y: -2.5, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 72646247971574270}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: -180.226, y: -2.9849854, z: 179.422}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!33 &1370352755477897232
 MeshFilter:
   m_ObjectHideFlags: 0
