@@ -52,19 +52,13 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     protected override void emissionActive()
     {
-       
-        emissionChange(1);  
+
+        emissionChange(1);
         foreach (Transform child in transform)
         {
-            if(child.tag == "Turret")
+            if (child.tag == "Turret")
             {
                 Sequence _tweenSeq = DOTween.Sequence()
                 .Append(child.DOScaleY(_maxLength, m_actionInDuration))
@@ -77,8 +71,8 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
 
     protected override void emissionDeactive()
     {
-       
-        emissionChange(2);   
+
+        emissionChange(2);
         foreach (Transform child in transform)
         {
             if (child.tag == "Turret")
@@ -118,20 +112,23 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
                 //ShortDurationHelper();
                 foreach (Transform child in transform)
                 {
-                    Sequence _tweenSeq = DOTween.Sequence()
-                        .Append(child.DOScaleY(_maxLength, m_actionInDuration))
-                        .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
-                        .Append(child.DOScaleY(_minLength, m_actionOutDuration))
-                        .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
-                        .SetEase(Ease.Flash);
+                    if (child.tag == "Turret")
+                    {
+                        Sequence _tweenSeq = DOTween.Sequence()
+                            .Append(child.DOScaleY(_maxLength, m_actionInDuration))
+                            .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionInDuration))
+                            .Append(child.DOScaleY(_minLength, m_actionOutDuration))
+                            .Join(_material.DOVector(_emissionColor * m_maxEmissionIntensity, "_EmissiveColor", m_actionOutDuration))
+                            .SetEase(Ease.Flash);
+                    }
                 }
             }
         }
     }
 
 
-//Gets called from dmg collider (child of this object)
-//The collision doesnt work the error is in "AudioObstacleDamageCollider"
+    //Gets called from dmg collider (child of this object)
+    //The collision doesnt work the error is in "AudioObstacleDamageCollider"
 
     public void PullTrigger(Collider c, float dmg)
     {

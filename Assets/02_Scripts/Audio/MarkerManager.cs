@@ -18,30 +18,14 @@ public class MarkerManager : MonoBehaviour
 
 
     public FMODUnity.StudioEventEmitter _emitter;
-    FMOD.Studio.EventInstance _musicInstance;
-    
-    private void OnEnable()
-    {
-        GlobalEventSystem.instance.onLoadFinish += StartLoad;
-    }
-    // Start is called before the first frame update
-    void StartLoad()
-    {
-        Debug.Log(this.GetType());
-        _musicInstance = _emitter.EventInstance;
-    }
-
-    void Update()
-    {
-
-    }
+    public FMOD.Studio.EventInstance _musicInstance;
 
     //K Kick
     //S Snare
     //H HiHat
 
     public void parseMarkerString(String marker)
-    {    
+    {
         if (marker[0] != '&')
         {
             for (int i = 0; i < marker.Length; i++)
@@ -49,19 +33,14 @@ public class MarkerManager : MonoBehaviour
                 switch (marker[i])
                 {
                     case 'S':
-                       // Debug.Log("Snare");
-                        if (MyEventSystem.instance == null)
-                        {
-                            Debug.Log("Eventsystem is null");
-                            
-                        }
-                        else
+                        // Debug.Log("Snare");
+                        if (MyEventSystem.instance != null)
                         {
                             float active;
                             _musicInstance.getParameterByName("SnareLayer", out active);
-                            if (!_snareLock && active == 1) 
+                            if (!_snareLock && active == 1)
                             {
-                               // Debug.Log("Snare");
+                                // Debug.Log("Snare");
                                 MyEventSystem.instance.OnSnare();
                             }
                             lockInstrument("lockSnare");
@@ -71,30 +50,21 @@ public class MarkerManager : MonoBehaviour
                     case 'K':
 
                         //Debug.Log("Kick");
-                        if (MyEventSystem.instance == null)
+                        if (MyEventSystem.instance != null)
                         {
-                            
-                        }
-                        else
-                        {
-                          
                             float active;
                             _musicInstance.getParameterByName("KickLayer", out active);
                             active = 1;
                             if (!_kickLock && active == 1)
                             {
-                              //  Debug.Log("Kick");
+                                //  Debug.Log("Kick");
                                 MyEventSystem.instance.OnKick();
                             }
                             lockInstrument("lockKick");
                         }
                         break;
                     case 'H':
-                        if (MyEventSystem.instance == null)
-                        {
-
-                        }
-                        else
+                        if (MyEventSystem.instance != null)
                         {
                             float active;
                             _musicInstance.getParameterByName("HiHatLayer", out active);
@@ -110,11 +80,7 @@ public class MarkerManager : MonoBehaviour
                         _emitter.SetParameter("nextPart", 0);
                         break;
                     case 'L':
-                        if (MyEventSystem.instance == null)
-                        {
-
-                        }
-                        else
+                        if (MyEventSystem.instance != null)
                         {
                             float active;
                             _musicInstance.getParameterByName("LeadBassLayer", out active);
@@ -127,11 +93,7 @@ public class MarkerManager : MonoBehaviour
                         }
                         break;
                     case 'A':
-                        if (MyEventSystem.instance == null)
-                        {
-
-                        }
-                        else
+                        if (MyEventSystem.instance != null)
                         {
                             float active;
                             _musicInstance.getParameterByName("AtmoLayer", out active);

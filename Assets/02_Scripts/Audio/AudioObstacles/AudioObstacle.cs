@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 //Handles Event Subscribing
 //Intervall
 //Material Emission
+[System.Serializable]
 public enum musicEvent
 {
     Snare,
@@ -27,7 +28,7 @@ public abstract class AudioObstacle : MonoBehaviour
     //[SerializeField] public MusicLayerController mlc;
     public musicEvent ListeningOnLayer;
 
-    [HideInInspector]public bool m_onSnare, m_onKick, m_onHiHat, m_onLeadBass, m_onAtmo;
+    [HideInInspector] public bool m_onSnare, m_onKick, m_onHiHat, m_onLeadBass, m_onAtmo;
     public bool _useThisEmission;
 
     protected bool addedToEvent = false;
@@ -211,7 +212,6 @@ public abstract class AudioObstacle : MonoBehaviour
             case musicEvent.Snare:
                 MyEventSystem.instance.Snare += objectAction;
                 m_onSnare = true;
-
                 break;
             case musicEvent.HiHat:
                 MyEventSystem.instance.HiHat += objectAction;

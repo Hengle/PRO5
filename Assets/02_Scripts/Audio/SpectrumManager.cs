@@ -86,19 +86,16 @@ public class SpectrumManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        GlobalEventSystem.instance.onLoadFinish += StartLoad;
-    }
-    void Awake()
-    {
         if (_instance == null)
         {
             _instance = this;
         }
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
     }
+
 
     void StartLoad()
     {
-        Debug.Log(this.GetType());
         _audioBand8 = new float[8];
         _audioBandBuffer8 = new float[8];
 

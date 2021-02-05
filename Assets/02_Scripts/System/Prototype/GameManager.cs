@@ -16,41 +16,39 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
 #if UNITY_EDITOR
-    public bool editing;
+    public bool inEditor;
 #endif
 
     private void Start()
     {
+        FadeInAnim();
         instance = this;
+
 #if UNITY_EDITOR
-        if (!editing)
-        {
-#endif
-            switch (startScene)
-            {
-                case ScenenManager.SceneType.StartMenu:
-                    scenenManager.LoadStartMenuScene();
-                    break;
-                case ScenenManager.SceneType.Level:
-                    scenenManager.LoadFirstLevel();
-                    break;
-                default:
-                    scenenManager.LoadStartMenuScene();
-                    break;
-            }
-#if UNITY_EDITOR
-        }
-        else
+        if (inEditor)
         {
             GlobalEventSystem.instance.OnLoadFinish();
             MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
+            return;
         }
 #endif
+        switch (startScene)
+        {
+            case ScenenManager.SceneType.StartMenu:
+                scenenManager.LoadStartMenuScene();
+                break;
+            case ScenenManager.SceneType.Level:
+                scenenManager.LoadFirstLevel();
+                break;
+            default:
+                scenenManager.LoadStartMenuScene();
+                break;
+        }
     }
     // public SceneLoader sceneLoader;
     private void OnEnable()
     {
-        DOTween.SetTweensCapacity(1500, 125);
+        DOTween.SetTweensCapacity(10000, 5000);
         ScriptCollection.NewList();
     }
 
@@ -77,16 +75,25 @@ public class GameManager : MonoBehaviour
         // transitionCanvas.gameObject.SetActive(true);
     }
 
-    public float PlayInAnim()
+    public float FadeInAnim()
     {
-        transitionImage.Play("InTransition");
-        return transitionImage.GetClip("InTransition").length;
+        if (!transitionCanvas.gameObject.activeSelf)
+            transitionCanvas.gameObject.SetActive(true);
+
+        transitionImage.Play("FadeIn");
+        return transitionImage.GetClip("FadeIn").length;
     }
 
-    public float PlayOutAnim()
+    public float FadeOutAnim()
     {
-        transitionImage.Play("OutTransition");
-        return transitionImage.GetClip("OutTransition").length;
+        if (!transitionCanvas.gameObject.activeSelf)
+            transitionCanvas.gameObject.SetActive(true);
+
+        if (transitionImage.GetComponent<Image>().color.a >= 0.9f)
+            return 0;
+
+        transitionImage.Play("FadeOut");
+        return transitionImage.GetClip("FadeOut").length;
     }
     public void StartNewGame()
     {
@@ -112,26 +119,4 @@ public class GameManager : MonoBehaviour
     {
         scenenManager.ReloadActiveLevel();
     }
-
-    public void PrintScriptList()
-    {
-        List<Object> o = ScriptCollection.ReturnList();
-        foreach (Object obj in o)
-            Debug.Log(obj.GetType());
-    }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(GameManager))]
-public class GameManagerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        GameManager t = (GameManager)target;
-
-        if (GUILayout.Button("Print Script List"))
-            t.PrintScriptList();
-    }
-}
-#endif
