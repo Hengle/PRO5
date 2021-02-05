@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Runtime.InteropServices;
-using UnityEngine.iOS;
 
 [RequireComponent(typeof(FMODUnity.StudioEventEmitter))]
 
-public class Game: MonoBehaviour
+public class Game : MonoBehaviour
 {
 
 }
@@ -21,7 +20,7 @@ public class SpectrumManager : MonoBehaviour
     public float _smoothBuffer;
 
     public FMODUnity.StudioEventEmitter emitter;
-    FMOD.Studio.EventInstance musicInstance;
+    public FMOD.Studio.EventInstance musicInstance;
 
 
     //---SPECTRUM ANALYZER---
@@ -85,7 +84,10 @@ public class SpectrumManager : MonoBehaviour
     {
         return musicInstance;
     }
-
+    private void OnEnable()
+    {
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
+    }
     void Awake()
     {
         if (_instance == null)
@@ -94,15 +96,16 @@ public class SpectrumManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void StartLoad()
     {
+        Debug.Log(this.GetType());
         _audioBand8 = new float[8];
         _audioBandBuffer8 = new float[8];
 
         AudioProfile(8, _audioProfile);
 
         //fetch the musicEvent from the EventEmitter
-        musicInstance = emitter.EventInstance;
+        // musicInstance = emitter.EventInstance;
 
         //set up fft dsp
         FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out fft);
@@ -119,8 +122,8 @@ public class SpectrumManager : MonoBehaviour
         return null;
     }
 
-    
-    
+
+
 
 
 
@@ -211,7 +214,7 @@ public class SpectrumManager : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            
+
             if (_freqBand8[i] > _freqBandHighest8[i])
             {
                 _freqBandHighest8[i] = _freqBand8[i];

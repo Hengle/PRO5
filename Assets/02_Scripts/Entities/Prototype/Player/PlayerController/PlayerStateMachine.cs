@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Ludiq.Peek;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -91,20 +90,16 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Update()
     {
+        if (isTeleporting)
+            return;
         //frametime -= Time.deltaTime;
         isDashing = playerStatistics.isDashing;
 
         //DelayUpdate();
 
         // Delay movement for one frame
-        if (!isTeleporting)
-        {
-            Move();
-        }
-        else
-        {
-            isTeleporting = false;
-        }
+        Move();
+
         UpdateLookDirection();
         DashCooldown();
     }

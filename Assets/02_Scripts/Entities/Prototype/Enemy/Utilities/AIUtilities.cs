@@ -9,7 +9,7 @@ public class AIUtilities : MonoBehaviour
     {
         ScriptCollection.RegisterScript(this);
     }
-    
+
     void OnDisable()
     {
         ScriptCollection.RemoveScript(this);
@@ -17,6 +17,7 @@ public class AIUtilities : MonoBehaviour
 
     public void DestroyObject(GameObject obj, float time = 0.1f)
     {
+        obj.GetComponent<EnemyStatistics>().OnDeath();
         Destroy(obj, time);
     }
 
@@ -277,9 +278,15 @@ public class AIUtilities : MonoBehaviour
             currentTime = 0;
         }
 
-
-        async public void StartTimer(System.Action Finish)
+        /// <summary>
+        /// Starts a timer and executes a lambda operation when the timer is finished
+        /// </summary>
+        /// <param name="Finish">A lambda operation in the form of '() => methodname or other logic'</param>
+        async public void StartTimer(System.Action Finish, float newTime = -1)
         {
+            if(newTime != -1)
+                waitTime = newTime;
+                
             timerDone = false;
             timerStarted = true;
             //Starting the async function

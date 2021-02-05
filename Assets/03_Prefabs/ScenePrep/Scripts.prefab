@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchPlayerTag: Player
-  enemySet: {fileID: 0}
+  enemySet: {fileID: 11400000, guid: d8762f34ae67bcf40ada5da7325b9449, type: 2}
   playerTarget: {fileID: 0}
   avoidDistance: 5
   obstacleAvoidDistance: 2
@@ -114,7 +114,7 @@ MonoBehaviour:
   gamepadRotate: {x: 0, y: 0}
   mouseLook: {x: 0, y: 0}
   playerController: {fileID: 0}
-  powerUpController: {fileID: 0}
+  powerUpController: {fileID: 9030912145320328691}
   musicLayerController: {fileID: 7822653780029092399}
   skillController: {fileID: 0}
 --- !u!1 &2587438256095077187
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3016386617375203225
 Transform:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3016386617689796683
 Transform:
   m_ObjectHideFlags: 0
@@ -419,6 +419,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3197192138652143791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9030912145320328691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5839633730093477212, guid: 85bb48a0c6c4a5f408d0ea6c291d984c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3197192138652143791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d673562e670b94ab66effa06a187cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5814252816958398783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,17 +441,17 @@ PrefabInstance:
     - target: {fileID: 4341406316667769621, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4848518
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341406316667769621, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4539173
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341406316667769621, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.33467078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341406316667769621, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
         type: 3}
@@ -485,6 +497,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341406316667769623, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
+        type: 3}
+      propertyPath: Event
+      value: event:/track2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341406316667769623, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
+        type: 3}
+      propertyPath: PlayEvent
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4341406316667769618, guid: 64b55bcfee3b04d4486e12e07ea19a6b, type: 3}

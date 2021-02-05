@@ -58,7 +58,7 @@ MonoBehaviour:
     />\r\n          <entry name=\"EnemyActions\" type=\"EnemyActions\" isBlackboard=\"True\"
     blackboard=\"actions\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode
-    id=\"44\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"EnemyBehaviour/IsOnNavMesh\">\r\n     
+    id=\"44\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"EnemyBehaviour/IsOnNavMesh\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\"
     isBlackboard=\"True\" blackboard=\"agent\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
@@ -66,7 +66,7 @@ MonoBehaviour:
     <inputValues>\r\n          <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\"
     isBlackboard=\"True\" blackboard=\"agent\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
-    <ConditionEvalNode id=\"48\" policy=\"ATOMIC_CHECK\" name=\"AlwaysTrue\">\r\n     
+    <ConditionEvalNode id=\"48\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"AlwaysTrue\">\r\n     
     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
     <PrioritySelectorNode id=\"2\">\r\n      <children>\r\n        <elem>\r\n         
     <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode id=\"20\"
@@ -139,7 +139,7 @@ MonoBehaviour:
     id=\"44\" />\r\n          <RepeatDecorator id=\"45\" />\r\n          <ConditionEvalNode
     id=\"48\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
     <RepeatDecorator id=\"45\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"True\" position=\"901.25 108.75\" name=\"Repeat\" description=\"Repeats
+    selected=\"False\" position=\"901.25 108.75\" name=\"Repeat\" description=\"Repeats
     the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"45\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
@@ -157,7 +157,7 @@ MonoBehaviour:
     description=\"\" cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree
     id=\"34\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ConditionEvalNode id=\"44\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"980.625 716.875\" name=\"EnemyBehaviour/IsOnNavMesh\"
+    selected=\"True\" position=\"980.625 716.875\" name=\"EnemyBehaviour/IsOnNavMesh\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"44\" />\r\n          <PrioritySelectorNode
     id=\"42\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
@@ -172,7 +172,7 @@ MonoBehaviour:
     </ConditionEvalNode>\r\n    <PrioritySelectorNode id=\"2\">\r\n      <_data>\r\n       
     <data breakpoint=\"0\" selected=\"False\" position=\"1082.29 552.5516\" name=\"Priority
     Selector\" description=\"\" cardinality=\"1\" hasParent=\"False\">\r\n         
-    <SequenceNode id=\"40\" />\r\n        </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n   
+    <BehaviorTree id=\"40\" />\r\n        </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n   
     <ConditionEvalNode id=\"20\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
     selected=\"False\" position=\"1134.139 1118.715\" name=\"EnemyBehaviour/CheckTargetDistance\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
@@ -195,25 +195,15 @@ MonoBehaviour:
     </editorInfo>\r\n  <runtimeInfo>\r\n    <BehaviorTree id=\"34\" nextId=\"1\">\r\n     
     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n   
     <BehaviorTree id=\"38\" nextId=\"1\">\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <SequenceNode id=\"40\">\r\n     
-    <children>\r\n        <elem>\r\n          <PrioritySelectorNode id=\"42\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <PrioritySelectorNode id=\"2\" />\r\n       
-    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <BehaviorTree id=\"40\"
+    />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <BehaviorTree id=\"40\"
     nextId=\"1\">\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
     />\r\n    </BehaviorTree>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree
     id=\"34\" _removeIfClosed=\"False\">\r\n      <_rootList />\r\n      <_nodes>\r\n       
     <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <BehaviorTree id=\"38\"
     _removeIfClosed=\"False\">\r\n      <_rootList />\r\n      <_nodes>\r\n       
-    <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <SequenceNode id=\"40\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"962.5
-    222.5\" name=\"Sequence\" description=\"Executes all its children in sequence
-    until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"45\" />\r\n         
-    <RepeatDecorator id=\"45\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
-    <BehaviorTree id=\"40\" _removeIfClosed=\"False\">\r\n      <_rootList />\r\n     
-    <_nodes>\r\n        <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n 
-    </editorInfo>\r\n</BehaviorBricks>"
+    <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <BehaviorTree id=\"40\"
+    _removeIfClosed=\"False\">\r\n      <_rootList />\r\n      <_nodes>\r\n       
+    <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.8
   subslist:
   - {fileID: 11400000, guid: dec7d283849515a42814ab2ef93df956, type: 2}

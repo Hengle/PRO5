@@ -7,8 +7,8 @@ public class AudioMarkerEmission : AudioObstacle
 {
 
     //Are used for the state when de plate holds an value -> activate on beat and deactivate on the next beat
-    public bool _holdValue = false;
-    public bool _holdHelper;
+    // public bool _holdValue = false;
+    // public bool _holdHelper;
     private AudioObstacle _audioObstacleImplementation;
 
 

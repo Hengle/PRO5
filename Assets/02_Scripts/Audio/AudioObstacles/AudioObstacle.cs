@@ -5,7 +5,6 @@ using BBUnity.Actions;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 
 //Base Class for every AudioObstacle

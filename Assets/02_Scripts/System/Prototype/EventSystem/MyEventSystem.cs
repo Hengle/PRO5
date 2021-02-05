@@ -25,6 +25,7 @@ public class MyEventSystem : MonoBehaviour
 
 
     //Events for Enemy managment
+    public event Action<EnemyBody> onEnemyStart;
     public event Action<EnemyBody> onEnemyDeath;
     public event Action<EnemyBody> activateAI;
 
@@ -48,13 +49,13 @@ public class MyEventSystem : MonoBehaviour
 
     public static MyEventSystem instance;
 
-    private void Awake()
+    private void OnEnable()
     {
         instance = this;
     }
 
     public void OnUpdateNavMesh()
-    { 
+    {
         onUpdateNavMesh?.Invoke();
     }
 
@@ -64,6 +65,10 @@ public class MyEventSystem : MonoBehaviour
         waveDefeated?.Invoke();
     }
 
+    public void OnEnemyStart(EnemyBody enemy)
+    {
+        onEnemyStart?.Invoke(enemy);
+    }
     public void GoalDestroyed()
     {
         //Questionmark checks if event has subscribers
@@ -126,9 +131,9 @@ public class MyEventSystem : MonoBehaviour
 
     #region TeleportEventhandler
 
-    public void OnTeleportPlayer(Transform targetPosition)
+    public void OnTeleportPlayer(Transform player)
     {
-        teleportPlayer?.Invoke(targetPosition);
+        teleportPlayer?.Invoke(player);
     }
 
     #endregion TeleportEventhandler

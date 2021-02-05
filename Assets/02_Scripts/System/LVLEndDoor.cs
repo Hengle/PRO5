@@ -5,15 +5,21 @@ using DG.Tweening;
 
 public class LVLEndDoor : MonoBehaviour
 {
-
+    public EnemySet enemySet;
     public bool openDoor = false;
     public int enemyAmount = 0;
     // Start is called before the first frame update
     void Start()
     {
+        MyEventSystem.instance.onEnemyStart += GetEnemy;
         MyEventSystem.instance.onEnemyDeath += EnemyKilled;
     }
 
+    private void OnDisable()
+    {
+        MyEventSystem.instance.onEnemyStart -= GetEnemy;
+        MyEventSystem.instance.onEnemyDeath -= EnemyKilled;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +32,12 @@ public class LVLEndDoor : MonoBehaviour
         */
     }
 
+    void GetEnemy(EnemyBody enemy)
+    {
+        enemySet.Add(enemy);
+        enemyAmount = enemySet.entityList.Count;
+    }
+
     public void ActivateMechanism()
     {
         transform.GetChild(0).DOScaleY(0, 2f);
@@ -33,13 +45,11 @@ public class LVLEndDoor : MonoBehaviour
 
     public void EnemyKilled(EnemyBody enemy)
     {
-        enemyAmount -= 1;
-        if(enemyAmount == 0)
+        enemySet.Remove(enemy);
+        enemyAmount = enemySet.entityList.Count;
+        if (enemySet.entityList.Count == 0)
         {
             ActivateMechanism();
         }
-
     }
-
-
 }

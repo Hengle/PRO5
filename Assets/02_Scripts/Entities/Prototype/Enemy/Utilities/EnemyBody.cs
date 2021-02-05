@@ -9,9 +9,9 @@ public class EnemyBody : MonoBehaviour
     public PlayerDetector playerDetector;
     public AIManager aiManager;
 
-    
     private void Start()
     {
+        MyEventSystem.instance.OnEnemyStart(this);
         aiManager = ScriptCollection.GetScript<AIManager>();
     }
 }

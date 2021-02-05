@@ -1198,7 +1198,7 @@ Transform:
   m_GameObject: {fileID: 2576877363223431070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 1042652485801479816}
   - {fileID: 4538411176893929185}
@@ -1358,6 +1358,9 @@ MonoBehaviour:
   soundFX: []
   particleFX:
   - {fileID: 8084057042368032624}
+  - {fileID: 6972792088119117618}
+  - {fileID: 321365105147137104}
+  - {fileID: 4144428566588279270}
   VFX: []
 --- !u!1 &2944645021017931239
 GameObject:

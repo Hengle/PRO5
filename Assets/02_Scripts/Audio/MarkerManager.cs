@@ -19,11 +19,15 @@ public class MarkerManager : MonoBehaviour
 
     public FMODUnity.StudioEventEmitter _emitter;
     FMOD.Studio.EventInstance _musicInstance;
-
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void OnEnable()
     {
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
+    }
+    // Start is called before the first frame update
+    void StartLoad()
+    {
+        Debug.Log(this.GetType());
         _musicInstance = _emitter.EventInstance;
     }
 

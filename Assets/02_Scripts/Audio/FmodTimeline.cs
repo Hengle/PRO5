@@ -27,20 +27,22 @@ public class FmodTimeline : MonoBehaviour
 
     public static FmodTimeline _instance;
     public MarkerManager _markerManager;
-
     public int _beat;
     public string _marker;
     public bool _fullBar;
     public int _barCounter;
 
 
-   
+
 
     TimelineInfo _timelineInfo;
     GCHandle _timelineHandle;
 
     FMOD.Studio.EVENT_CALLBACK _beatCallback;
-
+    private void OnEnable()
+    {
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
+    }
     void Awake()
     {
         if (_instance == null)
@@ -54,14 +56,22 @@ public class FmodTimeline : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void StartLoad()
     {
-        //MusikInstanz holen und zuweisen
-        //_emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+        Debug.Log(this.GetType());
+        _emitter.Play();
         _musicInstance = _emitter.EventInstance;
         AssignBeatEvent(_musicInstance);
         _markerManager = GetComponent<MarkerManager>();
         _markerManager._emitter = _emitter;
+        GetComponent<MusicLayerController>()._musicEvent = _emitter;
+        SpectrumManager._instance.musicInstance = _emitter.EventInstance;
+    }
+    void Start()
+    {
+        //MusikInstanz holen und zuweisen
+        //_emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+
     }
 
     // Update is called once per frame
@@ -125,8 +135,6 @@ public class FmodTimeline : MonoBehaviour
                         timelineInfo.lastMarker = parameter.name;
                         _marker = timelineInfo.lastMarker;
                         _markerManager.parseMarkerString(_marker);
-
-
                     }
                     break;
             }

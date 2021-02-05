@@ -19,23 +19,24 @@ public class NavMeshUpdater : MonoBehaviour
     {
         UpdateNavMesh();
         MyEventSystem.instance.onUpdateNavMesh += UpdateNavMeshAsync;
-        if (updateNavMesh)
-        {
-            InvokeRepeating("UpdateNavMesh", 2.0f, 0.3f);
-        }
-
+        // if (updateNavMesh)
+        // {
+        //     InvokeRepeating("UpdateNavMesh", 2.0f, 0.3f);
+        // }
+        RepeatUpdate();
     }
 
 
 
-    // IEnumerator Start()
-    // {
-    //     while (true)
-    //     {
-    //         UpdateNavMesh(true);
-    //         yield return m_Operation;
-    //     }
-    // }
+    IEnumerator RepeatUpdate()
+    {
+        while (true)
+        {
+            UpdateNavMeshAsync();
+            yield return m_Operation;
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
 
     void OnEnable()
     {
@@ -58,7 +59,7 @@ public class NavMeshUpdater : MonoBehaviour
         NavMeshSourceTag.Collect(ref m_Sources);
         var defaultBuildSettings = NavMesh.GetSettingsByID(0);
         var bounds = QuantizedBounds();
-        StartCoroutine(UpdateNav(defaultBuildSettings, bounds));
+        m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
     }
 
     void UpdateNavMesh()
@@ -72,10 +73,10 @@ public class NavMeshUpdater : MonoBehaviour
         // NavMesh.AddNavMeshData(m_NavMesh);
     }
 
-    IEnumerator UpdateNav(NavMeshBuildSettings defaultBuildSettings, Bounds bounds)
-    {
-        yield return NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
-    }
+    // IEnumerator UpdateNav(NavMeshBuildSettings defaultBuildSettings, Bounds bounds)
+    // {
+    //     yield return NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
+    // }
 
     static Vector3 Quantize(Vector3 v, Vector3 quant)
     {

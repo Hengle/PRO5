@@ -15,10 +15,18 @@ public class TeleportTarget : MonoBehaviour
     }
 
 
-    private void TeleportPlayerToThis(Transform player) 
+    private void TeleportPlayerToThis(Transform player)
     {
         player.GetComponent<PlayerStateMachine>().isTeleporting = true;
+        StartCoroutine(Teleport(player));
+    }
+
+    IEnumerator Teleport(Transform player)
+    {
+        yield return new WaitForEndOfFrame();
         player.transform.position = transform.position;
         player.transform.rotation = transform.rotation;
+        yield return new WaitForEndOfFrame();
+        player.GetComponent<PlayerStateMachine>().isTeleporting = false;
     }
 }

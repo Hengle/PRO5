@@ -22,8 +22,8 @@ public class BoomBox : AudioObstacle, IDamageObstacle
 
     public float _dmgOnStay { get; set; }
 
-    public bool _holdValue = false;
-    public bool _holdHelper;
+    // public bool _holdValue = false;
+    // public bool _holdHelper;
 
     public float radius = 5;
     public float duration = 5;
