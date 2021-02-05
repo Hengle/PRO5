@@ -58,7 +58,7 @@ MonoBehaviour:
     />\r\n          <entry name=\"EnemyActions\" type=\"EnemyActions\" isBlackboard=\"True\"
     blackboard=\"actions\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode
-    id=\"44\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"EnemyBehaviour/IsOnNavMesh\">\r\n     
+    id=\"44\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"EnemyBehaviour/IsOnNavMesh\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\"
     isBlackboard=\"True\" blackboard=\"agent\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
@@ -66,7 +66,7 @@ MonoBehaviour:
     <inputValues>\r\n          <entry name=\"agent\" type=\"UnityEngine.AI.NavMeshAgent\"
     isBlackboard=\"True\" blackboard=\"agent\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
-    <ConditionEvalNode id=\"48\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"AlwaysTrue\">\r\n     
+    <ConditionEvalNode id=\"48\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"AlwaysTrue\">\r\n     
     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
     <PrioritySelectorNode id=\"2\">\r\n      <children>\r\n        <elem>\r\n         
     <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode id=\"20\"
