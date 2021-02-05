@@ -315,7 +315,7 @@ MonoBehaviour:
   m_onHiHat: 0
   m_onLeadBass: 0
   m_onAtmo: 0
-  _useThisEmission: 0
+  _useThisEmission: 1
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
@@ -324,11 +324,11 @@ MonoBehaviour:
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 40
+  dmgOnStay: 15
   _materials: []
   _maxLength: 3
   _startAsActive: 0
-  _dmgOnEnter: 30
-  _dmgOnStay: 5
 --- !u!114 &8156021964441208106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_onHiHat: 0
   m_onLeadBass: 0
   m_onAtmo: 0
-  _useThisEmission: 0
+  _useThisEmission: 1
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
@@ -356,6 +356,8 @@ MonoBehaviour:
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 0
+  dmgOnStay: 0
   _materials: []
   _moveX: 5
   _moveY: 0

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_onHiHat: 0
   m_onLeadBass: 0
   m_onAtmo: 0
-  _useThisEmission: 0
+  _useThisEmission: 1
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
