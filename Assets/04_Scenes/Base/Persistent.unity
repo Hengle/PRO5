@@ -433,7 +433,7 @@ MonoBehaviour:
   transitionImage: {fileID: 402877217}
   scenenManager: {fileID: 606806024}
   gamePaused: 0
-  inEditor: 0
+  inEditor: 1
 --- !u!1 &1865414354
 GameObject:
   m_ObjectHideFlags: 0
