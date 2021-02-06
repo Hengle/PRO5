@@ -66,22 +66,22 @@ public class UIPrototype : MonoBehaviour
         {
             case PowerupNames.Speedboost:
                 {
-                    skills[2].DOColor(powerUpSymbolDisabled, 0.1f);
+                    powerup[2].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
             case PowerupNames.Knockback:
                 {
-                    skills[0].DOColor(powerUpSymbolDisabled, 0.1f);
+                    powerup[0].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
             case PowerupNames.Shield:
                 {
-                    skills[1].DOColor(powerUpSymbolDisabled, 0.1f);
+                    powerup[1].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
             case PowerupNames.Stun:
                 {
-                    skills[3].DOColor(powerUpSymbolDisabled, 0.1f);
+                    powerup[3].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
         }
