@@ -15,7 +15,7 @@ public class AudioLight : MonoBehaviour
     Sequence tweenSeq;
     private Material _material;
     private Color color;
-    private Light light;
+    private Light l;
     public float intensity = 100f;
     public bool useMarker = false;
     public bool m_onSnare = false;
@@ -34,7 +34,7 @@ public class AudioLight : MonoBehaviour
         spectrumManager = GameObject.Find("AudioManager").GetComponent<SpectrumManager>();
         // _material = GetComponent<MeshRenderer>().material;
         //color = _material.GetColor("_EmissiveColor");
-        light = GetComponent<Light>();
+        l = GetComponent<Light>();
 
         if (useMarker)
         {
@@ -59,26 +59,26 @@ public class AudioLight : MonoBehaviour
                 MyEventSystem.instance.Atmo += objectAction;
             }
         }
-        light.DOIntensity(0, 0.25f);
+        l.DOIntensity(0, 0.25f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!useMarker)
-            light.DOIntensity(spectrumManager.getFqBandBuffer8(_audioBand1) * intensity, 0f);
+            l.DOIntensity(spectrumManager.getFqBandBuffer8(_audioBand1) * intensity, 0f);
     }
 
     public void objectAction()
     {
         if (!interval)
         {
-            light.DOIntensity(markerIntensity, 0.25f);
+            l.DOIntensity(markerIntensity, 0.25f);
             interval = true;
         }
         else
         {
-            light.DOIntensity(10, 0.25f);
+            l.DOIntensity(10, 0.25f);
             interval = false;
         }
 

@@ -96,24 +96,30 @@ public class SpectrumManager : MonoBehaviour
     private void OnDisable()
     {
         GlobalEventSystem.instance.onInit -= StartLoad;
+        loaded = false;
     }
+    bool loaded = false;
     void StartLoad()
     {
-        _audioBand8 = new float[8];
-        _audioBandBuffer8 = new float[8];
+        if (!loaded)
+        {
+            loaded = true;
+            _audioBand8 = new float[8];
+            _audioBandBuffer8 = new float[8];
 
-        AudioProfile(8, _audioProfile);
+            AudioProfile(8, _audioProfile);
 
-        //fetch the musicEvent from the EventEmitter
-        // musicInstance = emitter.EventInstance;
+            //fetch the musicEvent from the EventEmitter
+            // musicInstance = emitter.EventInstance;
 
-        //set up fft dsp
-        FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out fft);
-        fft.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.BLACKMAN);
-        fft.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, WindowSize * 2);
+            //set up fft dsp
+            FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out fft);
+            fft.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.BLACKMAN);
+            fft.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, WindowSize * 2);
 
-        //assign the dsp to a channel
-        musicInstance.getChannelGroup(out channelGroup);
+            //assign the dsp to a channel
+            musicInstance.getChannelGroup(out channelGroup);
+        }
     }
 
 

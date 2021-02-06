@@ -34,7 +34,7 @@ public class FmodTimeline : MonoBehaviour
 
 
 
-
+    bool isLoaded;
     TimelineInfo _timelineInfo;
     GCHandle _timelineHandle;
 
@@ -54,21 +54,26 @@ public class FmodTimeline : MonoBehaviour
 
     private void OnDisable()
     {
+        isLoaded = false;
         GlobalEventSystem.instance.onInit -= StartLoad;
     }
 
     // Start is called before the first frame update
     void StartLoad()
     {
-        _emitter.Play();
-        _musicInstance = _emitter.EventInstance;
-        AssignBeatEvent(_musicInstance);
-        _markerManager = GetComponent<MarkerManager>();
-        _markerManager._emitter = _emitter;
-        _markerManager._musicInstance = _musicInstance;
+        if (!isLoaded)
+        {
+            isLoaded = true;
+            _emitter.Play();
+            _musicInstance = _emitter.EventInstance;
+            AssignBeatEvent(_musicInstance);
+            _markerManager = GetComponent<MarkerManager>();
+            _markerManager._emitter = _emitter;
+            _markerManager._musicInstance = _musicInstance;
 
-        GetComponent<MusicLayerController>()._musicEvent = _emitter;
-        SpectrumManager._instance.musicInstance = _musicInstance;
+            GetComponent<MusicLayerController>()._musicEvent = _emitter;
+            SpectrumManager._instance.musicInstance = _musicInstance;
+        }
     }
 
     //---BEATDETECTION---

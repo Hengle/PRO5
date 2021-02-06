@@ -78,7 +78,7 @@ public class ScenenManager : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(startMenuScene).isLoaded)
             LoadScene(levelScenes[listIndex], true, startMenuScene);
         else
-            LoadScene(levelScenes[listIndex], true, levelScenes[listIndex] == 0 ? -1 : levelScenes[listIndex]);
+            LoadScene(levelScenes[listIndex], true, listIndex == 0 ? -1 : levelScenes[listIndex - 1]);
 
         _activeLevelSceneIndex = listIndex;
     }

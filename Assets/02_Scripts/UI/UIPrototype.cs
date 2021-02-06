@@ -112,20 +112,20 @@ public class UIPrototype : MonoBehaviour
 
         if (_controller._atmoActive)
         {
-            skills[3].DOColor(activeColorYellow, 0.1f);
-        }
-        else
-        {
-            skills[3].DOColor(unactiveColorYellow, 0.1f);
-        }
-
-        if (_controller._leadBassActive)
-        {
             skills[4].DOColor(activeColorYellow, 0.1f);
         }
         else
         {
             skills[4].DOColor(unactiveColorYellow, 0.1f);
+        }
+
+        if (_controller._leadBassActive)
+        {
+            skills[3].DOColor(activeColorYellow, 0.1f);
+        }
+        else
+        {
+            skills[3].DOColor(unactiveColorYellow, 0.1f);
         }
 
 

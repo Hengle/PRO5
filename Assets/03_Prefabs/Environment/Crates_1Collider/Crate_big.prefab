@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 2498312454485040005}
   - component: {fileID: 2104655211717462337}
   - component: {fileID: 3056843067185382547}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Child B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2152854920336281883
 Transform:
@@ -104,12 +104,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5710981893104078217}
   - component: {fileID: 5247622335750655129}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Crate_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5710981893104078217
 Transform:
@@ -152,12 +152,12 @@ GameObject:
   - component: {fileID: 8639776577563168367}
   - component: {fileID: 2336661468074875259}
   - component: {fileID: 989902862984363578}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Child A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5364954333642602853
 Transform:

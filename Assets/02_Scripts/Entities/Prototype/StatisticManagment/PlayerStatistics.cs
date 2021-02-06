@@ -47,8 +47,8 @@ public class PlayerStatistics : StatisticController, IHasHealth
     public void OnDeath()
     {
         alive = false;
-        // SceneManager.LoadSceneAsync("MainPrototype");
-        // LevelEventSystem.instance.ReturnToCheckpoint(this);
+        GetComponent<PlayerStateMachine>().inputManager.controls.Disable();
+        GameManager.instance.RestartLevel();
     }
 
     public void Heal(float healAmount)

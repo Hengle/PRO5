@@ -9,7 +9,7 @@ public class LVLEndDoor : MonoBehaviour
     public bool openDoor = false;
     public int enemyAmount = 0;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         MyEventSystem.instance.onEnemyStart += GetEnemy;
         MyEventSystem.instance.onEnemyDeath += EnemyKilled;

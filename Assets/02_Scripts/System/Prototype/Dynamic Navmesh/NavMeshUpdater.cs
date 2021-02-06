@@ -12,22 +12,19 @@ public class NavMeshUpdater : MonoBehaviour
     AsyncOperation m_Operation;
     NavMeshDataInstance m_Instance;
     List<NavMeshBuildSource> m_Sources = new List<NavMeshBuildSource>();
-
-    public bool updateNavMesh = false;
-
     private void Start()
     {
-
-        UpdateNavMesh();
         MyEventSystem.instance.onUpdateNavMesh += UpdateNavMeshAsync;
-        // if (updateNavMesh)
-        // {
-        //     InvokeRepeating("UpdateNavMesh", 2.0f, 0.3f);
-        // }
-        RepeatUpdate();
+        if (surface.navMeshData == null)
+            surface.BuildNavMesh();
+        m_NavMesh = surface.navMeshData;
+        StartCoroutine(RepeatUpdate());
     }
 
+    void StartLoad()
+    {
 
+    }
 
     IEnumerator RepeatUpdate()
     {
@@ -41,12 +38,9 @@ public class NavMeshUpdater : MonoBehaviour
 
     void OnEnable()
     {
-        surface.BuildNavMesh();
-        // // Construct and add navmesh
-        // m_NavMesh = new NavMeshData();
-        // m_Instance = NavMesh.AddNavMeshData(m_NavMesh);
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
+
         ScriptCollection.RegisterScript(this);
-        m_NavMesh = surface.navMeshData;
     }
 
     private void OnDisable()
@@ -54,6 +48,7 @@ public class NavMeshUpdater : MonoBehaviour
         ScriptCollection.RemoveScript(this);
         m_Instance.Remove();
         MyEventSystem.instance.onUpdateNavMesh -= UpdateNavMeshAsync;
+        GlobalEventSystem.instance.onLoadFinish -= StartLoad;
     }
 
     void UpdateNavMeshAsync()

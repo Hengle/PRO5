@@ -99,4 +99,9 @@ public class GameManager : MonoBehaviour
     {
         scenenManager.ReloadActiveLevel();
     }
+
+    public void NextLevel()
+    {
+        scenenManager.LoadNextLevel();
+    }
 }

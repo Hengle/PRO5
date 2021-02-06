@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7573994564274340261}
   - component: {fileID: 7573994564274340260}
   - component: {fileID: -1875189935342439975}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FloorPlate_W1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4548590281191675748}
   - component: {fileID: 4548590281191675750}
   - component: {fileID: 4548590281191675749}
-  m_Layer: 0
-  m_Name: wallStraight (1)
+  m_Layer: 13
+  m_Name: wallCornerOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

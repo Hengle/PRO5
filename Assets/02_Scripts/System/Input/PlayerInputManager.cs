@@ -16,14 +16,25 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Enable();
+        GlobalEventSystem.instance.onLoadFinish += EnableControls;
+        EnableControls();
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        GlobalEventSystem.instance.onLoadFinish -= EnableControls;
+        DisableControls();
     }
 
+    public void EnableControls()
+    {
+        controls.Enable();
+    }
+
+    public void DisableControls()
+    {
+        controls.Disable();
+    }
     private void Awake()
     {
         controls = new PlayerControls();
@@ -43,10 +54,10 @@ public class PlayerInputManager : MonoBehaviour
         if (musicLayerController != null)
         {
             controls.Gameplay.Skill1.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._snareActive, "SnareLayer", 1);
-            controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._hiHatActive, "HiHatLayer", 1);
-            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
-            controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill( ref musicLayerController._atmoActive, "AtmoLayer", 1);
-            
+            controls.Gameplay.Skill2.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._hiHatActive, "HiHatLayer", 1);
+            controls.Gameplay.Skill3.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._leadBassActive, "LeadBassLayer", 1);
+            controls.Gameplay.Skill4.performed += ctx => musicLayerController.LayerSkill(ref musicLayerController._atmoActive, "AtmoLayer", 1);
+
 
         }
 
