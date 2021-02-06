@@ -11,6 +11,7 @@ public class LVLEndDoor : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        enemySet.entityList = new List<EnemyBody>();
         MyEventSystem.instance.onEnemyStart += GetEnemy;
         MyEventSystem.instance.onEnemyDeath += EnemyKilled;
     }
@@ -45,7 +46,7 @@ public class LVLEndDoor : MonoBehaviour
 
     public void EnemyKilled(EnemyBody enemy)
     {
-        enemySet.Remove(enemy);
+        enemySet.entityList.Remove(enemy);
         enemyAmount = enemySet.entityList.Count;
         if (enemySet.entityList.Count == 0)
         {

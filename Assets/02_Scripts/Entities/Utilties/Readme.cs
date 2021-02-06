@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-#if UNITY_EDITOR
+
 public class Readme : MonoBehaviour
 {
     public string show;
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Readme))]
 public class ReadMeEditor : Editor
 {

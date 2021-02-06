@@ -40,7 +40,7 @@ public class UIPrototype : MonoBehaviour
         {
             case PowerupNames.Speedboost:
                 {
-                    powerup[3].DOColor(powerUpSymbolEnabled, 0.1f);
+                    powerup[2].DOColor(powerUpSymbolEnabled, 0.1f);
                 }
                 break;
             case PowerupNames.Knockback:
@@ -50,12 +50,12 @@ public class UIPrototype : MonoBehaviour
                 break;
             case PowerupNames.Shield:
                 {
-                    powerup[2].DOColor(powerUpSymbolEnabled, 0.1f);
+                    powerup[1].DOColor(powerUpSymbolEnabled, 0.1f);
                 }
                 break;
             case PowerupNames.Stun:
                 {
-                    powerup[4].DOColor(powerUpSymbolEnabled, 0.1f);
+                    powerup[3].DOColor(powerUpSymbolEnabled, 0.1f);
                 }
                 break;
         }
@@ -66,7 +66,7 @@ public class UIPrototype : MonoBehaviour
         {
             case PowerupNames.Speedboost:
                 {
-                    skills[3].DOColor(powerUpSymbolDisabled, 0.1f);
+                    skills[2].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
             case PowerupNames.Knockback:
@@ -76,12 +76,12 @@ public class UIPrototype : MonoBehaviour
                 break;
             case PowerupNames.Shield:
                 {
-                    skills[2].DOColor(powerUpSymbolDisabled, 0.1f);
+                    skills[1].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
             case PowerupNames.Stun:
                 {
-                    skills[4].DOColor(powerUpSymbolDisabled, 0.1f);
+                    skills[3].DOColor(powerUpSymbolDisabled, 0.1f);
                 }
                 break;
         }

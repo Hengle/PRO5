@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5832751612830673880}
   - component: {fileID: 5832751612830673701}
   - component: {fileID: 5832751612830673882}
-  - component: {fileID: 5832751612830673883}
   - component: {fileID: 5832751612830673884}
   - component: {fileID: 4164339953718235144}
+  - component: {fileID: 7818391747291965429}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Turret
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5832751612830673883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832751612830673881}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3721011, y: 0, z: 1.0076525}
-  m_Center: {x: -0.51587373, y: 0, z: -0.5029487}
 --- !u!114 &5832751612830673884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +314,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: -0.5, y: 0.5, z: -0.5}
   m_TimeToStationary: 0.5
+--- !u!65 &7818391747291965429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832751612830673881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000231, y: 1, z: 1.0000004}
+  m_Center: {x: -0.500015, y: 0.5, z: -0.5}
 --- !u!1 &6643778539793120012
 GameObject:
   m_ObjectHideFlags: 0

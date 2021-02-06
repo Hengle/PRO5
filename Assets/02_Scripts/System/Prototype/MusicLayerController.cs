@@ -18,8 +18,8 @@ public class MusicLayerController : MonoBehaviour
 
     public SkillController _skillController;
 
-    
-    [SerializeField]private List<MusicLayerSkill> activeSkill => new List<MusicLayerSkill>();
+
+    [SerializeField] private List<MusicLayerSkill> activeSkill => new List<MusicLayerSkill>();
     /*public  MusicLayerSkill snare => new MusicLayerSkill(false, "SnareLayer", 1);
     public  MusicLayerSkill hiHat => new MusicLayerSkill(false, "HiHatLayer", 1);
     public  MusicLayerSkill leadBass => new MusicLayerSkill(false, "LeadBassLayer", 1);
@@ -30,12 +30,27 @@ public class MusicLayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GlobalEventSystem.instance.onLoadFinish += ResetSkills;
         _snareActive = false;
         _hiHatActive = false;
         _leadBassActive = false;
         _atmoActive = false;
     }
-
+    private void OnDisable()
+    {
+        GlobalEventSystem.instance.onLoadFinish -= ResetSkills;
+    }
+    void ResetSkills()
+    {
+        _snareActive = true;
+        _hiHatActive = true;
+        _leadBassActive = true;
+        _atmoActive = true;
+        LayerSkill(ref _snareActive, "SnareLayer", 1);
+        LayerSkill(ref _hiHatActive, "HiHatLayer", 1);
+        LayerSkill(ref _leadBassActive, "LeadBassLayer", 1);
+        LayerSkill(ref _atmoActive, "AtmoLayer", 1);
+    }
     /*void skillListAdder(MusicLayerSkill layerSkill)
     {
         activeSkill.Add(layerSkill);
@@ -95,8 +110,6 @@ public class MusicLayerController : MonoBehaviour
 
             _musicEvent.SetParameter(skillName, 0);
             skill = false;
-
-
         }
     }
 

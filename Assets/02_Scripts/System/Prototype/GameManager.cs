@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
     public ScenenManager scenenManager;
     public bool gamePaused = false;
     public static GameManager instance;
-
-#if UNITY_EDITOR
     public bool inEditor;
-#endif
 
     private void Start()
     {
