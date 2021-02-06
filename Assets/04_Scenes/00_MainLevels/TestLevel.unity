@@ -9483,6 +9483,16 @@ PrefabInstance:
       propertyPath: rot
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2462646585455268032, guid: 017b76e2d009d184b866347209b429a5,
+        type: 3}
+      propertyPath: backMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462646585455268032, guid: 017b76e2d009d184b866347209b429a5,
+        type: 3}
+      propertyPath: forthMax
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2462646585455268034, guid: 017b76e2d009d184b866347209b429a5,
         type: 3}
       propertyPath: m_Name
@@ -9511,7 +9521,7 @@ PrefabInstance:
     - target: {fileID: 2983288033573571192, guid: 017b76e2d009d184b866347209b429a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.83
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 2983288033573571192, guid: 017b76e2d009d184b866347209b429a5,
         type: 3}

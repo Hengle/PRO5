@@ -40,8 +40,8 @@ public class AudioMover : AudioObstacle
 
     //If the object should move back and forth
     public int rotation = -45;
-    private int forthCount = 0;
-    private int backCount = 3;
+    public int forthCount = 0;
+    public int backCount = 0;
     public int backMax = 3;
     public int forthMax = 3;
 
