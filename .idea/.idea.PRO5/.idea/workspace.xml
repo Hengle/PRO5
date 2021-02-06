@@ -20,19 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f3963cf-b9fe-4848-a552-31e25387cb8e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PRO5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Particles/Enemy/DeathExplosion.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Art/Particles/Enemy/DeathExplosion.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Art/Particles/Enemy/EnemyHitParticle.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Art/Particles/Enemy/EnemyHitParticle.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_Scripts/System/Prototype/MusicLayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/05_Tutorial_5.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/05_Tutorial_5.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/05_Tutorial_5.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/DarkLevel.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel/NavMesh-NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel/NavMesh-NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/00_MainLevels/TestLevel3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/Base/Base.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/Base/Base.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Scenes/Base/Persistent.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04_Scenes/Base/Persistent.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +160,7 @@
       <workItem from="1612172385424" duration="671000" />
       <workItem from="1612547158644" duration="3590000" />
       <workItem from="1612600477948" duration="2520000" />
+      <workItem from="1612611402439" duration="1552000" />
     </task>
     <servers />
   </component>
