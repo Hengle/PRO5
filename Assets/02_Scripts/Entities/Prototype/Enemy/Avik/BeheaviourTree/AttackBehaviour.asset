@@ -15,8 +15,8 @@ MonoBehaviour:
   brickName: Assets/02_Scripts/Entities/Prototype/Enemy/Avik/BeheaviourTree/AttackBehaviour.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"dec7d283849515a42814ab2ef93df956\" nextId=\"24\">\r\n      <root>\r\n       
-    <RepeatDecorator id=\"1\" />\r\n      </root>\r\n      <inputParams>\r\n       
+    id=\"0\" guid=\"dec7d283849515a42814ab2ef93df956\" nextId=\"25\">\r\n      <root>\r\n       
+    <RepeatDecorator id=\"24\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"enemyBody\" type=\"EnemyBody\" isBlackboard=\"False\"
     />\r\n          <entry name=\"attack\" type=\"CloseCombatAttacks\" isBlackboard=\"False\"
     />\r\n          <entry name=\"actions\" type=\"EnemyActions\" isBlackboard=\"False\"
@@ -31,7 +31,7 @@ MonoBehaviour:
     </outputValues>\r\n      </outputParams>\r\n      <localParams>\r\n        <localValues>\r\n         
     <entry name=\"timer\" type=\"AIUtilities+Timer\" isBlackboard=\"False\" />\r\n       
     </localValues>\r\n      </localParams>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
-    id=\"1\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    id=\"24\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
     <SequenceNode id=\"19\" />\r\n      </child>\r\n      <inputParams />\r\n     
     <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
     id=\"19\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"17\"
@@ -78,38 +78,43 @@ MonoBehaviour:
     />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree
     id=\"0\" _name=\"AttackBehaviour\" _description=\"Simple Attack Behaviour that
     works with an external timer to time it's attacks.\" _removeIfClosed=\"False\">\r\n     
-    <_rootList>\r\n        <elem>\r\n          <RepeatDecorator id=\"1\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <ActionNode id=\"12\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <ActionNode id=\"17\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <SequenceNode id=\"19\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <ActionNode id=\"23\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
-    <nodes>\r\n          <RepeatDecorator id=\"1\" />\r\n          <ActionNode id=\"12\"
-    />\r\n          <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\"
-    />\r\n          <ActionNode id=\"23\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
-    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"663.2289 269.2776\" name=\"Repeat\"
-    description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
-    </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"19\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"650.8887
-    403.2223\" name=\"Sequence\" description=\"Executes all its children in sequence
-    until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"19\" />\r\n         
-    <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
-    <ActionNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"389.8889 561.2219\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\"
-    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
-    <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\" />\r\n        </data>\r\n     
+    <_rootList>\r\n        <elem>\r\n          <ActionNode id=\"12\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <ActionNode id=\"17\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <SequenceNode id=\"19\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <ActionNode id=\"23\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <RepeatDecorator id=\"24\" />\r\n        </elem>\r\n      </_rootList>\r\n     
+    <_nodes>\r\n        <nodes>\r\n          <ActionNode id=\"12\" />\r\n         
+    <ActionNode id=\"17\" />\r\n          <SequenceNode id=\"19\" />\r\n         
+    <ActionNode id=\"23\" />\r\n          <RepeatDecorator id=\"24\" />\r\n       
+    </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"24\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"666.6667
+    250.0001\" name=\"Repeat\" description=\"Repeats the execution of its child node\"
+    cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n         
+    <RepeatDecorator id=\"24\" />\r\n        </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n   
+    <SequenceNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"650.8887 403.2223\" name=\"Sequence\" description=\"Executes all its
+    children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"24\" />\r\n       
+    </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"17\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"353.2221
+    571.2218\" name=\"EnemyBehaviour/GetRandomRange\" description=\"\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"19\" />\r\n          <ActionNode
+    id=\"17\" />\r\n          <SequenceNode id=\"19\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"23\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"612.2222 594.4442\" name=\"EnemyBehaviour/TurnToPlayer\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"608.8889 567.7777\" name=\"EnemyBehaviour/TurnToPlayer\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
-    id=\"0\" />\r\n          <ActionNode id=\"23\" />\r\n          <SequenceNode
+    id=\"19\" />\r\n          <ActionNode id=\"23\" />\r\n          <SequenceNode
     id=\"19\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"826.1111 614.7779\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
-    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
+    <ActionNode id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"836.111 584.7779\" name=\"EnemyBehaviour/MeleeAttackAction\" description=\"Attacks\"
+    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"19\" />\r\n         
     <SequenceNode id=\"19\" />\r\n          <SequenceNode id=\"19\" />\r\n       
-    </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+    </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n  <runtimeInfo>\r\n   
+    <BehaviorTree id=\"19\" nextId=\"1\">\r\n      <inputParams />\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </BehaviorTree>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n   
+    <BehaviorTree id=\"19\" _removeIfClosed=\"False\">\r\n      <_rootList />\r\n     
+    <_nodes>\r\n        <nodes />\r\n      </_nodes>\r\n    </BehaviorTree>\r\n 
+    </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.9
   subslist:
   - {fileID: 11400000, guid: b667b404ec4ed3d49a955b78670a7b28, type: 2}

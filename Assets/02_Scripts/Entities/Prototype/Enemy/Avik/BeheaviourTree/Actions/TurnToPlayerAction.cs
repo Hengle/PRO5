@@ -21,7 +21,7 @@ public class TurnToPlayerAction : GOAction
     float currentTime;
     AIUtilities utilities;
 
-    bool wasIn = false;
+    bool wasIn = true;
     public override void OnStart()
     {
         if (enemyBody.playerDetector.player != null)
@@ -49,7 +49,7 @@ public class TurnToPlayerAction : GOAction
                     currentTime += Time.deltaTime;
                     if (currentTime >= waitTime)
                     {
-                        currentTime -= 0;
+                        currentTime = 0;
                         wasIn = true;
                         return TaskStatus.COMPLETED;
                     }

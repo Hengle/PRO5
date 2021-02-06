@@ -31,9 +31,10 @@ namespace BBUnity.Actions
 
         bool countTime;
         bool countReady;
-        
+
         public override void OnStart()
         {
+            agent.isStopped = false;
             utilities = ScriptCollection.GetScript<AIUtilities>();
             rand = Random.Range(0.8f, 1.5f);
         }
@@ -48,17 +49,17 @@ namespace BBUnity.Actions
             if (countTime)
             {
                 currentTime += Time.deltaTime;
-                if (currentTime >= 3f)
+                if (currentTime >= 0.3f)
                 {
                     countTime = false;
                     countReady = true;
-                    
+
                     currentTime = 0;
                 }
             }
 
             // isInRange = utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, randomRange);
-            if (countReady || utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3f))
+            if (utilities.IsInRange(enemyBody.aiManager.playerTarget, gameObject.transform, 3f))
             {
                 countReady = false;
                 agent.isStopped = true;

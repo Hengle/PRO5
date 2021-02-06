@@ -41,7 +41,7 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
             start = startDamageFrame / 24;
         else
             start = 0;
-            
+
         float end = (stopDamageFrame - startDamageFrame) / 24;
 
         if (anim.soundFX != null && anim.soundFX.Count != 0)
@@ -61,7 +61,7 @@ public abstract class CloseCombatAttacks : IEnemyAttacks
 
         canDamage = false;
 
-        yield return new WaitForSeconds(anim.clip.length - end);
+        yield return new WaitForSeconds(anim.clip.length - end - 0.4f);
 
         isAttacking = false;
 

@@ -647,8 +647,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3308421764753231105}
-  m_LocalRotation: {x: -0, y: -0.7071058, z: -0, w: 0.7071078}
-  m_LocalPosition: {x: 41.27, y: 0, z: 4}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3586800618185083029}
@@ -659,7 +659,7 @@ Transform:
   - {fileID: 2615690881798308878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6796694787154228180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   maxTasksPerTick: 100
   behavior: {fileID: 11400000, guid: 2d2eb867fdfac194da052a063d1623fd, type: 2}
   paused: 1
-  restartWhenFinished: 0
+  restartWhenFinished: 1
   blackboard:
     intParams: 
     intParamsNames: []
@@ -697,8 +697,8 @@ MonoBehaviour:
     boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams:
+    - 0.5
     - 0.8
-    - 1.8
     floatParamsNames:
     - MinRange
     - maxRange
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statTemplate: {fileID: 11400000, guid: 77a6aa34bf773af4da67fb306207e439, type: 2}
   currentHealth: 0
-  skillChargeOnDeath: 50
+  skillChargeOnDeath: 60
 --- !u!114 &2096964054114011054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
     particleFX: []
     VFX: []
   isAttacking: 0
-  canAttack: 0
+  canAttack: 1
   canDamage: 0
   anim: {fileID: 5030523659624783228}
 --- !u!114 &3308421764753231114
@@ -888,7 +888,7 @@ NavMeshAgent:
   m_Speed: 0.1
   m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 200
+  m_AngularSpeed: 400
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -965,7 +965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3308421764878581913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.288, z: 0.625}
+  m_LocalPosition: {x: 0.00000020861626, y: 1.288, z: 0.27000046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3308421764753231117}
