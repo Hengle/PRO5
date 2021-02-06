@@ -179,6 +179,7 @@
                 <e p="PowerUp.cs" t="Include" />
                 <e p="PowerUpController.cs" t="Include" />
                 <e p="PowerupNames.cs" t="Include" />
+                <e p="PowerUpSpawn.cs" t="Include" />
                 <e p="PowerUpSpawner.cs" t="Include" />
                 <e p="RespawnTest.cs" t="Include" />
                 <e p="Shield.cs" t="Include" />
@@ -288,9 +289,7 @@
               </e>
               <e p="EventSystem" t="Include">
                 <e p="GlobalEventSystem.cs" t="Include" />
-                <e p="LevelEventSystem.cs" t="Include" />
                 <e p="MyEventSystem.cs" t="Include" />
-                <e p="StoryEventSystem.cs" t="Include" />
               </e>
               <e p="GameDataStructures" t="Include">
                 <e p="FloatReference.cs" t="Include" />
@@ -301,42 +300,17 @@
                 <e p="RunTimeSets" t="Include">
                   <e p="EnemySet.cs" t="Include" />
                   <e p="EntitySet.cs" t="Include" />
-                  <e p="SpawnpointlistSO.cs" t="Include" />
                 </e>
                 <e p="StatTemplate.cs" t="Include" />
                 <e p="StatVariable.cs" t="Include" />
               </e>
               <e p="GameManager.cs" t="Include" />
               <e p="HealthManager.cs" t="Include" />
-              <e p="Level" t="Include">
-                <e p="Area.cs" t="Include" />
-                <e p="LevelData.cs" t="Include" />
-                <e p="SceneLevelData.cs" t="Include" />
-                <e p="WaveData.cs" t="Include" />
-              </e>
-              <e p="LevelManager.cs" t="Include" />
               <e p="MultiplierSystem" t="Include">
                 <e p="MultiplierManager.cs" t="Include" />
               </e>
               <e p="MusicLayerController.cs" t="Include" />
               <e p="MusicLayerSkill.cs" t="Include" />
-              <e p="ObjectiveSystem" t="Include">
-                <e p="Objective.cs" t="Include" />
-                <e p="ObjectiveTypes" t="Include">
-                  <e p="DefeatEnemyObjective.cs" t="Include" />
-                  <e p="DestructObjective.cs" t="Include" />
-                  <e p="PuzzleObjective.cs" t="Include" />
-                </e>
-              </e>
-              <e p="SceneLoader.cs" t="Include" />
-              <e p="SpawnSystem" t="Include">
-                <e p="SpawnManager.cs" t="Include" />
-                <e p="Spawnpointstuff" t="Include">
-                  <e p="SpawnpointData.cs" t="Include" />
-                  <e p="SpawnpointList.cs" t="Include" />
-                  <e p="SpawnPointWorker.cs" t="Include" />
-                </e>
-              </e>
               <e p="TeleportSystem" t="Include">
                 <e p="TeleportTarget.cs" t="Include" />
               </e>

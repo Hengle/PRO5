@@ -75,7 +75,7 @@ public class MusicLayerController : MonoBehaviour
             skill = true;
             //skillListAdder(skill);
             _skillController.chargeUse(uses);
-            Debug.LogError("Activating: " + skillName);
+            //Debug.LogError("Activating: " + skillName);
 
             //Thomas added this, quick but dirty fix for enabling atmo layer 
             if (skillName == "AtmoLayer")
