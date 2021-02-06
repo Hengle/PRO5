@@ -420,5 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70109d130bbeb9b43b603c1194ed3a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySet: {fileID: 11400000, guid: d8762f34ae67bcf40ada5da7325b9449, type: 2}
   openDoor: 0
   enemyAmount: 0

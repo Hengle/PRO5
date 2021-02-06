@@ -41,10 +41,6 @@ public class FmodTimeline : MonoBehaviour
     FMOD.Studio.EVENT_CALLBACK _beatCallback;
     private void OnEnable()
     {
-        GlobalEventSystem.instance.onLoadFinish += StartLoad;
-    }
-    void Awake()
-    {
         if (_instance == null)
         {
             _instance = this;
@@ -53,31 +49,21 @@ public class FmodTimeline : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        GlobalEventSystem.instance.onInit += StartLoad;
     }
 
     // Start is called before the first frame update
     void StartLoad()
     {
-        Debug.Log(this.GetType());
         _emitter.Play();
         _musicInstance = _emitter.EventInstance;
         AssignBeatEvent(_musicInstance);
         _markerManager = GetComponent<MarkerManager>();
         _markerManager._emitter = _emitter;
+        _markerManager._musicInstance = _musicInstance;
+
         GetComponent<MusicLayerController>()._musicEvent = _emitter;
-        SpectrumManager._instance.musicInstance = _emitter.EventInstance;
-    }
-    void Start()
-    {
-        //MusikInstanz holen und zuweisen
-        //_emitter = GetComponent<FMODUnity.StudioEventEmitter>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SpectrumManager._instance.musicInstance = _musicInstance;
     }
 
     //---BEATDETECTION---

@@ -103,7 +103,8 @@ public class ScenenManager : MonoBehaviour
 
     IEnumerator LevelTransition(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)
     {
-        //TODO: Start UI fade to black
+        // Start UI fade to black
+        yield return new WaitForSeconds(GameManager.instance.FadeOutAnim());
 
         yield return LoadLevel(newScene, loadWithBase, oldScene, oldScene2);
 
@@ -112,7 +113,11 @@ public class ScenenManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
-        //TODO: Start UI fade to transparent
+
+        yield return new WaitForSeconds(0.1f);
+        
+        GameManager.instance.FadeInAnim();
+        // Start UI fade to transparent
     }
 
     private IEnumerator LoadLevel(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)

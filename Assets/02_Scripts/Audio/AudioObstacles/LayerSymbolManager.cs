@@ -26,31 +26,35 @@ public class LayerSymbolManager : MonoBehaviour
 
     void Start()
     {
-        askAudioObstacle();
+        if (Application.isEditor)
+        {
+            askAudioObstacle();
 
-        _renderer = GetComponent<Renderer>();
+            _renderer = GetComponent<Renderer>();
 
-        if (Kick)
-        {
-            _renderer.material = KickMat;
+            if (Kick)
+            {
+                _renderer.material = KickMat;
 
+            }
+            else if (Snare)
+            {
+                _renderer.material = SnareMat;
+            }
+            else if (HiHat)
+            {
+                _renderer.material = HiHatMat;
+            }
+            else if (LeadBass)
+            {
+                _renderer.material = LeadBassMat;
+            }
+            else if (Atmo)
+            {
+                _renderer.material = AtmoMat;
+            }
         }
-        else if (Snare)
-        {
-            _renderer.material = SnareMat;
-        }
-        else if (HiHat)
-        {
-            _renderer.material = HiHatMat;
-        }
-        else if (LeadBass)
-        {
-            _renderer.material = LeadBassMat;
-        }
-        else if (Atmo)
-        {
-            _renderer.material = AtmoMat;
-        }
+
     }
 
     void askAudioObstacle()

@@ -157,7 +157,7 @@ MonoBehaviour:
   m_onHiHat: 0
   m_onLeadBass: 0
   m_onAtmo: 0
-  _useThisEmission: 0
+  _useThisEmission: 1
   _intervalBeat: 0
   m_interval: 2
   m_intervalCounter: 0
@@ -166,10 +166,10 @@ MonoBehaviour:
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
   _holdValue: 0
+  dmgOnEnter: 80
+  dmgOnStay: 40
   _materials: []
   _plateActive: 0
-  _dmgOnEnter: 50
-  _dmgOnStay: 30
 --- !u!114 &-846688120682200858
 MonoBehaviour:
   m_ObjectHideFlags: 0

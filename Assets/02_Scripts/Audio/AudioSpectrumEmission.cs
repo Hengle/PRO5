@@ -23,12 +23,10 @@ public class AudioSpectrumEmission : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(this.GetType());
-        spectrumManager = GameObject.Find("AudioManager").GetComponent<SpectrumManager>();
+        // Debug.Log(this.GetType());
+        // spectrumManager = GameObject.Find("AudioManager").GetComponent<SpectrumManager>();
         _material = GetComponent<MeshRenderer>().material;
         color = _material.GetColor("_EmissiveColor");
-        if (spectrumManager == null)
-            Debug.Log("No spectrummanager");
     }
 
     // Update is called once per frame

@@ -11,7 +11,7 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
 
     //When active the colliders are enabled and damage can happen
     public bool _plateActive = false;
-    
+
 
     private AudioObstacleDamageCollider _childCollider;
 
@@ -33,11 +33,11 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     }
 
 
-  
+
 
     protected override void emissionActive()
     {
-       
+
         emissionChange(1);
         _plateActive = true;
 
@@ -56,30 +56,32 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
     //NormalMode meanst objeact actives on the Beat for a certain duration and deactives immediatle after this duration
     protected override void objectAction()
     {
-       
-            increaseIntervalCounter();
-            if (checkInterval())
+
+        increaseIntervalCounter();
+        if (checkInterval())
+        {
+            if (_holdValue)
             {
-                if (_holdValue)
+                if (_holdHelper)
                 {
-                    if (_holdHelper)
-                    {
-                       emissionActive();
-                       _holdHelper = false;
-                    }
-                    else
-                    {
-                        emissionDeactive();
-                        _holdHelper = true;
-                    }
+                    emissionActive();
+                    _holdHelper = false;
                 }
                 else
                 {
-                    emissionChange();
-                    shortDurationHelper();
+                    emissionDeactive();
+                    _holdHelper = true;
                 }
             }
-        
+            else
+            {
+                emissionChange();
+                shortDurationHelper();
+                if (ListeningOnLayer != musicEvent.Kick)
+                    Debug.LogError("doing the tween : " + ListeningOnLayer.ToString() + ", " + this.GetType());
+            }
+        }
+
     }
 
     //Gets called from dmg collider (child of this object)
