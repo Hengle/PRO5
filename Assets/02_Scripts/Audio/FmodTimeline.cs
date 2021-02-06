@@ -52,6 +52,11 @@ public class FmodTimeline : MonoBehaviour
         GlobalEventSystem.instance.onInit += StartLoad;
     }
 
+    private void OnDisable()
+    {
+        GlobalEventSystem.instance.onInit -= StartLoad;
+    }
+
     // Start is called before the first frame update
     void StartLoad()
     {

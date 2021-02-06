@@ -203,71 +203,73 @@ public abstract class AudioObstacle : MonoBehaviour
     {
         addedToEvent = true;
 
-        switch (ListeningOnLayer)
-        {
-            case musicEvent.Kick:
-                MyEventSystem.instance.Kick += objectAction;
-                m_onKick = true;
-                break;
-            case musicEvent.Snare:
-                MyEventSystem.instance.Snare += objectAction;
-                m_onSnare = true;
-                break;
-            case musicEvent.HiHat:
-                MyEventSystem.instance.HiHat += objectAction;
-                m_onHiHat = true;
+        if (MyEventSystem.instance != null)
+            switch (ListeningOnLayer)
+            {
+                case musicEvent.Kick:
+                    MyEventSystem.instance.Kick += objectAction;
+                    m_onKick = true;
+                    break;
+                case musicEvent.Snare:
+                    MyEventSystem.instance.Snare += objectAction;
+                    m_onSnare = true;
+                    break;
+                case musicEvent.HiHat:
+                    MyEventSystem.instance.HiHat += objectAction;
+                    m_onHiHat = true;
 
-                break;
-            case musicEvent.Atmo:
-                MyEventSystem.instance.Atmo += objectAction;
-                m_onAtmo = true;
+                    break;
+                case musicEvent.Atmo:
+                    MyEventSystem.instance.Atmo += objectAction;
+                    m_onAtmo = true;
 
-                break;
-            case musicEvent.LeadBass:
-                MyEventSystem.instance.LeadBass += objectAction;
-                m_onLeadBass = true;
+                    break;
+                case musicEvent.LeadBass:
+                    MyEventSystem.instance.LeadBass += objectAction;
+                    m_onLeadBass = true;
 
-                break;
-            default:
-                break;
-        }
+                    break;
+                default:
+                    break;
+            }
     }
 
     //Unsubscribe vom Event 
     protected void removeActionFromEvent()
     {
         addedToEvent = false;
-        switch (ListeningOnLayer)
-        {
-            case musicEvent.Kick:
-                MyEventSystem.instance.Kick -= objectAction;
-                m_onKick = true;
+        if (MyEventSystem.instance != null)
+            switch (ListeningOnLayer)
+            {
+                case musicEvent.Kick:
+                    MyEventSystem.instance.Kick -= objectAction;
+                    m_onKick = true;
 
-                break;
-            case musicEvent.Snare:
-                MyEventSystem.instance.Snare -= objectAction;
-                m_onSnare = true;
+                    break;
+                case musicEvent.Snare:
+                    MyEventSystem.instance.Snare -= objectAction;
+                    m_onSnare = true;
 
-                break;
-            case musicEvent.HiHat:
-                MyEventSystem.instance.HiHat -= objectAction;
-                m_onHiHat = true;
+                    break;
+                case musicEvent.HiHat:
+                    MyEventSystem.instance.HiHat -= objectAction;
+                    m_onHiHat = true;
 
-                break;
-            case musicEvent.Atmo:
+                    break;
+                case musicEvent.Atmo:
 
-                MyEventSystem.instance.Atmo -= objectAction;
-                m_onAtmo = true;
+                    MyEventSystem.instance.Atmo -= objectAction;
+                    m_onAtmo = true;
 
-                break;
-            case musicEvent.LeadBass:
-                MyEventSystem.instance.LeadBass -= objectAction;
-                m_onLeadBass = true;
+                    break;
+                case musicEvent.LeadBass:
+                    MyEventSystem.instance.LeadBass -= objectAction;
+                    m_onLeadBass = true;
 
-                break;
-            default:
-                break;
-        }
+                    break;
+                default:
+                    break;
+            }
     }
 
     private void OnDisable()

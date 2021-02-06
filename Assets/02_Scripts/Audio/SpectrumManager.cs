@@ -93,7 +93,10 @@ public class SpectrumManager : MonoBehaviour
         GlobalEventSystem.instance.onLoadFinish += StartLoad;
     }
 
-
+    private void OnDisable()
+    {
+        GlobalEventSystem.instance.onInit -= StartLoad;
+    }
     void StartLoad()
     {
         _audioBand8 = new float[8];

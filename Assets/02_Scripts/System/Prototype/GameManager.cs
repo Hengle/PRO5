@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public Canvas transitionCanvas;
     public Animation transitionImage;
     public ScenenManager scenenManager;
-    public int currentLevel = 0;
     public bool gamePaused = false;
     public static GameManager instance;
 
@@ -48,27 +47,9 @@ public class GameManager : MonoBehaviour
     // public SceneLoader sceneLoader;
     private void OnEnable()
     {
-        DOTween.SetTweensCapacity(10000, 5000);
+        DOTween.SetTweensCapacity(2500, 500);
         ScriptCollection.NewList();
     }
-
-    public void InitAll()
-    {
-        // if (initAll != null)
-        //     initAll();
-    }
-
-    public void DeInitAll()
-    {
-        // if (deInitAll != null)
-        //     deInitAll();
-    }
-
-    public void ToggleCanvas()
-    {
-        // transitionCanvas.gameObject.SetActive(false);
-    }
-
 
     public void ActivateCanvas()
     {
@@ -95,14 +76,10 @@ public class GameManager : MonoBehaviour
         transitionImage.Play("FadeOut");
         return transitionImage.GetClip("FadeOut").length;
     }
+
     public void StartNewGame()
     {
         scenenManager.LoadFirstLevel();
-    }
-
-    public void GameOver()
-    {
-
     }
 
     public void ReturnToStartMenu()

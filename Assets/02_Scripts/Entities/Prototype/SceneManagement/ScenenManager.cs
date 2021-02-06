@@ -8,8 +8,6 @@ public class ScenenManager : MonoBehaviour
 {
     #region Editor Attributes 
 
-    public SceneType startScene = SceneType.Level;
-
     /// <summary>
     /// Holds the build index of the start menu scene;
     /// </summary>
@@ -51,7 +49,7 @@ public class ScenenManager : MonoBehaviour
     /// </summary>
     public void LoadStartMenuScene()
     {
-        LoadScene(startMenuScene, false, _activeLevelSceneIndex, baseScene);
+        StartCoroutine(MenuTransition(startMenuScene, false, _activeLevelSceneIndex, baseScene));
     }
 
     /// <summary>
@@ -59,7 +57,7 @@ public class ScenenManager : MonoBehaviour
     /// </summary>
     public void ReloadActiveLevel()
     {
-        StartCoroutine(ReloadScene(_activeLevelSceneIndex));
+        LoadScene(_activeLevelSceneIndex, false, _activeLevelSceneIndex);
     }
 
     /// <summary>
@@ -77,7 +75,10 @@ public class ScenenManager : MonoBehaviour
     /// <param name="listIndex">Index of the <c>LevelScenes</c> list</param>
     public void LoadLevel(int listIndex)
     {
-        LoadScene(levelScenes[listIndex], true, _activeLevelSceneIndex);
+        if (SceneManager.GetSceneByBuildIndex(startMenuScene).isLoaded)
+            LoadScene(levelScenes[listIndex], true, _activeLevelSceneIndex, startMenuScene);
+        else
+            LoadScene(levelScenes[listIndex], true, _activeLevelSceneIndex);
     }
 
 
@@ -89,7 +90,7 @@ public class ScenenManager : MonoBehaviour
         // Check if there isn't a next level scene
         if (_activeLevelSceneIndex >= levelScenes.Count - 1)
         {
-            throw new Exception("No next level scene. Index out of range.");
+            LoadStartMenuScene();
         }
 
         LoadLevel(++_activeLevelSceneIndex);
@@ -115,9 +116,21 @@ public class ScenenManager : MonoBehaviour
         MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
 
         yield return new WaitForSeconds(0.1f);
-        
+
         GameManager.instance.FadeInAnim();
         // Start UI fade to transparent
+    }
+
+    IEnumerator MenuTransition(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)
+    {
+        // Start UI fade to black
+        yield return new WaitForSeconds(GameManager.instance.FadeOutAnim());
+
+        yield return LoadLevel(newScene, loadWithBase, oldScene, oldScene2);
+
+        GlobalEventSystem.instance.OnLoadFinish();
+
+        GameManager.instance.FadeInAnim();
     }
 
     private IEnumerator LoadLevel(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)
@@ -127,14 +140,20 @@ public class ScenenManager : MonoBehaviour
 
         if (oldScene != -1)
         {
-            unload = SceneManager.UnloadSceneAsync(oldScene);
-            yield return unload;
+            if (SceneManager.GetSceneByBuildIndex(oldScene).isLoaded)
+            {
+                unload = SceneManager.UnloadSceneAsync(oldScene);
+                yield return unload;
+            }
         }
 
         if (oldScene2 != -1)
         {
-            unload = SceneManager.UnloadSceneAsync(oldScene2);
-            yield return unload;
+            if (SceneManager.GetSceneByBuildIndex(oldScene2).isLoaded)
+            {
+                unload = SceneManager.UnloadSceneAsync(oldScene2);
+                yield return unload;
+            }
         }
 
         if (loadWithBase)
@@ -151,52 +170,5 @@ public class ScenenManager : MonoBehaviour
         yield return load;
     }
 
-
-    // private IEnumerator LoadLevelNoBase(int newScene, int oldScene = -1, int oldScene2 = -1)
-    // {
-    //     AsyncOperation unload;
-    //     AsyncOperation load;
-
-    //     if (oldScene != -1)
-    //     {
-    //         unload = SceneManager.UnloadSceneAsync(oldScene);
-    //         yield return unload;
-    //     }
-
-    //     if (oldScene2 != -1)
-    //     {
-    //         unload = SceneManager.UnloadSceneAsync(oldScene2);
-    //         yield return unload;
-    //     }
-
-    //     load = SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive);
-
-    //     yield return load;
-    //     yield return new WaitForEndOfFrame();
-    // }
-
-    private IEnumerator ReloadScene(int currentScene)
-    {
-        var load = SceneManager.UnloadSceneAsync(currentScene);
-        yield return load;
-        load = SceneManager.LoadSceneAsync(currentScene, LoadSceneMode.Additive);
-        yield return load;
-    }
     #endregion Methods
-
-
-    #region MonoBehaviour
-
-    private void Start()
-    {
-
-    }
-
-
-    #endregion MonoBehaviour
-
-
-
-
-
 }

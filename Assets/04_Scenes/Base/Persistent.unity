@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.05398134, g: 0.05335299, b: 0.07931548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 1902550137710943533, guid: b514add0432f7c6488bd6ace650e5b11,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b514add0432f7c6488bd6ace650e5b11, type: 3}
@@ -382,10 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff13890745492640b8c837af30f0b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: 1
   startMenuScene: 1
   baseScene: 2
-  levelScenes: 02000000030000000400000005000000
+  levelScenes: 03000000040000000500000006000000
 --- !u!1 &1517712919
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,11 +428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a9115fba34e4d43aa4264bfdb59a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: 1
+  startScene: 0
   transitionCanvas: {fileID: 402877216}
   transitionImage: {fileID: 402877217}
   scenenManager: {fileID: 606806024}
-  currentLevel: 0
   gamePaused: 0
   inEditor: 0
 --- !u!1 &1865414354
