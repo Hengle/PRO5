@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     //GameManager for starting games and managing game over states
     public ScenenManager.SceneType startScene;
+
+    [Range(0, 4)]
+    public int StartLevel;
     public Canvas transitionCanvas;
     public Animation transitionImage;
     public ScenenManager scenenManager;
@@ -37,7 +40,7 @@ public class GameManager : MonoBehaviour
                 scenenManager.LoadStartMenuScene();
                 break;
             case ScenenManager.SceneType.Level:
-                scenenManager.LoadFirstLevel();
+                scenenManager.LoadLevel(StartLevel);
                 break;
             default:
                 scenenManager.LoadStartMenuScene();

@@ -49,7 +49,7 @@ public class ScenenManager : MonoBehaviour
     /// </summary>
     public void LoadStartMenuScene()
     {
-        StartCoroutine(MenuTransition(startMenuScene, false, _activeLevelSceneIndex, baseScene));
+        StartCoroutine(MenuTransition(startMenuScene, false, _activeLevelSceneIndex < 0 ? -1 : levelScenes[_activeLevelSceneIndex], baseScene));
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ public class ScenenManager : MonoBehaviour
     /// </summary>
     public void ReloadActiveLevel()
     {
-        LoadScene(_activeLevelSceneIndex, false, _activeLevelSceneIndex);
+        LoadScene(levelScenes[_activeLevelSceneIndex], false, levelScenes[_activeLevelSceneIndex]);
     }
 
     /// <summary>
@@ -76,9 +76,11 @@ public class ScenenManager : MonoBehaviour
     public void LoadLevel(int listIndex)
     {
         if (SceneManager.GetSceneByBuildIndex(startMenuScene).isLoaded)
-            LoadScene(levelScenes[listIndex], true, _activeLevelSceneIndex, startMenuScene);
+            LoadScene(levelScenes[listIndex], true, startMenuScene);
         else
-            LoadScene(levelScenes[listIndex], true, _activeLevelSceneIndex);
+            LoadScene(levelScenes[listIndex], true, levelScenes[listIndex] == 0 ? -1 : levelScenes[listIndex]);
+
+        _activeLevelSceneIndex = listIndex;
     }
 
 
