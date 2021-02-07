@@ -30,6 +30,7 @@ public class SkillController : MonoBehaviour
 
     private void Start()
     {
+        GlobalEventSystem.instance.onRestart += StartLoad;
         MyEventSystem.instance.onEnemyDeath += AddCharge;
         timeReset();
     }
@@ -37,25 +38,32 @@ public class SkillController : MonoBehaviour
     private void OnDisable()
     {
         MyEventSystem.instance.onEnemyDeath -= AddCharge;
+        GlobalEventSystem.instance.onRestart -= StartLoad;
     }
-    
+
+    void StartLoad()
+    {
+        currentCharges = 0;
+        currentChargeValue = 0;
+    }
     void AddCharge(EnemyBody stats)
     {
         var charge = stats.GetComponent<EnemyStatistics>().skillChargeOnDeath;
-        if (currentChargeValue + charge >= maxChargeValue)
-        {
-            float temp = currentChargeValue + charge;
-            while (temp >= maxChargeValue || currentCharges == maxCharges)
+        if (currentCharges < maxCharges)
+            if (currentChargeValue + charge >= maxChargeValue)
             {
-                currentCharges++;
-                temp -= maxChargeValue;
+                float temp = currentChargeValue + charge;
+                while (temp >= maxChargeValue || currentCharges <= maxCharges)
+                {
+                    currentCharges++;
+                    temp -= maxChargeValue;
+                }
+                currentChargeValue = temp;
             }
-            currentChargeValue = temp;
-        }
-        else
-        {
-            currentChargeValue += charge;
-        }
+            else
+            {
+                currentChargeValue += charge;
+            }
     }
     private void Update()
     {
