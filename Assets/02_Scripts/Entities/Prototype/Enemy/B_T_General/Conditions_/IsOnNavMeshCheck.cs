@@ -25,16 +25,16 @@ namespace BBUnity.Conditions
             }
             else
             {
-                if (currentTime < waitTime)
-                {
-                    currentTime += Time.deltaTime;
-                    return false;
-                }
-                else
-                {
-                    currentTime = 0;
-                    return true;
-                }
+                // if (currentTime < waitTime)
+                // {
+                //     currentTime += Time.deltaTime;
+                //     return false;
+                // }
+                // else
+                // {
+                currentTime = 0;
+                return true;
+                // }
             }
         }
     }

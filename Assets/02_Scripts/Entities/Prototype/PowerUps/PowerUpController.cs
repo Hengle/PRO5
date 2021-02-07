@@ -12,14 +12,21 @@ public class PowerUpController : MonoBehaviour
 
     private void Start()
     {
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
         MyEventSystem.instance.powerupCollected += StorePowerUp;
     }
 
     private void OnDisable()
     {
         MyEventSystem.instance.powerupCollected -= StorePowerUp;
+        GlobalEventSystem.instance.onLoadFinish -= StartLoad;
     }
 
+    void StartLoad()
+    {
+        ui.DisablePowerUpSymbol(_currentPowerUp);
+        _currentPowerUp = null;
+    }
 
     public void StorePowerUp(PowerUp powerup)
     {
@@ -27,7 +34,7 @@ public class PowerUpController : MonoBehaviour
         {
             ui.DisablePowerUpSymbol(_currentPowerUp);
         }
-        
+
 
         PU_activation.PlayEffect(false, "powerup_pickup");
         Debug.Log(string.Format("Stored {0}", powerup));

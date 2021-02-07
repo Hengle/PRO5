@@ -17,6 +17,7 @@ public class AIUtilities : MonoBehaviour
 
     public void DestroyObject(GameObject obj, float time = 0.1f)
     {
+        obj.GetComponent<EnemyStatistics>().alive = false;
         obj.GetComponent<EnemyStatistics>().OnDeath();
         Destroy(obj, time);
     }
@@ -284,9 +285,9 @@ public class AIUtilities : MonoBehaviour
         /// <param name="Finish">A lambda operation in the form of '() => methodname or other logic'</param>
         async public void StartTimer(System.Action Finish, float newTime = -1)
         {
-            if(newTime != -1)
+            if (newTime != -1)
                 waitTime = newTime;
-                
+
             timerDone = false;
             timerStarted = true;
             //Starting the async function

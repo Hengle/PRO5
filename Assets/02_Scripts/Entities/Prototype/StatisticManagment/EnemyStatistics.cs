@@ -6,6 +6,8 @@ public class EnemyStatistics : StatisticController, IHasHealth
 {
     public float currentHealth;
     public float skillChargeOnDeath;
+
+    public bool alive;
     protected override void InitStats()
     {
         multList = new List<Multiplier>();
@@ -50,7 +52,8 @@ public class EnemyStatistics : StatisticController, IHasHealth
     public void OnDeath()
     {
         MyEventSystem.instance.OnEnemyDeath(GetComponent<EnemyBody>());
-        Destroy(gameObject);
+        if (alive)
+            Destroy(gameObject, 0.5f);
     }
     #endregion
 }

@@ -28,8 +28,7 @@ namespace BBUnity.Actions
             }
             else
             {
-
-                ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 3f);
+                ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 4f);
                 agent.isStopped = true;
                 agent.enabled = false;
                 return TaskStatus.RUNNING;
