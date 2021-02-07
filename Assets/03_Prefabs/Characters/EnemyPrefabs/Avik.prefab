@@ -875,7 +875,8 @@ MonoBehaviour:
   particleFX:
   - {fileID: 2439110553910305521}
   - {fileID: 7471983433290088228}
-  - {fileID: 2844577487426297149}
+  toInstantiate:
+  - {fileID: 8358740026000868304, guid: 4998e0163176c02468fcf7ce997727ed, type: 3}
   VFX: []
 --- !u!195 &3308421764753231109
 NavMeshAgent:
@@ -1055,24 +1056,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2844577487426297149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4308986260561550364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca24fb30c4a8444b94bb15338638d10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectName: death
-  playOnCollision: 0
-  playOnCommand: 1
-  loop: 0
-  active: 1
-  particle: {fileID: 2589508530211434852}
 --- !u!1 &4781173784406873245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,28 +1658,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7792183523506974376, guid: 4998e0163176c02468fcf7ce997727ed,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8358740026000868304, guid: 4998e0163176c02468fcf7ce997727ed,
         type: 3}
       propertyPath: m_Name
       value: DeathExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358740026000868304, guid: 4998e0163176c02468fcf7ce997727ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4998e0163176c02468fcf7ce997727ed, type: 3}
 --- !u!4 &4899818137532110466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 879058766179223886, guid: 4998e0163176c02468fcf7ce997727ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 5750162040103657420}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2589508530211434852 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7792183523506974376, guid: 4998e0163176c02468fcf7ce997727ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 5750162040103657420}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4308986260561550364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8358740026000868304, guid: 4998e0163176c02468fcf7ce997727ed,
     type: 3}
   m_PrefabInstance: {fileID: 5750162040103657420}
   m_PrefabAsset: {fileID: 0}

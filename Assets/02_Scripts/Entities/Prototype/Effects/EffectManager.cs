@@ -10,6 +10,7 @@ public class EffectManager : MonoBehaviour
 {
     [HideInInspector] [SerializeField] public List<SoundEffectController> soundFX = new List<SoundEffectController>();
     [HideInInspector] [SerializeField] public List<ParticleEffectController> particleFX = new List<ParticleEffectController>();
+    public List<GameObject> toInstantiate = new List<GameObject>();
     [HideInInspector] public List<VFXContainer> VFX;
 
 
@@ -37,5 +38,14 @@ public class EffectManager : MonoBehaviour
     {
         if (particleFX.Exists(x => x.effectName.Equals(name)))
             particleFX.Find(x => x.effectName.Equals(name)).StopEffect();
+    }
+
+    public void SpawnParticleffecT(string name)
+    {
+        if (toInstantiate.Exists(x => x.GetComponent<ParticleEffectController>().effectName.Equals(name)))
+        {
+            var p = toInstantiate.Find(x => x.GetComponent<ParticleEffectController>().effectName.Equals(name));
+            Instantiate(p, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        }
     }
 }

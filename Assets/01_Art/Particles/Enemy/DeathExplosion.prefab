@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 879058766179223886}
   - component: {fileID: 7792183523506974376}
   - component: {fileID: 7206681582811378590}
+  - component: {fileID: 2844577487426297149}
   m_Layer: 9
   m_Name: DeathExplosion
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8358740026000868304}
-  m_LocalRotation: {x: -0.70710605, y: 0.000000059604638, z: -0.0000017583368, w: 0.70710766}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 2, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -42,13 +43,13 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 2
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4754,3 +4755,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2844577487426297149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358740026000868304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca24fb30c4a8444b94bb15338638d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: death
+  playOnCollision: 0
+  playOnCommand: 1
+  loop: 0
+  active: 1
+  particle: {fileID: 7792183523506974376}

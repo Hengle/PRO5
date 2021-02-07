@@ -138,7 +138,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
             GameObject obj = c.gameObject;
             if (obj.GetComponent<IHasHealth>() != null)
             {
-                var player = c.GetComponent<PlayerStateMachine>();
+                var player = obj.GetComponent<PlayerStateMachine>();
                 if (player != null && !player.isDashing)
                     MyEventSystem.instance.OnAttack(obj.GetComponent<IHasHealth>(), dmg);
                 else if (c.GetComponent<EnemyBody>())

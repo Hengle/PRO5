@@ -49,13 +49,14 @@ public class EnemyStatistics : StatisticController, IHasHealth
 
     }
 
-    public void OnDeath(float deathTimer = 0f)
+    public void OnDeath(float deathTimer = 1f)
     {
         if (alive)
         {
+            GetComponent<EffectManager>().PlayParticleEffect("stun");
+            GetComponent<EffectManager>().SpawnParticleffecT("death");
             alive = false;
             MyEventSystem.instance.OnEnemyDeath(GetComponent<EnemyBody>());
-            GetComponent<EffectManager>().PlayParticleEffect("death");
             Destroy(gameObject, deathTimer);
         }
     }
