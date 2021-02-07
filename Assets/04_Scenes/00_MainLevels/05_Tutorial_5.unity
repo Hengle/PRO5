@@ -28679,7 +28679,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 1556585123ac1c941bdc950b431b612f,
+      objectReference: {fileID: 23800000, guid: 1ee09c1452f1b134a83c828d03960929,
         type: 2}
     - target: {fileID: 2110545230686139594, guid: 63ada56bfbde7ed4ba13807605b18f3b,
         type: 3}
@@ -28790,6 +28790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LVL5_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503953636973679119, guid: 63ada56bfbde7ed4ba13807605b18f3b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4725344081493095493, guid: 63ada56bfbde7ed4ba13807605b18f3b,
         type: 3}

@@ -1496,6 +1496,11 @@ PrefabInstance:
       propertyPath: LightsModule.intensityCurve.scalar
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1419190404638124475, guid: b22565f649d66ba44988437726a74f02,
+        type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22565f649d66ba44988437726a74f02, type: 3}
 --- !u!1 &2380633148115408579 stripped
