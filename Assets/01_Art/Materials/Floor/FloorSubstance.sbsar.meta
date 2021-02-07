@@ -575,9 +575,10 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Sci-Fi-Modified\" label=\"\" >\n  <presetinput
       identifier=\"paint_per_panel_brightness_variation\" uid=\"3480172993\" type=\"0\"
-      value=\"0.3\" />\n  <presetinput identifier=\"paint_gloss_factor\" uid=\"3480153689\"
-      type=\"0\" value=\"1\" />\n  <presetinput identifier=\"rust_spreading\" uid=\"3480146997\"
-      type=\"0\" value=\"0.08\" />\n  <presetinput identifier=\"bevel_size_big_panels\"
+      value=\"0.3\" />\n  <presetinput identifier=\"paint_panel_basecolor\" uid=\"3480180707\"
+      type=\"2\" value=\"0.00965604,0.0482802,0.0576345\" />\n  <presetinput identifier=\"paint_gloss_factor\"
+      uid=\"3480153689\" type=\"0\" value=\"1\" />\n  <presetinput identifier=\"rust_spreading\"
+      uid=\"3480146997\" type=\"0\" value=\"0.08\" />\n  <presetinput identifier=\"bevel_size_big_panels\"
       uid=\"3480142875\" type=\"0\" value=\"-0.031\" />\n  <presetinput identifier=\"input_selection\"
       uid=\"3586778435\" type=\"4\" value=\"2\" />\n  <presetinput identifier=\"panel_symmetric\"
       uid=\"3479231792\" type=\"4\" value=\"1\" />\n  <presetinput identifier=\"panel_symmetry_mode\"
@@ -845,7 +846,7 @@ ScriptedImporter:
       - name: _Smoothness
         float: 0.5
       - name: _SmoothnessRemapMax
-        float: 0.10575235
+        float: 0.15575235
       - name: _SmoothnessRemapMin
         float: 0
       - name: _SpecularAAScreenSpaceVariance

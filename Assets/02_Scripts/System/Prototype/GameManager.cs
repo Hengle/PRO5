@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     //GameManager for starting games and managing game over states
     public ScenenManager.SceneType startScene;
 
-    [Range(0, 4)]
+    [Range(0, 6)]
     public int StartLevel;
     public Canvas transitionCanvas;
     public Animation transitionImage;
