@@ -18,6 +18,8 @@ public class NavMeshUpdater : MonoBehaviour
         if (surface.navMeshData == null)
             surface.BuildNavMesh();
         m_NavMesh = surface.navMeshData;
+
+        UpdateNavMesh();
         StartCoroutine(RepeatUpdate());
     }
 
@@ -57,6 +59,7 @@ public class NavMeshUpdater : MonoBehaviour
         var defaultBuildSettings = NavMesh.GetSettingsByID(0);
         var bounds = QuantizedBounds();
         m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
+        NavMesh.AddNavMeshData(m_NavMesh);
     }
 
     void UpdateNavMesh()
@@ -66,8 +69,7 @@ public class NavMeshUpdater : MonoBehaviour
         var bounds = QuantizedBounds();
 
         NavMeshBuilder.UpdateNavMeshData(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
-
-        // NavMesh.AddNavMeshData(m_NavMesh);
+        NavMesh.AddNavMeshData(m_NavMesh);
     }
 
     // IEnumerator UpdateNav(NavMeshBuildSettings defaultBuildSettings, Bounds bounds)
