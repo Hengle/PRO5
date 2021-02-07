@@ -43,27 +43,35 @@ public class SkillController : MonoBehaviour
 
     void StartLoad()
     {
-        currentCharges = 0;
         currentChargeValue = 0;
+        currentCharges = 0;
+
     }
     void AddCharge(EnemyBody stats)
     {
         var charge = stats.GetComponent<EnemyStatistics>().skillChargeOnDeath;
-        if (currentCharges < maxCharges)
-            if (currentChargeValue + charge >= maxChargeValue)
+        if (currentChargeValue + charge >= maxChargeValue)
+        {
+            float temp = currentChargeValue + charge;
+            while (temp >= maxChargeValue)
             {
-                float temp = currentChargeValue + charge;
-                while (temp >= maxChargeValue || currentCharges <= maxCharges)
-                {
+                if (currentCharges < maxCharges)
                     currentCharges++;
-                    temp -= maxChargeValue;
-                }
-                currentChargeValue = temp;
+                else
+                    break;
+
+                temp -= maxChargeValue;
             }
+
+            if (currentCharges + temp > maxChargeValue)
+                currentChargeValue = maxChargeValue;
             else
-            {
-                currentChargeValue += charge;
-            }
+                currentChargeValue = temp;
+        }
+        else
+        {
+            currentChargeValue += charge;
+        }
     }
     private void Update()
     {

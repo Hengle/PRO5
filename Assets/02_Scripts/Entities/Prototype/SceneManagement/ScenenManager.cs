@@ -50,6 +50,7 @@ public class ScenenManager : MonoBehaviour
     public void LoadStartMenuScene()
     {
         StartCoroutine(MenuTransition(startMenuScene, false, _activeLevelSceneIndex < 0 ? -1 : levelScenes[_activeLevelSceneIndex], baseScene));
+        _activeLevelSceneIndex = -1;
     }
 
     /// <summary>
@@ -93,6 +94,7 @@ public class ScenenManager : MonoBehaviour
         if (_activeLevelSceneIndex >= levelScenes.Count - 1)
         {
             LoadStartMenuScene();
+            return;
         }
 
         LoadLevel(++_activeLevelSceneIndex);
