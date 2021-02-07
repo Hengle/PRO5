@@ -46,14 +46,14 @@ public class PlayerStatistics : StatisticController, IHasHealth
         //float damage = baseDmg * (baseDmg/(baseDmg + enemy.GetStat(EnemyStatName.defense)))
         float newDamage = damage * damage / (damage + GetStatValue(StatName.Defense));
         currentHealth.Value -= Shield(newDamage);
-        
+
         // SetStatValue(StatName.MaxHealth, GetStatValue(StatName.MaxHealth) - damage);
         Debug.Log(gameObject.name + " just took " + newDamage + " damage.");
         GetComponent<EffectManager>().PlayParticleEffect("damage");
         CheckHealth();
     }
 
-    public void OnDeath()
+    public void OnDeath(float deathTimer = 0)
     {
         if (alive)
         {

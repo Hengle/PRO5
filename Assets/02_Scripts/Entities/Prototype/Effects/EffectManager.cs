@@ -32,4 +32,10 @@ public class EffectManager : MonoBehaviour
         if (soundFX.Exists(x => x.effectName.Equals(name)))
             soundFX.Find(x => x.effectName.Equals(name)).StopEffect();
     }
+
+    public void StopParticleEffect(string name)
+    {
+        if (particleFX.Exists(x => x.effectName.Equals(name)))
+            particleFX.Find(x => x.effectName.Equals(name)).StopEffect();
+    }
 }

@@ -23,15 +23,17 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             //start effects or whatever
-    
+
             animator.SetBool("isStunned", true);
             effectManager.PlaySoundEffect("stun");
+            effectManager.PlayParticleEffect("stun");
         }
 
         public override TaskStatus OnUpdate()
         {
             if (actions.isStunned || !Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor")))
             {
+
                 agent.isStopped = true;
                 agent.enabled = false;
                 return TaskStatus.RUNNING;

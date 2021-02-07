@@ -6,5 +6,5 @@ public interface IHasHealth
 {
    void TakeDamage(float damage);
    void Heal(float healAmount);
-   void OnDeath();
+   void OnDeath(float deathTimer = 0);
 }

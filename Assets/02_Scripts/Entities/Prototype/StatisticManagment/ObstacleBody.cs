@@ -39,7 +39,7 @@ public class ObstacleBody : MonoBehaviour, IHasHealth
         coroutine = StartCoroutine(RegenerateTimer());
     }
 
-    public void OnDeath()
+    public void OnDeath(float deathTimer = 0)
     {
         col.enabled = false;
         render.enabled = false;

@@ -61,6 +61,7 @@ public class EffectManagerEditor : Editor
                 for (int j = 0; j < t.particleFX.Count; j++)
                 {
                     GUILayout.BeginHorizontal();
+                    t.particleFX[j] = (ParticleEffectController)EditorGUILayout.ObjectField(t.particleFX[j], typeof(ParticleEffectController), true, GUILayout.MaxWidth(200f));
                     if (t.particleFX[j] != null)
                     {
                         t.particleFX[j].effectName = EditorGUILayout.TextField(t.particleFX[j].effectName, GUILayout.MaxWidth(60f));
@@ -70,7 +71,7 @@ public class EffectManagerEditor : Editor
                         t.particleFX[j].playOnCollision = EditorGUILayout.Toggle(t.particleFX[j].playOnCollision, GUILayout.MaxWidth(20));
                         // t.particleFX[j].particle = (ParticleSystem)EditorGUILayout.ObjectField(t.particleFX[j].particle, typeof(ParticleSystem), true, GUILayout.MaxWidth(250f));
                     }
-                    t.particleFX[j] = (ParticleEffectController)EditorGUILayout.ObjectField(t.particleFX[j], typeof(ParticleEffectController), true, GUILayout.MaxWidth(200f));
+
 
                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(100f)))
                         t.particleFX.Remove(t.particleFX[j]);

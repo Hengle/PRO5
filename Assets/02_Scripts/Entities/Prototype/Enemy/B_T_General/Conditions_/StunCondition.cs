@@ -15,6 +15,9 @@ namespace BBUnity.Conditions
 
         [InParam("agent")]
         public NavMeshAgent agent;
+
+        [InParam("effects")]
+        public EffectManager effectManager;
         public override bool Check()
         {
             if (actions.isStunned)
@@ -25,6 +28,7 @@ namespace BBUnity.Conditions
             }
             else
             {
+                effectManager.StopParticleEffect("stun");
                 agent.enabled = true;
                 agent.isStopped = false;
                 return false;

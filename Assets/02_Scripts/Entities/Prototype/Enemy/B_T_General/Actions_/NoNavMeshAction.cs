@@ -13,6 +13,7 @@ namespace BBUnity.Actions
         [InParam("agent")]
         public NavMeshAgent agent;
 
+        bool doOnce = false;
         public override void OnStart()
         {
 
@@ -28,7 +29,11 @@ namespace BBUnity.Actions
             }
             else
             {
-                ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 4f);
+                if (!doOnce)
+                {
+                    doOnce = true;
+                    ScriptCollection.GetScript<AIUtilities>().DestroyObject(gameObject, 4f);
+                }
                 agent.isStopped = true;
                 agent.enabled = false;
                 return TaskStatus.RUNNING;

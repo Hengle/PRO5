@@ -17,9 +17,7 @@ public class AIUtilities : MonoBehaviour
 
     public void DestroyObject(GameObject obj, float time = 0.1f)
     {
-        obj.GetComponent<EnemyStatistics>().alive = false;
-        obj.GetComponent<EnemyStatistics>().OnDeath();
-        Destroy(obj, time);
+        obj.GetComponent<EnemyStatistics>().OnDeath(time);
     }
 
     public void MoveNavMeshAgent(NavMeshAgent agent, Vector3 target, Vector3 moveVector, float speed)
