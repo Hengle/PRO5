@@ -6,9 +6,10 @@ public class EnemyStatistics : StatisticController, IHasHealth
 {
     public float currentHealth;
     public float skillChargeOnDeath;
-
+    bool alive;
     protected override void InitStats()
     {
+        alive = true;
         multList = new List<Multiplier>();
         statList = new List<GameStatistics>();
         foreach (FloatReference f in statTemplate.statList)
@@ -48,11 +49,15 @@ public class EnemyStatistics : StatisticController, IHasHealth
 
     }
 
-    public void OnDeath(float deathTimer = 0.5f)
+    public void OnDeath(float deathTimer = 0f)
     {
-        MyEventSystem.instance.OnEnemyDeath(GetComponent<EnemyBody>());
-        GetComponent<EffectManager>().PlayParticleEffect("death");
-        Destroy(gameObject, deathTimer);
+        if (alive)
+        {
+            alive = false;
+            MyEventSystem.instance.OnEnemyDeath(GetComponent<EnemyBody>());
+            GetComponent<EffectManager>().PlayParticleEffect("death");
+            Destroy(gameObject, deathTimer);
+        }
     }
     #endregion
 }

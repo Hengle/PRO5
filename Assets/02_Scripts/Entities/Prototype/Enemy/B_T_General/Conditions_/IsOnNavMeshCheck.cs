@@ -17,8 +17,8 @@ namespace BBUnity.Conditions
         float currentTime;
         public override bool Check()
         {
-            if (agent.isOnNavMesh && Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, 0.5f), Vector3.down, 3f, LayerMask.GetMask("Floor"))
-                && Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, -0.5f), Vector3.down, 3f, LayerMask.GetMask("Floor")))
+            if (agent.isOnNavMesh && Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, 0.5f), Vector3.down, 5f, LayerMask.GetMask("Floor"))
+                && Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, -0.5f), Vector3.down, 5f, LayerMask.GetMask("Floor")))
             {
                 currentTime = 0;
                 return false;

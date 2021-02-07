@@ -28675,6 +28675,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1539296139389431676, guid: 63ada56bfbde7ed4ba13807605b18f3b,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 1556585123ac1c941bdc950b431b612f,
+        type: 2}
     - target: {fileID: 2110545230686139594, guid: 63ada56bfbde7ed4ba13807605b18f3b,
         type: 3}
       propertyPath: dmgOnStay
