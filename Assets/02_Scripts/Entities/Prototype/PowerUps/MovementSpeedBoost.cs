@@ -32,6 +32,7 @@ public class MovementSpeedBoost : PowerUp
     {
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(2);
+        pc.speedBuffMult = speedMult;
         pc.currentMoveSpeed = pc.currentMoveSpeed * speedMult;
 
         yield return new WaitForSeconds(duration);
@@ -39,6 +40,7 @@ public class MovementSpeedBoost : PowerUp
         Debug.Log("MovementSpeedBoost power up deactivated");
         // @Alex
         // _player.GetComponent<MovementController>().setMovement(1);
+        pc.speedBuffMult = 1;
         pc.currentMoveSpeed = pc.standardMoveSpeed;
 
     }

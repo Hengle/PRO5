@@ -113,7 +113,7 @@ MonoBehaviour:
   m_minEmissionIntensity: 0.1
   _holdValue: 0
   dmgOnEnter: 40
-  dmgOnStay: 15
+  dmgOnStay: 1
   _materials: []
   _maxLength: 3
   _startAsActive: 0
@@ -151,6 +151,8 @@ MonoBehaviour:
   _moveY: 0
   _moveZ: 0
   rotation: -45
+  forthCount: 0
+  backCount: 0
   backMax: 3
   forthMax: 3
   rot: 0

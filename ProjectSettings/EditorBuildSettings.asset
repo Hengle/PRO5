@@ -24,8 +24,17 @@ EditorBuildSettings:
     path: Assets/04_Scenes/00_MainLevels/03_Tutorial_3.unity
     guid: a1588f7165674b6429f5f719870b1d38
   - enabled: 1
-    path: Assets/04_Scenes/00_MainLevels/05_Tutorial_5.unity
+    path: Assets/04_Scenes/00_MainLevels/04_Tutorial_4.unity
     guid: 25b65b4e04370044ab852b29ca33283a
+  - enabled: 1
+    path: Assets/04_Scenes/00_MainLevels/05_Tutorial_5.unity
+    guid: 6d09cfd17730d5d4ab905c9679ce62d9
+  - enabled: 1
+    path: Assets/04_Scenes/00_MainLevels/06_Tutorial_6.unity
+    guid: 61945467aff5ad84a9f0259ec09c171e
+  - enabled: 1
+    path: Assets/04_Scenes/00_MainLevels/07_Tutorial_7.unity
+    guid: a8a662643fb06db409b0cd859661f7b7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f1d2ecc1dcfebc64bb9919408c2f36ac,
       type: 2}

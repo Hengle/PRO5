@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMenuScene: 1
   baseScene: 2
-  levelScenes: 03000000040000000500000006000000
+  levelScenes: 03000000040000000500000006000000070000000800000009000000
 --- !u!1 &1517712919
 GameObject:
   m_ObjectHideFlags: 0

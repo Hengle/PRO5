@@ -33,6 +33,8 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Move Settings")]
     public float currentMoveSpeed;
     public float standardMoveSpeed = 7.0f;
+    public float speedBuffMult = 1.0f;
+    
 
     [Header("Dash Settings")]
     public float dashCharge;
@@ -183,7 +185,7 @@ public class PlayerStateMachine : MonoBehaviour
             {
                 currentMoveDirection = currentLookDirection;
             }
-            currentMoveSpeed = standardMoveSpeed * dashSpeed;
+            currentMoveSpeed = currentMoveSpeed * dashSpeed;
 
             if (dashDelayOn)
             {
@@ -205,7 +207,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void setMovementBack()
     {
-        currentMoveSpeed = standardMoveSpeed;
+        currentMoveSpeed = standardMoveSpeed * speedBuffMult;
         playerStatistics.isDashing = false;
         dashPressed = false;
         anim.SetBool("isDashing", false);
