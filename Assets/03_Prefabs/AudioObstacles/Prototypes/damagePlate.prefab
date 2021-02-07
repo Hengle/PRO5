@@ -166,8 +166,8 @@ MonoBehaviour:
   m_maxEmissionIntensity: 10
   m_minEmissionIntensity: 0.1
   _holdValue: 0
-  dmgOnEnter: 80
-  dmgOnStay: 40
+  dmgOnEnter: 60
+  dmgOnStay: 3
   _materials: []
   _plateActive: 0
 --- !u!114 &-846688120682200858
