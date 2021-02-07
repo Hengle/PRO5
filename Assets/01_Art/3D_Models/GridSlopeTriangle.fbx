@@ -12,9 +12,9 @@ FBXHeaderExtension:  {
 		Month: 2
 		Day: 7
 		Hour: 12
-		Minute: 39
-		Second: 1
-		Millisecond: 680
+		Minute: 56
+		Second: 7
+		Millisecond: 706
 	}
 	Creator: "FBX SDK/FBX Plugins version 2016.1.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -30,8 +30,8 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "D:\FH_Hagenberg\MTD5\PRO5\Houdini\PipeSystem_dmagPlate\models\Grid"
-			P: "SrcDocumentUrl", "KString", "Url", "", "D:\FH_Hagenberg\MTD5\PRO5\Houdini\PipeSystem_dmagPlate\models\Grid"
+			P: "DocumentUrl", "KString", "Url", "", "D:\FH_Hagenberg\MTD5\PRO5\Houdini\PipeSystem_dmagPlate\models\GridSlopeTriangle"
+			P: "SrcDocumentUrl", "KString", "Url", "", "D:\FH_Hagenberg\MTD5\PRO5\Houdini\PipeSystem_dmagPlate\models\GridSlopeTriangle"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "SideFX Software"
 			P: "Original|ApplicationName", "KString", "", "", "Houdini"
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 131969536, "", "Scene" {
+	Document: 192701440, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -198,12 +198,12 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 131889152, "Geometry::matchsize3", "Mesh" {
-		Vertices: *12 {
-			a: -500,0,-500,500,0,-500,-500,0,500,500,0,500
+	Geometry: 4208608768, "Geometry::matchsize6", "Mesh" {
+		Vertices: *9 {
+			a: 0,-300,500,0,0,0,0,-301.25,0
 		} 
-		PolygonVertexIndex: *6 {
-			a: 3,1,-1,0,2,-4
+		PolygonVertexIndex: *3 {
+			a: 2,0,-2
 		} 
 		GeometryVersion: 124
 		LayerElementUV: 0 {
@@ -211,22 +211,47 @@ Objects:  {
 			Name: "uv"
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
-			UV: *8 {
-				a: 1,1,1,0,0,0,0,1
+			UV: *6 {
+				a: 0,0,1,0.00414937781170011,0,1
 			} 
-			UVIndex: *6 {
-				a: 0,1,2,2,3,0
+			UVIndex: *3 {
+				a: 0,1,2
 			} 
+		}
+		LayerElementUserData: 0 {
+			Version: 101
+			Name: "UserDataLayer0"
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "Direct"
+			UserDataId: 0
+			UserDataArray:  {
+				UserDataType: "Integer"
+				UserDataName: "bridgemeshprims"
+				UserData: *1 {
+					a: 0
+				} 
+			}
+			UserDataArray:  {
+				UserDataType: "Integer"
+				UserDataName: "patch"
+				UserData: *1 {
+					a: 1
+				} 
+			}
 		}
 		Layer: 0 {
 			Version: 100
+			LayerElement:  {
+				Type: "LayerElementUserData"
+				TypedIndex: 0
+			}
 			LayerElement:  {
 				Type: "LayerElementUV"
 				TypedIndex: 0
 			}
 		}
 	}
-	Model: 133404160, "Model::matchsize3", "Mesh" {
+	Model: 4208443648, "Model::matchsize6", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
@@ -243,11 +268,11 @@ Objects:  {
 
 Connections:  {
 	
-	;Model::matchsize3, Model::RootNode
-	C: "OO",133404160,0
+	;Model::matchsize6, Model::RootNode
+	C: "OO",4208443648,0
 	
-	;Geometry::matchsize3, Model::matchsize3
-	C: "OO",131889152,133404160
+	;Geometry::matchsize6, Model::matchsize6
+	C: "OO",4208608768,4208443648
 }
 ;Takes section
 ;----------------------------------------------------
