@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         scenenManager.ReloadActiveLevel();
+        GlobalEventSystem.instance.OnRestart();
     }
 
     public void NextLevel()

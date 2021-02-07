@@ -12,19 +12,19 @@ public class PowerUpController : MonoBehaviour
 
     private void Start()
     {
-        GlobalEventSystem.instance.onLoadFinish += StartLoad;
         MyEventSystem.instance.powerupCollected += StorePowerUp;
+        GlobalEventSystem.instance.onRestart += StartLoad;
     }
-
     private void OnDisable()
     {
         MyEventSystem.instance.powerupCollected -= StorePowerUp;
-        GlobalEventSystem.instance.onLoadFinish -= StartLoad;
+        GlobalEventSystem.instance.onRestart -= StartLoad;
     }
 
     void StartLoad()
     {
-        ui.DisablePowerUpSymbol(_currentPowerUp);
+        if (_currentPowerUp != null)
+            ui.DisablePowerUpSymbol(_currentPowerUp);
         _currentPowerUp = null;
     }
 
