@@ -27,7 +27,7 @@ public class MyEventSystem : MonoBehaviour
     //Events for Enemy managment
     public event Action<EnemyBody> onEnemyStart;
     public event Action<EnemyBody> onEnemyDeath;
-    public event Action<EnemyBody> activateAI;
+    public event System.Action activateAI;
 
 
     public event System.Action goalDestroyed;
@@ -114,9 +114,9 @@ public class MyEventSystem : MonoBehaviour
     {
         Attack?.Invoke(entity, basedmg);
     }
-    public void ActivateAI(EnemyBody enemy)
+    public void ActivateAI()
     {
-        activateAI?.Invoke(enemy);
+        activateAI?.Invoke();
     }
 
 

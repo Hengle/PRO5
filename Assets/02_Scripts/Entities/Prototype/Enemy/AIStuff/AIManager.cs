@@ -22,7 +22,6 @@ public class AIManager : MonoBehaviour
     public float activationTime = 0.2f;
     private void Start()
     {
-        MyEventSystem.instance.activateAI += SetAIActive;
         // allSet.entityList = new List<EnemyBody>();
     }
 
@@ -33,7 +32,6 @@ public class AIManager : MonoBehaviour
     private void OnDisable()
     {
         ScriptCollection.RemoveScript(this);
-        MyEventSystem.instance.activateAI -= SetAIActive;
     }
 
     public void SetAIActive(EnemyBody enemy)

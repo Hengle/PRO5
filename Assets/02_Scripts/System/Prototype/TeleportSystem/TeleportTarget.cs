@@ -26,7 +26,7 @@ public class TeleportTarget : MonoBehaviour
         yield return new WaitForEndOfFrame();
         player.transform.position = transform.position;
         player.transform.rotation = transform.rotation;
-        yield return new WaitForEndOfFrame();
+        // yield return new WaitForEndOfFrame();
         player.GetComponent<PlayerStateMachine>().isTeleporting = false;
     }
 }

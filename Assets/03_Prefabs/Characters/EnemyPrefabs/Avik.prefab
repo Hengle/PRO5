@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 1496040248785871438}
   - component: {fileID: 1496040248785871436}
   - component: {fileID: 1496040248785871437}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: DetectionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 3308421762974399717}
   - component: {fileID: 3308421762974399718}
   - component: {fileID: 1496040249420519742}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
