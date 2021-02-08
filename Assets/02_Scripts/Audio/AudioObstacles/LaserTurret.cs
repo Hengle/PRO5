@@ -91,6 +91,7 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         increaseIntervalCounter();
         if (checkInterval())
         {
+            GetComponent<EffectManager>().PlaySoundEffect("lasersound");
             //emissionChange();
             if (_holdValue)
             {

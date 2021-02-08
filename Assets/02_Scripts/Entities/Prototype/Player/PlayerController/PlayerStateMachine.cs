@@ -174,6 +174,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (!dashPressed && dashCharge >= 100)
         {
+            GetComponent<EffectManager>().PlaySoundEffect("dash");
             anim.SetBool("isDashing", true);
             dashPressed = true;
             dashCharge = 0;

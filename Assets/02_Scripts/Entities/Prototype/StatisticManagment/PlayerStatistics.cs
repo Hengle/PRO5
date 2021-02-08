@@ -43,6 +43,7 @@ public class PlayerStatistics : StatisticController, IHasHealth
 
     public void TakeDamage(float damage)
     {
+        GetComponent<EffectManager>().PlaySoundEffect("hurt");
         //float damage = baseDmg * (baseDmg/(baseDmg + enemy.GetStat(EnemyStatName.defense)))
         float newDamage = damage * damage / (damage + GetStatValue(StatName.Defense));
         currentHealth.Value -= Shield(newDamage);

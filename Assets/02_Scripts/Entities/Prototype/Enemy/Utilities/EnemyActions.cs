@@ -23,9 +23,7 @@ public class EnemyActions : MonoBehaviour
         GetComponent<AnimatorHook>().animator.SetBool("isStunned", true);
         GetComponent<EffectManager>().PlayParticleEffect("stun");
         GetComponent<EffectManager>().PlaySoundEffect("stun");
-
-
-
+        GetComponent<CloseCombatAttacks>().CancelAttack();
         StartCoroutine(Wait(duration));
     }
     IEnumerator Wait(float duration)

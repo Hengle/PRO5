@@ -10,7 +10,9 @@ public class Knockback : EnemyPowerup
     public override void Activate(PlayerStateMachine player)
     {
         var enemies = FindEnemies(radius, powerupName, player);
-        player.GetComponent<EffectManager>().PlayParticleEffect("knockBack");
+        player.GetComponent<EffectManager>().PlayParticleEffect("knockback");
+        player.GetComponent<EffectManager>().StopSoundEffect("knockback");
+
         // Apply knockback force to each enemy
         foreach (Collider enemy in enemies)
         {
