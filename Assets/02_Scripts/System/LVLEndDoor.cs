@@ -41,6 +41,7 @@ public class LVLEndDoor : MonoBehaviour
 
     public void ActivateMechanism()
     {
+        GetComponent<EffectManager>().PlaySoundEffect("levelclear");
         transform.GetChild(0).DOScaleY(0, 2f);
     }
 

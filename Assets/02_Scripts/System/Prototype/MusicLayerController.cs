@@ -30,7 +30,7 @@ public class MusicLayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalEventSystem.instance.onLoadFinish += ResetSkills;
+        GlobalEventSystem.instance.onRestart += ResetSkills;
         _snareActive = false;
         _hiHatActive = false;
         _leadBassActive = false;
@@ -38,10 +38,12 @@ public class MusicLayerController : MonoBehaviour
     }
     private void OnDisable()
     {
-        GlobalEventSystem.instance.onLoadFinish -= ResetSkills;
+        GlobalEventSystem.instance.onRestart -= ResetSkills;
     }
+    bool reset;
     void ResetSkills()
     {
+        reset = true;
         _snareActive = true;
         _hiHatActive = true;
         _leadBassActive = true;
@@ -50,6 +52,7 @@ public class MusicLayerController : MonoBehaviour
         LayerSkill(ref _hiHatActive, "HiHatLayer", 1);
         LayerSkill(ref _leadBassActive, "LeadBassLayer", 1);
         LayerSkill(ref _atmoActive, "AtmoLayer", 1);
+        reset = false;
     }
     /*void skillListAdder(MusicLayerSkill layerSkill)
     {
@@ -85,7 +88,8 @@ public class MusicLayerController : MonoBehaviour
     {
         if (!skill && _skillController.currentCharges > 0)
         {
-
+            if (!reset)
+                _skillController.GetComponent<EffectManager>().PlaySoundEffect("envactivate");
             _musicEvent.SetParameter(skillName, 1);
             skill = true;
             //skillListAdder(skill);
@@ -100,6 +104,8 @@ public class MusicLayerController : MonoBehaviour
         }
         else
         {
+            if (!reset)
+                _skillController.GetComponent<EffectManager>().PlaySoundEffect("envdeactivate");
             if (skillName == "AtmoLayer")
             {
                 if (skill)
