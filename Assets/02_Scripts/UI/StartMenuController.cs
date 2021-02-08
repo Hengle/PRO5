@@ -7,7 +7,9 @@ public class StartMenuController : MonoBehaviour
 
     public GameObject levelSelectMenu;
     public GameObject MainMenu;
+    public GameObject controlsMenu;
     bool levelSelect = false;
+    bool controls = false;
     public void StartLevel(int i)
     {
         GameManager.instance.StartLevelAt(i);
@@ -34,6 +36,22 @@ public class StartMenuController : MonoBehaviour
         {
             levelSelect = false;
             levelSelectMenu.SetActive(false);
+            MainMenu.SetActive(true);
+        }
+    }
+
+    public void ToggleControlsMenu()
+    {
+        if (!controls)
+        {
+            controls = true;
+            controlsMenu.SetActive(true);
+            MainMenu.SetActive(false);
+        }
+        else
+        {
+            controls = false;
+            controlsMenu.SetActive(false);
             MainMenu.SetActive(true);
         }
     }
