@@ -77,8 +77,8 @@ public class DamagePlate : AudioObstacle, IDamageObstacle
             {
                 emissionChange();
                 shortDurationHelper();
-                if (ListeningOnLayer != musicEvent.Kick)
-                    Debug.LogError("doing the tween : " + ListeningOnLayer.ToString() + ", " + this.GetType());
+                // if (ListeningOnLayer != musicEvent.Kick)
+                //     Debug.LogError("doing the tween : " + ListeningOnLayer.ToString() + ", " + this.GetType());
             }
         }
 

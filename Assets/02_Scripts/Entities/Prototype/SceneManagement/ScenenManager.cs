@@ -119,7 +119,7 @@ public class ScenenManager : MonoBehaviour
 
         MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         GameManager.instance.FadeInAnim();
         // Start UI fade to transparent
