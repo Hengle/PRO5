@@ -91,9 +91,9 @@ public class LaserTurret : AudioObstacle, IDamageObstacle
         increaseIntervalCounter();
         if (checkInterval())
         {
-            var effectmanager = GetComponent<EffectManager>();
-            if (effectmanager != null)
-                effectmanager.PlaySoundEffect("lasersound");
+            // var effectmanager = GetComponent<EffectManager>();
+            // if (effectmanager != null)
+            //     effectmanager.PlaySoundEffect("lasersound");
             //emissionChange();
             if (_holdValue)
             {

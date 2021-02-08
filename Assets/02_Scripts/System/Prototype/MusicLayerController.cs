@@ -30,7 +30,8 @@ public class MusicLayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalEventSystem.instance.onRestart += ResetSkills;
+        // GlobalEventSystem.instance.onRestart += ResetSkills;
+        GlobalEventSystem.instance.onLoadFinish += ResetSkills;
         _snareActive = false;
         _hiHatActive = false;
         _leadBassActive = false;
@@ -38,7 +39,8 @@ public class MusicLayerController : MonoBehaviour
     }
     private void OnDisable()
     {
-        GlobalEventSystem.instance.onRestart -= ResetSkills;
+        GlobalEventSystem.instance.onLoadFinish -= ResetSkills;
+        // GlobalEventSystem.instance.onRestart -= ResetSkills;
     }
     bool reset;
     void ResetSkills()

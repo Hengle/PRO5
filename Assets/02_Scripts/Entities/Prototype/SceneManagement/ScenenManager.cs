@@ -49,6 +49,8 @@ public class ScenenManager : MonoBehaviour
     /// </summary>
     public void LoadStartMenuScene()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(MenuTransition(startMenuScene, false, _activeLevelSceneIndex < 0 ? -1 : levelScenes[_activeLevelSceneIndex], baseScene));
         _activeLevelSceneIndex = -1;
     }

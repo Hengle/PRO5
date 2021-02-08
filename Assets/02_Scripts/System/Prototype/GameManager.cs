@@ -82,8 +82,15 @@ public class GameManager : MonoBehaviour
         scenenManager.LoadFirstLevel();
     }
 
+    public void StartLevelAt(int i)
+    {
+        scenenManager.LoadLevel(i);
+    }
+
     public void ReturnToStartMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         scenenManager.LoadStartMenuScene();
     }
 
