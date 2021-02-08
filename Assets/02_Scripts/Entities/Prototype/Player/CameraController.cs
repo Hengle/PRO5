@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     public float gamepadDist = 5f;
     Plane groundPlane;
     Vector3 s;
+    public bool centerCamera = false;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -28,11 +29,20 @@ public class CameraController : MonoBehaviour
         GetCamPosition();
 
         s.y = player.transform.position.y;
-        transform.position = Vector3.Lerp(transform.position, s, Time.deltaTime * cameraFollowSpeed);
+
+        if (centerCamera)
+        {
+            transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * cameraFollowSpeed);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, s, Time.deltaTime * cameraFollowSpeed);
+        }
     }
 
     void GetCamPosition()
     {
+
         groundPlane = new Plane(Vector3.up, new Vector3(0, player.position.y, 0));
         Ray cameraRay = mainCam.ScreenPointToRay(inputManager.mouseLook);
 
@@ -63,5 +73,13 @@ public class CameraController : MonoBehaviour
         Vector3 f = player.position + moveD * gamepadDist;
         Vector3 dist = f - player.position;
         s = player.position + dist * targetBias;
+    }
+
+    public void ToggleCenter()
+    {
+        if (!centerCamera)
+            centerCamera = true;
+        else
+            centerCamera = false;
     }
 }

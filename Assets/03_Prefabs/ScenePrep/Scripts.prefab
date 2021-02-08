@@ -117,6 +117,7 @@ MonoBehaviour:
   powerUpController: {fileID: 9030912145320328691}
   musicLayerController: {fileID: 7822653780029092399}
   skillController: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!1 &266559729932826445
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayEvent
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341406316667769623, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
+        type: 3}
+      propertyPath: StopEvent
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4341406316667769618, guid: 64b55bcfee3b04d4486e12e07ea19a6b, type: 3}

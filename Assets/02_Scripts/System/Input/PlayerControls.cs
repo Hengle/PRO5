@@ -99,9 +99,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""CenterCamera"",
                     ""type"": ""Button"",
-                    ""id"": ""49eaa2ba-bd8a-4e61-adbc-b444370a892a"",
+                    ""id"": ""3f0651a4-79d1-4d75-b13a-f9c1e0fd74ab"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
@@ -148,6 +148,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""ActivatePowerUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""baec401d-6ff8-4c8d-9aa4-b9efbcffecf9"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""ActivatePowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -253,6 +264,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d995cc9d-13ab-492f-ab97-0be9a2a04932"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Skill1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0e70b0e6-bcfe-4e23-badd-96fb6e04c094"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -269,6 +291,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Skill2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d16d4b6f-c6ae-4ef7-8e67-b3c99b9c0d1e"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
                     ""action"": ""Skill2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -297,6 +330,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""358ddab8-57dc-41ab-ac6d-c70685a0919f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Skill3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b8d2a8eb-b555-47b1-9d91-658b3b6a584a"",
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
@@ -313,6 +357,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Skill4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b670691-b4f0-47e9-916d-b6f6d79fc25e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
                     ""action"": ""Skill4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -352,23 +407,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""50c91935-d699-4707-9508-06527fc3394d"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""b0d52d44-f625-4bb5-8b2b-f4992d259b11"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7d0e7bea-9163-4fb4-9034-bb2097cc33d1"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
+                    ""groups"": """",
+                    ""action"": ""CenterCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -596,7 +640,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Skill3 = m_Gameplay.FindAction("Skill3", throwIfNotFound: true);
         m_Gameplay_Skill4 = m_Gameplay.FindAction("Skill4", throwIfNotFound: true);
         m_Gameplay_Charge = m_Gameplay.FindAction("Charge", throwIfNotFound: true);
-        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_CenterCamera = m_Gameplay.FindAction("CenterCamera", throwIfNotFound: true);
         // uiControls
         m_uiControls = asset.FindActionMap("uiControls", throwIfNotFound: true);
         m_uiControls_Pause = m_uiControls.FindAction("Pause", throwIfNotFound: true);
@@ -668,7 +712,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Skill3;
     private readonly InputAction m_Gameplay_Skill4;
     private readonly InputAction m_Gameplay_Charge;
-    private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_CenterCamera;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -683,7 +727,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Skill3 => m_Wrapper.m_Gameplay_Skill3;
         public InputAction @Skill4 => m_Wrapper.m_Gameplay_Skill4;
         public InputAction @Charge => m_Wrapper.m_Gameplay_Charge;
-        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @CenterCamera => m_Wrapper.m_Gameplay_CenterCamera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -723,9 +767,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Charge.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
                 @Charge.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
                 @Charge.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCharge;
-                @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @CenterCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCenterCamera;
+                @CenterCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCenterCamera;
+                @CenterCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCenterCamera;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -760,9 +804,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Charge.started += instance.OnCharge;
                 @Charge.performed += instance.OnCharge;
                 @Charge.canceled += instance.OnCharge;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @CenterCamera.started += instance.OnCenterCamera;
+                @CenterCamera.performed += instance.OnCenterCamera;
+                @CenterCamera.canceled += instance.OnCenterCamera;
             }
         }
     }
@@ -911,7 +955,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSkill3(InputAction.CallbackContext context);
         void OnSkill4(InputAction.CallbackContext context);
         void OnCharge(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnCenterCamera(InputAction.CallbackContext context);
     }
     public interface IUiControlsActions
     {

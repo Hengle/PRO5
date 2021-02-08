@@ -559,6 +559,10 @@ PrefabInstance:
       propertyPath: skillController
       value: 
       objectReference: {fileID: 1517712924}
+    - target: {fileID: 1606030433, guid: 5757c2c1f968ae14da2978f806fff79a, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1872237219}
     - target: {fileID: 537976613570928071, guid: 5757c2c1f968ae14da2978f806fff79a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,11 +633,6 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 279626249}
-    - target: {fileID: 7822653780029092392, guid: 5757c2c1f968ae14da2978f806fff79a,
-        type: 3}
-      propertyPath: StopEvent
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 7822653780029092399, guid: 5757c2c1f968ae14da2978f806fff79a,
         type: 3}
       propertyPath: _skillController
@@ -2823,6 +2822,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809b3179480b49b48909a470a3326e7a, type: 3}
+--- !u!114 &1872237219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6103788874078067670, guid: 809b3179480b49b48909a470a3326e7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1872237218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6470dd98ba986e4bbd8bfed00e2317b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1930461775
 GameObject:
   m_ObjectHideFlags: 0
