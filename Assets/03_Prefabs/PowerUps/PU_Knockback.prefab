@@ -113,7 +113,7 @@ MonoBehaviour:
   soundEffect: {fileID: 2363990249089261979}
   powerupName: 0
   _player: {fileID: 0}
-  force: 20
+  force: 17
   radius: 6
 --- !u!114 &2363990249089261979
 MonoBehaviour:

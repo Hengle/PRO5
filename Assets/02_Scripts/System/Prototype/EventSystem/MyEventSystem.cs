@@ -42,6 +42,7 @@ public class MyEventSystem : MonoBehaviour
 
     #region TeleportEvents
     public event Action<Transform> teleportPlayer;
+    public event System.Action resetPlayer;
 
     #endregion TeleportsEvents
 
@@ -54,6 +55,10 @@ public class MyEventSystem : MonoBehaviour
         instance = this;
     }
 
+    public void OnResetPlayer()
+    {
+        resetPlayer?.Invoke();
+    }
     public void OnUpdateNavMesh()
     {
         onUpdateNavMesh?.Invoke();

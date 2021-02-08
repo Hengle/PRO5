@@ -21,13 +21,12 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.Equals(_player.GetComponents<Collider>()[1]))
+        if (other.gameObject.tag.Equals("Player") && FindObjectOfType<PowerUpController>()._currentPowerUp == null)
         {
             MyEventSystem.instance.OnPowerupCollected(this);
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-
         }
     }
 

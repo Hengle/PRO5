@@ -78,8 +78,16 @@ public class CameraController : MonoBehaviour
     public void ToggleCenter()
     {
         if (!centerCamera)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             centerCamera = true;
+        }
         else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             centerCamera = false;
+        }
     }
 }

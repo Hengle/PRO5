@@ -31,6 +31,7 @@ public class SkillController : MonoBehaviour
     private void Start()
     {
         GlobalEventSystem.instance.onRestart += StartLoad;
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
         MyEventSystem.instance.onEnemyDeath += AddCharge;
         timeReset();
     }
@@ -39,13 +40,13 @@ public class SkillController : MonoBehaviour
     {
         MyEventSystem.instance.onEnemyDeath -= AddCharge;
         GlobalEventSystem.instance.onRestart -= StartLoad;
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
     }
 
     void StartLoad()
     {
         currentChargeValue = 0;
         currentCharges = 0;
-
     }
     void AddCharge(EnemyBody stats)
     {

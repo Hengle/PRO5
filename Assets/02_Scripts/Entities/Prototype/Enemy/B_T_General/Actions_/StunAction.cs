@@ -31,7 +31,7 @@ namespace BBUnity.Actions
 
         public override TaskStatus OnUpdate()
         {
-            if (actions.isStunned || !Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor")))
+            if (actions.isStunned)
             {
 
                 agent.isStopped = true;

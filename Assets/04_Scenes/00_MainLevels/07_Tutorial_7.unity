@@ -68912,6 +68912,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 782663462}
+    - target: {fileID: 3368332631085332625, guid: 13c91a804778ea74e847fd270c3afc2c,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 24a899d766327534596e4ddd89ecbac6,
+        type: 2}
+    - target: {fileID: 3368332631085332630, guid: 13c91a804778ea74e847fd270c3afc2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3368332631087709424, guid: 13c91a804778ea74e847fd270c3afc2c,
         type: 3}
       propertyPath: m_Mesh

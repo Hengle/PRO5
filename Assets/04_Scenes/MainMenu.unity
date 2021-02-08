@@ -155,6 +155,7 @@ MonoBehaviour:
   soundFX: []
   particleFX:
   - {fileID: 8084057043807312231}
+  toInstantiate: []
   VFX: []
 --- !u!1001 &4487181
 PrefabInstance:
@@ -23557,7 +23558,7 @@ PrefabInstance:
     - target: {fileID: 4341406316667769623, guid: 64b55bcfee3b04d4486e12e07ea19a6b,
         type: 3}
       propertyPath: Event
-      value: event:/track2
+      value: event:/bg_music
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4341406316667769618, guid: 64b55bcfee3b04d4486e12e07ea19a6b, type: 3}
@@ -33018,6 +33019,7 @@ MonoBehaviour:
   - {fileID: 0}
   particleFX:
   - {fileID: 0}
+  toInstantiate: []
   VFX: []
 --- !u!114 &1019713007
 MonoBehaviour:
@@ -61559,6 +61561,7 @@ MonoBehaviour:
   - {fileID: 0}
   particleFX:
   - {fileID: 0}
+  toInstantiate: []
   VFX: []
 --- !u!114 &2063517891
 MonoBehaviour:
@@ -72522,6 +72525,7 @@ MonoBehaviour:
   isMoving: 0
   currentMoveSpeed: 5
   standardMoveSpeed: 6
+  speedBuffMult: 1
   dashCharge: 0
   dashRechargeTime: 0.5
   maxDashCharge: 100
@@ -75306,6 +75310,7 @@ MonoBehaviour:
   - {fileID: 0}
   particleFX:
   - {fileID: 0}
+  toInstantiate: []
   VFX: []
 --- !u!1 &3311741999115547733
 GameObject:

@@ -111,6 +111,9 @@ public class ScenenManager : MonoBehaviour
         // Start UI fade to black
         yield return new WaitForSeconds(GameManager.instance.FadeOutAnim());
 
+        if (MyEventSystem.instance != null)
+            MyEventSystem.instance.OnResetPlayer();
+
         yield return LoadLevel(newScene, loadWithBase, oldScene, oldScene2);
 
         GlobalEventSystem.instance.OnLoadFinish();
@@ -119,7 +122,7 @@ public class ScenenManager : MonoBehaviour
 
         MyEventSystem.instance.OnTeleportPlayer(GameObject.FindGameObjectWithTag("Player").transform);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         GameManager.instance.FadeInAnim();
         // Start UI fade to transparent
@@ -128,6 +131,7 @@ public class ScenenManager : MonoBehaviour
     IEnumerator MenuTransition(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)
     {
         // Start UI fade to black
+
         yield return new WaitForSeconds(GameManager.instance.FadeOutAnim());
 
         yield return LoadLevel(newScene, loadWithBase, oldScene, oldScene2);
