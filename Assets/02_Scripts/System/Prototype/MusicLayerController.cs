@@ -104,7 +104,7 @@ public class MusicLayerController : MonoBehaviour
         }
         else
         {
-            if (!reset)
+            if (!reset && skill)
                 _skillController.GetComponent<EffectManager>().PlaySoundEffect("envdeactivate");
             if (skillName == "AtmoLayer")
             {
