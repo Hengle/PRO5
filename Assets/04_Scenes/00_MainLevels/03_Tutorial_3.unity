@@ -32542,12 +32542,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: a1e7a9987492f4840bba40ca843456b4,
+      objectReference: {fileID: 23800000, guid: b40cb19eda468f34298f1259888d9367,
         type: 2}
     - target: {fileID: 1215977806692637728, guid: 71273d170454593499db0930de26afde,
         type: 3}
       propertyPath: m_UseGeometry
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215977806692637728, guid: 71273d170454593499db0930de26afde,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215977806692637728, guid: 71273d170454593499db0930de26afde,
+        type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 1323039255198867136, guid: 71273d170454593499db0930de26afde,
         type: 3}
