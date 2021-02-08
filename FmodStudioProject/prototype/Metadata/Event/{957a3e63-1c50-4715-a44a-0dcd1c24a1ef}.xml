@@ -5,7 +5,7 @@
 			<value>env_boombox</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2a51f7e4-0a80-4df4-bf48-ea0f62d5254f}</destination>
@@ -113,6 +113,7 @@
 	<object class="MixerBusEffectChain" id="{131d9d6a-9901-4b63-8f2f-14872708b2d4}">
 		<relationship name="effects">
 			<destination>{c42baafa-b879-45ff-a654-d06c97087741}</destination>
+			<destination>{d9bc8389-4a29-4037-b5ad-b954b553f447}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0a224e2e-4e52-41f0-9929-7cc28b7ad325}" />
@@ -124,5 +125,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{f0e51476-1539-4ff9-8cd6-027e3073996f}" />
 	<object class="MixerBusFader" id="{c42baafa-b879-45ff-a654-d06c97087741}" />
+	<object class="SpatialiserEffect" id="{d9bc8389-4a29-4037-b5ad-b954b553f447}" />
 	<object class="MixerBusFader" id="{2aa1a1d9-1dc7-4aff-b418-ac0a575f2090}" />
 </objects>
