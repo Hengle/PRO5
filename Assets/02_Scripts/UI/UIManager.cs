@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.instance.gamePaused)
         {
-            // Time.timeScale = 1;
+            Time.timeScale = 1;
             GameManager.instance.gamePaused = false;
             input.Gameplay.Enable();
         }

@@ -13,16 +13,16 @@ public class Stun : EnemyPowerup
         player.GetComponent<EffectManager>().PlayParticleEffect("stun");
         // Apply knockback force to each enemy
         var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
-        foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
-
+        foreach (EnemyActions enemyActions in enemyActionsList) enemyActions.Stun(duration);
+        
         // Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));
     }
 
-    protected IEnumerator StunDuration(EnemyActions enemyActions)
-    {
-        enemyActions.Stun();
-        yield return new WaitForSeconds(duration);
-        enemyActions.UnStun();
-        Destroy(this.gameObject);
-    }
+    // protected IEnumerator StunDuration(EnemyActions enemyActions)
+    // {
+
+    //     yield return new WaitForSeconds(duration);
+    //     enemyActions.UnStun();
+    //     Destroy(this.gameObject);
+    // }
 }

@@ -15,26 +15,34 @@ public class EnemyActions : MonoBehaviour
     /// </summary>
     public bool isStunned;
 
-    public void Stun()
+    public void Stun(float duration = 0)
     {
-        // GetComponent<AnimatorHook>().animator.SetBool("isStunned", true);
+        executor.paused = true;
+        // agent.enabled = false;
+        agent.isStopped = true;
+        GetComponent<AnimatorHook>().animator.SetBool("isStunned", true);
         GetComponent<EffectManager>().PlayParticleEffect("stun");
         GetComponent<EffectManager>().PlaySoundEffect("stun");
-        executor.paused = true;
-        // agent.isStopped = true;
-        agent.enabled = false;
-    }
 
+
+
+        StartCoroutine(Wait(duration));
+    }
+    IEnumerator Wait(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        UnStun();
+    }
     public void UnStun()
     {
         if (Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor"))
             || Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, -0.5f), Vector3.down, 5f, LayerMask.GetMask("Floor")))
         {
-            // GetComponent<AnimatorHook>().animator.SetBool("isStunned", false);
+            GetComponent<AnimatorHook>().animator.SetBool("isStunned", false);
             GetComponent<EffectManager>().StopParticleEffect("stun");
             GetComponent<EffectManager>().StopSoundEffect("stun");
-            agent.enabled = true;
-            // agent.isStopped = false;
+            // agent.enabled = true;
+            agent.isStopped = false;
             executor.paused = false;
         }
         else

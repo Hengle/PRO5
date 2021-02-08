@@ -131,7 +131,7 @@ public class ScenenManager : MonoBehaviour
     IEnumerator MenuTransition(int newScene, bool loadWithBase, int oldScene = -1, int oldScene2 = -1)
     {
         // Start UI fade to black
-        Time.timeScale = 1;
+
         yield return new WaitForSeconds(GameManager.instance.FadeOutAnim());
 
         yield return LoadLevel(newScene, loadWithBase, oldScene, oldScene2);
