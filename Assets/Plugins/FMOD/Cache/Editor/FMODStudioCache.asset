@@ -68,6 +68,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-8897760680899346479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-8889616919976882352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +208,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -244,6 +261,23 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-8078532412473235333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/HiHatLayer
   m_EditorClassIdentifier: 
   Name: HiHatLayer
   Min: 0
@@ -390,7 +424,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -470,7 +504,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -514,7 +548,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -538,7 +572,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-7153776951562802387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +780,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -754,6 +788,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9717
+--- !u!114 &-6544053697040555357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-6536101578818183081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FmodStudioProject/prototype/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637483867344841421
+  lastModified: 637484085231646492
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -793,7 +844,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -923,7 +974,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1066,7 +1117,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5035250208914631854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1207,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -1234,6 +1285,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-4523575363023080487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-4520426636798029475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,7 +1374,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1418,7 +1486,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1548,7 +1616,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1644,7 +1712,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1671,7 +1739,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1726,6 +1794,23 @@ MonoBehaviour:
   m_Name: parameter:/pro5_demo_full/LeadBassLayer
   m_EditorClassIdentifier: 
   Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-3082999680425452464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
   Min: 0
   Max: 1
   Default: 0
@@ -1952,7 +2037,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1794446458900096815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,7 +2057,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1997,7 +2082,7 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
---- !u!114 &-1627570060877102393
+--- !u!114 &-1667848287710483546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2012,7 +2097,29 @@ MonoBehaviour:
   Path: event:/bg_music
   guid: bed3a1beba7fb54fb5492d5c1c3a8955
   Banks:
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 239464
+--- !u!114 &-1627570060877102393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/bg_music
+  m_EditorClassIdentifier: 
+  Path: event:/bg_music
+  guid: bed3a1beba7fb54fb5492d5c1c3a8955
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2139,7 +2246,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1069158152286595356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2175,15 +2282,15 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 809650302636575686}
-  - {fileID: -1887768995971793939}
-  - {fileID: 5614651184183919927}
-  - {fileID: -7177448666707755345}
+  - {fileID: 5098062227235554073}
+  - {fileID: -8078532412473235333}
+  - {fileID: -181436678828124511}
+  - {fileID: 9062330923181621440}
   MinDistance: 0
   MaxDistance: 0
   Length: 25808
@@ -2255,6 +2362,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-405846523012704499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-403807721560620624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2309,7 +2433,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2351,6 +2475,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-181436678828124511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/AtmoLayer
+  m_EditorClassIdentifier: 
+  Name: AtmoLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-172242292311963468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2403,6 +2544,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-6062699671132972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,7 +2575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6536101578818183081}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   EditorEvents:
   - {fileID: 1561948197316325616}
   - {fileID: 184996521179172804}
@@ -2448,13 +2606,13 @@ MonoBehaviour:
   - {fileID: -7613232515607353909}
   - {fileID: -973876332779263974}
   - {fileID: -6548767187442503050}
-  - {fileID: -1627570060877102393}
+  - {fileID: -1667848287710483546}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   StringsBanks:
   - {fileID: -6536101578818183081}
-  stringsBankWriteTime: 637483867344841421
+  stringsBankWriteTime: 637484085231646492
   cacheVersion: 3
 --- !u!114 &35010324062155426
 MonoBehaviour:
@@ -2595,7 +2753,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2622,7 +2780,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2786,7 +2944,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2828,7 +2986,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &881555150754497660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,15 +3159,15 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -1107017073107075373}
-  - {fileID: 6367880008521221051}
-  - {fileID: -5047664798113595170}
-  - {fileID: 3927293647694237444}
+  - {fileID: -8897760680899346479}
+  - {fileID: 7475798222799114479}
+  - {fileID: 2824129016879252097}
+  - {fileID: -6544053697040555357}
   MinDistance: 0
   MaxDistance: 0
   Length: 54648
@@ -3201,6 +3359,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &2515776832643820647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &2575385804708206891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3237,7 +3412,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3296,6 +3471,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &2824129016879252097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &2830343913752472580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,6 +3501,23 @@ MonoBehaviour:
   m_Name: parameter:/pro5_demo_full/HiHatLayer
   m_EditorClassIdentifier: 
   Name: HiHatLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &2837525143358931153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
   Min: 0
   Max: 1
   Default: 0
@@ -3366,7 +3575,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3475,7 +3684,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &4037954947392919931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3783,6 +3992,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &5098062227235554073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5167737712308969855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3799,6 +4025,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+  Exists: 1
+--- !u!114 &5170071684354475647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637484085231576684
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &5196806132702966675
 MonoBehaviour:
@@ -3904,7 +4148,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3945,7 +4189,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &5645098832188727674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3976,6 +4220,40 @@ MonoBehaviour:
   m_Name: parameter:/pro5_demo_full/LeadBassLayer
   m_EditorClassIdentifier: 
   Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5750468838281496797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5757122465523034049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/HiHatLayer
+  m_EditorClassIdentifier: 
+  Name: HiHatLayer
   Min: 0
   Max: 1
   Default: 0
@@ -4133,7 +4411,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &6429059538613168176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4153,7 +4431,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4231,7 +4509,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4479,6 +4757,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &7475798222799114479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/pro5_demo_full/LeadBassLayer
+  m_EditorClassIdentifier: 
+  Name: LeadBassLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &7493142566276813963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4515,7 +4810,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4573,6 +4868,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+  Exists: 0
+--- !u!114 &7683934614991847526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodStudioProject/prototype/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637483876269112912
+  LoadResult: 0
+  FileSizes: []
   Exists: 0
 --- !u!114 &7794383662891444568
 MonoBehaviour:
@@ -4714,7 +5027,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4878,7 +5191,7 @@ MonoBehaviour:
   lastModified: 637483867344811413
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &8855725559462772629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4932,7 +5245,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4940,6 +5253,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 313
+--- !u!114 &9062330923181621440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/track2/SnareLayer
+  m_EditorClassIdentifier: 
+  Name: SnareLayer
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &9152069368915691022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4993,7 +5323,7 @@ MonoBehaviour:
   - {fileID: 7971665998235180870}
   - {fileID: 8157676824658417701}
   - {fileID: 8609173163650360017}
-  - {fileID: 8846909190226740097}
+  - {fileID: 5170071684354475647}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
