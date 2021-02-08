@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.instance.gamePaused)
         {
-            Time.timeScale = 1;
+            // Time.timeScale = 1;
             GameManager.instance.gamePaused = false;
             input.Gameplay.Enable();
         }
@@ -41,12 +41,22 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.instance.gamePaused)
         {
+            if (GameObject.FindObjectOfType<CameraController>().GetComponent<CameraController>().centerCamera)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
             Time.timeScale = 1;
             pauseMenu.SetActive(false);
             input.Gameplay.Enable();
         }
         else
         {
+            if (GameObject.FindObjectOfType<CameraController>().GetComponent<CameraController>().centerCamera)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
             input.Gameplay.Disable();
@@ -57,6 +67,11 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (GameObject.FindObjectOfType<CameraController>().GetComponent<CameraController>().centerCamera)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         Time.timeScale = 1;
         GameManager.instance.gamePaused = false;
         pauseMenu.SetActive(false);
@@ -65,6 +80,11 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        if (GameObject.FindObjectOfType<CameraController>().GetComponent<CameraController>().centerCamera)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
         Time.timeScale = 0;
         GameManager.instance.gamePaused = true;
         pauseMenu.SetActive(true);

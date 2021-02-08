@@ -1,19 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.AI;
 public class EnemyActions : MonoBehaviour
 {
     [HideInInspector] public EnemyStatistics stats => GetComponent<EnemyStatistics>();
     [HideInInspector] public Rigidbody rb => GetComponent<Rigidbody>();
     [HideInInspector] public EnemyBody body => GetComponent<EnemyBody>();
-
+    BehaviorExecutor executor => GetComponent<BehaviorExecutor>();
+    NavMeshAgent agent => GetComponent<NavMeshAgent>();
     [Header("States")]
     /// <summary>
     /// Set this to true when an enemy needs to be stunned
     /// </summary>
     public bool isStunned;
 
+    public void Stun()
+    {
+        // GetComponent<AnimatorHook>().animator.SetBool("isStunned", true);
+        GetComponent<EffectManager>().PlayParticleEffect("stun");
+        GetComponent<EffectManager>().PlaySoundEffect("stun");
+        executor.paused = true;
+        // agent.isStopped = true;
+        agent.enabled = false;
+    }
+
+    public void UnStun()
+    {
+        if (Physics.Raycast(gameObject.transform.position, Vector3.down, 5f, LayerMask.GetMask("Floor"))
+            || Physics.Raycast(gameObject.transform.position + new Vector3(0, 0, -0.5f), Vector3.down, 5f, LayerMask.GetMask("Floor")))
+        {
+            // GetComponent<AnimatorHook>().animator.SetBool("isStunned", false);
+            GetComponent<EffectManager>().StopParticleEffect("stun");
+            GetComponent<EffectManager>().StopSoundEffect("stun");
+            agent.enabled = true;
+            // agent.isStopped = false;
+            executor.paused = false;
+        }
+        else
+        {
+            ScriptCollection.GetScript<AIUtilities>().DestroyObject(this.gameObject, 3f);
+        }
+    }
     //List for checking if an enemy can be hit with a specific powerup e.g. very heavy enemies might not be able to be knocked back
     //or there are stun resistant enemies, etc.
     [Tooltip("List for checking if an enemy can be hit with a specific powerup e.g. very heavy enemies might not be able to be knocked back")]

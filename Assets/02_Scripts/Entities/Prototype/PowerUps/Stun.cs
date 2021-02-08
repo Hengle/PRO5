@@ -15,14 +15,14 @@ public class Stun : EnemyPowerup
         var enemyActionsList = enemies.Select(e => e.GetComponent<EnemyActions>());
         foreach (EnemyActions enemyActions in enemyActionsList) StartCoroutine(StunDuration(enemyActions));
 
-        Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));
+        // Debug.Log(string.Format("StunPowerUp: Stunned {0} enemies", enemies.Count));
     }
 
     protected IEnumerator StunDuration(EnemyActions enemyActions)
     {
-        enemyActions.isStunned = true;
+        enemyActions.Stun();
         yield return new WaitForSeconds(duration);
-        enemyActions.isStunned = false;
+        enemyActions.UnStun();
         Destroy(this.gameObject);
     }
 }

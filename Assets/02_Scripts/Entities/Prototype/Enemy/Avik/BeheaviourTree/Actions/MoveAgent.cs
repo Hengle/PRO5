@@ -35,6 +35,7 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             agent.isStopped = false;
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
             utilities = ScriptCollection.GetScript<AIUtilities>();
             rand = Random.Range(0.8f, 1.5f);
         }

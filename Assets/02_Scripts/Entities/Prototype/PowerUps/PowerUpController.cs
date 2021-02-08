@@ -14,11 +14,13 @@ public class PowerUpController : MonoBehaviour
     {
         MyEventSystem.instance.powerupCollected += StorePowerUp;
         GlobalEventSystem.instance.onRestart += StartLoad;
+        GlobalEventSystem.instance.onLoadFinish += StartLoad;
     }
     private void OnDisable()
     {
         MyEventSystem.instance.powerupCollected -= StorePowerUp;
         GlobalEventSystem.instance.onRestart -= StartLoad;
+        GlobalEventSystem.instance.onLoadFinish -= StartLoad;
     }
 
     void StartLoad()
@@ -35,9 +37,8 @@ public class PowerUpController : MonoBehaviour
             ui.DisablePowerUpSymbol(_currentPowerUp);
         }
 
-
         PU_activation.PlayEffect(false, "powerup_pickup");
-        Debug.Log(string.Format("Stored {0}", powerup));
+        // Debug.Log(string.Format("Stored {0}", powerup));
         _currentPowerUp = powerup;
         powerup.transform.parent = playerController.transform;
         ui.EnablePowerUpSymbol(powerup);

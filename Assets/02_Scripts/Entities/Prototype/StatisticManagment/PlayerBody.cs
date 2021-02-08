@@ -11,5 +11,16 @@ public class PlayerBody : MonoBehaviour
     private void OnDisable()
     {
         ScriptCollection.RemoveScript(this);
+        MyEventSystem.instance.resetPlayer -= ResetPlayer;
+    }
+
+    private void Start()
+    {
+        MyEventSystem.instance.resetPlayer += ResetPlayer;
+    }
+
+    private void ResetPlayer()
+    {
+        transform.position = new Vector3(0, -20, 0);
     }
 }

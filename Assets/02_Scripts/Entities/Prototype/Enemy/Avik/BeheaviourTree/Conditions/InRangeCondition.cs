@@ -20,11 +20,13 @@ namespace BBUnity.Conditions
             if (isInRange)
             {
                 agent.isStopped = true;
+                agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
                 return true;
             }
             else
             {
                 agent.isStopped = false;
+                agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
                 return false;
             }
         }
